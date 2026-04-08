@@ -17,52 +17,92 @@ Serializers _$serializers = (Serializers().toBuilder()
       ..add(NumberSchema.serializer)
       ..add(ObjectSchema.serializer)
       ..add(StringSchema.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltSet, [FullType(String)]), () => SetBuilder<String>())
       ..addBuilderFactory(
-          const FullType(BuiltMap, [FullType(String), FullType(JsonSchema)]), () => MapBuilder<String, JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltSet, [FullType(String)]), () => SetBuilder<String>())
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
       ..addBuilderFactory(
-          const FullType(BuiltMap, [FullType(String), FullType(String)]), () => MapBuilder<String, String>()))
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(const FullType(BuiltSet, const [const FullType(String)]), () => SetBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltMap, const [const FullType(String), const FullType(JsonSchema)]),
+          () => MapBuilder<String, JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(const FullType(BuiltSet, const [const FullType(String)]), () => SetBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltMap, const [const FullType(String), const FullType(String)]),
+          () => MapBuilder<String, String>()))
     .build();
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint

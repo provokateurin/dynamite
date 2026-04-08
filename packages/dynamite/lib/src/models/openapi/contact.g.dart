@@ -78,7 +78,6 @@ class _$Contact extends Contact {
   factory _$Contact([void Function(ContactBuilder)? updates]) => (ContactBuilder()..update(updates))._build();
 
   _$Contact._({this.name, this.url, this.email}) : super._();
-
   @override
   Contact rebuild(void Function(ContactBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -141,7 +140,6 @@ class ContactBuilder implements Builder<Contact, ContactBuilder> {
 
   @override
   void replace(Contact other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Contact;
   }
 
@@ -154,7 +152,12 @@ class ContactBuilder implements Builder<Contact, ContactBuilder> {
   Contact build() => _build();
 
   _$Contact _build() {
-    final _$result = _$v ?? _$Contact._(name: name, url: url, email: email);
+    final _$result = _$v ??
+        _$Contact._(
+          name: name,
+          url: url,
+          email: email,
+        );
     replace(_$result);
     return _$result;
   }

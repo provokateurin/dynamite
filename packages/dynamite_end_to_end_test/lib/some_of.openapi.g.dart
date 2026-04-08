@@ -97,11 +97,10 @@ class _$OneValueSomeOfInObject extends OneValueSomeOfInObject {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    final dynamic _$dynamicOther = other;
     return other is OneValueSomeOfInObject &&
         oneValue == other.oneValue &&
         intDouble == other.intDouble &&
-        intDoubleString == _$dynamicOther.intDoubleString;
+        intDoubleString == other.intDoubleString;
   }
 
   @override

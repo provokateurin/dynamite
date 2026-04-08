@@ -27,7 +27,7 @@ class _$DiscriminatorSerializer implements StructuredSerializer<Discriminator> {
       result
         ..add('mapping')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)])));
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)])));
     }
     return result;
   }
@@ -48,7 +48,7 @@ class _$DiscriminatorSerializer implements StructuredSerializer<Discriminator> {
           break;
         case 'mapping':
           result.mapping.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]))!);
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]))!);
           break;
       }
     }
@@ -66,10 +66,7 @@ class _$Discriminator extends Discriminator {
   factory _$Discriminator([void Function(DiscriminatorBuilder)? updates]) =>
       (DiscriminatorBuilder()..update(updates))._build();
 
-  _$Discriminator._({required this.propertyName, this.mapping}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(propertyName, r'Discriminator', 'propertyName');
-  }
-
+  _$Discriminator._({required this.propertyName, this.mapping}) : super._();
   @override
   Discriminator rebuild(void Function(DiscriminatorBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -125,7 +122,6 @@ class DiscriminatorBuilder implements Builder<Discriminator, DiscriminatorBuilde
 
   @override
   void replace(Discriminator other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Discriminator;
   }
 
@@ -142,8 +138,9 @@ class DiscriminatorBuilder implements Builder<Discriminator, DiscriminatorBuilde
     try {
       _$result = _$v ??
           _$Discriminator._(
-              propertyName: BuiltValueNullFieldError.checkNotNull(propertyName, r'Discriminator', 'propertyName'),
-              mapping: _mapping?.build());
+            propertyName: BuiltValueNullFieldError.checkNotNull(propertyName, r'Discriminator', 'propertyName'),
+            mapping: _mapping?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

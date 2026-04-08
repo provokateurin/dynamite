@@ -56,7 +56,6 @@ class _$MediaType extends MediaType {
   factory _$MediaType([void Function(MediaTypeBuilder)? updates]) => (MediaTypeBuilder()..update(updates))._build();
 
   _$MediaType._({this.schema}) : super._();
-
   @override
   MediaType rebuild(void Function(MediaTypeBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -103,7 +102,6 @@ class MediaTypeBuilder implements Builder<MediaType, MediaTypeBuilder> {
 
   @override
   void replace(MediaType other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MediaType;
   }
 
@@ -116,7 +114,10 @@ class MediaTypeBuilder implements Builder<MediaType, MediaTypeBuilder> {
   MediaType build() => _build();
 
   _$MediaType _build() {
-    final _$result = _$v ?? _$MediaType._(schema: schema);
+    final _$result = _$v ??
+        _$MediaType._(
+          schema: schema,
+        );
     replace(_$result);
     return _$result;
   }

@@ -6,10 +6,10 @@ part of 'parameter.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const ParameterType _$parameterTypePath = ParameterType._('path');
-const ParameterType _$parameterTypeQuery = ParameterType._('query');
-const ParameterType _$parameterTypeHeader = ParameterType._('header');
-const ParameterType _$parameterTypeCookie = ParameterType._('cookie');
+const ParameterType _$parameterTypePath = const ParameterType._('path');
+const ParameterType _$parameterTypeQuery = const ParameterType._('query');
+const ParameterType _$parameterTypeHeader = const ParameterType._('header');
+const ParameterType _$parameterTypeCookie = const ParameterType._('cookie');
 
 ParameterType _$parameterType(String name) {
   switch (name) {
@@ -33,13 +33,13 @@ final BuiltSet<ParameterType> _$parameterTypeValues = BuiltSet<ParameterType>(co
   _$parameterTypeCookie,
 ]);
 
-const ParameterStyle _$parameterStyleMatrix = ParameterStyle._('matrix');
-const ParameterStyle _$parameterStyleLabel = ParameterStyle._('label');
-const ParameterStyle _$parameterStyleForm = ParameterStyle._('form');
-const ParameterStyle _$parameterStyleSimple = ParameterStyle._('simple');
-const ParameterStyle _$parameterStyleSpaceDelimited = ParameterStyle._('spaceDelimited');
-const ParameterStyle _$parameterStylePipeDelimited = ParameterStyle._('pipeDelimited');
-const ParameterStyle _$parameterStyleDeepObject = ParameterStyle._('deepObject');
+const ParameterStyle _$parameterStyleMatrix = const ParameterStyle._('matrix');
+const ParameterStyle _$parameterStyleLabel = const ParameterStyle._('label');
+const ParameterStyle _$parameterStyleForm = const ParameterStyle._('form');
+const ParameterStyle _$parameterStyleSimple = const ParameterStyle._('simple');
+const ParameterStyle _$parameterStyleSpaceDelimited = const ParameterStyle._('spaceDelimited');
+const ParameterStyle _$parameterStylePipeDelimited = const ParameterStyle._('pipeDelimited');
+const ParameterStyle _$parameterStyleDeepObject = const ParameterStyle._('deepObject');
 
 ParameterStyle _$parameterStyle(String name) {
   switch (name) {
@@ -117,7 +117,7 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
       result
         ..add('content')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)])));
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(MediaType)])));
     }
     return result;
   }
@@ -150,7 +150,7 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
           break;
         case 'content':
           result.content.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)]))!);
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(MediaType)]))!);
           break;
         case 'explode':
           result.explode = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -236,15 +236,7 @@ class _$Parameter extends Parameter {
       required this.explode,
       required this.allowReserved,
       required this.style})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'Parameter', 'name');
-    BuiltValueNullFieldError.checkNotNull($in, r'Parameter', '\$in');
-    BuiltValueNullFieldError.checkNotNull(required, r'Parameter', 'required');
-    BuiltValueNullFieldError.checkNotNull(explode, r'Parameter', 'explode');
-    BuiltValueNullFieldError.checkNotNull(allowReserved, r'Parameter', 'allowReserved');
-    BuiltValueNullFieldError.checkNotNull(style, r'Parameter', 'style');
-  }
-
+      : super._();
   @override
   JsonSchema? get schema {
     if (!___schema) {
@@ -368,7 +360,6 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
 
   @override
   void replace(Parameter other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Parameter;
   }
 
@@ -386,15 +377,16 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
     try {
       _$result = _$v ??
           _$Parameter._(
-              name: BuiltValueNullFieldError.checkNotNull(name, r'Parameter', 'name'),
-              $in: BuiltValueNullFieldError.checkNotNull($in, r'Parameter', '\$in'),
-              description: description,
-              required: BuiltValueNullFieldError.checkNotNull(required, r'Parameter', 'required'),
-              $schema: $schema,
-              content: _content?.build(),
-              explode: BuiltValueNullFieldError.checkNotNull(explode, r'Parameter', 'explode'),
-              allowReserved: BuiltValueNullFieldError.checkNotNull(allowReserved, r'Parameter', 'allowReserved'),
-              style: BuiltValueNullFieldError.checkNotNull(style, r'Parameter', 'style'));
+            name: BuiltValueNullFieldError.checkNotNull(name, r'Parameter', 'name'),
+            $in: BuiltValueNullFieldError.checkNotNull($in, r'Parameter', '\$in'),
+            description: description,
+            required: BuiltValueNullFieldError.checkNotNull(required, r'Parameter', 'required'),
+            $schema: $schema,
+            content: _content?.build(),
+            explode: BuiltValueNullFieldError.checkNotNull(explode, r'Parameter', 'explode'),
+            allowReserved: BuiltValueNullFieldError.checkNotNull(allowReserved, r'Parameter', 'allowReserved'),
+            style: BuiltValueNullFieldError.checkNotNull(style, r'Parameter', 'style'),
+          );
     } catch (_) {
       late String _$failedField;
       try {

@@ -121,11 +121,7 @@ class _$Info extends Info {
       this.description,
       this.termsOfService,
       this.summary})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(title, r'Info', 'title');
-    BuiltValueNullFieldError.checkNotNull(version, r'Info', 'version');
-  }
-
+      : super._();
   @override
   Info rebuild(void Function(InfoBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -219,7 +215,6 @@ class InfoBuilder implements Builder<Info, InfoBuilder> {
 
   @override
   void replace(Info other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Info;
   }
 
@@ -236,13 +231,14 @@ class InfoBuilder implements Builder<Info, InfoBuilder> {
     try {
       _$result = _$v ??
           _$Info._(
-              title: BuiltValueNullFieldError.checkNotNull(title, r'Info', 'title'),
-              version: BuiltValueNullFieldError.checkNotNull(version, r'Info', 'version'),
-              license: _license?.build(),
-              contact: _contact?.build(),
-              description: description,
-              termsOfService: termsOfService,
-              summary: summary);
+            title: BuiltValueNullFieldError.checkNotNull(title, r'Info', 'title'),
+            version: BuiltValueNullFieldError.checkNotNull(version, r'Info', 'version'),
+            license: _license?.build(),
+            contact: _contact?.build(),
+            description: description,
+            termsOfService: termsOfService,
+            summary: summary,
+          );
     } catch (_) {
       late String _$failedField;
       try {

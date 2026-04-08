@@ -98,10 +98,7 @@ class _$SecurityScheme extends SecurityScheme {
   factory _$SecurityScheme([void Function(SecuritySchemeBuilder)? updates]) =>
       (SecuritySchemeBuilder()..update(updates))._build();
 
-  _$SecurityScheme._({required this.type, this.description, this.scheme, this.$in, this.name}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(type, r'SecurityScheme', 'type');
-  }
-
+  _$SecurityScheme._({required this.type, this.description, this.scheme, this.$in, this.name}) : super._();
   @override
   String get fullName => __fullName ??= super.fullName;
 
@@ -184,7 +181,6 @@ class SecuritySchemeBuilder implements Builder<SecurityScheme, SecuritySchemeBui
 
   @override
   void replace(SecurityScheme other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SecurityScheme;
   }
 
@@ -199,11 +195,12 @@ class SecuritySchemeBuilder implements Builder<SecurityScheme, SecuritySchemeBui
   _$SecurityScheme _build() {
     final _$result = _$v ??
         _$SecurityScheme._(
-            type: BuiltValueNullFieldError.checkNotNull(type, r'SecurityScheme', 'type'),
-            description: description,
-            scheme: scheme,
-            $in: $in,
-            name: name);
+          type: BuiltValueNullFieldError.checkNotNull(type, r'SecurityScheme', 'type'),
+          description: description,
+          scheme: scheme,
+          $in: $in,
+          name: name,
+        );
     replace(_$result);
     return _$result;
   }

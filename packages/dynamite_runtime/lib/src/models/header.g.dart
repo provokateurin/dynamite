@@ -61,13 +61,7 @@ class _$Header<T> extends Header<T> {
 
   factory _$Header([void Function(HeaderBuilder<T>)? updates]) => (HeaderBuilder<T>()..update(updates))._build();
 
-  _$Header._({required this.content}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(content, r'Header', 'content');
-    if (T == dynamic) {
-      throw BuiltValueMissingGenericsError(r'Header', 'T');
-    }
-  }
-
+  _$Header._({required this.content}) : super._();
   @override
   Header<T> rebuild(void Function(HeaderBuilder<T>) updates) => (toBuilder()..update(updates)).build();
 
@@ -114,7 +108,6 @@ class HeaderBuilder<T> implements Builder<Header<T>, HeaderBuilder<T>> {
 
   @override
   void replace(Header<T> other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Header<T>;
   }
 
@@ -127,8 +120,10 @@ class HeaderBuilder<T> implements Builder<Header<T>, HeaderBuilder<T>> {
   Header<T> build() => _build();
 
   _$Header<T> _build() {
-    final _$result =
-        _$v ?? _$Header<T>._(content: BuiltValueNullFieldError.checkNotNull(content, r'Header', 'content'));
+    final _$result = _$v ??
+        _$Header<T>._(
+          content: BuiltValueNullFieldError.checkNotNull(content, r'Header', 'content'),
+        );
     replace(_$result);
     return _$result;
   }
