@@ -1,0 +1,37 @@
+name: Dart
+on:
+  pull_request:
+
+concurrency:
+  group: dart-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  dart:
+    name: Dart
+    runs-on: ubuntu-24.04
+    permissions:
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          fetch-depth: 0
+      - name: Install dart
+        uses: dart-lang/setup-dart@e51d8e571e22473a2ddebf0ef8a2123f0ab2c02c # v1
+        with:
+          sdk: 3.11
+      - name: Get dependencies
+        run: dart pub get
+      - name: Check formatting
+        run: dart format --output=none --set-exit-if-changed --line-length 120 .
+      - name: Lint code
+        run: dart analyze --fatal-infos .
+      - name: Run tests
+        run: |
+          cd packages/dynamite
+          dart test
+          cd ../dynamite_runtime
+          dart test
+          cd ../dynamite_end_to_end_test
+          dart test
