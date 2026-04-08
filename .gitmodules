@@ -1,4 +1,4 @@
 [submodule "packages/dynamite/example/OpenAPI-Specification"]
 	path = packages/dynamite/example/OpenAPI-Specification
 	url = https://github.com/OAI/OpenAPI-Specification.git
-    branch = 3.1.1
+	branch = 3.2.0
