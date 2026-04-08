@@ -29,9 +29,5 @@ jobs:
         run: dart analyze --fatal-infos .
       - name: Run tests
         run: |
-          cd packages/dynamite
-          dart test
-          cd ../dynamite_runtime
-          dart test
-          cd ../dynamite_end_to_end_test
-          dart test
+          dart pub global activate melos ^7.0.0
+          melos run test --no-select
