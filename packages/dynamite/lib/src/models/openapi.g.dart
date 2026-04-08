@@ -26,45 +26,45 @@ Serializers _$serializers = (Serializers().toBuilder()
       ..add(Server.serializer)
       ..add(ServerVariable.serializer)
       ..add(Tag.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Parameter)]), () => ListBuilder<Parameter>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Server)]), () => ListBuilder<Server>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Parameter)]), () => ListBuilder<Parameter>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Server)]), () => ListBuilder<Server>())
       ..addBuilderFactory(
-          const FullType(BuiltList, [
-            FullType(BuiltMap, [
-              FullType(String),
-              FullType(BuiltList, [FullType(String)])
+          const FullType(BuiltList, const [
+            const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(BuiltList, const [const FullType(String)])
             ])
           ]),
           () => ListBuilder<BuiltMap<String, BuiltList<String>>>())
-      ..addBuilderFactory(const FullType(BuiltSet, [FullType(Tag)]), () => SetBuilder<Tag>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap, [FullType(String), FullType(PathItem)]), () => MapBuilder<String, PathItem>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap, [FullType(String), FullType(MediaType)]), () => MapBuilder<String, MediaType>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap, [FullType(String), FullType(MediaType)]), () => MapBuilder<String, MediaType>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap, [FullType(String), FullType(MediaType)]), () => MapBuilder<String, MediaType>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap, [FullType(String), FullType(Header)]), () => MapBuilder<String, Header>())
-      ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(SecurityScheme)]),
+      ..addBuilderFactory(const FullType(BuiltSet, const [const FullType(Tag)]), () => SetBuilder<Tag>())
+      ..addBuilderFactory(const FullType(BuiltMap, const [const FullType(String), const FullType(PathItem)]),
+          () => MapBuilder<String, PathItem>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltMap, const [const FullType(String), const FullType(MediaType)]),
+          () => MapBuilder<String, MediaType>())
+      ..addBuilderFactory(const FullType(BuiltMap, const [const FullType(String), const FullType(MediaType)]),
+          () => MapBuilder<String, MediaType>())
+      ..addBuilderFactory(const FullType(BuiltMap, const [const FullType(String), const FullType(MediaType)]),
+          () => MapBuilder<String, MediaType>())
+      ..addBuilderFactory(const FullType(BuiltMap, const [const FullType(String), const FullType(Header)]),
+          () => MapBuilder<String, Header>())
+      ..addBuilderFactory(const FullType(BuiltMap, const [const FullType(String), const FullType(SecurityScheme)]),
           () => MapBuilder<String, SecurityScheme>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap, [FullType(String), FullType(JsonSchema)]), () => MapBuilder<String, JsonSchema>())
-      ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(ServerVariable)]),
+      ..addBuilderFactory(const FullType(BuiltMap, const [const FullType(String), const FullType(JsonSchema)]),
+          () => MapBuilder<String, JsonSchema>())
+      ..addBuilderFactory(const FullType(BuiltMap, const [const FullType(String), const FullType(ServerVariable)]),
           () => MapBuilder<String, ServerVariable>())
+      ..addBuilderFactory(const FullType(BuiltMap, const [const FullType(String), const FullType(String)]),
+          () => MapBuilder<String, String>())
+      ..addBuilderFactory(const FullType(BuiltSet, const [const FullType(String)]), () => SetBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Parameter)]), () => ListBuilder<Parameter>())
+      ..addBuilderFactory(const FullType(BuiltMap, const [const FullType(String), const FullType(Response)]),
+          () => MapBuilder<String, Response>())
       ..addBuilderFactory(
-          const FullType(BuiltMap, [FullType(String), FullType(String)]), () => MapBuilder<String, String>())
-      ..addBuilderFactory(const FullType(BuiltSet, [FullType(String)]), () => SetBuilder<String>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Parameter)]), () => ListBuilder<Parameter>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap, [FullType(String), FullType(Response)]), () => MapBuilder<String, Response>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, [
-            FullType(BuiltMap, [
-              FullType(String),
-              FullType(BuiltList, [FullType(String)])
+          const FullType(BuiltList, const [
+            const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(BuiltList, const [const FullType(String)])
             ])
           ]),
           () => ListBuilder<BuiltMap<String, BuiltList<String>>>()))

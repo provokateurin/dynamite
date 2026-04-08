@@ -24,14 +24,14 @@ class _$ComponentsSerializer implements StructuredSerializer<Components> {
       result
         ..add('securitySchemes')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(SecurityScheme)])));
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(SecurityScheme)])));
     }
     value = object.schemas;
     if (value != null) {
       result
         ..add('schemas')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonSchema)])));
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonSchema)])));
     }
     return result;
   }
@@ -49,11 +49,12 @@ class _$ComponentsSerializer implements StructuredSerializer<Components> {
       switch (key) {
         case 'securitySchemes':
           result.securitySchemes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(SecurityScheme)]))!);
+              specifiedType:
+                  const FullType(BuiltMap, const [const FullType(String), const FullType(SecurityScheme)]))!);
           break;
         case 'schemas':
           result.schemas.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonSchema)]))!);
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonSchema)]))!);
           break;
       }
     }
@@ -71,7 +72,6 @@ class _$Components extends Components {
   factory _$Components([void Function(ComponentsBuilder)? updates]) => (ComponentsBuilder()..update(updates))._build();
 
   _$Components._({this.securitySchemes, this.schemas}) : super._();
-
   @override
   Components rebuild(void Function(ComponentsBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -128,7 +128,6 @@ class ComponentsBuilder implements Builder<Components, ComponentsBuilder> {
 
   @override
   void replace(Components other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Components;
   }
 
@@ -143,7 +142,11 @@ class ComponentsBuilder implements Builder<Components, ComponentsBuilder> {
   _$Components _build() {
     _$Components _$result;
     try {
-      _$result = _$v ?? _$Components._(securitySchemes: _securitySchemes?.build(), schemas: _schemas?.build());
+      _$result = _$v ??
+          _$Components._(
+            securitySchemes: _securitySchemes?.build(),
+            schemas: _schemas?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

@@ -73,10 +73,7 @@ class _$Header extends Header {
 
   factory _$Header([void Function(HeaderBuilder)? updates]) => (HeaderBuilder()..update(updates))._build();
 
-  _$Header._({this.description, required this.required, this.schema}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(required, r'Header', 'required');
-  }
-
+  _$Header._({this.description, required this.required, this.schema}) : super._();
   @override
   Header rebuild(void Function(HeaderBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -138,7 +135,6 @@ class HeaderBuilder implements Builder<Header, HeaderBuilder> {
 
   @override
   void replace(Header other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Header;
   }
 
@@ -154,9 +150,10 @@ class HeaderBuilder implements Builder<Header, HeaderBuilder> {
     Header._defaults(this);
     final _$result = _$v ??
         _$Header._(
-            description: description,
-            required: BuiltValueNullFieldError.checkNotNull(required, r'Header', 'required'),
-            schema: schema);
+          description: description,
+          required: BuiltValueNullFieldError.checkNotNull(required, r'Header', 'required'),
+          schema: schema,
+        );
     replace(_$result);
     return _$result;
   }

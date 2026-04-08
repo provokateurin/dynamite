@@ -27,14 +27,14 @@ class _$ResponseSerializer implements StructuredSerializer<Response> {
       result
         ..add('content')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)])));
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(MediaType)])));
     }
     value = object.headers;
     if (value != null) {
       result
         ..add('headers')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Header)])));
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Header)])));
     }
     return result;
   }
@@ -55,11 +55,11 @@ class _$ResponseSerializer implements StructuredSerializer<Response> {
           break;
         case 'content':
           result.content.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)]))!);
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(MediaType)]))!);
           break;
         case 'headers':
           result.headers.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Header)]))!);
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Header)]))!);
           break;
       }
     }
@@ -78,10 +78,7 @@ class _$Response extends Response {
 
   factory _$Response([void Function(ResponseBuilder)? updates]) => (ResponseBuilder()..update(updates))._build();
 
-  _$Response._({required this.description, this.content, this.headers}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(description, r'Response', 'description');
-  }
-
+  _$Response._({required this.description, this.content, this.headers}) : super._();
   @override
   Response rebuild(void Function(ResponseBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -143,7 +140,6 @@ class ResponseBuilder implements Builder<Response, ResponseBuilder> {
 
   @override
   void replace(Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Response;
   }
 
@@ -160,9 +156,10 @@ class ResponseBuilder implements Builder<Response, ResponseBuilder> {
     try {
       _$result = _$v ??
           _$Response._(
-              description: BuiltValueNullFieldError.checkNotNull(description, r'Response', 'description'),
-              content: _content?.build(),
-              headers: _headers?.build());
+            description: BuiltValueNullFieldError.checkNotNull(description, r'Response', 'description'),
+            content: _content?.build(),
+            headers: _headers?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

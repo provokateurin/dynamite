@@ -63,13 +63,7 @@ class _$ContentString<T> extends ContentString<T> {
   factory _$ContentString([void Function(ContentStringBuilder<T>)? updates]) =>
       (ContentStringBuilder<T>()..update(updates))._build();
 
-  _$ContentString._({required this.content}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(content, r'ContentString', 'content');
-    if (T == dynamic) {
-      throw BuiltValueMissingGenericsError(r'ContentString', 'T');
-    }
-  }
-
+  _$ContentString._({required this.content}) : super._();
   @override
   ContentString<T> rebuild(void Function(ContentStringBuilder<T>) updates) => (toBuilder()..update(updates)).build();
 
@@ -116,7 +110,6 @@ class ContentStringBuilder<T> implements Builder<ContentString<T>, ContentString
 
   @override
   void replace(ContentString<T> other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ContentString<T>;
   }
 
@@ -130,7 +123,9 @@ class ContentStringBuilder<T> implements Builder<ContentString<T>, ContentString
 
   _$ContentString<T> _build() {
     final _$result = _$v ??
-        _$ContentString<T>._(content: BuiltValueNullFieldError.checkNotNull(content, r'ContentString', 'content'));
+        _$ContentString<T>._(
+          content: BuiltValueNullFieldError.checkNotNull(content, r'ContentString', 'content'),
+        );
     replace(_$result);
     return _$result;
   }

@@ -74,10 +74,7 @@ class _$License extends License {
 
   factory _$License([void Function(LicenseBuilder)? updates]) => (LicenseBuilder()..update(updates))._build();
 
-  _$License._({required this.name, this.identifier, this.url}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'License', 'name');
-  }
-
+  _$License._({required this.name, this.identifier, this.url}) : super._();
   @override
   License rebuild(void Function(LicenseBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -140,7 +137,6 @@ class LicenseBuilder implements Builder<License, LicenseBuilder> {
 
   @override
   void replace(License other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$License;
   }
 
@@ -155,7 +151,10 @@ class LicenseBuilder implements Builder<License, LicenseBuilder> {
   _$License _build() {
     final _$result = _$v ??
         _$License._(
-            name: BuiltValueNullFieldError.checkNotNull(name, r'License', 'name'), identifier: identifier, url: url);
+          name: BuiltValueNullFieldError.checkNotNull(name, r'License', 'name'),
+          identifier: identifier,
+          url: url,
+        );
     replace(_$result);
     return _$result;
   }

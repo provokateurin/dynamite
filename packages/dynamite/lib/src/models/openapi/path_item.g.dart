@@ -29,7 +29,8 @@ class _$PathItemSerializer implements StructuredSerializer<PathItem> {
     if (value != null) {
       result
         ..add('parameters')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Parameter)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Parameter)])));
     }
     value = object.get;
     if (value != null) {
@@ -98,7 +99,7 @@ class _$PathItemSerializer implements StructuredSerializer<PathItem> {
           break;
         case 'parameters':
           result.parameters.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Parameter)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(Parameter)]))! as BuiltList<Object?>);
           break;
         case 'get':
           result.get.replace(serializers.deserialize(value, specifiedType: const FullType(Operation))! as Operation);
@@ -169,7 +170,6 @@ class _$PathItem extends PathItem {
       this.patch,
       this.trace})
       : super._();
-
   @override
   Map<PathItemOperation, Operation> get operations => __operations ??= super.operations;
 
@@ -292,7 +292,6 @@ class PathItemBuilder implements Builder<PathItem, PathItemBuilder> {
 
   @override
   void replace(PathItem other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PathItem;
   }
 
@@ -309,16 +308,17 @@ class PathItemBuilder implements Builder<PathItem, PathItemBuilder> {
     try {
       _$result = _$v ??
           _$PathItem._(
-              description: description,
-              parameters: _parameters?.build(),
-              get: _get?.build(),
-              put: _put?.build(),
-              post: _post?.build(),
-              delete: _delete?.build(),
-              options: _options?.build(),
-              head: _head?.build(),
-              patch: _patch?.build(),
-              trace: _trace?.build());
+            description: description,
+            parameters: _parameters?.build(),
+            get: _get?.build(),
+            put: _put?.build(),
+            post: _post?.build(),
+            delete: _delete?.build(),
+            options: _options?.build(),
+            head: _head?.build(),
+            patch: _patch?.build(),
+            trace: _trace?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

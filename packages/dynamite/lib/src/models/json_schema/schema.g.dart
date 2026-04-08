@@ -6,13 +6,13 @@ part of 'schema.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const JsonSchemaType _$schemaTypeBoolean = JsonSchemaType._('boolean');
-const JsonSchemaType _$schemaTypeInteger = JsonSchemaType._('integer');
-const JsonSchemaType _$schemaTypeNumber = JsonSchemaType._('number');
-const JsonSchemaType _$schemaTypeString = JsonSchemaType._('string');
-const JsonSchemaType _$schemaTypeArray = JsonSchemaType._('array');
-const JsonSchemaType _$schemaTypeObject = JsonSchemaType._('object');
-const JsonSchemaType _$nullTypeObject = JsonSchemaType._('\$null');
+const JsonSchemaType _$schemaTypeBoolean = const JsonSchemaType._('boolean');
+const JsonSchemaType _$schemaTypeInteger = const JsonSchemaType._('integer');
+const JsonSchemaType _$schemaTypeNumber = const JsonSchemaType._('number');
+const JsonSchemaType _$schemaTypeString = const JsonSchemaType._('string');
+const JsonSchemaType _$schemaTypeArray = const JsonSchemaType._('array');
+const JsonSchemaType _$schemaTypeObject = const JsonSchemaType._('object');
+const JsonSchemaType _$nullTypeObject = const JsonSchemaType._('\$null');
 
 JsonSchemaType _$jsonSchemaType(String name) {
   switch (name) {
@@ -76,7 +76,7 @@ class _$GenericSchemaSerializer implements StructuredSerializer<GenericSchema> {
       'uniqueItems',
       serializers.serialize(object.uniqueItems, specifiedType: const FullType(bool)),
       'required',
-      serializers.serialize(object.required, specifiedType: const FullType(BuiltSet, [FullType(String)])),
+      serializers.serialize(object.required, specifiedType: const FullType(BuiltSet, const [const FullType(String)])),
     ];
     Object? value;
     value = object.id;
@@ -95,19 +95,22 @@ class _$GenericSchemaSerializer implements StructuredSerializer<GenericSchema> {
     if (value != null) {
       result
         ..add('oneOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.anyOf;
     if (value != null) {
       result
         ..add('anyOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.allOf;
     if (value != null) {
       result
         ..add('allOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.type;
     if (value != null) {
@@ -119,7 +122,8 @@ class _$GenericSchemaSerializer implements StructuredSerializer<GenericSchema> {
     if (value != null) {
       result
         ..add('enum')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
     }
     value = object.discriminator;
     if (value != null) {
@@ -155,7 +159,8 @@ class _$GenericSchemaSerializer implements StructuredSerializer<GenericSchema> {
     if (value != null) {
       result
         ..add('examples')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
     }
     value = object.multipleOf;
     if (value != null) {
@@ -246,9 +251,9 @@ class _$GenericSchemaSerializer implements StructuredSerializer<GenericSchema> {
       result
         ..add('dependentRequired')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(Map, [
-              FullType(String),
-              FullType(BuiltSet, [FullType(String)])
+            specifiedType: const FullType(Map, const [
+              const FullType(String),
+              const FullType(BuiltSet, const [const FullType(String)])
             ])));
     }
     return result;
@@ -273,15 +278,15 @@ class _$GenericSchemaSerializer implements StructuredSerializer<GenericSchema> {
           break;
         case 'oneOf':
           result.oneOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'anyOf':
           result.anyOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'allOf':
           result.allOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'type':
           result.type =
@@ -289,7 +294,7 @@ class _$GenericSchemaSerializer implements StructuredSerializer<GenericSchema> {
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'discriminator':
           result.discriminator
@@ -321,7 +326,7 @@ class _$GenericSchemaSerializer implements StructuredSerializer<GenericSchema> {
           break;
         case 'examples':
           result.examples.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'multipleOf':
           result.multipleOf = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
@@ -370,13 +375,13 @@ class _$GenericSchemaSerializer implements StructuredSerializer<GenericSchema> {
           break;
         case 'required':
           result.required.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltSet, [FullType(String)]))! as BuiltSet<Object?>);
+              specifiedType: const FullType(BuiltSet, const [const FullType(String)]))! as BuiltSet<Object?>);
           break;
         case 'dependentRequired':
           result.dependentRequired = serializers.deserialize(value,
-              specifiedType: const FullType(Map, [
-                FullType(String),
-                FullType(BuiltSet, [FullType(String)])
+              specifiedType: const FullType(Map, const [
+                const FullType(String),
+                const FullType(BuiltSet, const [const FullType(String)])
               ])) as Map<String, BuiltSet<String>>?;
           break;
       }
@@ -422,19 +427,22 @@ class _$BooleanSchemaSerializer implements StructuredSerializer<BooleanSchema> {
     if (value != null) {
       result
         ..add('oneOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.anyOf;
     if (value != null) {
       result
         ..add('anyOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.allOf;
     if (value != null) {
       result
         ..add('allOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.type;
     if (value != null) {
@@ -446,7 +454,8 @@ class _$BooleanSchemaSerializer implements StructuredSerializer<BooleanSchema> {
     if (value != null) {
       result
         ..add('enum')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
     }
     value = object.discriminator;
     if (value != null) {
@@ -482,7 +491,8 @@ class _$BooleanSchemaSerializer implements StructuredSerializer<BooleanSchema> {
     if (value != null) {
       result
         ..add('examples')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
     }
     return result;
   }
@@ -506,15 +516,15 @@ class _$BooleanSchemaSerializer implements StructuredSerializer<BooleanSchema> {
           break;
         case 'oneOf':
           result.oneOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'anyOf':
           result.anyOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'allOf':
           result.allOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'type':
           result.type =
@@ -522,7 +532,7 @@ class _$BooleanSchemaSerializer implements StructuredSerializer<BooleanSchema> {
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'discriminator':
           result.discriminator
@@ -554,7 +564,7 @@ class _$BooleanSchemaSerializer implements StructuredSerializer<BooleanSchema> {
           break;
         case 'examples':
           result.examples.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -599,19 +609,22 @@ class _$IntegerSchemaSerializer implements StructuredSerializer<IntegerSchema> {
     if (value != null) {
       result
         ..add('oneOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.anyOf;
     if (value != null) {
       result
         ..add('anyOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.allOf;
     if (value != null) {
       result
         ..add('allOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.type;
     if (value != null) {
@@ -623,7 +636,8 @@ class _$IntegerSchemaSerializer implements StructuredSerializer<IntegerSchema> {
     if (value != null) {
       result
         ..add('enum')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
     }
     value = object.discriminator;
     if (value != null) {
@@ -659,7 +673,8 @@ class _$IntegerSchemaSerializer implements StructuredSerializer<IntegerSchema> {
     if (value != null) {
       result
         ..add('examples')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
     }
     value = object.multipleOf;
     if (value != null) {
@@ -713,15 +728,15 @@ class _$IntegerSchemaSerializer implements StructuredSerializer<IntegerSchema> {
           break;
         case 'oneOf':
           result.oneOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'anyOf':
           result.anyOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'allOf':
           result.allOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'type':
           result.type =
@@ -729,7 +744,7 @@ class _$IntegerSchemaSerializer implements StructuredSerializer<IntegerSchema> {
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'discriminator':
           result.discriminator
@@ -761,7 +776,7 @@ class _$IntegerSchemaSerializer implements StructuredSerializer<IntegerSchema> {
           break;
         case 'examples':
           result.examples.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'multipleOf':
           result.multipleOf = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
@@ -821,19 +836,22 @@ class _$NumberSchemaSerializer implements StructuredSerializer<NumberSchema> {
     if (value != null) {
       result
         ..add('oneOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.anyOf;
     if (value != null) {
       result
         ..add('anyOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.allOf;
     if (value != null) {
       result
         ..add('allOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.type;
     if (value != null) {
@@ -845,7 +863,8 @@ class _$NumberSchemaSerializer implements StructuredSerializer<NumberSchema> {
     if (value != null) {
       result
         ..add('enum')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
     }
     value = object.discriminator;
     if (value != null) {
@@ -881,7 +900,8 @@ class _$NumberSchemaSerializer implements StructuredSerializer<NumberSchema> {
     if (value != null) {
       result
         ..add('examples')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
     }
     value = object.multipleOf;
     if (value != null) {
@@ -935,15 +955,15 @@ class _$NumberSchemaSerializer implements StructuredSerializer<NumberSchema> {
           break;
         case 'oneOf':
           result.oneOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'anyOf':
           result.anyOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'allOf':
           result.allOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'type':
           result.type =
@@ -951,7 +971,7 @@ class _$NumberSchemaSerializer implements StructuredSerializer<NumberSchema> {
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'discriminator':
           result.discriminator
@@ -983,7 +1003,7 @@ class _$NumberSchemaSerializer implements StructuredSerializer<NumberSchema> {
           break;
         case 'examples':
           result.examples.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'multipleOf':
           result.multipleOf = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
@@ -1055,19 +1075,22 @@ class _$StringSchemaSerializer implements StructuredSerializer<StringSchema> {
     if (value != null) {
       result
         ..add('oneOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.anyOf;
     if (value != null) {
       result
         ..add('anyOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.allOf;
     if (value != null) {
       result
         ..add('allOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.type;
     if (value != null) {
@@ -1079,7 +1102,8 @@ class _$StringSchemaSerializer implements StructuredSerializer<StringSchema> {
     if (value != null) {
       result
         ..add('enum')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
     }
     value = object.discriminator;
     if (value != null) {
@@ -1115,7 +1139,8 @@ class _$StringSchemaSerializer implements StructuredSerializer<StringSchema> {
     if (value != null) {
       result
         ..add('examples')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
     }
     value = object.maxLength;
     if (value != null) {
@@ -1164,15 +1189,15 @@ class _$StringSchemaSerializer implements StructuredSerializer<StringSchema> {
           break;
         case 'oneOf':
           result.oneOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'anyOf':
           result.anyOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'allOf':
           result.allOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'type':
           result.type =
@@ -1180,7 +1205,7 @@ class _$StringSchemaSerializer implements StructuredSerializer<StringSchema> {
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'discriminator':
           result.discriminator
@@ -1212,7 +1237,7 @@ class _$StringSchemaSerializer implements StructuredSerializer<StringSchema> {
           break;
         case 'examples':
           result.examples.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'maxLength':
           result.maxLength = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
@@ -1274,19 +1299,22 @@ class _$ArraySchemaSerializer implements StructuredSerializer<ArraySchema> {
     if (value != null) {
       result
         ..add('oneOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.anyOf;
     if (value != null) {
       result
         ..add('anyOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.allOf;
     if (value != null) {
       result
         ..add('allOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.type;
     if (value != null) {
@@ -1298,7 +1326,8 @@ class _$ArraySchemaSerializer implements StructuredSerializer<ArraySchema> {
     if (value != null) {
       result
         ..add('enum')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
     }
     value = object.discriminator;
     if (value != null) {
@@ -1334,7 +1363,8 @@ class _$ArraySchemaSerializer implements StructuredSerializer<ArraySchema> {
     if (value != null) {
       result
         ..add('examples')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
     }
     value = object.maxItems;
     if (value != null) {
@@ -1385,15 +1415,15 @@ class _$ArraySchemaSerializer implements StructuredSerializer<ArraySchema> {
           break;
         case 'oneOf':
           result.oneOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'anyOf':
           result.anyOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'allOf':
           result.allOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'type':
           result.type =
@@ -1401,7 +1431,7 @@ class _$ArraySchemaSerializer implements StructuredSerializer<ArraySchema> {
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'discriminator':
           result.discriminator
@@ -1433,7 +1463,7 @@ class _$ArraySchemaSerializer implements StructuredSerializer<ArraySchema> {
           break;
         case 'examples':
           result.examples.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'maxItems':
           result.maxItems = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
@@ -1476,7 +1506,7 @@ class _$ObjectSchemaSerializer implements StructuredSerializer<ObjectSchema> {
       'writeOnly',
       serializers.serialize(object.writeOnly, specifiedType: const FullType(bool)),
       'required',
-      serializers.serialize(object.required, specifiedType: const FullType(BuiltSet, [FullType(String)])),
+      serializers.serialize(object.required, specifiedType: const FullType(BuiltSet, const [const FullType(String)])),
     ];
     Object? value;
     value = object.properties;
@@ -1484,7 +1514,7 @@ class _$ObjectSchemaSerializer implements StructuredSerializer<ObjectSchema> {
       result
         ..add('properties')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonSchema)])));
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonSchema)])));
     }
     value = object.additionalProperties;
     if (value != null) {
@@ -1508,19 +1538,22 @@ class _$ObjectSchemaSerializer implements StructuredSerializer<ObjectSchema> {
     if (value != null) {
       result
         ..add('oneOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.anyOf;
     if (value != null) {
       result
         ..add('anyOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.allOf;
     if (value != null) {
       result
         ..add('allOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.type;
     if (value != null) {
@@ -1532,7 +1565,8 @@ class _$ObjectSchemaSerializer implements StructuredSerializer<ObjectSchema> {
     if (value != null) {
       result
         ..add('enum')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
     }
     value = object.discriminator;
     if (value != null) {
@@ -1568,7 +1602,8 @@ class _$ObjectSchemaSerializer implements StructuredSerializer<ObjectSchema> {
     if (value != null) {
       result
         ..add('examples')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
     }
     value = object.maxProperties;
     if (value != null) {
@@ -1587,9 +1622,9 @@ class _$ObjectSchemaSerializer implements StructuredSerializer<ObjectSchema> {
       result
         ..add('dependentRequired')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(Map, [
-              FullType(String),
-              FullType(BuiltSet, [FullType(String)])
+            specifiedType: const FullType(Map, const [
+              const FullType(String),
+              const FullType(BuiltSet, const [const FullType(String)])
             ])));
     }
     return result;
@@ -1608,7 +1643,7 @@ class _$ObjectSchemaSerializer implements StructuredSerializer<ObjectSchema> {
       switch (key) {
         case 'properties':
           result.properties.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonSchema)]))!);
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonSchema)]))!);
           break;
         case 'additionalProperties':
           result.additionalProperties =
@@ -1622,15 +1657,15 @@ class _$ObjectSchemaSerializer implements StructuredSerializer<ObjectSchema> {
           break;
         case 'oneOf':
           result.oneOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'anyOf':
           result.anyOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'allOf':
           result.allOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'type':
           result.type =
@@ -1638,7 +1673,7 @@ class _$ObjectSchemaSerializer implements StructuredSerializer<ObjectSchema> {
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'discriminator':
           result.discriminator
@@ -1670,7 +1705,7 @@ class _$ObjectSchemaSerializer implements StructuredSerializer<ObjectSchema> {
           break;
         case 'examples':
           result.examples.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'maxProperties':
           result.maxProperties = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
@@ -1680,13 +1715,13 @@ class _$ObjectSchemaSerializer implements StructuredSerializer<ObjectSchema> {
           break;
         case 'required':
           result.required.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltSet, [FullType(String)]))! as BuiltSet<Object?>);
+              specifiedType: const FullType(BuiltSet, const [const FullType(String)]))! as BuiltSet<Object?>);
           break;
         case 'dependentRequired':
           result.dependentRequired = serializers.deserialize(value,
-              specifiedType: const FullType(Map, [
-                FullType(String),
-                FullType(BuiltSet, [FullType(String)])
+              specifiedType: const FullType(Map, const [
+                const FullType(String),
+                const FullType(BuiltSet, const [const FullType(String)])
               ])) as Map<String, BuiltSet<String>>?;
           break;
       }
@@ -1732,19 +1767,22 @@ class _$NullSchemaSerializer implements StructuredSerializer<NullSchema> {
     if (value != null) {
       result
         ..add('oneOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.anyOf;
     if (value != null) {
       result
         ..add('anyOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.allOf;
     if (value != null) {
       result
         ..add('allOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)])));
     }
     value = object.type;
     if (value != null) {
@@ -1756,7 +1794,8 @@ class _$NullSchemaSerializer implements StructuredSerializer<NullSchema> {
     if (value != null) {
       result
         ..add('enum')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
     }
     value = object.discriminator;
     if (value != null) {
@@ -1792,7 +1831,8 @@ class _$NullSchemaSerializer implements StructuredSerializer<NullSchema> {
     if (value != null) {
       result
         ..add('examples')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
     }
     return result;
   }
@@ -1816,15 +1856,15 @@ class _$NullSchemaSerializer implements StructuredSerializer<NullSchema> {
           break;
         case 'oneOf':
           result.oneOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'anyOf':
           result.anyOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'allOf':
           result.allOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'type':
           result.type =
@@ -1832,7 +1872,7 @@ class _$NullSchemaSerializer implements StructuredSerializer<NullSchema> {
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'discriminator':
           result.discriminator
@@ -1864,7 +1904,7 @@ class _$NullSchemaSerializer implements StructuredSerializer<NullSchema> {
           break;
         case 'examples':
           result.examples.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -1874,10 +1914,10 @@ class _$NullSchemaSerializer implements StructuredSerializer<NullSchema> {
 }
 
 class _$JsonSchemaTypeSerializer implements PrimitiveSerializer<JsonSchemaType> {
-  static const Map<String, Object> _toWire = <String, Object>{
+  static const Map<String, Object> _toWire = const <String, Object>{
     '\$null': 'null',
   };
-  static const Map<Object, String> _fromWire = <Object, String>{
+  static const Map<Object, String> _fromWire = const <Object, String>{
     'null': '\$null',
   };
 
@@ -2065,15 +2105,7 @@ class _$GenericSchema extends GenericSchema {
       this.minProperties,
       required this.required,
       this.dependentRequired})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(nullable, r'GenericSchema', 'nullable');
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'GenericSchema', 'deprecated');
-    BuiltValueNullFieldError.checkNotNull(readOnly, r'GenericSchema', 'readOnly');
-    BuiltValueNullFieldError.checkNotNull(writeOnly, r'GenericSchema', 'writeOnly');
-    BuiltValueNullFieldError.checkNotNull(uniqueItems, r'GenericSchema', 'uniqueItems');
-    BuiltValueNullFieldError.checkNotNull(required, r'GenericSchema', 'required');
-  }
-
+      : super._();
   @override
   GenericSchema rebuild(void Function(GenericSchemaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -2394,7 +2426,6 @@ class GenericSchemaBuilder implements Builder<GenericSchema, GenericSchemaBuilde
 
   @override
   void replace(covariant GenericSchema other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GenericSchema;
   }
 
@@ -2412,41 +2443,42 @@ class GenericSchemaBuilder implements Builder<GenericSchema, GenericSchemaBuilde
     try {
       _$result = _$v ??
           _$GenericSchema._(
-              id: id,
-              ref: ref,
-              oneOf: _oneOf?.build(),
-              anyOf: _anyOf?.build(),
-              allOf: _allOf?.build(),
-              type: type,
-              $enum: _$enum?.build(),
-              discriminator: _discriminator?.build(),
-              nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'GenericSchema', 'nullable'),
-              format: format,
-              title: title,
-              description: description,
-              rawDefault: rawDefault,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'GenericSchema', 'deprecated'),
-              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'GenericSchema', 'readOnly'),
-              writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'GenericSchema', 'writeOnly'),
-              examples: _examples?.build(),
-              identifier: identifier,
-              multipleOf: multipleOf,
-              maximum: maximum,
-              exclusiveMaximum: exclusiveMaximum,
-              minimum: minimum,
-              exclusiveMinimum: exclusiveMinimum,
-              maxLength: maxLength,
-              minLength: minLength,
-              pattern: pattern,
-              maxItems: maxItems,
-              minItems: minItems,
-              uniqueItems: BuiltValueNullFieldError.checkNotNull(uniqueItems, r'GenericSchema', 'uniqueItems'),
-              maxContains: maxContains,
-              minContains: minContains,
-              maxProperties: maxProperties,
-              minProperties: minProperties,
-              required: required.build(),
-              dependentRequired: dependentRequired);
+            id: id,
+            ref: ref,
+            oneOf: _oneOf?.build(),
+            anyOf: _anyOf?.build(),
+            allOf: _allOf?.build(),
+            type: type,
+            $enum: _$enum?.build(),
+            discriminator: _discriminator?.build(),
+            nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'GenericSchema', 'nullable'),
+            format: format,
+            title: title,
+            description: description,
+            rawDefault: rawDefault,
+            deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'GenericSchema', 'deprecated'),
+            readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'GenericSchema', 'readOnly'),
+            writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'GenericSchema', 'writeOnly'),
+            examples: _examples?.build(),
+            identifier: identifier,
+            multipleOf: multipleOf,
+            maximum: maximum,
+            exclusiveMaximum: exclusiveMaximum,
+            minimum: minimum,
+            exclusiveMinimum: exclusiveMinimum,
+            maxLength: maxLength,
+            minLength: minLength,
+            pattern: pattern,
+            maxItems: maxItems,
+            minItems: minItems,
+            uniqueItems: BuiltValueNullFieldError.checkNotNull(uniqueItems, r'GenericSchema', 'uniqueItems'),
+            maxContains: maxContains,
+            minContains: minContains,
+            maxProperties: maxProperties,
+            minProperties: minProperties,
+            required: required.build(),
+            dependentRequired: dependentRequired,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2537,13 +2569,7 @@ class _$BooleanSchema extends BooleanSchema {
       required this.writeOnly,
       this.examples,
       this.identifier})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(nullable, r'BooleanSchema', 'nullable');
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'BooleanSchema', 'deprecated');
-    BuiltValueNullFieldError.checkNotNull(readOnly, r'BooleanSchema', 'readOnly');
-    BuiltValueNullFieldError.checkNotNull(writeOnly, r'BooleanSchema', 'writeOnly');
-  }
-
+      : super._();
   @override
   BooleanSchema rebuild(void Function(BooleanSchemaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -2729,7 +2755,6 @@ class BooleanSchemaBuilder implements Builder<BooleanSchema, BooleanSchemaBuilde
 
   @override
   void replace(covariant BooleanSchema other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$BooleanSchema;
   }
 
@@ -2747,24 +2772,25 @@ class BooleanSchemaBuilder implements Builder<BooleanSchema, BooleanSchemaBuilde
     try {
       _$result = _$v ??
           _$BooleanSchema._(
-              id: id,
-              ref: ref,
-              oneOf: _oneOf?.build(),
-              anyOf: _anyOf?.build(),
-              allOf: _allOf?.build(),
-              type: type,
-              $enum: _$enum?.build(),
-              discriminator: _discriminator?.build(),
-              nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'BooleanSchema', 'nullable'),
-              format: format,
-              title: title,
-              description: description,
-              rawDefault: rawDefault,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'BooleanSchema', 'deprecated'),
-              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'BooleanSchema', 'readOnly'),
-              writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'BooleanSchema', 'writeOnly'),
-              examples: _examples?.build(),
-              identifier: identifier);
+            id: id,
+            ref: ref,
+            oneOf: _oneOf?.build(),
+            anyOf: _anyOf?.build(),
+            allOf: _allOf?.build(),
+            type: type,
+            $enum: _$enum?.build(),
+            discriminator: _discriminator?.build(),
+            nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'BooleanSchema', 'nullable'),
+            format: format,
+            title: title,
+            description: description,
+            rawDefault: rawDefault,
+            deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'BooleanSchema', 'deprecated'),
+            readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'BooleanSchema', 'readOnly'),
+            writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'BooleanSchema', 'writeOnly'),
+            examples: _examples?.build(),
+            identifier: identifier,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2867,13 +2893,7 @@ class _$IntegerSchema extends IntegerSchema {
       this.exclusiveMaximum,
       this.minimum,
       this.exclusiveMinimum})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(nullable, r'IntegerSchema', 'nullable');
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'IntegerSchema', 'deprecated');
-    BuiltValueNullFieldError.checkNotNull(readOnly, r'IntegerSchema', 'readOnly');
-    BuiltValueNullFieldError.checkNotNull(writeOnly, r'IntegerSchema', 'writeOnly');
-  }
-
+      : super._();
   @override
   IntegerSchema rebuild(void Function(IntegerSchemaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -3099,7 +3119,6 @@ class IntegerSchemaBuilder implements Builder<IntegerSchema, IntegerSchemaBuilde
 
   @override
   void replace(covariant IntegerSchema other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$IntegerSchema;
   }
 
@@ -3117,29 +3136,30 @@ class IntegerSchemaBuilder implements Builder<IntegerSchema, IntegerSchemaBuilde
     try {
       _$result = _$v ??
           _$IntegerSchema._(
-              id: id,
-              ref: ref,
-              oneOf: _oneOf?.build(),
-              anyOf: _anyOf?.build(),
-              allOf: _allOf?.build(),
-              type: type,
-              $enum: _$enum?.build(),
-              discriminator: _discriminator?.build(),
-              nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'IntegerSchema', 'nullable'),
-              format: format,
-              title: title,
-              description: description,
-              rawDefault: rawDefault,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'IntegerSchema', 'deprecated'),
-              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'IntegerSchema', 'readOnly'),
-              writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'IntegerSchema', 'writeOnly'),
-              examples: _examples?.build(),
-              identifier: identifier,
-              multipleOf: multipleOf,
-              maximum: maximum,
-              exclusiveMaximum: exclusiveMaximum,
-              minimum: minimum,
-              exclusiveMinimum: exclusiveMinimum);
+            id: id,
+            ref: ref,
+            oneOf: _oneOf?.build(),
+            anyOf: _anyOf?.build(),
+            allOf: _allOf?.build(),
+            type: type,
+            $enum: _$enum?.build(),
+            discriminator: _discriminator?.build(),
+            nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'IntegerSchema', 'nullable'),
+            format: format,
+            title: title,
+            description: description,
+            rawDefault: rawDefault,
+            deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'IntegerSchema', 'deprecated'),
+            readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'IntegerSchema', 'readOnly'),
+            writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'IntegerSchema', 'writeOnly'),
+            examples: _examples?.build(),
+            identifier: identifier,
+            multipleOf: multipleOf,
+            maximum: maximum,
+            exclusiveMaximum: exclusiveMaximum,
+            minimum: minimum,
+            exclusiveMinimum: exclusiveMinimum,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3242,13 +3262,7 @@ class _$NumberSchema extends NumberSchema {
       this.exclusiveMaximum,
       this.minimum,
       this.exclusiveMinimum})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(nullable, r'NumberSchema', 'nullable');
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'NumberSchema', 'deprecated');
-    BuiltValueNullFieldError.checkNotNull(readOnly, r'NumberSchema', 'readOnly');
-    BuiltValueNullFieldError.checkNotNull(writeOnly, r'NumberSchema', 'writeOnly');
-  }
-
+      : super._();
   @override
   NumberSchema rebuild(void Function(NumberSchemaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -3474,7 +3488,6 @@ class NumberSchemaBuilder implements Builder<NumberSchema, NumberSchemaBuilder>,
 
   @override
   void replace(covariant NumberSchema other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NumberSchema;
   }
 
@@ -3492,29 +3505,30 @@ class NumberSchemaBuilder implements Builder<NumberSchema, NumberSchemaBuilder>,
     try {
       _$result = _$v ??
           _$NumberSchema._(
-              id: id,
-              ref: ref,
-              oneOf: _oneOf?.build(),
-              anyOf: _anyOf?.build(),
-              allOf: _allOf?.build(),
-              type: type,
-              $enum: _$enum?.build(),
-              discriminator: _discriminator?.build(),
-              nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'NumberSchema', 'nullable'),
-              format: format,
-              title: title,
-              description: description,
-              rawDefault: rawDefault,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'NumberSchema', 'deprecated'),
-              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'NumberSchema', 'readOnly'),
-              writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'NumberSchema', 'writeOnly'),
-              examples: _examples?.build(),
-              identifier: identifier,
-              multipleOf: multipleOf,
-              maximum: maximum,
-              exclusiveMaximum: exclusiveMaximum,
-              minimum: minimum,
-              exclusiveMinimum: exclusiveMinimum);
+            id: id,
+            ref: ref,
+            oneOf: _oneOf?.build(),
+            anyOf: _anyOf?.build(),
+            allOf: _allOf?.build(),
+            type: type,
+            $enum: _$enum?.build(),
+            discriminator: _discriminator?.build(),
+            nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'NumberSchema', 'nullable'),
+            format: format,
+            title: title,
+            description: description,
+            rawDefault: rawDefault,
+            deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'NumberSchema', 'deprecated'),
+            readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'NumberSchema', 'readOnly'),
+            writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'NumberSchema', 'writeOnly'),
+            examples: _examples?.build(),
+            identifier: identifier,
+            multipleOf: multipleOf,
+            maximum: maximum,
+            exclusiveMaximum: exclusiveMaximum,
+            minimum: minimum,
+            exclusiveMinimum: exclusiveMinimum,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3618,13 +3632,7 @@ class _$StringSchema extends StringSchema {
       this.maxLength,
       this.minLength,
       this.pattern})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(nullable, r'StringSchema', 'nullable');
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'StringSchema', 'deprecated');
-    BuiltValueNullFieldError.checkNotNull(readOnly, r'StringSchema', 'readOnly');
-    BuiltValueNullFieldError.checkNotNull(writeOnly, r'StringSchema', 'writeOnly');
-  }
-
+      : super._();
   @override
   bool get isContentString => __isContentString ??= super.isContentString;
 
@@ -3853,7 +3861,6 @@ class StringSchemaBuilder implements Builder<StringSchema, StringSchemaBuilder>,
 
   @override
   void replace(covariant StringSchema other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$StringSchema;
   }
 
@@ -3871,29 +3878,30 @@ class StringSchemaBuilder implements Builder<StringSchema, StringSchemaBuilder>,
     try {
       _$result = _$v ??
           _$StringSchema._(
-              contentMediaType: contentMediaType,
-              contentSchema: contentSchema,
-              id: id,
-              ref: ref,
-              oneOf: _oneOf?.build(),
-              anyOf: _anyOf?.build(),
-              allOf: _allOf?.build(),
-              type: type,
-              $enum: _$enum?.build(),
-              discriminator: _discriminator?.build(),
-              nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'StringSchema', 'nullable'),
-              format: format,
-              title: title,
-              description: description,
-              rawDefault: rawDefault,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'StringSchema', 'deprecated'),
-              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'StringSchema', 'readOnly'),
-              writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'StringSchema', 'writeOnly'),
-              examples: _examples?.build(),
-              identifier: identifier,
-              maxLength: maxLength,
-              minLength: minLength,
-              pattern: pattern);
+            contentMediaType: contentMediaType,
+            contentSchema: contentSchema,
+            id: id,
+            ref: ref,
+            oneOf: _oneOf?.build(),
+            anyOf: _anyOf?.build(),
+            allOf: _allOf?.build(),
+            type: type,
+            $enum: _$enum?.build(),
+            discriminator: _discriminator?.build(),
+            nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'StringSchema', 'nullable'),
+            format: format,
+            title: title,
+            description: description,
+            rawDefault: rawDefault,
+            deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'StringSchema', 'deprecated'),
+            readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'StringSchema', 'readOnly'),
+            writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'StringSchema', 'writeOnly'),
+            examples: _examples?.build(),
+            identifier: identifier,
+            maxLength: maxLength,
+            minLength: minLength,
+            pattern: pattern,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3999,14 +4007,7 @@ class _$ArraySchema extends ArraySchema {
       required this.uniqueItems,
       this.maxContains,
       this.minContains})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(nullable, r'ArraySchema', 'nullable');
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'ArraySchema', 'deprecated');
-    BuiltValueNullFieldError.checkNotNull(readOnly, r'ArraySchema', 'readOnly');
-    BuiltValueNullFieldError.checkNotNull(writeOnly, r'ArraySchema', 'writeOnly');
-    BuiltValueNullFieldError.checkNotNull(uniqueItems, r'ArraySchema', 'uniqueItems');
-  }
-
+      : super._();
   @override
   ArraySchema rebuild(void Function(ArraySchemaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -4240,7 +4241,6 @@ class ArraySchemaBuilder implements Builder<ArraySchema, ArraySchemaBuilder>, Js
 
   @override
   void replace(covariant ArraySchema other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ArraySchema;
   }
 
@@ -4258,30 +4258,31 @@ class ArraySchemaBuilder implements Builder<ArraySchema, ArraySchemaBuilder>, Js
     try {
       _$result = _$v ??
           _$ArraySchema._(
-              items: items,
-              id: id,
-              ref: ref,
-              oneOf: _oneOf?.build(),
-              anyOf: _anyOf?.build(),
-              allOf: _allOf?.build(),
-              type: type,
-              $enum: _$enum?.build(),
-              discriminator: _discriminator?.build(),
-              nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'ArraySchema', 'nullable'),
-              format: format,
-              title: title,
-              description: description,
-              rawDefault: rawDefault,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'ArraySchema', 'deprecated'),
-              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'ArraySchema', 'readOnly'),
-              writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'ArraySchema', 'writeOnly'),
-              examples: _examples?.build(),
-              identifier: identifier,
-              maxItems: maxItems,
-              minItems: minItems,
-              uniqueItems: BuiltValueNullFieldError.checkNotNull(uniqueItems, r'ArraySchema', 'uniqueItems'),
-              maxContains: maxContains,
-              minContains: minContains);
+            items: items,
+            id: id,
+            ref: ref,
+            oneOf: _oneOf?.build(),
+            anyOf: _anyOf?.build(),
+            allOf: _allOf?.build(),
+            type: type,
+            $enum: _$enum?.build(),
+            discriminator: _discriminator?.build(),
+            nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'ArraySchema', 'nullable'),
+            format: format,
+            title: title,
+            description: description,
+            rawDefault: rawDefault,
+            deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'ArraySchema', 'deprecated'),
+            readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'ArraySchema', 'readOnly'),
+            writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'ArraySchema', 'writeOnly'),
+            examples: _examples?.build(),
+            identifier: identifier,
+            maxItems: maxItems,
+            minItems: minItems,
+            uniqueItems: BuiltValueNullFieldError.checkNotNull(uniqueItems, r'ArraySchema', 'uniqueItems'),
+            maxContains: maxContains,
+            minContains: minContains,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4387,14 +4388,7 @@ class _$ObjectSchema extends ObjectSchema {
       this.minProperties,
       required this.required,
       this.dependentRequired})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(nullable, r'ObjectSchema', 'nullable');
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'ObjectSchema', 'deprecated');
-    BuiltValueNullFieldError.checkNotNull(readOnly, r'ObjectSchema', 'readOnly');
-    BuiltValueNullFieldError.checkNotNull(writeOnly, r'ObjectSchema', 'writeOnly');
-    BuiltValueNullFieldError.checkNotNull(required, r'ObjectSchema', 'required');
-  }
-
+      : super._();
   @override
   ObjectSchema rebuild(void Function(ObjectSchemaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -4630,7 +4624,6 @@ class ObjectSchemaBuilder implements Builder<ObjectSchema, ObjectSchemaBuilder>,
 
   @override
   void replace(covariant ObjectSchema other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ObjectSchema;
   }
 
@@ -4648,30 +4641,31 @@ class ObjectSchemaBuilder implements Builder<ObjectSchema, ObjectSchemaBuilder>,
     try {
       _$result = _$v ??
           _$ObjectSchema._(
-              properties: _properties?.build(),
-              additionalProperties: additionalProperties,
-              id: id,
-              ref: ref,
-              oneOf: _oneOf?.build(),
-              anyOf: _anyOf?.build(),
-              allOf: _allOf?.build(),
-              type: type,
-              $enum: _$enum?.build(),
-              discriminator: _discriminator?.build(),
-              nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'ObjectSchema', 'nullable'),
-              format: format,
-              title: title,
-              description: description,
-              rawDefault: rawDefault,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'ObjectSchema', 'deprecated'),
-              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'ObjectSchema', 'readOnly'),
-              writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'ObjectSchema', 'writeOnly'),
-              examples: _examples?.build(),
-              identifier: identifier,
-              maxProperties: maxProperties,
-              minProperties: minProperties,
-              required: required.build(),
-              dependentRequired: dependentRequired);
+            properties: _properties?.build(),
+            additionalProperties: additionalProperties,
+            id: id,
+            ref: ref,
+            oneOf: _oneOf?.build(),
+            anyOf: _anyOf?.build(),
+            allOf: _allOf?.build(),
+            type: type,
+            $enum: _$enum?.build(),
+            discriminator: _discriminator?.build(),
+            nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'ObjectSchema', 'nullable'),
+            format: format,
+            title: title,
+            description: description,
+            rawDefault: rawDefault,
+            deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'ObjectSchema', 'deprecated'),
+            readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'ObjectSchema', 'readOnly'),
+            writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'ObjectSchema', 'writeOnly'),
+            examples: _examples?.build(),
+            identifier: identifier,
+            maxProperties: maxProperties,
+            minProperties: minProperties,
+            required: required.build(),
+            dependentRequired: dependentRequired,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4764,13 +4758,7 @@ class _$NullSchema extends NullSchema {
       required this.writeOnly,
       this.examples,
       this.identifier})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(nullable, r'NullSchema', 'nullable');
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'NullSchema', 'deprecated');
-    BuiltValueNullFieldError.checkNotNull(readOnly, r'NullSchema', 'readOnly');
-    BuiltValueNullFieldError.checkNotNull(writeOnly, r'NullSchema', 'writeOnly');
-  }
-
+      : super._();
   @override
   NullSchema rebuild(void Function(NullSchemaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -4956,7 +4944,6 @@ class NullSchemaBuilder implements Builder<NullSchema, NullSchemaBuilder>, JsonS
 
   @override
   void replace(covariant NullSchema other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NullSchema;
   }
 
@@ -4974,24 +4961,25 @@ class NullSchemaBuilder implements Builder<NullSchema, NullSchemaBuilder>, JsonS
     try {
       _$result = _$v ??
           _$NullSchema._(
-              id: id,
-              ref: ref,
-              oneOf: _oneOf?.build(),
-              anyOf: _anyOf?.build(),
-              allOf: _allOf?.build(),
-              type: type,
-              $enum: _$enum?.build(),
-              discriminator: _discriminator?.build(),
-              nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'NullSchema', 'nullable'),
-              format: format,
-              title: title,
-              description: description,
-              rawDefault: rawDefault,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'NullSchema', 'deprecated'),
-              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'NullSchema', 'readOnly'),
-              writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'NullSchema', 'writeOnly'),
-              examples: _examples?.build(),
-              identifier: identifier);
+            id: id,
+            ref: ref,
+            oneOf: _oneOf?.build(),
+            anyOf: _anyOf?.build(),
+            allOf: _allOf?.build(),
+            type: type,
+            $enum: _$enum?.build(),
+            discriminator: _discriminator?.build(),
+            nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'NullSchema', 'nullable'),
+            format: format,
+            title: title,
+            description: description,
+            rawDefault: rawDefault,
+            deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'NullSchema', 'deprecated'),
+            readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'NullSchema', 'readOnly'),
+            writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'NullSchema', 'writeOnly'),
+            examples: _examples?.build(),
+            identifier: identifier,
+          );
     } catch (_) {
       late String _$failedField;
       try {

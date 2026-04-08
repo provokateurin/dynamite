@@ -26,7 +26,7 @@ class _$ServerSerializer implements StructuredSerializer<Server> {
       result
         ..add('variables')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(ServerVariable)])));
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(ServerVariable)])));
     }
     return result;
   }
@@ -47,7 +47,8 @@ class _$ServerSerializer implements StructuredSerializer<Server> {
           break;
         case 'variables':
           result.variables.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(ServerVariable)]))!);
+              specifiedType:
+                  const FullType(BuiltMap, const [const FullType(String), const FullType(ServerVariable)]))!);
           break;
       }
     }
@@ -64,10 +65,7 @@ class _$Server extends Server {
 
   factory _$Server([void Function(ServerBuilder)? updates]) => (ServerBuilder()..update(updates))._build();
 
-  _$Server._({required this.url, this.variables}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(url, r'Server', 'url');
-  }
-
+  _$Server._({required this.url, this.variables}) : super._();
   @override
   Server rebuild(void Function(ServerBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -123,7 +121,6 @@ class ServerBuilder implements Builder<Server, ServerBuilder> {
 
   @override
   void replace(Server other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Server;
   }
 
@@ -139,7 +136,10 @@ class ServerBuilder implements Builder<Server, ServerBuilder> {
     _$Server _$result;
     try {
       _$result = _$v ??
-          _$Server._(url: BuiltValueNullFieldError.checkNotNull(url, r'Server', 'url'), variables: _variables?.build());
+          _$Server._(
+            url: BuiltValueNullFieldError.checkNotNull(url, r'Server', 'url'),
+            variables: _variables?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

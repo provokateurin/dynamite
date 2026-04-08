@@ -586,10 +586,9 @@ class _$BaseNestedAllOf extends BaseNestedAllOf {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    final dynamic _$dynamicOther = other;
     return other is BaseNestedAllOf &&
-        baseOneOf == _$dynamicOther.baseOneOf &&
-        baseAnyOf == _$dynamicOther.baseAnyOf &&
+        baseOneOf == other.baseOneOf &&
+        baseAnyOf == other.baseAnyOf &&
         attributeNestedAllOf == other.attributeNestedAllOf &&
         string == other.string &&
         attributeAllOf == other.attributeAllOf;

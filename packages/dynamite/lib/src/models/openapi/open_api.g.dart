@@ -23,7 +23,7 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
       'info',
       serializers.serialize(object.info, specifiedType: const FullType(Info)),
       'servers',
-      serializers.serialize(object.servers, specifiedType: const FullType(BuiltList, [FullType(Server)])),
+      serializers.serialize(object.servers, specifiedType: const FullType(BuiltList, const [const FullType(Server)])),
     ];
     Object? value;
     value = object.security;
@@ -31,10 +31,10 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
       result
         ..add('security')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, [
-              FullType(BuiltMap, [
-                FullType(String),
-                FullType(BuiltList, [FullType(String)])
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(BuiltList, const [const FullType(String)])
               ])
             ])));
     }
@@ -42,7 +42,7 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
     if (value != null) {
       result
         ..add('tags')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, [FullType(Tag)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, const [const FullType(Tag)])));
     }
     value = object.components;
     if (value != null) {
@@ -55,7 +55,7 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
       result
         ..add('paths')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(PathItem)])));
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(PathItem)])));
     }
     return result;
   }
@@ -79,20 +79,20 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
           break;
         case 'servers':
           result.servers.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Server)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(Server)]))! as BuiltList<Object?>);
           break;
         case 'security':
           result.security.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [
-                FullType(BuiltMap, [
-                  FullType(String),
-                  FullType(BuiltList, [FullType(String)])
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(BuiltMap, const [
+                  const FullType(String),
+                  const FullType(BuiltList, const [const FullType(String)])
                 ])
               ]))! as BuiltList<Object?>);
           break;
         case 'tags':
-          result.tags.replace(serializers.deserialize(value, specifiedType: const FullType(BuiltSet, [FullType(Tag)]))!
-              as BuiltSet<Object?>);
+          result.tags.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltSet, const [const FullType(Tag)]))! as BuiltSet<Object?>);
           break;
         case 'components':
           result.components
@@ -100,7 +100,7 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
           break;
         case 'paths':
           result.paths.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(PathItem)]))!);
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(PathItem)]))!);
           break;
       }
     }
@@ -136,12 +136,7 @@ class _$OpenAPI extends OpenAPI {
       this.tags,
       this.components,
       this.paths})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(version, r'OpenAPI', 'version');
-    BuiltValueNullFieldError.checkNotNull(info, r'OpenAPI', 'info');
-    BuiltValueNullFieldError.checkNotNull(servers, r'OpenAPI', 'servers');
-  }
-
+      : super._();
   @override
   bool get hasAnySecurity => __hasAnySecurity ??= super.hasAnySecurity;
 
@@ -243,7 +238,6 @@ class OpenAPIBuilder implements Builder<OpenAPI, OpenAPIBuilder> {
 
   @override
   void replace(OpenAPI other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OpenAPI;
   }
 
@@ -261,13 +255,14 @@ class OpenAPIBuilder implements Builder<OpenAPI, OpenAPIBuilder> {
     try {
       _$result = _$v ??
           _$OpenAPI._(
-              version: BuiltValueNullFieldError.checkNotNull(version, r'OpenAPI', 'version'),
-              info: info.build(),
-              servers: servers.build(),
-              security: _security?.build(),
-              tags: _tags?.build(),
-              components: _components?.build(),
-              paths: _paths?.build());
+            version: BuiltValueNullFieldError.checkNotNull(version, r'OpenAPI', 'version'),
+            info: info.build(),
+            servers: servers.build(),
+            security: _security?.build(),
+            tags: _tags?.build(),
+            components: _components?.build(),
+            paths: _paths?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

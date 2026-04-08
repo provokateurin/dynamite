@@ -64,10 +64,7 @@ class _$Tag extends Tag {
 
   factory _$Tag([void Function(TagBuilder)? updates]) => (TagBuilder()..update(updates))._build();
 
-  _$Tag._({required this.name, this.description}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'Tag', 'name');
-  }
-
+  _$Tag._({required this.name, this.description}) : super._();
   @override
   String? get formattedDescription {
     if (!___formattedDescription) {
@@ -131,7 +128,6 @@ class TagBuilder implements Builder<Tag, TagBuilder> {
 
   @override
   void replace(Tag other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Tag;
   }
 
@@ -144,8 +140,11 @@ class TagBuilder implements Builder<Tag, TagBuilder> {
   Tag build() => _build();
 
   _$Tag _build() {
-    final _$result =
-        _$v ?? _$Tag._(name: BuiltValueNullFieldError.checkNotNull(name, r'Tag', 'name'), description: description);
+    final _$result = _$v ??
+        _$Tag._(
+          name: BuiltValueNullFieldError.checkNotNull(name, r'Tag', 'name'),
+          description: description,
+        );
     replace(_$result);
     return _$result;
   }

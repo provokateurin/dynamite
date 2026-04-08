@@ -44,13 +44,14 @@ class _$OperationSerializer implements StructuredSerializer<Operation> {
     if (value != null) {
       result
         ..add('tags')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, [FullType(String)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, const [const FullType(String)])));
     }
     value = object.parameters;
     if (value != null) {
       result
         ..add('parameters')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Parameter)])));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Parameter)])));
     }
     value = object.requestBody;
     if (value != null) {
@@ -63,17 +64,17 @@ class _$OperationSerializer implements StructuredSerializer<Operation> {
       result
         ..add('responses')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Response)])));
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Response)])));
     }
     value = object.security;
     if (value != null) {
       result
         ..add('security')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, [
-              FullType(BuiltMap, [
-                FullType(String),
-                FullType(BuiltList, [FullType(String)])
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(BuiltList, const [const FullType(String)])
               ])
             ])));
     }
@@ -105,11 +106,11 @@ class _$OperationSerializer implements StructuredSerializer<Operation> {
           break;
         case 'tags':
           result.tags.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltSet, [FullType(String)]))! as BuiltSet<Object?>);
+              specifiedType: const FullType(BuiltSet, const [const FullType(String)]))! as BuiltSet<Object?>);
           break;
         case 'parameters':
           result.parameters.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Parameter)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(Parameter)]))! as BuiltList<Object?>);
           break;
         case 'requestBody':
           result.requestBody
@@ -117,14 +118,14 @@ class _$OperationSerializer implements StructuredSerializer<Operation> {
           break;
         case 'responses':
           result.responses.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Response)]))!);
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Response)]))!);
           break;
         case 'security':
           result.security.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [
-                FullType(BuiltMap, [
-                  FullType(String),
-                  FullType(BuiltList, [FullType(String)])
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(BuiltMap, const [
+                  const FullType(String),
+                  const FullType(BuiltList, const [const FullType(String)])
                 ])
               ]))! as BuiltList<Object?>);
           break;
@@ -167,10 +168,7 @@ class _$Operation extends Operation {
       this.requestBody,
       this.responses,
       this.security})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'Operation', 'deprecated');
-  }
-
+      : super._();
   @override
   Operation rebuild(void Function(OperationBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -281,7 +279,6 @@ class OperationBuilder implements Builder<Operation, OperationBuilder> {
 
   @override
   void replace(Operation other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Operation;
   }
 
@@ -299,15 +296,16 @@ class OperationBuilder implements Builder<Operation, OperationBuilder> {
     try {
       _$result = _$v ??
           _$Operation._(
-              operationId: operationId,
-              summary: summary,
-              description: description,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'Operation', 'deprecated'),
-              tags: _tags?.build(),
-              parameters: _parameters?.build(),
-              requestBody: _requestBody?.build(),
-              responses: _responses?.build(),
-              security: _security?.build());
+            operationId: operationId,
+            summary: summary,
+            description: description,
+            deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'Operation', 'deprecated'),
+            tags: _tags?.build(),
+            parameters: _parameters?.build(),
+            requestBody: _requestBody?.build(),
+            responses: _responses?.build(),
+            security: _security?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

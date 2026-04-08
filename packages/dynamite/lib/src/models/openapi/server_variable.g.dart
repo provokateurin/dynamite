@@ -26,7 +26,7 @@ class _$ServerVariableSerializer implements StructuredSerializer<ServerVariable>
     if (value != null) {
       result
         ..add('enum')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)])));
     }
     value = object.description;
     if (value != null) {
@@ -53,7 +53,7 @@ class _$ServerVariableSerializer implements StructuredSerializer<ServerVariable>
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'description':
           result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -76,10 +76,7 @@ class _$ServerVariable extends ServerVariable {
   factory _$ServerVariable([void Function(ServerVariableBuilder)? updates]) =>
       (ServerVariableBuilder()..update(updates))._build();
 
-  _$ServerVariable._({required this.$default, this.$enum, this.description}) : super._() {
-    BuiltValueNullFieldError.checkNotNull($default, r'ServerVariable', '\$default');
-  }
-
+  _$ServerVariable._({required this.$default, this.$enum, this.description}) : super._();
   @override
   ServerVariable rebuild(void Function(ServerVariableBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -141,7 +138,6 @@ class ServerVariableBuilder implements Builder<ServerVariable, ServerVariableBui
 
   @override
   void replace(ServerVariable other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ServerVariable;
   }
 
@@ -158,9 +154,10 @@ class ServerVariableBuilder implements Builder<ServerVariable, ServerVariableBui
     try {
       _$result = _$v ??
           _$ServerVariable._(
-              $default: BuiltValueNullFieldError.checkNotNull($default, r'ServerVariable', '\$default'),
-              $enum: _$enum?.build(),
-              description: description);
+            $default: BuiltValueNullFieldError.checkNotNull($default, r'ServerVariable', '\$default'),
+            $enum: _$enum?.build(),
+            description: description,
+          );
     } catch (_) {
       late String _$failedField;
       try {

@@ -20,7 +20,7 @@ class _$RequestBodySerializer implements StructuredSerializer<RequestBody> {
     final result = <Object?>[
       'content',
       serializers.serialize(object.content,
-          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)])),
+          specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(MediaType)])),
       'required',
       serializers.serialize(object.required, specifiedType: const FullType(bool)),
     ];
@@ -50,7 +50,7 @@ class _$RequestBodySerializer implements StructuredSerializer<RequestBody> {
           break;
         case 'content':
           result.content.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)]))!);
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(MediaType)]))!);
           break;
         case 'required':
           result.required = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -73,11 +73,7 @@ class _$RequestBody extends RequestBody {
   factory _$RequestBody([void Function(RequestBodyBuilder)? updates]) =>
       (RequestBodyBuilder()..update(updates))._build();
 
-  _$RequestBody._({this.description, required this.content, required this.required}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(content, r'RequestBody', 'content');
-    BuiltValueNullFieldError.checkNotNull(required, r'RequestBody', 'required');
-  }
-
+  _$RequestBody._({this.description, required this.content, required this.required}) : super._();
   @override
   RequestBody rebuild(void Function(RequestBodyBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -139,7 +135,6 @@ class RequestBodyBuilder implements Builder<RequestBody, RequestBodyBuilder> {
 
   @override
   void replace(RequestBody other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RequestBody;
   }
 
@@ -157,9 +152,10 @@ class RequestBodyBuilder implements Builder<RequestBody, RequestBodyBuilder> {
     try {
       _$result = _$v ??
           _$RequestBody._(
-              description: description,
-              content: content.build(),
-              required: BuiltValueNullFieldError.checkNotNull(required, r'RequestBody', 'required'));
+            description: description,
+            content: content.build(),
+            required: BuiltValueNullFieldError.checkNotNull(required, r'RequestBody', 'required'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
