@@ -9,7 +9,7 @@
   "labels": [
     "dependencies"
   ],
-  "rangeStrategy": "bump",
+  "rangeStrategy": "widen",
   "prConcurrentLimit": 0,
   "packageRules": [
     {
