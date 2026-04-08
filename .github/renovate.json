@@ -1,0 +1,49 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices"
+  ],
+  "git-submodules": {
+    "enabled": true
+  },
+  "labels": [
+    "dependencies"
+  ],
+  "rangeStrategy": "bump",
+  "prConcurrentLimit": 0,
+  "packageRules": [
+    {
+      "matchManagers": ["pub"],
+      "matchDatasources": ["dart-version", "flutter-version"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "enabled": false
+    },
+    {
+      "matchManagers": ["git-submodules"],
+      "matchUpdateTypes": ["digest"],
+      "enabled": false
+    },
+    {
+      "groupName": "built_value",
+      "matchPackageNames": ["/^built/"]
+    },
+    {
+      "groupName": "test",
+      "matchPackageNames": [
+        "test",
+        "test_api",
+        "test_core"
+      ]
+    },
+    {
+      "groupName": "build",
+      "matchPackageNames": [
+        "build",
+        "build_runner"
+      ]
+    }
+  ]
+}

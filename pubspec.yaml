@@ -1,0 +1,11 @@
+name: _dynamite
+publish_to: none
+
+environment:
+  sdk: ^3.5.0
+
+workspace:
+  - packages/dynamite
+  - packages/dynamite/example
+  - packages/dynamite_end_to_end_test
+  - packages/dynamite_runtime
