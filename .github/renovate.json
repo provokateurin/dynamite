@@ -11,6 +11,10 @@
   ],
   "rangeStrategy": "bump",
   "prConcurrentLimit": 0,
+  "lockfileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
   "packageRules": [
     {
       "matchManagers": ["pub"],
