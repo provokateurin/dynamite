@@ -191,7 +191,6 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
         ..write(description);
     }
 
-    // ignore: invalid_use_of_protected_member
     final $default = schema?.defaultDescription;
     if ($default != null) {
       buffer.write(' Defaults to `${$default}`.');
