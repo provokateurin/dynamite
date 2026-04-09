@@ -17,7 +17,11 @@ class _$NewPetSerializer implements StructuredSerializer<NewPet> {
   final String wireName = 'NewPet';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NewPet object, {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    NewPet object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
@@ -27,14 +31,19 @@ class _$NewPetSerializer implements StructuredSerializer<NewPet> {
     if (value != null) {
       result
         ..add('tag')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     return result;
   }
 
   @override
-  NewPet deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  NewPet deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = NewPetBuilder();
 
     final iterator = serialized.iterator;
@@ -44,10 +53,20 @@ class _$NewPetSerializer implements StructuredSerializer<NewPet> {
       final Object? value = iterator.current;
       switch (key) {
         case 'name':
-          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.name =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
         case 'tag':
-          result.tag = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.tag =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
       }
     }
@@ -63,7 +82,11 @@ class _$PetSerializer implements StructuredSerializer<Pet> {
   final String wireName = 'Pet';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Pet object, {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Pet object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
@@ -75,14 +98,19 @@ class _$PetSerializer implements StructuredSerializer<Pet> {
     if (value != null) {
       result
         ..add('tag')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     return result;
   }
 
   @override
-  Pet deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Pet deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PetBuilder();
 
     final iterator = serialized.iterator;
@@ -92,13 +120,28 @@ class _$PetSerializer implements StructuredSerializer<Pet> {
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.id =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(int),
+                  )!
+                  as int;
           break;
         case 'name':
-          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.name =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
         case 'tag':
-          result.tag = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.tag =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
       }
     }
@@ -114,20 +157,30 @@ class _$ErrorSerializer implements StructuredSerializer<Error> {
   final String wireName = 'Error';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Error object, {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Error object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'code',
       serializers.serialize(object.code, specifiedType: const FullType(int)),
       'message',
-      serializers.serialize(object.message, specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.message,
+        specifiedType: const FullType(String),
+      ),
     ];
 
     return result;
   }
 
   @override
-  Error deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Error deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ErrorBuilder();
 
     final iterator = serialized.iterator;
@@ -137,10 +190,20 @@ class _$ErrorSerializer implements StructuredSerializer<Error> {
       final Object? value = iterator.current;
       switch (key) {
         case 'code':
-          result.code = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.code =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(int),
+                  )!
+                  as int;
           break;
         case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.message =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
       }
     }
@@ -165,11 +228,13 @@ class _$NewPet extends NewPet {
   @override
   final String? tag;
 
-  factory _$NewPet([void Function(NewPetBuilder)? updates]) => (NewPetBuilder()..update(updates))._build();
+  factory _$NewPet([void Function(NewPetBuilder)? updates]) =>
+      (NewPetBuilder()..update(updates))._build();
 
   _$NewPet._({required this.name, this.tag}) : super._();
   @override
-  NewPet rebuild(void Function(NewPetBuilder) updates) => (toBuilder()..update(updates)).build();
+  NewPet rebuild(void Function(NewPetBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   NewPetBuilder toBuilder() => NewPetBuilder()..replace(this);
@@ -198,7 +263,8 @@ class _$NewPet extends NewPet {
   }
 }
 
-class NewPetBuilder implements Builder<NewPet, NewPetBuilder>, $NewPetInterfaceBuilder {
+class NewPetBuilder
+    implements Builder<NewPet, NewPetBuilder>, $NewPetInterfaceBuilder {
   _$NewPet? _$v;
 
   String? _name;
@@ -238,7 +304,8 @@ class NewPetBuilder implements Builder<NewPet, NewPetBuilder>, $NewPetInterfaceB
 
   _$NewPet _build() {
     NewPet._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$NewPet._(
           name: BuiltValueNullFieldError.checkNotNull(name, r'NewPet', 'name'),
           tag: tag,
@@ -269,11 +336,13 @@ class _$Pet extends Pet {
   @override
   final String? tag;
 
-  factory _$Pet([void Function(PetBuilder)? updates]) => (PetBuilder()..update(updates))._build();
+  factory _$Pet([void Function(PetBuilder)? updates]) =>
+      (PetBuilder()..update(updates))._build();
 
   _$Pet._({required this.id, required this.name, this.tag}) : super._();
   @override
-  Pet rebuild(void Function(PetBuilder) updates) => (toBuilder()..update(updates)).build();
+  Pet rebuild(void Function(PetBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   PetBuilder toBuilder() => PetBuilder()..replace(this);
@@ -281,7 +350,10 @@ class _$Pet extends Pet {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Pet && id == other.id && name == other.name && tag == other.tag;
+    return other is Pet &&
+        id == other.id &&
+        name == other.name &&
+        tag == other.tag;
   }
 
   @override
@@ -349,7 +421,8 @@ class PetBuilder implements Builder<Pet, PetBuilder>, $PetInterfaceBuilder {
 
   _$Pet _build() {
     Pet._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Pet._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'Pet', 'id'),
           name: BuiltValueNullFieldError.checkNotNull(name, r'Pet', 'name'),
@@ -376,11 +449,13 @@ class _$Error extends Error {
   @override
   final String message;
 
-  factory _$Error([void Function(ErrorBuilder)? updates]) => (ErrorBuilder()..update(updates))._build();
+  factory _$Error([void Function(ErrorBuilder)? updates]) =>
+      (ErrorBuilder()..update(updates))._build();
 
   _$Error._({required this.code, required this.message}) : super._();
   @override
-  Error rebuild(void Function(ErrorBuilder) updates) => (toBuilder()..update(updates)).build();
+  Error rebuild(void Function(ErrorBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   ErrorBuilder toBuilder() => ErrorBuilder()..replace(this);
@@ -409,7 +484,8 @@ class _$Error extends Error {
   }
 }
 
-class ErrorBuilder implements Builder<Error, ErrorBuilder>, $ErrorInterfaceBuilder {
+class ErrorBuilder
+    implements Builder<Error, ErrorBuilder>, $ErrorInterfaceBuilder {
   _$Error? _$v;
 
   int? _code;
@@ -449,10 +525,15 @@ class ErrorBuilder implements Builder<Error, ErrorBuilder>, $ErrorInterfaceBuild
 
   _$Error _build() {
     Error._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Error._(
           code: BuiltValueNullFieldError.checkNotNull(code, r'Error', 'code'),
-          message: BuiltValueNullFieldError.checkNotNull(message, r'Error', 'message'),
+          message: BuiltValueNullFieldError.checkNotNull(
+            message,
+            r'Error',
+            'message',
+          ),
         );
     replace(_$result);
     return _$result;

@@ -15,29 +15,33 @@ class _$HeaderSerializer implements StructuredSerializer<Header<Object?>> {
   final String wireName = 'Header';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Header<Object?> object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Header<Object?> object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final isUnderspecified = specifiedType.isUnspecified || specifiedType.parameters.isEmpty;
     if (!isUnderspecified) serializers.expectBuilder(specifiedType);
     final parameterT = isUnderspecified ? FullType.object : specifiedType.parameters[0];
 
-    final result = <Object?>[
-      'content',
-      serializers.serialize(object.content, specifiedType: parameterT),
-    ];
+    final result = <Object?>['content', serializers.serialize(object.content, specifiedType: parameterT)];
 
     return result;
   }
 
   @override
-  Header<Object?> deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Header<Object?> deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final isUnderspecified = specifiedType.isUnspecified || specifiedType.parameters.isEmpty;
     if (!isUnderspecified) serializers.expectBuilder(specifiedType);
     final parameterT = isUnderspecified ? FullType.object : specifiedType.parameters[0];
 
-    final result =
-        isUnderspecified ? HeaderBuilder<Object?>() : serializers.newBuilder(specifiedType) as HeaderBuilder<Object?>;
+    final result = isUnderspecified
+        ? HeaderBuilder<Object?>()
+        : serializers.newBuilder(specifiedType) as HeaderBuilder<Object?>;
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -120,10 +124,8 @@ class HeaderBuilder<T> implements Builder<Header<T>, HeaderBuilder<T>> {
   Header<T> build() => _build();
 
   _$Header<T> _build() {
-    final _$result = _$v ??
-        _$Header<T>._(
-          content: BuiltValueNullFieldError.checkNotNull(content, r'Header', 'content'),
-        );
+    final _$result =
+        _$v ?? _$Header<T>._(content: BuiltValueNullFieldError.checkNotNull(content, r'Header', 'content'));
     replace(_$result);
     return _$result;
   }

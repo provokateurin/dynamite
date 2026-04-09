@@ -6,17 +6,22 @@ part of 'security_scheme.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<SecurityScheme> _$securitySchemeSerializer = _$SecuritySchemeSerializer();
+Serializer<SecurityScheme> _$securitySchemeSerializer =
+    _$SecuritySchemeSerializer();
 
-class _$SecuritySchemeSerializer implements StructuredSerializer<SecurityScheme> {
+class _$SecuritySchemeSerializer
+    implements StructuredSerializer<SecurityScheme> {
   @override
   final Iterable<Type> types = const [SecurityScheme, _$SecurityScheme];
   @override
   final String wireName = 'SecurityScheme';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SecurityScheme object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    SecurityScheme object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'type',
       serializers.serialize(object.type, specifiedType: const FullType(String)),
@@ -26,32 +31,43 @@ class _$SecuritySchemeSerializer implements StructuredSerializer<SecurityScheme>
     if (value != null) {
       result
         ..add('description')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.scheme;
     if (value != null) {
       result
         ..add('scheme')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.$in;
     if (value != null) {
       result
         ..add('\$in')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.name;
     if (value != null) {
       result
         ..add('name')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     return result;
   }
 
   @override
-  SecurityScheme deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  SecurityScheme deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = SecuritySchemeBuilder();
 
     final iterator = serialized.iterator;
@@ -61,19 +77,44 @@ class _$SecuritySchemeSerializer implements StructuredSerializer<SecurityScheme>
       final Object? value = iterator.current;
       switch (key) {
         case 'type':
-          result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.type =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
         case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.description =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'scheme':
-          result.scheme = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.scheme =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case '\$in':
-          result.$in = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.$in =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'name':
-          result.name = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.name =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
       }
     }
@@ -98,12 +139,19 @@ class _$SecurityScheme extends SecurityScheme {
   factory _$SecurityScheme([void Function(SecuritySchemeBuilder)? updates]) =>
       (SecuritySchemeBuilder()..update(updates))._build();
 
-  _$SecurityScheme._({required this.type, this.description, this.scheme, this.$in, this.name}) : super._();
+  _$SecurityScheme._({
+    required this.type,
+    this.description,
+    this.scheme,
+    this.$in,
+    this.name,
+  }) : super._();
   @override
   String get fullName => __fullName ??= super.fullName;
 
   @override
-  SecurityScheme rebuild(void Function(SecuritySchemeBuilder) updates) => (toBuilder()..update(updates)).build();
+  SecurityScheme rebuild(void Function(SecuritySchemeBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   SecuritySchemeBuilder toBuilder() => SecuritySchemeBuilder()..replace(this);
@@ -141,7 +189,8 @@ class _$SecurityScheme extends SecurityScheme {
   }
 }
 
-class SecuritySchemeBuilder implements Builder<SecurityScheme, SecuritySchemeBuilder> {
+class SecuritySchemeBuilder
+    implements Builder<SecurityScheme, SecuritySchemeBuilder> {
   _$SecurityScheme? _$v;
 
   String? _type;
@@ -193,9 +242,14 @@ class SecuritySchemeBuilder implements Builder<SecurityScheme, SecuritySchemeBui
   SecurityScheme build() => _build();
 
   _$SecurityScheme _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$SecurityScheme._(
-          type: BuiltValueNullFieldError.checkNotNull(type, r'SecurityScheme', 'type'),
+          type: BuiltValueNullFieldError.checkNotNull(
+            type,
+            r'SecurityScheme',
+            'type',
+          ),
           description: description,
           scheme: scheme,
           $in: $in,

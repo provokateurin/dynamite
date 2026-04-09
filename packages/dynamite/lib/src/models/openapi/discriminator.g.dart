@@ -6,7 +6,8 @@ part of 'discriminator.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Discriminator> _$discriminatorSerializer = _$DiscriminatorSerializer();
+Serializer<Discriminator> _$discriminatorSerializer =
+    _$DiscriminatorSerializer();
 
 class _$DiscriminatorSerializer implements StructuredSerializer<Discriminator> {
   @override
@@ -15,26 +16,42 @@ class _$DiscriminatorSerializer implements StructuredSerializer<Discriminator> {
   final String wireName = 'Discriminator';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Discriminator object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Discriminator object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'propertyName',
-      serializers.serialize(object.propertyName, specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.propertyName,
+        specifiedType: const FullType(String),
+      ),
     ];
     Object? value;
     value = object.mapping;
     if (value != null) {
       result
         ..add('mapping')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(String),
+            ]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  Discriminator deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Discriminator deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DiscriminatorBuilder();
 
     final iterator = serialized.iterator;
@@ -44,11 +61,23 @@ class _$DiscriminatorSerializer implements StructuredSerializer<Discriminator> {
       final Object? value = iterator.current;
       switch (key) {
         case 'propertyName':
-          result.propertyName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.propertyName =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
         case 'mapping':
-          result.mapping.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]))!);
+          result.mapping.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(String),
+              ]),
+            )!,
+          );
           break;
       }
     }
@@ -68,7 +97,8 @@ class _$Discriminator extends Discriminator {
 
   _$Discriminator._({required this.propertyName, this.mapping}) : super._();
   @override
-  Discriminator rebuild(void Function(DiscriminatorBuilder) updates) => (toBuilder()..update(updates)).build();
+  Discriminator rebuild(void Function(DiscriminatorBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   DiscriminatorBuilder toBuilder() => DiscriminatorBuilder()..replace(this);
@@ -76,7 +106,9 @@ class _$Discriminator extends Discriminator {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Discriminator && propertyName == other.propertyName && mapping == other.mapping;
+    return other is Discriminator &&
+        propertyName == other.propertyName &&
+        mapping == other.mapping;
   }
 
   @override
@@ -97,7 +129,8 @@ class _$Discriminator extends Discriminator {
   }
 }
 
-class DiscriminatorBuilder implements Builder<Discriminator, DiscriminatorBuilder> {
+class DiscriminatorBuilder
+    implements Builder<Discriminator, DiscriminatorBuilder> {
   _$Discriminator? _$v;
 
   String? _propertyName;
@@ -105,7 +138,8 @@ class DiscriminatorBuilder implements Builder<Discriminator, DiscriminatorBuilde
   set propertyName(String? propertyName) => _$this._propertyName = propertyName;
 
   MapBuilder<String, String>? _mapping;
-  MapBuilder<String, String> get mapping => _$this._mapping ??= MapBuilder<String, String>();
+  MapBuilder<String, String> get mapping =>
+      _$this._mapping ??= MapBuilder<String, String>();
   set mapping(MapBuilder<String, String>? mapping) => _$this._mapping = mapping;
 
   DiscriminatorBuilder();
@@ -136,9 +170,14 @@ class DiscriminatorBuilder implements Builder<Discriminator, DiscriminatorBuilde
   _$Discriminator _build() {
     _$Discriminator _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Discriminator._(
-            propertyName: BuiltValueNullFieldError.checkNotNull(propertyName, r'Discriminator', 'propertyName'),
+            propertyName: BuiltValueNullFieldError.checkNotNull(
+              propertyName,
+              r'Discriminator',
+              'propertyName',
+            ),
             mapping: _mapping?.build(),
           );
     } catch (_) {
@@ -147,7 +186,11 @@ class DiscriminatorBuilder implements Builder<Discriminator, DiscriminatorBuilde
         _$failedField = 'mapping';
         _mapping?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Discriminator', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+          r'Discriminator',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }

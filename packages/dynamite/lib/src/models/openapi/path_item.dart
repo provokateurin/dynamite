@@ -35,7 +35,8 @@ abstract class PathItem implements Built<PathItem, PathItemBuilder> {
   Operation? get trace;
 
   @memoized
-  Map<PathItemOperation, Operation> get operations => <PathItemOperation, Operation>{
+  Map<PathItemOperation, Operation> get operations =>
+      <PathItemOperation, Operation>{
         if (get != null) PathItemOperation.get: get!,
         if (put != null) PathItemOperation.put: put!,
         if (post != null) PathItemOperation.post: post!,
@@ -47,13 +48,4 @@ abstract class PathItem implements Built<PathItem, PathItemBuilder> {
       };
 }
 
-enum PathItemOperation {
-  get,
-  put,
-  post,
-  delete,
-  options,
-  head,
-  patch,
-  trace,
-}
+enum PathItemOperation { get, put, post, delete, options, head, patch, trace }

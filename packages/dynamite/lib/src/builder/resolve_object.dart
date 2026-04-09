@@ -16,21 +16,11 @@ TypeResultObject resolveObject(
 
   state.resolvedSerializers.addAll(result.serializers);
   if (state.resolvedTypes.add(result)) {
-    final $interface = buildInterface(
-      state,
-      schema,
-      isHeader: isHeader,
-    );
+    final $interface = buildInterface(state, schema, isHeader: isHeader);
 
-    final $class = buildBuiltClass(
-      state,
-      schema,
-    );
+    final $class = buildBuiltClass(state, schema);
 
-    state.output.addAll([
-      $interface,
-      $class,
-    ]);
+    state.output.addAll([$interface, $class]);
   }
   return result;
 }

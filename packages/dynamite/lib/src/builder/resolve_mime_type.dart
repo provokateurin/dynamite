@@ -22,16 +22,16 @@ TypeResult? resolveMimeTypeDecode(
       final result = resolveType(
         state,
         mediaType.schema!.rebuild((b) {
-          b.identifier = toDartName(
-            '$identifier-$mimeType',
-            className: true,
-          );
+          b.identifier = toDartName('$identifier-$mimeType', className: true);
         }),
       );
 
-      if (mimeType == '*/*' || mimeType == 'application/octet-stream' || mimeType.startsWith('image/')) {
+      if (mimeType == '*/*' ||
+          mimeType == 'application/octet-stream' ||
+          mimeType.startsWith('image/')) {
         return TypeResultBase('Uint8List');
-      } else if (mimeType.startsWith('text/') || mimeType == 'application/javascript') {
+      } else if (mimeType.startsWith('text/') ||
+          mimeType == 'application/javascript') {
         return TypeResultBase('String');
       } else if (mimeType == 'application/json') {
         return result;
@@ -60,7 +60,9 @@ void resolveMimeTypeEncode(
           '_request.body = \$body != null ? ${result.encode(result.serialize(r'$body'), mimeType: mimeType)} : ${$default != null ? result.encode($default, mimeType: mimeType) : result.encode(result.serialize('${result.name}()'), mimeType: mimeType)};',
         );
       } else {
-        output.writeln('_request.body = ${result.encode(result.serialize(r'$body'), mimeType: mimeType)};');
+        output.writeln(
+          '_request.body = ${result.encode(result.serialize(r'$body'), mimeType: mimeType)};',
+        );
       }
     case 'application/octet-stream':
       if (dartParameterNullable) {
@@ -68,7 +70,9 @@ void resolveMimeTypeEncode(
           '_request.bodyBytes = \$body != null ? ${result.encode(r'$body', mimeType: mimeType)} : ${$default != null ? result.encode($default, mimeType: mimeType) : 'Uint8List(0)'};',
         );
       } else {
-        output.writeln('_request.bodyBytes = ${result.encode(r'$body', mimeType: mimeType)};');
+        output.writeln(
+          '_request.bodyBytes = ${result.encode(r'$body', mimeType: mimeType)};',
+        );
       }
     case _:
       throw Exception('Can not parse any mime type of the Operation.');

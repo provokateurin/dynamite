@@ -20,7 +20,11 @@ void main() {
           expect(request.headers, equals({'Accept': 'application/json'}));
           expect(request.method, equalsIgnoringCase('get'));
 
-          return Response('{}', 200, headers: {'content-type': 'application/json'});
+          return Response(
+            '{}',
+            200,
+            headers: {'content-type': 'application/json'},
+          );
         }),
       );
       await client.$get();
@@ -28,9 +32,14 @@ void main() {
 
     test('with contentString', () async {
       final contentString = ContentString<BuiltMap<String, JsonObject>>(
-        (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
+        (b) => b
+          ..content = BuiltMap<String, JsonObject>({
+            'key': JsonObject('value'),
+          }),
       );
-      final queryComponent = Uri.encodeQueryComponent(json.encode({'key': 'value'}));
+      final queryComponent = Uri.encodeQueryComponent(
+        json.encode({'key': 'value'}),
+      );
 
       final client = $Client(
         uri,
@@ -38,9 +47,16 @@ void main() {
           expect(request.bodyBytes.length, 0);
           expect(request.headers, equals({'Accept': 'application/json'}));
           expect(request.method, equalsIgnoringCase('get'));
-          expect(request.url, equals(Uri.parse('example.com/?content_string=$queryComponent')));
+          expect(
+            request.url,
+            equals(Uri.parse('example.com/?content_string=$queryComponent')),
+          );
 
-          return Response('{}', 200, headers: {'content-type': 'application/json'});
+          return Response(
+            '{}',
+            200,
+            headers: {'content-type': 'application/json'},
+          );
         }),
       );
       await client.$get(contentString: contentString);
@@ -48,9 +64,14 @@ void main() {
 
     test('with contentParameter', () async {
       final contentParameter = ContentString<BuiltMap<String, JsonObject>>(
-        (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
+        (b) => b
+          ..content = BuiltMap<String, JsonObject>({
+            'key': JsonObject('value'),
+          }),
       );
-      final queryComponent = Uri.encodeQueryComponent(json.encode({'key': 'value'}));
+      final queryComponent = Uri.encodeQueryComponent(
+        json.encode({'key': 'value'}),
+      );
 
       final client = $Client(
         uri,
@@ -58,9 +79,16 @@ void main() {
           expect(request.bodyBytes.length, 0);
           expect(request.headers, equals({'Accept': 'application/json'}));
           expect(request.method, equalsIgnoringCase('get'));
-          expect(request.url, equals(Uri.parse('example.com/?content_parameter=$queryComponent')));
+          expect(
+            request.url,
+            equals(Uri.parse('example.com/?content_parameter=$queryComponent')),
+          );
 
-          return Response('{}', 200, headers: {'content-type': 'application/json'});
+          return Response(
+            '{}',
+            200,
+            headers: {'content-type': 'application/json'},
+          );
         }),
       );
       await client.$get(contentParameter: contentParameter);
@@ -75,7 +103,11 @@ void main() {
           expect(request.method, equalsIgnoringCase('get'));
           expect(request.url, equals(Uri.parse('example.com/?string=')));
 
-          return Response('{}', 200, headers: {'content-type': 'application/json'});
+          return Response(
+            '{}',
+            200,
+            headers: {'content-type': 'application/json'},
+          );
         }),
       );
 
@@ -84,9 +116,14 @@ void main() {
 
     test('with multiple query parameters', () async {
       final contentString = ContentString<BuiltMap<String, JsonObject>>(
-        (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
+        (b) => b
+          ..content = BuiltMap<String, JsonObject>({
+            'key': JsonObject('value'),
+          }),
       );
-      final queryComponent = Uri.encodeQueryComponent(json.encode({'key': 'value'}));
+      final queryComponent = Uri.encodeQueryComponent(
+        json.encode({'key': 'value'}),
+      );
 
       final client = $Client(
         uri,
@@ -96,13 +133,24 @@ void main() {
           expect(request.method, equalsIgnoringCase('get'));
           expect(
             request.url,
-            equals(Uri.parse('example.com/?content_string=$queryComponent&content_parameter=$queryComponent')),
+            equals(
+              Uri.parse(
+                'example.com/?content_string=$queryComponent&content_parameter=$queryComponent',
+              ),
+            ),
           );
 
-          return Response('{}', 200, headers: {'content-type': 'application/json'});
+          return Response(
+            '{}',
+            200,
+            headers: {'content-type': 'application/json'},
+          );
         }),
       );
-      await client.$get(contentString: contentString, contentParameter: contentString);
+      await client.$get(
+        contentString: contentString,
+        contentParameter: contentString,
+      );
     });
 
     test('oneOf', () async {
@@ -114,7 +162,11 @@ void main() {
           expect(request.method, equalsIgnoringCase('get'));
           expect(request.url, equals(Uri.parse('example.com/?oneOf=true')));
 
-          return Response('{}', 200, headers: {'content-type': 'application/json'});
+          return Response(
+            '{}',
+            200,
+            headers: {'content-type': 'application/json'},
+          );
         }),
       );
       await client.$get(oneOf: ($bool: true, string: null));
@@ -127,7 +179,11 @@ void main() {
           expect(request.method, equalsIgnoringCase('get'));
           expect(request.url, equals(Uri.parse('example.com/?oneOf=value')));
 
-          return Response('{}', 200, headers: {'content-type': 'application/json'});
+          return Response(
+            '{}',
+            200,
+            headers: {'content-type': 'application/json'},
+          );
         }),
       );
       await client.$get(oneOf: ($bool: null, string: 'value'));
@@ -142,7 +198,11 @@ void main() {
           expect(request.method, equalsIgnoringCase('get'));
           expect(request.url, equals(Uri.parse('example.com/?anyOf=true')));
 
-          return Response('{}', 200, headers: {'content-type': 'application/json'});
+          return Response(
+            '{}',
+            200,
+            headers: {'content-type': 'application/json'},
+          );
         }),
       );
       await client.$get(anyOf: ($bool: true, string: null));
@@ -155,7 +215,11 @@ void main() {
           expect(request.method, equalsIgnoringCase('get'));
           expect(request.url, equals(Uri.parse('example.com/?anyOf=value')));
 
-          return Response('{}', 200, headers: {'content-type': 'application/json'});
+          return Response(
+            '{}',
+            200,
+            headers: {'content-type': 'application/json'},
+          );
         }),
       );
       await client.$get(anyOf: ($bool: null, string: 'value'));
@@ -168,7 +232,11 @@ void main() {
           expect(request.method, equalsIgnoringCase('get'));
           expect(request.url, equals(Uri.parse('example.com/?anyOf=true')));
 
-          return Response('{}', 200, headers: {'content-type': 'application/json'});
+          return Response(
+            '{}',
+            200,
+            headers: {'content-type': 'application/json'},
+          );
         }),
       );
       await client.$get(anyOf: ($bool: true, string: 'value'));
@@ -183,12 +251,13 @@ void main() {
           expect(request.bodyBytes.length, 0);
           expect(request.headers, equals({'Accept': 'application/json'}));
           expect(request.method, equalsIgnoringCase('get'));
-          expect(
-            request.url,
-            equals(Uri.parse('example.com/headers')),
-          );
+          expect(request.url, equals(Uri.parse('example.com/headers')));
 
-          return Response('{}', 200, headers: {'content-type': 'application/json'});
+          return Response(
+            '{}',
+            200,
+            headers: {'content-type': 'application/json'},
+          );
         }),
       );
       await client.getHeaders();
@@ -220,21 +289,28 @@ void main() {
             }),
           );
           expect(request.method, equalsIgnoringCase('get'));
-          expect(
-            request.url,
-            equals(Uri.parse('example.com/headers')),
-          );
+          expect(request.url, equals(Uri.parse('example.com/headers')));
 
-          return Response('{}', 200, headers: {'content-type': 'application/json'});
+          return Response(
+            '{}',
+            200,
+            headers: {'content-type': 'application/json'},
+          );
         }),
       );
 
       await client.getHeaders(
         contentString: ContentString<BuiltMap<String, JsonObject>>(
-          (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
+          (b) => b
+            ..content = BuiltMap<String, JsonObject>({
+              'key': JsonObject('value'),
+            }),
         ),
         contentParameter: ContentString<BuiltMap<String, JsonObject>>(
-          (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
+          (b) => b
+            ..content = BuiltMap<String, JsonObject>({
+              'key': JsonObject('value'),
+            }),
         ),
         array: BuiltList<JsonObject>([
           JsonObject(107),
@@ -242,11 +318,7 @@ void main() {
           JsonObject(false),
           JsonObject(r'Value$'),
         ]),
-        arrayString: BuiltList<String>([
-          'Value1',
-          'Value2',
-          r'Value$',
-        ]),
+        arrayString: BuiltList<String>(['Value1', 'Value2', r'Value$']),
         $bool: false,
         string: r'$String',
         stringBinary: utf8.encode('StringValue'),
@@ -271,7 +343,11 @@ void main() {
           expect(request.method, equalsIgnoringCase('get'));
           expect(request.url, equals(Uri.parse('example.com/parameter')));
 
-          return Response('{}', 200, headers: {'content-type': 'application/json'});
+          return Response(
+            '{}',
+            200,
+            headers: {'content-type': 'application/json'},
+          );
         }),
       );
       await client.getPathParameter(pathParameter: 'parameter');
@@ -287,11 +363,21 @@ void main() {
           expect(request.headers, equals({'Accept': 'application/json'}));
           expect(request.method, equalsIgnoringCase('get'));
 
-          return Response('{}', 200, headers: {'content-type': 'application/json'});
+          return Response(
+            '{}',
+            200,
+            headers: {'content-type': 'application/json'},
+          );
         }),
       );
-      expect(() => client.$get(enumPattern: GetEnumPattern.$0), throwsA(isA<FormatException>()));
-      expect(() => client.getHeaders(enumPattern: GetHeadersEnumPattern.$0), throwsA(isA<FormatException>()));
+      expect(
+        () => client.$get(enumPattern: GetEnumPattern.$0),
+        throwsA(isA<FormatException>()),
+      );
+      expect(
+        () => client.getHeaders(enumPattern: GetHeadersEnumPattern.$0),
+        throwsA(isA<FormatException>()),
+      );
     });
   });
 
@@ -313,10 +399,18 @@ void main() {
         expect(request.method, equalsIgnoringCase('get'));
         expect(
           request.url,
-          equals(Uri.parse('example.com/naming_collisions?%24jsonSerializers=jsonSerializers%20value%24')),
+          equals(
+            Uri.parse(
+              'example.com/naming_collisions?%24jsonSerializers=jsonSerializers%20value%24',
+            ),
+          ),
         );
 
-        return Response('{}', 200, headers: {'content-type': 'application/json'});
+        return Response(
+          '{}',
+          200,
+          headers: {'content-type': 'application/json'},
+        );
       }),
     );
 
@@ -340,7 +434,11 @@ void main() {
             'example.com/defaults?content_string=%22%7B%7D%22&array=default-item&array=true&array=1.0&array_string=default-item&array_string=item&bool=true&string=default&string_binary=&int=1&double=1.0&num=0&list=%5Blist%5D&string=default-item&bool=true&num=1.0&oneOf=false&anyOf=default-value&enum_pattern=a';
         expect(request.url, equals(Uri.parse(uri)));
 
-        return Response('{}', 200, headers: {'content-type': 'application/json'});
+        return Response(
+          '{}',
+          200,
+          headers: {'content-type': 'application/json'},
+        );
       }),
     );
 

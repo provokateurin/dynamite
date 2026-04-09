@@ -15,34 +15,46 @@ class _$ContactSerializer implements StructuredSerializer<Contact> {
   final String wireName = 'Contact';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Contact object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Contact object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.name;
     if (value != null) {
       result
         ..add('name')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.url;
     if (value != null) {
       result
         ..add('url')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.email;
     if (value != null) {
       result
         ..add('email')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     return result;
   }
 
   @override
-  Contact deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Contact deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContactBuilder();
 
     final iterator = serialized.iterator;
@@ -52,13 +64,28 @@ class _$ContactSerializer implements StructuredSerializer<Contact> {
       final Object? value = iterator.current;
       switch (key) {
         case 'name':
-          result.name = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.name =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'url':
-          result.url = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.url =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'email':
-          result.email = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.email =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
       }
     }
@@ -75,11 +102,13 @@ class _$Contact extends Contact {
   @override
   final String? email;
 
-  factory _$Contact([void Function(ContactBuilder)? updates]) => (ContactBuilder()..update(updates))._build();
+  factory _$Contact([void Function(ContactBuilder)? updates]) =>
+      (ContactBuilder()..update(updates))._build();
 
   _$Contact._({this.name, this.url, this.email}) : super._();
   @override
-  Contact rebuild(void Function(ContactBuilder) updates) => (toBuilder()..update(updates)).build();
+  Contact rebuild(void Function(ContactBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   ContactBuilder toBuilder() => ContactBuilder()..replace(this);
@@ -87,7 +116,10 @@ class _$Contact extends Contact {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Contact && name == other.name && url == other.url && email == other.email;
+    return other is Contact &&
+        name == other.name &&
+        url == other.url &&
+        email == other.email;
   }
 
   @override
@@ -152,12 +184,7 @@ class ContactBuilder implements Builder<Contact, ContactBuilder> {
   Contact build() => _build();
 
   _$Contact _build() {
-    final _$result = _$v ??
-        _$Contact._(
-          name: name,
-          url: url,
-          email: email,
-        );
+    final _$result = _$v ?? _$Contact._(name: name, url: url, email: email);
     replace(_$result);
     return _$result;
   }

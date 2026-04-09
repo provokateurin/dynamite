@@ -38,7 +38,9 @@ class DynamiteLogger {
       return;
     }
 
-    log.warning('Can not work with multiple mime types right now. Using the first supported.');
+    log.warning(
+      'Can not work with multiple mime types right now. Using the first supported.',
+    );
     _multipleMimeType = true;
   }
 
@@ -49,7 +51,9 @@ class DynamiteLogger {
       return;
     }
 
-    log.warning('Can not work with more than one response schema. Generating the first one');
+    log.warning(
+      'Can not work with more than one response schema. Generating the first one',
+    );
     _multipleResponseSchemas = true;
   }
 }

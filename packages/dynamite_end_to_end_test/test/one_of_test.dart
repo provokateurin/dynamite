@@ -37,10 +37,7 @@ void main() {
     expect(object.toJson(), equals(json));
     expect($MixedOneOfExtension.fromJson(json), equals(object));
 
-    object = (
-      mixedOneOf1: null,
-      string: 'string',
-    );
+    object = (mixedOneOf1: null, string: 'string');
 
     json = 'string';
 
@@ -82,30 +79,21 @@ void main() {
   });
 
   test('OneOfIntDoubleOther', () {
-    OneOfIntDoubleOther object = (
-      $num: 0.5971645863260784,
-      string: null,
-    );
+    OneOfIntDoubleOther object = ($num: 0.5971645863260784, string: null);
 
     Object? json = 0.5971645863260784;
 
     expect(object.toJson(), equals(json));
     expect($OneOfIntDoubleOtherExtension.fromJson(json), equals(object));
 
-    object = (
-      $num: 361,
-      string: null,
-    );
+    object = ($num: 361, string: null);
 
     json = 361;
 
     expect(object.toJson(), equals(json));
     expect($OneOfIntDoubleOtherExtension.fromJson(json), equals(object));
 
-    object = (
-      $num: null,
-      string: 'string',
-    );
+    object = ($num: null, string: 'string');
 
     json = 'string';
 
@@ -125,7 +113,11 @@ void main() {
     expect($OneOfUnspecifiedArrayExtension.fromJson(json), equals(object));
 
     object = (
-      builtListJsonObject: BuiltList([JsonObject('value1'), JsonObject('value2'), JsonObject('value3')]),
+      builtListJsonObject: BuiltList([
+        JsonObject('value1'),
+        JsonObject('value2'),
+        JsonObject('value3'),
+      ]),
       oneOfUnspecifiedArray0: null,
     );
 

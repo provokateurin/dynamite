@@ -15,50 +15,73 @@ class _$InfoSerializer implements StructuredSerializer<Info> {
   final String wireName = 'Info';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Info object, {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Info object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'title',
-      serializers.serialize(object.title, specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.title,
+        specifiedType: const FullType(String),
+      ),
       'version',
-      serializers.serialize(object.version, specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.version,
+        specifiedType: const FullType(String),
+      ),
     ];
     Object? value;
     value = object.license;
     if (value != null) {
       result
         ..add('license')
-        ..add(serializers.serialize(value, specifiedType: const FullType(License)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(License)),
+        );
     }
     value = object.contact;
     if (value != null) {
       result
         ..add('contact')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Contact)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(Contact)),
+        );
     }
     value = object.description;
     if (value != null) {
       result
         ..add('description')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.termsOfService;
     if (value != null) {
       result
         ..add('termsOfService')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.summary;
     if (value != null) {
       result
         ..add('summary')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     return result;
   }
 
   @override
-  Info deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Info deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = InfoBuilder();
 
     final iterator = serialized.iterator;
@@ -68,25 +91,62 @@ class _$InfoSerializer implements StructuredSerializer<Info> {
       final Object? value = iterator.current;
       switch (key) {
         case 'title':
-          result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.title =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
         case 'version':
-          result.version = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.version =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
         case 'license':
-          result.license.replace(serializers.deserialize(value, specifiedType: const FullType(License))! as License);
+          result.license.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(License),
+                )!
+                as License,
+          );
           break;
         case 'contact':
-          result.contact.replace(serializers.deserialize(value, specifiedType: const FullType(Contact))! as Contact);
+          result.contact.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(Contact),
+                )!
+                as Contact,
+          );
           break;
         case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.description =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'termsOfService':
-          result.termsOfService = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.termsOfService =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'summary':
-          result.summary = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.summary =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
       }
     }
@@ -111,19 +171,21 @@ class _$Info extends Info {
   @override
   final String? summary;
 
-  factory _$Info([void Function(InfoBuilder)? updates]) => (InfoBuilder()..update(updates))._build();
+  factory _$Info([void Function(InfoBuilder)? updates]) =>
+      (InfoBuilder()..update(updates))._build();
 
-  _$Info._(
-      {required this.title,
-      required this.version,
-      this.license,
-      this.contact,
-      this.description,
-      this.termsOfService,
-      this.summary})
-      : super._();
+  _$Info._({
+    required this.title,
+    required this.version,
+    this.license,
+    this.contact,
+    this.description,
+    this.termsOfService,
+    this.summary,
+  }) : super._();
   @override
-  Info rebuild(void Function(InfoBuilder) updates) => (toBuilder()..update(updates)).build();
+  Info rebuild(void Function(InfoBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   InfoBuilder toBuilder() => InfoBuilder()..replace(this);
@@ -190,7 +252,8 @@ class InfoBuilder implements Builder<Info, InfoBuilder> {
 
   String? _termsOfService;
   String? get termsOfService => _$this._termsOfService;
-  set termsOfService(String? termsOfService) => _$this._termsOfService = termsOfService;
+  set termsOfService(String? termsOfService) =>
+      _$this._termsOfService = termsOfService;
 
   String? _summary;
   String? get summary => _$this._summary;
@@ -229,10 +292,19 @@ class InfoBuilder implements Builder<Info, InfoBuilder> {
   _$Info _build() {
     _$Info _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Info._(
-            title: BuiltValueNullFieldError.checkNotNull(title, r'Info', 'title'),
-            version: BuiltValueNullFieldError.checkNotNull(version, r'Info', 'version'),
+            title: BuiltValueNullFieldError.checkNotNull(
+              title,
+              r'Info',
+              'title',
+            ),
+            version: BuiltValueNullFieldError.checkNotNull(
+              version,
+              r'Info',
+              'version',
+            ),
             license: _license?.build(),
             contact: _contact?.build(),
             description: description,

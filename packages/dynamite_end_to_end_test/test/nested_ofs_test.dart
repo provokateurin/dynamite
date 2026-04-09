@@ -10,11 +10,15 @@ void main() {
         ..attributeNestedAllOf = 'attributeNestedAllOf'
         ..baseAnyOf = (
           $int: null,
-          baseAnyOf1: BaseAnyOf1((b) => b..attributeAnyOf = 'baseAnyOfAttributeAnyOfValue'),
+          baseAnyOf1: BaseAnyOf1(
+            (b) => b..attributeAnyOf = 'baseAnyOfAttributeAnyOfValue',
+          ),
         )
         ..baseOneOf = (
           $double: null,
-          baseOneOf1: BaseOneOf1((b) => b..attributeOneOf = 'baseAnyOfAttributeOneOfValue'),
+          baseOneOf1: BaseOneOf1(
+            (b) => b..attributeOneOf = 'baseAnyOfAttributeOneOfValue',
+          ),
         ),
     );
 
@@ -54,14 +58,14 @@ void main() {
     object = (
       baseAllOf: null,
       $double: null,
-      baseOneOf1: BaseOneOf1((b) => b..attributeOneOf = 'baseOneOfAttributeOneOfValue'),
+      baseOneOf1: BaseOneOf1(
+        (b) => b..attributeOneOf = 'baseOneOfAttributeOneOfValue',
+      ),
       baseAnyOf: null,
       baseNestedOneOf3: null,
     );
 
-    json = {
-      'attribute-oneOf': 'baseOneOfAttributeOneOfValue',
-    };
+    json = {'attribute-oneOf': 'baseOneOfAttributeOneOfValue'};
 
     expect(object.toJson(), equals(json));
     expect($BaseNestedOneOfExtension.fromJson(json), equals(object));
@@ -85,14 +89,14 @@ void main() {
       baseOneOf1: null,
       baseAnyOf: (
         $int: null,
-        baseAnyOf1: BaseAnyOf1((b) => b..attributeAnyOf = 'baseOneOfAttributeAnyOfValue'),
+        baseAnyOf1: BaseAnyOf1(
+          (b) => b..attributeAnyOf = 'baseOneOfAttributeAnyOfValue',
+        ),
       ),
       baseNestedOneOf3: null,
     );
 
-    json = {
-      'attribute-anyOf': 'baseOneOfAttributeAnyOfValue',
-    };
+    json = {'attribute-anyOf': 'baseOneOfAttributeAnyOfValue'};
 
     expect(object.toJson(), equals(json));
     expect($BaseNestedOneOfExtension.fromJson(json), equals(object));
@@ -101,10 +105,7 @@ void main() {
       baseAllOf: null,
       $double: null,
       baseOneOf1: null,
-      baseAnyOf: (
-        $int: 838,
-        baseAnyOf1: null,
-      ),
+      baseAnyOf: ($int: 838, baseAnyOf1: null),
       baseNestedOneOf3: null,
     );
 
@@ -119,7 +120,8 @@ void main() {
       baseOneOf1: null,
       baseAnyOf: null,
       baseNestedOneOf3: BaseNestedOneOf3(
-        (b) => b..attributeNestedOneOf = 'BaseNestedOneOf3AttributeNestedOneOfValue',
+        (b) => b
+          ..attributeNestedOneOf = 'BaseNestedOneOf3AttributeNestedOneOfValue',
       ),
     );
 
@@ -156,26 +158,23 @@ void main() {
       baseAllOf: null,
       baseOneOf: (
         $double: null,
-        baseOneOf1: BaseOneOf1((b) => b..attributeOneOf = 'baseOneOfAttributeOneOfValue'),
+        baseOneOf1: BaseOneOf1(
+          (b) => b..attributeOneOf = 'baseOneOfAttributeOneOfValue',
+        ),
       ),
       $int: null,
       baseAnyOf1: null,
       baseNestedAnyOf3: null,
     );
 
-    json = {
-      'attribute-oneOf': 'baseOneOfAttributeOneOfValue',
-    };
+    json = {'attribute-oneOf': 'baseOneOfAttributeOneOfValue'};
 
     expect(object.toJson(), equals(json));
     expect($BaseNestedAnyOfExtension.fromJson(json), equals(object));
 
     object = (
       baseAllOf: null,
-      baseOneOf: (
-        $double: 0.6945631603643333,
-        baseOneOf1: null,
-      ),
+      baseOneOf: ($double: 0.6945631603643333, baseOneOf1: null),
       $int: null,
       baseAnyOf1: null,
       baseNestedAnyOf3: null,
@@ -190,13 +189,13 @@ void main() {
       baseAllOf: null,
       baseOneOf: null,
       $int: null,
-      baseAnyOf1: BaseAnyOf1((b) => b..attributeAnyOf = 'baseOneOfAttributeAnyOfValue'),
+      baseAnyOf1: BaseAnyOf1(
+        (b) => b..attributeAnyOf = 'baseOneOfAttributeAnyOfValue',
+      ),
       baseNestedAnyOf3: null,
     );
 
-    json = {
-      'attribute-anyOf': 'baseOneOfAttributeAnyOfValue',
-    };
+    json = {'attribute-anyOf': 'baseOneOfAttributeAnyOfValue'};
 
     expect(object.toJson(), equals(json));
     expect($BaseNestedAnyOfExtension.fromJson(json), equals(object));
@@ -220,7 +219,8 @@ void main() {
       $int: null,
       baseAnyOf1: null,
       baseNestedAnyOf3: BaseNestedAnyOf3(
-        (b) => b..attributeNestedAnyOf = 'BaseNestedOneOf3AttributeNestedAnyOfValue',
+        (b) => b
+          ..attributeNestedAnyOf = 'BaseNestedOneOf3AttributeNestedAnyOfValue',
       ),
     );
 
@@ -233,20 +233,14 @@ void main() {
   });
 
   test('NestedOptimizedOneOf', () {
-    NestedOptimizedOneOf object = (
-      $num: 770,
-      baseOneOf1: null,
-    );
+    NestedOptimizedOneOf object = ($num: 770, baseOneOf1: null);
 
     Object? json = 770;
 
     expect(object.toJson(), equals(json));
     expect($NestedOptimizedOneOfExtension.fromJson(json), equals(object));
 
-    object = (
-      $num: 0.8345761329689448,
-      baseOneOf1: null,
-    );
+    object = ($num: 0.8345761329689448, baseOneOf1: null);
 
     json = 0.8345761329689448;
 
@@ -256,7 +250,9 @@ void main() {
     object = (
       $num: null,
       baseOneOf1: BaseOneOf1(
-        (b) => b..attributeOneOf = 'NestedOptimizedOneOfBaseOneOf1AttributeOneOfValue',
+        (b) => b
+          ..attributeOneOf =
+              'NestedOptimizedOneOfBaseOneOf1AttributeOneOfValue',
       ),
     );
 

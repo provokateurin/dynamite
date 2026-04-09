@@ -66,10 +66,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
   /// Specify [isFirst] according to this. When [withPrefix] is `false` the prefix will be dropped entirely.
   ///
   /// Returns `null` if the parameter does not support a uri template.
-  String? uriTemplate({
-    bool isFirst = true,
-    bool withPrefix = true,
-  }) {
+  String? uriTemplate({bool isFirst = true, bool withPrefix = true}) {
     final buffer = StringBuffer();
 
     final prefix = switch (style) {
@@ -77,7 +74,10 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
       ParameterStyle.label => '.',
       ParameterStyle.matrix => ';',
       ParameterStyle.form => isFirst ? '?' : '&',
-      ParameterStyle.spaceDelimited || ParameterStyle.pipeDelimited || ParameterStyle.deepObject || _ => null,
+      ParameterStyle.spaceDelimited ||
+      ParameterStyle.pipeDelimited ||
+      ParameterStyle.deepObject ||
+      _ => null,
     };
 
     if (prefix == null && style != ParameterStyle.simple) {
@@ -124,50 +124,74 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
     switch (b.style) {
       case ParameterStyle.matrix:
         if (b._$in != ParameterType.path) {
-          throw OpenAPISpecError('ParameterStyle.matrix can only be used in path parameters.');
+          throw OpenAPISpecError(
+            'ParameterStyle.matrix can only be used in path parameters.',
+          );
         }
       case ParameterStyle.label:
         if (b._$in != ParameterType.path) {
-          throw OpenAPISpecError('ParameterStyle.label can only be used in path parameters.');
+          throw OpenAPISpecError(
+            'ParameterStyle.label can only be used in path parameters.',
+          );
         }
 
       case ParameterStyle.form:
         if (b._$in != ParameterType.query && b._$in != ParameterType.cookie) {
-          throw OpenAPISpecError('ParameterStyle.form can only be used in query or cookie parameters.');
+          throw OpenAPISpecError(
+            'ParameterStyle.form can only be used in query or cookie parameters.',
+          );
         }
 
       case ParameterStyle.simple:
         if (b._$in != ParameterType.path && b._$in != ParameterType.header) {
-          throw OpenAPISpecError('ParameterStyle.simple can only be used in path or header parameters.');
+          throw OpenAPISpecError(
+            'ParameterStyle.simple can only be used in path or header parameters.',
+          );
         }
 
       case ParameterStyle.spaceDelimited:
-        if (b._$schema?.type != JsonSchemaType.array && b._$schema?.type != JsonSchemaType.object) {
-          throw OpenAPISpecError('ParameterStyle.spaceDelimited can only be used with array or object  schemas.');
+        if (b._$schema?.type != JsonSchemaType.array &&
+            b._$schema?.type != JsonSchemaType.object) {
+          throw OpenAPISpecError(
+            'ParameterStyle.spaceDelimited can only be used with array or object  schemas.',
+          );
         }
         if (b._$in != ParameterType.query) {
-          throw OpenAPISpecError('ParameterStyle.spaceDelimited can only be used in query parameters.');
+          throw OpenAPISpecError(
+            'ParameterStyle.spaceDelimited can only be used in query parameters.',
+          );
         }
 
       case ParameterStyle.pipeDelimited:
-        if (b._$schema?.type != JsonSchemaType.array && b._$schema?.type != JsonSchemaType.object) {
-          throw OpenAPISpecError('ParameterStyle.pipeDelimited can only be used with array or object schemas.');
+        if (b._$schema?.type != JsonSchemaType.array &&
+            b._$schema?.type != JsonSchemaType.object) {
+          throw OpenAPISpecError(
+            'ParameterStyle.pipeDelimited can only be used with array or object schemas.',
+          );
         }
         if (b._$in != ParameterType.query) {
-          throw OpenAPISpecError('ParameterStyle.pipeDelimited can only be used in query parameters.');
+          throw OpenAPISpecError(
+            'ParameterStyle.pipeDelimited can only be used in query parameters.',
+          );
         }
 
       case ParameterStyle.deepObject:
         if (b._$schema?.type != JsonSchemaType.object) {
-          throw OpenAPISpecError('ParameterStyle.deepObject can only be used with object schemas.');
+          throw OpenAPISpecError(
+            'ParameterStyle.deepObject can only be used with object schemas.',
+          );
         }
         if (b._$in != ParameterType.query) {
-          throw OpenAPISpecError('ParameterStyle.deepObject can only be used in query parameters.');
+          throw OpenAPISpecError(
+            'ParameterStyle.deepObject can only be used in query parameters.',
+          );
         }
     }
 
     if (b.$in == ParameterType.path && !b.required!) {
-      throw OpenAPISpecError('Path parameters must be required but ${b.name} is not.');
+      throw OpenAPISpecError(
+        'Path parameters must be required but ${b.name} is not.',
+      );
     }
 
     if (b.required! && b._$schema != null && b.$schema?.$default != null) {
@@ -175,7 +199,9 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
     }
 
     if (b._$schema != null && b._content != null) {
-      throw OpenAPISpecError('Only one of schema or content must be set in parameter ${b.name}.');
+      throw OpenAPISpecError(
+        'Only one of schema or content must be set in parameter ${b.name}.',
+      );
     }
   }
 
@@ -230,5 +256,6 @@ class ParameterStyle extends EnumClass {
 
   static ParameterStyle valueOf(String name) => _$parameterStyle(name);
 
-  static Serializer<ParameterStyle> get serializer => _$parameterStyleSerializer;
+  static Serializer<ParameterStyle> get serializer =>
+      _$parameterStyleSerializer;
 }

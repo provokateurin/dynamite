@@ -33,13 +33,7 @@ void main() {
         )
         ..listNever = ListBuilder<Never>()
         ..listString.update(
-          (b) => b
-            ..addAll([
-              'value1',
-              'value2',
-              'value3',
-              'value4',
-            ]),
+          (b) => b..addAll(['value1', 'value2', 'value3', 'value4']),
         ),
     );
 
@@ -72,13 +66,9 @@ void main() {
   });
 
   test(BuiltList<Never>, () {
-    final object = Base(
-      (b) => b..listNever = ListBuilder<Never>(),
-    );
+    final object = Base((b) => b..listNever = ListBuilder<Never>());
 
-    var json = <String, dynamic>{
-      'list-never': [],
-    };
+    var json = <String, dynamic>{'list-never': []};
 
     final revived = Base.fromJson(json);
     expect(object.toJson(), equals(json));
@@ -131,10 +121,7 @@ void main() {
           r'$bool-true': true,
           r'$bool-random': false,
         })
-        ..integer.addAll({
-          'integer-number-one': 731,
-          'integer-number-two': 409,
-        })
+        ..integer.addAll({'integer-number-one': 731, 'integer-number-two': 409})
         ..$double.addAll({
           r'$double-number-one': 0.7395758005898898,
           r'$double-number-two': 0.07190921677589679,
@@ -161,10 +148,7 @@ void main() {
           'stringBinary-2': utf8.encode('binary-data'),
         })
         ..list.addAll({
-          'list-1': BuiltList([
-            JsonObject(false),
-            JsonObject(133),
-          ]),
+          'list-1': BuiltList([JsonObject(false), JsonObject(133)]),
           'list-2': BuiltList([
             JsonObject(0.9626186091180242),
             JsonObject(true),
@@ -176,9 +160,7 @@ void main() {
           ]),
           'list-empty': BuiltList([]),
         })
-        ..listNever.addAll({
-          'listNever-1': BuiltList([]),
-        })
+        ..listNever.addAll({'listNever-1': BuiltList([])})
         ..listString.addAll({
           'listString': BuiltList(['value', 'value', 'value']),
           'listString-empty': BuiltList([]),
@@ -218,13 +200,27 @@ void main() {
         'object-double': 0.9987671605167462,
         'object-int': 498,
       },
-      'bool': {r'$bool-false': false, r'$bool-true': true, r'$bool-random': false},
+      'bool': {
+        r'$bool-false': false,
+        r'$bool-true': true,
+        r'$bool-random': false,
+      },
       'integer': {'integer-number-one': 731, 'integer-number-two': 409},
-      'double': {r'$double-number-one': 0.7395758005898898, r'$double-number-two': 0.07190921677589679},
+      'double': {
+        r'$double-number-one': 0.7395758005898898,
+        r'$double-number-two': 0.07190921677589679,
+      },
       'num': {r'$num-integer': 143, r'$num-double': 0.49730606728770244},
-      'string': {'string-1': 'true', 'string-2': '0.4251711007259674', 'string-3': '719'},
+      'string': {
+        'string-1': 'true',
+        'string-2': '0.4251711007259674',
+        'string-3': '719',
+      },
       'content-string': {'contentString-1': '995', 'contentString-2': '362'},
-      'string-binary': {'stringBinary-1': '', 'stringBinary-2': utf8.fuse(base64).encode('binary-data')},
+      'string-binary': {
+        'stringBinary-1': '',
+        'stringBinary-2': utf8.fuse(base64).encode('binary-data'),
+      },
       'list': {
         'list-1': [false, 133],
         'list-2': [0.9626186091180242, true, 'some-string'],

@@ -5,9 +5,7 @@ import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/models/type_result.dart';
 import 'package:source_helper/source_helper.dart';
 
-Iterable<Spec> buildOfsExtensions(
-  State state,
-) sync* {
+Iterable<Spec> buildOfsExtensions(State state) sync* {
   final typeResults = state.resolvedTypes.whereType<TypeResultSomeOf>().toSet();
 
   for (final result in typeResults) {
@@ -15,7 +13,10 @@ Iterable<Spec> buildOfsExtensions(
       continue;
     }
 
-    final serializerMethod = buildSerializer(result.className, '${result.typeName}Extension._serializer');
+    final serializerMethod = buildSerializer(
+      result.className,
+      '${result.typeName}Extension._serializer',
+    );
 
     final toJson = Method(
       (b) => b
@@ -43,10 +44,7 @@ Iterable<Spec> buildOfsExtensions(
         ..docs.add('/// Serialization extension for `${result.className}`.')
         ..name = '\$${result.className}Extension'
         ..on = refer(result.className)
-        ..methods.addAll([
-          serializerMethod,
-          toJson,
-        ]),
+        ..methods.addAll([serializerMethod, toJson]),
     );
   }
 
@@ -65,9 +63,7 @@ Iterable<Spec> buildOfsExtensions(
   }
 }
 
-Iterable<Spec> generateSomeOf(
-  TypeResultSomeOf result,
-) sync* {
+Iterable<Spec> generateSomeOf(TypeResultSomeOf result) sync* {
   final identifier = '_${result.typeName}';
   final results = result.optimizedSubTypes;
   final serializerName = '${identifier}Serializer';
@@ -102,10 +98,10 @@ Iterable<Spec> generateSomeOf(
       ..name = 'validateOneOf'
       ..returns = refer('void')
       ..lambda = true
-      ..body = refer('validateOneOf', 'package:dynamite_runtime/utils.dart').call([
-        refer('_values'),
-        refer('_names'),
-      ]).code;
+      ..body = refer(
+        'validateOneOf',
+        'package:dynamite_runtime/utils.dart',
+      ).call([refer('_values'), refer('_names')]).code;
   });
 
   final anyOfValidator = Method((b) {
@@ -114,16 +110,19 @@ Iterable<Spec> generateSomeOf(
       ..name = 'validateAnyOf'
       ..returns = refer('void')
       ..lambda = true
-      ..body = refer('validateAnyOf', 'package:dynamite_runtime/utils.dart').call([
-        refer('_values'),
-        refer('_names'),
-      ]).code;
+      ..body = refer(
+        'validateAnyOf',
+        'package:dynamite_runtime/utils.dart',
+      ).call([refer('_values'), refer('_names')]).code;
   });
 
   final serializerMethod = Method(
     (b) => b
       ..static = true
-      ..returns = refer('Serializer<$identifier>', 'package:built_value/serializer.dart')
+      ..returns = refer(
+        'Serializer<$identifier>',
+        'package:built_value/serializer.dart',
+      )
       ..type = MethodType.getter
       ..name = '_serializer'
       ..lambda = true
@@ -143,7 +142,9 @@ Iterable<Spec> generateSomeOf(
         ),
       )
       ..lambda = true
-      ..body = const Code(r'_$jsonSerializers.deserializeWith(_serializer, json)!'),
+      ..body = const Code(
+        r'_$jsonSerializers.deserializeWith(_serializer, json)!',
+      ),
   );
 
   final toJson = Method(
@@ -156,7 +157,9 @@ Iterable<Spec> generateSomeOf(
       ..name = 'toJson'
       ..returns = refer('Object?')
       ..lambda = true
-      ..body = const Code(r'_$jsonSerializers.serializeWith(_serializer, this)'),
+      ..body = const Code(
+        r'_$jsonSerializers.serializeWith(_serializer, this)',
+      ),
   );
 
   yield Extension(
@@ -211,7 +214,10 @@ Iterable<Spec> generateSomeOf(
               Parameter(
                 (b) => b
                   ..name = 'serializers'
-                  ..type = refer('Serializers', 'package:built_value/serializer.dart'),
+                  ..type = refer(
+                    'Serializers',
+                    'package:built_value/serializer.dart',
+                  ),
               ),
               Parameter(
                 (b) => b
@@ -234,20 +240,19 @@ Iterable<Spec> generateSomeOf(
             final result = field.key;
             final fieldName = field.value;
 
-            bodyBuilder.writeAll(
-              [
-                'value = object.$fieldName;',
-                'if (value != null) {',
-                '  return ${result.serialize('value', 'serializers')}!;',
-                '}',
-              ],
-              '\n',
-            );
+            bodyBuilder.writeAll([
+              'value = object.$fieldName;',
+              'if (value != null) {',
+              '  return ${result.serialize('value', 'serializers')}!;',
+              '}',
+            ], '\n');
           }
           bodyBuilder
             ..writeln()
             ..writeln('// Should not be possible after validation.')
-            ..writeln("throw StateError('Tried to serialize without any value.');");
+            ..writeln(
+              "throw StateError('Tried to serialize without any value.');",
+            );
 
           b.body = Code(bodyBuilder.toString());
         }),
@@ -260,7 +265,10 @@ Iterable<Spec> generateSomeOf(
               Parameter(
                 (b) => b
                   ..name = 'serializers'
-                  ..type = refer('Serializers', 'package:built_value/serializer.dart'),
+                  ..type = refer(
+                    'Serializers',
+                    'package:built_value/serializer.dart',
+                  ),
               ),
               Parameter(
                 (b) => b

@@ -23,9 +23,7 @@ void main() {
       (b) => b..attributeAllOf = 'attributeAllOfValue',
     );
 
-    final json = {
-      'attribute-allOf': 'attributeAllOfValue',
-    };
+    final json = {'attribute-allOf': 'attributeAllOfValue'};
 
     expect(object.toJson(), equals(json));
     expect(OneObjectAllOf.fromJson(json), equals(object));
@@ -38,10 +36,7 @@ void main() {
         ..$int = 62,
     );
 
-    final json = {
-      'String': 'stringValue',
-      'int': 62,
-    };
+    final json = {'String': 'stringValue', 'int': 62};
 
     expect(object.toJson(), equals(json));
     expect(PrimitiveAllOf.fromJson(json), equals(object));
@@ -64,13 +59,9 @@ void main() {
   });
 
   test('OneValueAllOf', () {
-    final object = OneValueAllOf(
-      (b) => b..string = 'stringValue',
-    );
+    final object = OneValueAllOf((b) => b..string = 'stringValue');
 
-    final json = {
-      'String': 'stringValue',
-    };
+    final json = {'String': 'stringValue'};
 
     expect(object.toJson(), equals(json));
     expect(OneValueAllOf.fromJson(json), equals(object));

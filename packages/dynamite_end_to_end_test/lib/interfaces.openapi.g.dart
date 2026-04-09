@@ -7,7 +7,8 @@ part of 'interfaces.openapi.dart';
 // **************************************************************************
 
 Serializer<Base> _$baseSerializer = _$BaseSerializer();
-Serializer<BaseInterface> _$baseInterfaceSerializer = _$BaseInterfaceSerializer();
+Serializer<BaseInterface> _$baseInterfaceSerializer =
+    _$BaseInterfaceSerializer();
 
 class _$BaseSerializer implements StructuredSerializer<Base> {
   @override
@@ -16,21 +17,30 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
   final String wireName = 'Base';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Base object, {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Base object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.attribute;
     if (value != null) {
       result
         ..add('attribute')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     return result;
   }
 
   @override
-  Base deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Base deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = BaseBuilder();
 
     final iterator = serialized.iterator;
@@ -40,7 +50,12 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
       final Object? value = iterator.current;
       switch (key) {
         case 'attribute':
-          result.attribute = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.attribute =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
       }
     }
@@ -56,28 +71,38 @@ class _$BaseInterfaceSerializer implements StructuredSerializer<BaseInterface> {
   final String wireName = 'BaseInterface';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, BaseInterface object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    BaseInterface object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.attribute;
     if (value != null) {
       result
         ..add('attribute')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.property;
     if (value != null) {
       result
         ..add('\$property')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     return result;
   }
 
   @override
-  BaseInterface deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  BaseInterface deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = BaseInterfaceBuilder();
 
     final iterator = serialized.iterator;
@@ -87,10 +112,20 @@ class _$BaseInterfaceSerializer implements StructuredSerializer<BaseInterface> {
       final Object? value = iterator.current;
       switch (key) {
         case 'attribute':
-          result.attribute = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.attribute =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case '\$property':
-          result.property = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.property =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
       }
     }
@@ -110,11 +145,13 @@ class _$Base extends Base {
   @override
   final String? attribute;
 
-  factory _$Base([void Function(BaseBuilder)? updates]) => (BaseBuilder()..update(updates))._build();
+  factory _$Base([void Function(BaseBuilder)? updates]) =>
+      (BaseBuilder()..update(updates))._build();
 
   _$Base._({this.attribute}) : super._();
   @override
-  Base rebuild(void Function(BaseBuilder) updates) => (toBuilder()..update(updates)).build();
+  Base rebuild(void Function(BaseBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   BaseBuilder toBuilder() => BaseBuilder()..replace(this);
@@ -135,7 +172,9 @@ class _$Base extends Base {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Base')..add('attribute', attribute)).toString();
+    return (newBuiltValueToStringHelper(
+      r'Base',
+    )..add('attribute', attribute)).toString();
   }
 }
 
@@ -174,10 +213,7 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
 
   _$Base _build() {
     Base._validate(this);
-    final _$result = _$v ??
-        _$Base._(
-          attribute: attribute,
-        );
+    final _$result = _$v ?? _$Base._(attribute: attribute);
     replace(_$result);
     return _$result;
   }
@@ -204,7 +240,8 @@ class _$BaseInterface extends BaseInterface {
 
   _$BaseInterface._({this.attribute, this.property}) : super._();
   @override
-  BaseInterface rebuild(void Function(BaseInterfaceBuilder) updates) => (toBuilder()..update(updates)).build();
+  BaseInterface rebuild(void Function(BaseInterfaceBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   BaseInterfaceBuilder toBuilder() => BaseInterfaceBuilder()..replace(this);
@@ -212,7 +249,9 @@ class _$BaseInterface extends BaseInterface {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is BaseInterface && attribute == other.attribute && property == other.property;
+    return other is BaseInterface &&
+        attribute == other.attribute &&
+        property == other.property;
   }
 
   @override
@@ -233,7 +272,10 @@ class _$BaseInterface extends BaseInterface {
   }
 }
 
-class BaseInterfaceBuilder implements Builder<BaseInterface, BaseInterfaceBuilder>, $BaseInterfaceInterfaceBuilder {
+class BaseInterfaceBuilder
+    implements
+        Builder<BaseInterface, BaseInterfaceBuilder>,
+        $BaseInterfaceInterfaceBuilder {
   _$BaseInterface? _$v;
 
   String? _attribute;
@@ -273,11 +315,8 @@ class BaseInterfaceBuilder implements Builder<BaseInterface, BaseInterfaceBuilde
 
   _$BaseInterface _build() {
     BaseInterface._validate(this);
-    final _$result = _$v ??
-        _$BaseInterface._(
-          attribute: attribute,
-          property: property,
-        );
+    final _$result =
+        _$v ?? _$BaseInterface._(attribute: attribute, property: property);
     replace(_$result);
     return _$result;
   }

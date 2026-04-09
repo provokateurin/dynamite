@@ -8,7 +8,8 @@ part of 'types.openapi.dart';
 
 Serializer<Base> _$baseSerializer = _$BaseSerializer();
 Serializer<Defaults> _$defaultsSerializer = _$DefaultsSerializer();
-Serializer<AdditionalProperties> _$additionalPropertiesSerializer = _$AdditionalPropertiesSerializer();
+Serializer<AdditionalProperties> _$additionalPropertiesSerializer =
+    _$AdditionalPropertiesSerializer();
 
 class _$BaseSerializer implements StructuredSerializer<Base> {
   @override
@@ -17,14 +18,20 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
   final String wireName = 'Base';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Base object, {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Base object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.$bool;
     if (value != null) {
       result
         ..add('bool')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(bool)),
+        );
     }
     value = object.integer;
     if (value != null) {
@@ -36,7 +43,9 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
     if (value != null) {
       result
         ..add('double')
-        ..add(serializers.serialize(value, specifiedType: const FullType(double)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(double)),
+        );
     }
     value = object.$num;
     if (value != null) {
@@ -48,45 +57,82 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
     if (value != null) {
       result
         ..add('string')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.contentString;
     if (value != null) {
       result
         ..add('content-string')
-        ..add(serializers.serialize(value, specifiedType: const FullType(ContentString, const [const FullType(int)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(ContentString, const [
+              const FullType(int),
+            ]),
+          ),
+        );
     }
     value = object.stringBinary;
     if (value != null) {
       result
         ..add('string-binary')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Uint8List)));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(Uint8List),
+          ),
+        );
     }
     value = object.list;
     if (value != null) {
       result
         ..add('list')
         ..add(
-            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(JsonObject),
+            ]),
+          ),
+        );
     }
     value = object.listNever;
     if (value != null) {
       result
         ..add('list-never')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Never)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(Never),
+            ]),
+          ),
+        );
     }
     value = object.listString;
     if (value != null) {
       result
         ..add('list-string')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(String),
+            ]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  Base deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Base deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = BaseBuilder();
 
     final iterator = serialized.iterator;
@@ -96,38 +142,90 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
       final Object? value = iterator.current;
       switch (key) {
         case 'bool':
-          result.$bool = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.$bool =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(bool),
+                  )
+                  as bool?;
           break;
         case 'integer':
-          result.integer = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.integer =
+              serializers.deserialize(value, specifiedType: const FullType(int))
+                  as int?;
           break;
         case 'double':
-          result.$double = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
+          result.$double =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(double),
+                  )
+                  as double?;
           break;
         case 'num':
-          result.$num = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          result.$num =
+              serializers.deserialize(value, specifiedType: const FullType(num))
+                  as num?;
           break;
         case 'string':
-          result.string = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.string =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'content-string':
-          result.contentString.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ContentString, const [const FullType(int)]))! as ContentString<int>);
+          result.contentString.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ContentString, const [
+                    const FullType(int),
+                  ]),
+                )!
+                as ContentString<int>,
+          );
           break;
         case 'string-binary':
-          result.stringBinary = serializers.deserialize(value, specifiedType: const FullType(Uint8List)) as Uint8List?;
+          result.stringBinary =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Uint8List),
+                  )
+                  as Uint8List?;
           break;
         case 'list':
-          result.list.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
+          result.list.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(JsonObject),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'list-never':
-          result.listNever.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Never)]))! as BuiltList<Object?>);
+          result.listNever.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(Never),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'list-string':
-          result.listString.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.listString.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(String),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -143,48 +241,91 @@ class _$DefaultsSerializer implements StructuredSerializer<Defaults> {
   final String wireName = 'Defaults';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Defaults object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Defaults object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'bool',
       serializers.serialize(object.$bool, specifiedType: const FullType(bool)),
       'integer',
       serializers.serialize(object.integer, specifiedType: const FullType(int)),
       'double',
-      serializers.serialize(object.$double, specifiedType: const FullType(double)),
+      serializers.serialize(
+        object.$double,
+        specifiedType: const FullType(double),
+      ),
       'num',
       serializers.serialize(object.$num, specifiedType: const FullType(num)),
       'string',
-      serializers.serialize(object.string, specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.string,
+        specifiedType: const FullType(String),
+      ),
       'string-binary',
-      serializers.serialize(object.stringBinary, specifiedType: const FullType(Uint8List)),
+      serializers.serialize(
+        object.stringBinary,
+        specifiedType: const FullType(Uint8List),
+      ),
       'list',
-      serializers.serialize(object.list, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])),
+      serializers.serialize(
+        object.list,
+        specifiedType: const FullType(BuiltList, const [
+          const FullType(JsonObject),
+        ]),
+      ),
       'list-never',
-      serializers.serialize(object.listNever, specifiedType: const FullType(BuiltList, const [const FullType(Never)])),
+      serializers.serialize(
+        object.listNever,
+        specifiedType: const FullType(BuiltList, const [const FullType(Never)]),
+      ),
       'list-string',
-      serializers.serialize(object.listString,
-          specifiedType: const FullType(BuiltList, const [const FullType(String)])),
+      serializers.serialize(
+        object.listString,
+        specifiedType: const FullType(BuiltList, const [
+          const FullType(String),
+        ]),
+      ),
       'object-map',
-      serializers.serialize(object.objectMap, specifiedType: const FullType(JsonObject)),
+      serializers.serialize(
+        object.objectMap,
+        specifiedType: const FullType(JsonObject),
+      ),
       'object-array',
-      serializers.serialize(object.objectArray, specifiedType: const FullType(JsonObject)),
+      serializers.serialize(
+        object.objectArray,
+        specifiedType: const FullType(JsonObject),
+      ),
       'object-bool',
-      serializers.serialize(object.objectBool, specifiedType: const FullType(JsonObject)),
+      serializers.serialize(
+        object.objectBool,
+        specifiedType: const FullType(JsonObject),
+      ),
     ];
     Object? value;
     value = object.contentString;
     if (value != null) {
       result
         ..add('content-string')
-        ..add(serializers.serialize(value, specifiedType: const FullType(ContentString, const [const FullType(int)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(ContentString, const [
+              const FullType(int),
+            ]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  Defaults deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Defaults deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DefaultsBuilder();
 
     final iterator = serialized.iterator;
@@ -194,47 +335,120 @@ class _$DefaultsSerializer implements StructuredSerializer<Defaults> {
       final Object? value = iterator.current;
       switch (key) {
         case 'bool':
-          result.$bool = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.$bool =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(bool),
+                  )!
+                  as bool;
           break;
         case 'integer':
-          result.integer = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.integer =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(int),
+                  )!
+                  as int;
           break;
         case 'double':
-          result.$double = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
+          result.$double =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(double),
+                  )!
+                  as double;
           break;
         case 'num':
-          result.$num = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.$num =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(num),
+                  )!
+                  as num;
           break;
         case 'string':
-          result.string = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.string =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
         case 'content-string':
-          result.contentString.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ContentString, const [const FullType(int)]))! as ContentString<int>);
+          result.contentString.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ContentString, const [
+                    const FullType(int),
+                  ]),
+                )!
+                as ContentString<int>,
+          );
           break;
         case 'string-binary':
-          result.stringBinary = serializers.deserialize(value, specifiedType: const FullType(Uint8List))! as Uint8List;
+          result.stringBinary =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Uint8List),
+                  )!
+                  as Uint8List;
           break;
         case 'list':
-          result.list.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
+          result.list.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(JsonObject),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'list-never':
-          result.listNever.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Never)]))! as BuiltList<Object?>);
+          result.listNever.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(Never),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'list-string':
-          result.listString.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.listString.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(String),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'object-map':
-          result.objectMap = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+          result.objectMap =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(JsonObject),
+                  )!
+                  as JsonObject;
           break;
         case 'object-array':
-          result.objectArray = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+          result.objectArray =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(JsonObject),
+                  )!
+                  as JsonObject;
           break;
         case 'object-bool':
-          result.objectBool = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+          result.objectBool =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(JsonObject),
+                  )!
+                  as JsonObject;
           break;
       }
     }
@@ -243,144 +457,248 @@ class _$DefaultsSerializer implements StructuredSerializer<Defaults> {
   }
 }
 
-class _$AdditionalPropertiesSerializer implements StructuredSerializer<AdditionalProperties> {
+class _$AdditionalPropertiesSerializer
+    implements StructuredSerializer<AdditionalProperties> {
   @override
-  final Iterable<Type> types = const [AdditionalProperties, _$AdditionalProperties];
+  final Iterable<Type> types = const [
+    AdditionalProperties,
+    _$AdditionalProperties,
+  ];
   @override
   final String wireName = 'AdditionalProperties';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, AdditionalProperties object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    AdditionalProperties object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.emptySchemaBool;
     if (value != null) {
       result
         ..add('empty_schema_bool')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(JsonObject),
+            ]),
+          ),
+        );
     }
     value = object.emptySchema;
     if (value != null) {
       result
         ..add('empty_schema')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(JsonObject),
+            ]),
+          ),
+        );
     }
     value = object.nested;
     if (value != null) {
       result
         ..add('nested')
-        ..add(serializers.serialize(value,
+        ..add(
+          serializers.serialize(
+            value,
             specifiedType: const FullType(BuiltMap, const [
               const FullType(String),
-              const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])
-            ])));
+              const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(JsonObject),
+              ]),
+            ]),
+          ),
+        );
     }
     value = object.object;
     if (value != null) {
       result
         ..add('Object')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(JsonObject),
+            ]),
+          ),
+        );
     }
     value = object.objectNullable;
     if (value != null) {
       result
         ..add('ObjectNullable')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltMap, const [const FullType(String), const FullType.nullable(JsonObject)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType.nullable(JsonObject),
+            ]),
+          ),
+        );
     }
     value = object.$bool;
     if (value != null) {
       result
         ..add('bool')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(bool)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(bool),
+            ]),
+          ),
+        );
     }
     value = object.integer;
     if (value != null) {
       result
         ..add('integer')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(int)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(int),
+            ]),
+          ),
+        );
     }
     value = object.$double;
     if (value != null) {
       result
         ..add('double')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(double)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(double),
+            ]),
+          ),
+        );
     }
     value = object.$num;
     if (value != null) {
       result
         ..add('num')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(num)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(num),
+            ]),
+          ),
+        );
     }
     value = object.string;
     if (value != null) {
       result
         ..add('string')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(String),
+            ]),
+          ),
+        );
     }
     value = object.contentString;
     if (value != null) {
       result
         ..add('content-string')
-        ..add(serializers.serialize(value,
+        ..add(
+          serializers.serialize(
+            value,
             specifiedType: const FullType(BuiltMap, const [
               const FullType(String),
-              const FullType.nullable(ContentString, const [const FullType(int)])
-            ])));
+              const FullType.nullable(ContentString, const [
+                const FullType(int),
+              ]),
+            ]),
+          ),
+        );
     }
     value = object.stringBinary;
     if (value != null) {
       result
         ..add('string-binary')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Uint8List)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(Uint8List),
+            ]),
+          ),
+        );
     }
     value = object.list;
     if (value != null) {
       result
         ..add('list')
-        ..add(serializers.serialize(value,
+        ..add(
+          serializers.serialize(
+            value,
             specifiedType: const FullType(BuiltMap, const [
               const FullType(String),
-              const FullType(BuiltList, const [const FullType(JsonObject)])
-            ])));
+              const FullType(BuiltList, const [const FullType(JsonObject)]),
+            ]),
+          ),
+        );
     }
     value = object.listNever;
     if (value != null) {
       result
         ..add('list-never')
-        ..add(serializers.serialize(value,
+        ..add(
+          serializers.serialize(
+            value,
             specifiedType: const FullType(BuiltMap, const [
               const FullType(String),
-              const FullType(BuiltList, const [const FullType(Never)])
-            ])));
+              const FullType(BuiltList, const [const FullType(Never)]),
+            ]),
+          ),
+        );
     }
     value = object.listString;
     if (value != null) {
       result
         ..add('list-string')
-        ..add(serializers.serialize(value,
+        ..add(
+          serializers.serialize(
+            value,
             specifiedType: const FullType(BuiltMap, const [
               const FullType(String),
-              const FullType(BuiltList, const [const FullType(String)])
-            ])));
+              const FullType(BuiltList, const [const FullType(String)]),
+            ]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  AdditionalProperties deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  AdditionalProperties deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = AdditionalPropertiesBuilder();
 
     final iterator = serialized.iterator;
@@ -390,80 +708,174 @@ class _$AdditionalPropertiesSerializer implements StructuredSerializer<Additiona
       final Object? value = iterator.current;
       switch (key) {
         case 'empty_schema_bool':
-          result.emptySchemaBool.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]))!);
+          result.emptySchemaBool.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(JsonObject),
+              ]),
+            )!,
+          );
           break;
         case 'empty_schema':
-          result.emptySchema.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]))!);
+          result.emptySchema.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(JsonObject),
+              ]),
+            )!,
+          );
           break;
         case 'nested':
-          result.nested.replace(serializers.deserialize(value,
+          result.nested.replace(
+            serializers.deserialize(
+              value,
               specifiedType: const FullType(BuiltMap, const [
                 const FullType(String),
-                const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])
-              ]))!);
+                const FullType(BuiltMap, const [
+                  const FullType(String),
+                  const FullType(JsonObject),
+                ]),
+              ]),
+            )!,
+          );
           break;
         case 'Object':
-          result.object.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]))!);
+          result.object.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(JsonObject),
+              ]),
+            )!,
+          );
           break;
         case 'ObjectNullable':
-          result.objectNullable.replace(serializers.deserialize(value,
-              specifiedType:
-                  const FullType(BuiltMap, const [const FullType(String), const FullType.nullable(JsonObject)]))!);
+          result.objectNullable.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType.nullable(JsonObject),
+              ]),
+            )!,
+          );
           break;
         case 'bool':
-          result.$bool.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(bool)]))!);
+          result.$bool.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(bool),
+              ]),
+            )!,
+          );
           break;
         case 'integer':
-          result.integer.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(int)]))!);
+          result.integer.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(int),
+              ]),
+            )!,
+          );
           break;
         case 'double':
-          result.$double.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(double)]))!);
+          result.$double.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(double),
+              ]),
+            )!,
+          );
           break;
         case 'num':
-          result.$num.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(num)]))!);
+          result.$num.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(num),
+              ]),
+            )!,
+          );
           break;
         case 'string':
-          result.string.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]))!);
+          result.string.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(String),
+              ]),
+            )!,
+          );
           break;
         case 'content-string':
-          result.contentString.replace(serializers.deserialize(value,
+          result.contentString.replace(
+            serializers.deserialize(
+              value,
               specifiedType: const FullType(BuiltMap, const [
                 const FullType(String),
-                const FullType.nullable(ContentString, const [const FullType(int)])
-              ]))!);
+                const FullType.nullable(ContentString, const [
+                  const FullType(int),
+                ]),
+              ]),
+            )!,
+          );
           break;
         case 'string-binary':
-          result.stringBinary.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Uint8List)]))!);
+          result.stringBinary.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(Uint8List),
+              ]),
+            )!,
+          );
           break;
         case 'list':
-          result.list.replace(serializers.deserialize(value,
+          result.list.replace(
+            serializers.deserialize(
+              value,
               specifiedType: const FullType(BuiltMap, const [
                 const FullType(String),
-                const FullType(BuiltList, const [const FullType(JsonObject)])
-              ]))!);
+                const FullType(BuiltList, const [const FullType(JsonObject)]),
+              ]),
+            )!,
+          );
           break;
         case 'list-never':
-          result.listNever.replace(serializers.deserialize(value,
+          result.listNever.replace(
+            serializers.deserialize(
+              value,
               specifiedType: const FullType(BuiltMap, const [
                 const FullType(String),
-                const FullType(BuiltList, const [const FullType(Never)])
-              ]))!);
+                const FullType(BuiltList, const [const FullType(Never)]),
+              ]),
+            )!,
+          );
           break;
         case 'list-string':
-          result.listString.replace(serializers.deserialize(value,
+          result.listString.replace(
+            serializers.deserialize(
+              value,
               specifiedType: const FullType(BuiltMap, const [
                 const FullType(String),
-                const FullType(BuiltList, const [const FullType(String)])
-              ]))!);
+                const FullType(BuiltList, const [const FullType(String)]),
+              ]),
+            )!,
+          );
           break;
       }
     }
@@ -528,22 +940,24 @@ class _$Base extends Base {
   @override
   final BuiltList<String>? listString;
 
-  factory _$Base([void Function(BaseBuilder)? updates]) => (BaseBuilder()..update(updates))._build();
+  factory _$Base([void Function(BaseBuilder)? updates]) =>
+      (BaseBuilder()..update(updates))._build();
 
-  _$Base._(
-      {this.$bool,
-      this.integer,
-      this.$double,
-      this.$num,
-      this.string,
-      this.contentString,
-      this.stringBinary,
-      this.list,
-      this.listNever,
-      this.listString})
-      : super._();
+  _$Base._({
+    this.$bool,
+    this.integer,
+    this.$double,
+    this.$num,
+    this.string,
+    this.contentString,
+    this.stringBinary,
+    this.list,
+    this.listNever,
+    this.listString,
+  }) : super._();
   @override
-  Base rebuild(void Function(BaseBuilder) updates) => (toBuilder()..update(updates)).build();
+  Base rebuild(void Function(BaseBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   BaseBuilder toBuilder() => BaseBuilder()..replace(this);
@@ -622,24 +1036,32 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
   set string(covariant String? string) => _$this._string = string;
 
   ContentStringBuilder<int>? _contentString;
-  ContentStringBuilder<int> get contentString => _$this._contentString ??= ContentStringBuilder<int>();
-  set contentString(covariant ContentStringBuilder<int>? contentString) => _$this._contentString = contentString;
+  ContentStringBuilder<int> get contentString =>
+      _$this._contentString ??= ContentStringBuilder<int>();
+  set contentString(covariant ContentStringBuilder<int>? contentString) =>
+      _$this._contentString = contentString;
 
   Uint8List? _stringBinary;
   Uint8List? get stringBinary => _$this._stringBinary;
-  set stringBinary(covariant Uint8List? stringBinary) => _$this._stringBinary = stringBinary;
+  set stringBinary(covariant Uint8List? stringBinary) =>
+      _$this._stringBinary = stringBinary;
 
   ListBuilder<JsonObject>? _list;
-  ListBuilder<JsonObject> get list => _$this._list ??= ListBuilder<JsonObject>();
+  ListBuilder<JsonObject> get list =>
+      _$this._list ??= ListBuilder<JsonObject>();
   set list(covariant ListBuilder<JsonObject>? list) => _$this._list = list;
 
   ListBuilder<Never>? _listNever;
-  ListBuilder<Never> get listNever => _$this._listNever ??= ListBuilder<Never>();
-  set listNever(covariant ListBuilder<Never>? listNever) => _$this._listNever = listNever;
+  ListBuilder<Never> get listNever =>
+      _$this._listNever ??= ListBuilder<Never>();
+  set listNever(covariant ListBuilder<Never>? listNever) =>
+      _$this._listNever = listNever;
 
   ListBuilder<String>? _listString;
-  ListBuilder<String> get listString => _$this._listString ??= ListBuilder<String>();
-  set listString(covariant ListBuilder<String>? listString) => _$this._listString = listString;
+  ListBuilder<String> get listString =>
+      _$this._listString ??= ListBuilder<String>();
+  set listString(covariant ListBuilder<String>? listString) =>
+      _$this._listString = listString;
 
   BaseBuilder() {
     Base._defaults(this);
@@ -680,7 +1102,8 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
     Base._validate(this);
     _$Base _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Base._(
             $bool: $bool,
             integer: integer,
@@ -786,25 +1209,27 @@ class _$Defaults extends Defaults {
   @override
   final JsonObject objectBool;
 
-  factory _$Defaults([void Function(DefaultsBuilder)? updates]) => (DefaultsBuilder()..update(updates))._build();
+  factory _$Defaults([void Function(DefaultsBuilder)? updates]) =>
+      (DefaultsBuilder()..update(updates))._build();
 
-  _$Defaults._(
-      {required this.$bool,
-      required this.integer,
-      required this.$double,
-      required this.$num,
-      required this.string,
-      this.contentString,
-      required this.stringBinary,
-      required this.list,
-      required this.listNever,
-      required this.listString,
-      required this.objectMap,
-      required this.objectArray,
-      required this.objectBool})
-      : super._();
+  _$Defaults._({
+    required this.$bool,
+    required this.integer,
+    required this.$double,
+    required this.$num,
+    required this.string,
+    this.contentString,
+    required this.stringBinary,
+    required this.list,
+    required this.listNever,
+    required this.listString,
+    required this.objectMap,
+    required this.objectArray,
+    required this.objectBool,
+  }) : super._();
   @override
-  Defaults rebuild(void Function(DefaultsBuilder) updates) => (toBuilder()..update(updates)).build();
+  Defaults rebuild(void Function(DefaultsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   DefaultsBuilder toBuilder() => DefaultsBuilder()..replace(this);
@@ -868,7 +1293,8 @@ class _$Defaults extends Defaults {
   }
 }
 
-class DefaultsBuilder implements Builder<Defaults, DefaultsBuilder>, $DefaultsInterfaceBuilder {
+class DefaultsBuilder
+    implements Builder<Defaults, DefaultsBuilder>, $DefaultsInterfaceBuilder {
   _$Defaults? _$v;
 
   bool? _$bool;
@@ -892,36 +1318,47 @@ class DefaultsBuilder implements Builder<Defaults, DefaultsBuilder>, $DefaultsIn
   set string(covariant String? string) => _$this._string = string;
 
   ContentStringBuilder<int>? _contentString;
-  ContentStringBuilder<int> get contentString => _$this._contentString ??= ContentStringBuilder<int>();
-  set contentString(covariant ContentStringBuilder<int>? contentString) => _$this._contentString = contentString;
+  ContentStringBuilder<int> get contentString =>
+      _$this._contentString ??= ContentStringBuilder<int>();
+  set contentString(covariant ContentStringBuilder<int>? contentString) =>
+      _$this._contentString = contentString;
 
   Uint8List? _stringBinary;
   Uint8List? get stringBinary => _$this._stringBinary;
-  set stringBinary(covariant Uint8List? stringBinary) => _$this._stringBinary = stringBinary;
+  set stringBinary(covariant Uint8List? stringBinary) =>
+      _$this._stringBinary = stringBinary;
 
   ListBuilder<JsonObject>? _list;
-  ListBuilder<JsonObject> get list => _$this._list ??= ListBuilder<JsonObject>();
+  ListBuilder<JsonObject> get list =>
+      _$this._list ??= ListBuilder<JsonObject>();
   set list(covariant ListBuilder<JsonObject>? list) => _$this._list = list;
 
   ListBuilder<Never>? _listNever;
-  ListBuilder<Never> get listNever => _$this._listNever ??= ListBuilder<Never>();
-  set listNever(covariant ListBuilder<Never>? listNever) => _$this._listNever = listNever;
+  ListBuilder<Never> get listNever =>
+      _$this._listNever ??= ListBuilder<Never>();
+  set listNever(covariant ListBuilder<Never>? listNever) =>
+      _$this._listNever = listNever;
 
   ListBuilder<String>? _listString;
-  ListBuilder<String> get listString => _$this._listString ??= ListBuilder<String>();
-  set listString(covariant ListBuilder<String>? listString) => _$this._listString = listString;
+  ListBuilder<String> get listString =>
+      _$this._listString ??= ListBuilder<String>();
+  set listString(covariant ListBuilder<String>? listString) =>
+      _$this._listString = listString;
 
   JsonObject? _objectMap;
   JsonObject? get objectMap => _$this._objectMap;
-  set objectMap(covariant JsonObject? objectMap) => _$this._objectMap = objectMap;
+  set objectMap(covariant JsonObject? objectMap) =>
+      _$this._objectMap = objectMap;
 
   JsonObject? _objectArray;
   JsonObject? get objectArray => _$this._objectArray;
-  set objectArray(covariant JsonObject? objectArray) => _$this._objectArray = objectArray;
+  set objectArray(covariant JsonObject? objectArray) =>
+      _$this._objectArray = objectArray;
 
   JsonObject? _objectBool;
   JsonObject? get objectBool => _$this._objectBool;
-  set objectBool(covariant JsonObject? objectBool) => _$this._objectBool = objectBool;
+  set objectBool(covariant JsonObject? objectBool) =>
+      _$this._objectBool = objectBool;
 
   DefaultsBuilder() {
     Defaults._defaults(this);
@@ -965,21 +1402,58 @@ class DefaultsBuilder implements Builder<Defaults, DefaultsBuilder>, $DefaultsIn
     Defaults._validate(this);
     _$Defaults _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Defaults._(
-            $bool: BuiltValueNullFieldError.checkNotNull($bool, r'Defaults', '\$bool'),
-            integer: BuiltValueNullFieldError.checkNotNull(integer, r'Defaults', 'integer'),
-            $double: BuiltValueNullFieldError.checkNotNull($double, r'Defaults', '\$double'),
-            $num: BuiltValueNullFieldError.checkNotNull($num, r'Defaults', '\$num'),
-            string: BuiltValueNullFieldError.checkNotNull(string, r'Defaults', 'string'),
+            $bool: BuiltValueNullFieldError.checkNotNull(
+              $bool,
+              r'Defaults',
+              '\$bool',
+            ),
+            integer: BuiltValueNullFieldError.checkNotNull(
+              integer,
+              r'Defaults',
+              'integer',
+            ),
+            $double: BuiltValueNullFieldError.checkNotNull(
+              $double,
+              r'Defaults',
+              '\$double',
+            ),
+            $num: BuiltValueNullFieldError.checkNotNull(
+              $num,
+              r'Defaults',
+              '\$num',
+            ),
+            string: BuiltValueNullFieldError.checkNotNull(
+              string,
+              r'Defaults',
+              'string',
+            ),
             contentString: _contentString?.build(),
-            stringBinary: BuiltValueNullFieldError.checkNotNull(stringBinary, r'Defaults', 'stringBinary'),
+            stringBinary: BuiltValueNullFieldError.checkNotNull(
+              stringBinary,
+              r'Defaults',
+              'stringBinary',
+            ),
             list: list.build(),
             listNever: listNever.build(),
             listString: listString.build(),
-            objectMap: BuiltValueNullFieldError.checkNotNull(objectMap, r'Defaults', 'objectMap'),
-            objectArray: BuiltValueNullFieldError.checkNotNull(objectArray, r'Defaults', 'objectArray'),
-            objectBool: BuiltValueNullFieldError.checkNotNull(objectBool, r'Defaults', 'objectBool'),
+            objectMap: BuiltValueNullFieldError.checkNotNull(
+              objectMap,
+              r'Defaults',
+              'objectMap',
+            ),
+            objectArray: BuiltValueNullFieldError.checkNotNull(
+              objectArray,
+              r'Defaults',
+              'objectArray',
+            ),
+            objectBool: BuiltValueNullFieldError.checkNotNull(
+              objectBool,
+              r'Defaults',
+              'objectBool',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -994,7 +1468,11 @@ class DefaultsBuilder implements Builder<Defaults, DefaultsBuilder>, $DefaultsIn
         _$failedField = 'listString';
         listString.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Defaults', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+          r'Defaults',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -1084,32 +1562,35 @@ class _$AdditionalProperties extends AdditionalProperties {
   @override
   final BuiltMap<String, BuiltList<String>>? listString;
 
-  factory _$AdditionalProperties([void Function(AdditionalPropertiesBuilder)? updates]) =>
-      (AdditionalPropertiesBuilder()..update(updates))._build();
+  factory _$AdditionalProperties([
+    void Function(AdditionalPropertiesBuilder)? updates,
+  ]) => (AdditionalPropertiesBuilder()..update(updates))._build();
 
-  _$AdditionalProperties._(
-      {this.emptySchemaBool,
-      this.emptySchema,
-      this.nested,
-      this.object,
-      this.objectNullable,
-      this.$bool,
-      this.integer,
-      this.$double,
-      this.$num,
-      this.string,
-      this.contentString,
-      this.stringBinary,
-      this.list,
-      this.listNever,
-      this.listString})
-      : super._();
+  _$AdditionalProperties._({
+    this.emptySchemaBool,
+    this.emptySchema,
+    this.nested,
+    this.object,
+    this.objectNullable,
+    this.$bool,
+    this.integer,
+    this.$double,
+    this.$num,
+    this.string,
+    this.contentString,
+    this.stringBinary,
+    this.list,
+    this.listNever,
+    this.listString,
+  }) : super._();
   @override
-  AdditionalProperties rebuild(void Function(AdditionalPropertiesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  AdditionalProperties rebuild(
+    void Function(AdditionalPropertiesBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
-  AdditionalPropertiesBuilder toBuilder() => AdditionalPropertiesBuilder()..replace(this);
+  AdditionalPropertiesBuilder toBuilder() =>
+      AdditionalPropertiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1177,74 +1658,102 @@ class _$AdditionalProperties extends AdditionalProperties {
 }
 
 class AdditionalPropertiesBuilder
-    implements Builder<AdditionalProperties, AdditionalPropertiesBuilder>, $AdditionalPropertiesInterfaceBuilder {
+    implements
+        Builder<AdditionalProperties, AdditionalPropertiesBuilder>,
+        $AdditionalPropertiesInterfaceBuilder {
   _$AdditionalProperties? _$v;
 
   MapBuilder<String, JsonObject>? _emptySchemaBool;
-  MapBuilder<String, JsonObject> get emptySchemaBool => _$this._emptySchemaBool ??= MapBuilder<String, JsonObject>();
-  set emptySchemaBool(covariant MapBuilder<String, JsonObject>? emptySchemaBool) =>
-      _$this._emptySchemaBool = emptySchemaBool;
+  MapBuilder<String, JsonObject> get emptySchemaBool =>
+      _$this._emptySchemaBool ??= MapBuilder<String, JsonObject>();
+  set emptySchemaBool(
+    covariant MapBuilder<String, JsonObject>? emptySchemaBool,
+  ) => _$this._emptySchemaBool = emptySchemaBool;
 
   MapBuilder<String, JsonObject>? _emptySchema;
-  MapBuilder<String, JsonObject> get emptySchema => _$this._emptySchema ??= MapBuilder<String, JsonObject>();
-  set emptySchema(covariant MapBuilder<String, JsonObject>? emptySchema) => _$this._emptySchema = emptySchema;
+  MapBuilder<String, JsonObject> get emptySchema =>
+      _$this._emptySchema ??= MapBuilder<String, JsonObject>();
+  set emptySchema(covariant MapBuilder<String, JsonObject>? emptySchema) =>
+      _$this._emptySchema = emptySchema;
 
   MapBuilder<String, BuiltMap<String, JsonObject>>? _nested;
   MapBuilder<String, BuiltMap<String, JsonObject>> get nested =>
       _$this._nested ??= MapBuilder<String, BuiltMap<String, JsonObject>>();
-  set nested(covariant MapBuilder<String, BuiltMap<String, JsonObject>>? nested) => _$this._nested = nested;
+  set nested(
+    covariant MapBuilder<String, BuiltMap<String, JsonObject>>? nested,
+  ) => _$this._nested = nested;
 
   MapBuilder<String, JsonObject>? _object;
-  MapBuilder<String, JsonObject> get object => _$this._object ??= MapBuilder<String, JsonObject>();
-  set object(covariant MapBuilder<String, JsonObject>? object) => _$this._object = object;
+  MapBuilder<String, JsonObject> get object =>
+      _$this._object ??= MapBuilder<String, JsonObject>();
+  set object(covariant MapBuilder<String, JsonObject>? object) =>
+      _$this._object = object;
 
   MapBuilder<String, JsonObject?>? _objectNullable;
-  MapBuilder<String, JsonObject?> get objectNullable => _$this._objectNullable ??= MapBuilder<String, JsonObject?>();
-  set objectNullable(covariant MapBuilder<String, JsonObject?>? objectNullable) =>
-      _$this._objectNullable = objectNullable;
+  MapBuilder<String, JsonObject?> get objectNullable =>
+      _$this._objectNullable ??= MapBuilder<String, JsonObject?>();
+  set objectNullable(
+    covariant MapBuilder<String, JsonObject?>? objectNullable,
+  ) => _$this._objectNullable = objectNullable;
 
   MapBuilder<String, bool>? _$bool;
-  MapBuilder<String, bool> get $bool => _$this._$bool ??= MapBuilder<String, bool>();
+  MapBuilder<String, bool> get $bool =>
+      _$this._$bool ??= MapBuilder<String, bool>();
   set $bool(covariant MapBuilder<String, bool>? $bool) => _$this._$bool = $bool;
 
   MapBuilder<String, int>? _integer;
-  MapBuilder<String, int> get integer => _$this._integer ??= MapBuilder<String, int>();
-  set integer(covariant MapBuilder<String, int>? integer) => _$this._integer = integer;
+  MapBuilder<String, int> get integer =>
+      _$this._integer ??= MapBuilder<String, int>();
+  set integer(covariant MapBuilder<String, int>? integer) =>
+      _$this._integer = integer;
 
   MapBuilder<String, double>? _$double;
-  MapBuilder<String, double> get $double => _$this._$double ??= MapBuilder<String, double>();
-  set $double(covariant MapBuilder<String, double>? $double) => _$this._$double = $double;
+  MapBuilder<String, double> get $double =>
+      _$this._$double ??= MapBuilder<String, double>();
+  set $double(covariant MapBuilder<String, double>? $double) =>
+      _$this._$double = $double;
 
   MapBuilder<String, num>? _$num;
-  MapBuilder<String, num> get $num => _$this._$num ??= MapBuilder<String, num>();
+  MapBuilder<String, num> get $num =>
+      _$this._$num ??= MapBuilder<String, num>();
   set $num(covariant MapBuilder<String, num>? $num) => _$this._$num = $num;
 
   MapBuilder<String, String>? _string;
-  MapBuilder<String, String> get string => _$this._string ??= MapBuilder<String, String>();
-  set string(covariant MapBuilder<String, String>? string) => _$this._string = string;
+  MapBuilder<String, String> get string =>
+      _$this._string ??= MapBuilder<String, String>();
+  set string(covariant MapBuilder<String, String>? string) =>
+      _$this._string = string;
 
   MapBuilder<String, ContentString<int>?>? _contentString;
   MapBuilder<String, ContentString<int>?> get contentString =>
       _$this._contentString ??= MapBuilder<String, ContentString<int>?>();
-  set contentString(covariant MapBuilder<String, ContentString<int>?>? contentString) =>
-      _$this._contentString = contentString;
+  set contentString(
+    covariant MapBuilder<String, ContentString<int>?>? contentString,
+  ) => _$this._contentString = contentString;
 
   MapBuilder<String, Uint8List>? _stringBinary;
-  MapBuilder<String, Uint8List> get stringBinary => _$this._stringBinary ??= MapBuilder<String, Uint8List>();
-  set stringBinary(covariant MapBuilder<String, Uint8List>? stringBinary) => _$this._stringBinary = stringBinary;
+  MapBuilder<String, Uint8List> get stringBinary =>
+      _$this._stringBinary ??= MapBuilder<String, Uint8List>();
+  set stringBinary(covariant MapBuilder<String, Uint8List>? stringBinary) =>
+      _$this._stringBinary = stringBinary;
 
   MapBuilder<String, BuiltList<JsonObject>>? _list;
-  MapBuilder<String, BuiltList<JsonObject>> get list => _$this._list ??= MapBuilder<String, BuiltList<JsonObject>>();
-  set list(covariant MapBuilder<String, BuiltList<JsonObject>>? list) => _$this._list = list;
+  MapBuilder<String, BuiltList<JsonObject>> get list =>
+      _$this._list ??= MapBuilder<String, BuiltList<JsonObject>>();
+  set list(covariant MapBuilder<String, BuiltList<JsonObject>>? list) =>
+      _$this._list = list;
 
   MapBuilder<String, BuiltList<Never>>? _listNever;
-  MapBuilder<String, BuiltList<Never>> get listNever => _$this._listNever ??= MapBuilder<String, BuiltList<Never>>();
-  set listNever(covariant MapBuilder<String, BuiltList<Never>>? listNever) => _$this._listNever = listNever;
+  MapBuilder<String, BuiltList<Never>> get listNever =>
+      _$this._listNever ??= MapBuilder<String, BuiltList<Never>>();
+  set listNever(covariant MapBuilder<String, BuiltList<Never>>? listNever) =>
+      _$this._listNever = listNever;
 
   MapBuilder<String, BuiltList<String>>? _listString;
   MapBuilder<String, BuiltList<String>> get listString =>
       _$this._listString ??= MapBuilder<String, BuiltList<String>>();
-  set listString(covariant MapBuilder<String, BuiltList<String>>? listString) => _$this._listString = listString;
+  set listString(covariant MapBuilder<String, BuiltList<String>>? listString) =>
+      _$this._listString = listString;
 
   AdditionalPropertiesBuilder() {
     AdditionalProperties._defaults(this);
@@ -1290,7 +1799,8 @@ class AdditionalPropertiesBuilder
     AdditionalProperties._validate(this);
     _$AdditionalProperties _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$AdditionalProperties._(
             emptySchemaBool: _emptySchemaBool?.build(),
             emptySchema: _emptySchema?.build(),
@@ -1342,7 +1852,11 @@ class AdditionalPropertiesBuilder
         _$failedField = 'listString';
         _listString?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'AdditionalProperties', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+          r'AdditionalProperties',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }

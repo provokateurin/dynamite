@@ -1,6 +1,8 @@
 base:
   output: "analysis_options.yaml"
   preset:
+    formatter:
+      page_width: 120
     analyzer:
       language:
         strict-casts: true

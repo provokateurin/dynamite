@@ -6,38 +6,54 @@ part of 'request_body.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GetObjectRequestApplicationJson> _$getObjectRequestApplicationJsonSerializer =
+Serializer<GetObjectRequestApplicationJson>
+_$getObjectRequestApplicationJsonSerializer =
     _$GetObjectRequestApplicationJsonSerializer();
-Serializer<PutObjectRequestApplicationJson> _$putObjectRequestApplicationJsonSerializer =
+Serializer<PutObjectRequestApplicationJson>
+_$putObjectRequestApplicationJsonSerializer =
     _$PutObjectRequestApplicationJsonSerializer();
-Serializer<PostObjectRequestApplicationJson> _$postObjectRequestApplicationJsonSerializer =
+Serializer<PostObjectRequestApplicationJson>
+_$postObjectRequestApplicationJsonSerializer =
     _$PostObjectRequestApplicationJsonSerializer();
-Serializer<DeleteObjectRequestApplicationJson> _$deleteObjectRequestApplicationJsonSerializer =
+Serializer<DeleteObjectRequestApplicationJson>
+_$deleteObjectRequestApplicationJsonSerializer =
     _$DeleteObjectRequestApplicationJsonSerializer();
 
-class _$GetObjectRequestApplicationJsonSerializer implements StructuredSerializer<GetObjectRequestApplicationJson> {
+class _$GetObjectRequestApplicationJsonSerializer
+    implements StructuredSerializer<GetObjectRequestApplicationJson> {
   @override
-  final Iterable<Type> types = const [GetObjectRequestApplicationJson, _$GetObjectRequestApplicationJson];
+  final Iterable<Type> types = const [
+    GetObjectRequestApplicationJson,
+    _$GetObjectRequestApplicationJson,
+  ];
   @override
   final String wireName = 'GetObjectRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GetObjectRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    GetObjectRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.test;
     if (value != null) {
       result
         ..add('test')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     return result;
   }
 
   @override
-  GetObjectRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  GetObjectRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GetObjectRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -47,7 +63,12 @@ class _$GetObjectRequestApplicationJsonSerializer implements StructuredSerialize
       final Object? value = iterator.current;
       switch (key) {
         case 'test':
-          result.test = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.test =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
       }
     }
@@ -56,15 +77,22 @@ class _$GetObjectRequestApplicationJsonSerializer implements StructuredSerialize
   }
 }
 
-class _$PutObjectRequestApplicationJsonSerializer implements StructuredSerializer<PutObjectRequestApplicationJson> {
+class _$PutObjectRequestApplicationJsonSerializer
+    implements StructuredSerializer<PutObjectRequestApplicationJson> {
   @override
-  final Iterable<Type> types = const [PutObjectRequestApplicationJson, _$PutObjectRequestApplicationJson];
+  final Iterable<Type> types = const [
+    PutObjectRequestApplicationJson,
+    _$PutObjectRequestApplicationJson,
+  ];
   @override
   final String wireName = 'PutObjectRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, PutObjectRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    PutObjectRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'test',
       serializers.serialize(object.test, specifiedType: const FullType(String)),
@@ -74,8 +102,11 @@ class _$PutObjectRequestApplicationJsonSerializer implements StructuredSerialize
   }
 
   @override
-  PutObjectRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  PutObjectRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PutObjectRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -85,7 +116,12 @@ class _$PutObjectRequestApplicationJsonSerializer implements StructuredSerialize
       final Object? value = iterator.current;
       switch (key) {
         case 'test':
-          result.test = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.test =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
       }
     }
@@ -94,29 +130,41 @@ class _$PutObjectRequestApplicationJsonSerializer implements StructuredSerialize
   }
 }
 
-class _$PostObjectRequestApplicationJsonSerializer implements StructuredSerializer<PostObjectRequestApplicationJson> {
+class _$PostObjectRequestApplicationJsonSerializer
+    implements StructuredSerializer<PostObjectRequestApplicationJson> {
   @override
-  final Iterable<Type> types = const [PostObjectRequestApplicationJson, _$PostObjectRequestApplicationJson];
+  final Iterable<Type> types = const [
+    PostObjectRequestApplicationJson,
+    _$PostObjectRequestApplicationJson,
+  ];
   @override
   final String wireName = 'PostObjectRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, PostObjectRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    PostObjectRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.test;
     if (value != null) {
       result
         ..add('test')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     return result;
   }
 
   @override
-  PostObjectRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  PostObjectRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PostObjectRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -126,7 +174,12 @@ class _$PostObjectRequestApplicationJsonSerializer implements StructuredSerializ
       final Object? value = iterator.current;
       switch (key) {
         case 'test':
-          result.test = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.test =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
       }
     }
@@ -138,27 +191,38 @@ class _$PostObjectRequestApplicationJsonSerializer implements StructuredSerializ
 class _$DeleteObjectRequestApplicationJsonSerializer
     implements StructuredSerializer<DeleteObjectRequestApplicationJson> {
   @override
-  final Iterable<Type> types = const [DeleteObjectRequestApplicationJson, _$DeleteObjectRequestApplicationJson];
+  final Iterable<Type> types = const [
+    DeleteObjectRequestApplicationJson,
+    _$DeleteObjectRequestApplicationJson,
+  ];
   @override
   final String wireName = 'DeleteObjectRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DeleteObjectRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DeleteObjectRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.test;
     if (value != null) {
       result
         ..add('test')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     return result;
   }
 
   @override
-  DeleteObjectRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DeleteObjectRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DeleteObjectRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -168,7 +232,12 @@ class _$DeleteObjectRequestApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'test':
-          result.test = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.test =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
       }
     }
@@ -179,25 +248,31 @@ class _$DeleteObjectRequestApplicationJsonSerializer
 
 abstract mixin class $GetObjectRequestApplicationJsonInterfaceBuilder {
   void replace($GetObjectRequestApplicationJsonInterface other);
-  void update(void Function($GetObjectRequestApplicationJsonInterfaceBuilder) updates);
+  void update(
+    void Function($GetObjectRequestApplicationJsonInterfaceBuilder) updates,
+  );
   String? get test;
   set test(String? test);
 }
 
-class _$GetObjectRequestApplicationJson extends GetObjectRequestApplicationJson {
+class _$GetObjectRequestApplicationJson
+    extends GetObjectRequestApplicationJson {
   @override
   final String? test;
 
-  factory _$GetObjectRequestApplicationJson([void Function(GetObjectRequestApplicationJsonBuilder)? updates]) =>
-      (GetObjectRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$GetObjectRequestApplicationJson([
+    void Function(GetObjectRequestApplicationJsonBuilder)? updates,
+  ]) => (GetObjectRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$GetObjectRequestApplicationJson._({this.test}) : super._();
   @override
-  GetObjectRequestApplicationJson rebuild(void Function(GetObjectRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  GetObjectRequestApplicationJson rebuild(
+    void Function(GetObjectRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
-  GetObjectRequestApplicationJsonBuilder toBuilder() => GetObjectRequestApplicationJsonBuilder()..replace(this);
+  GetObjectRequestApplicationJsonBuilder toBuilder() =>
+      GetObjectRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -215,13 +290,18 @@ class _$GetObjectRequestApplicationJson extends GetObjectRequestApplicationJson 
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GetObjectRequestApplicationJson')..add('test', test)).toString();
+    return (newBuiltValueToStringHelper(
+      r'GetObjectRequestApplicationJson',
+    )..add('test', test)).toString();
   }
 }
 
 class GetObjectRequestApplicationJsonBuilder
     implements
-        Builder<GetObjectRequestApplicationJson, GetObjectRequestApplicationJsonBuilder>,
+        Builder<
+          GetObjectRequestApplicationJson,
+          GetObjectRequestApplicationJsonBuilder
+        >,
         $GetObjectRequestApplicationJsonInterfaceBuilder {
   _$GetObjectRequestApplicationJson? _$v;
 
@@ -257,10 +337,7 @@ class GetObjectRequestApplicationJsonBuilder
 
   _$GetObjectRequestApplicationJson _build() {
     GetObjectRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$GetObjectRequestApplicationJson._(
-          test: test,
-        );
+    final _$result = _$v ?? _$GetObjectRequestApplicationJson._(test: test);
     replace(_$result);
     return _$result;
   }
@@ -268,25 +345,31 @@ class GetObjectRequestApplicationJsonBuilder
 
 abstract mixin class $PutObjectRequestApplicationJsonInterfaceBuilder {
   void replace($PutObjectRequestApplicationJsonInterface other);
-  void update(void Function($PutObjectRequestApplicationJsonInterfaceBuilder) updates);
+  void update(
+    void Function($PutObjectRequestApplicationJsonInterfaceBuilder) updates,
+  );
   String? get test;
   set test(String? test);
 }
 
-class _$PutObjectRequestApplicationJson extends PutObjectRequestApplicationJson {
+class _$PutObjectRequestApplicationJson
+    extends PutObjectRequestApplicationJson {
   @override
   final String test;
 
-  factory _$PutObjectRequestApplicationJson([void Function(PutObjectRequestApplicationJsonBuilder)? updates]) =>
-      (PutObjectRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$PutObjectRequestApplicationJson([
+    void Function(PutObjectRequestApplicationJsonBuilder)? updates,
+  ]) => (PutObjectRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$PutObjectRequestApplicationJson._({required this.test}) : super._();
   @override
-  PutObjectRequestApplicationJson rebuild(void Function(PutObjectRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  PutObjectRequestApplicationJson rebuild(
+    void Function(PutObjectRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
-  PutObjectRequestApplicationJsonBuilder toBuilder() => PutObjectRequestApplicationJsonBuilder()..replace(this);
+  PutObjectRequestApplicationJsonBuilder toBuilder() =>
+      PutObjectRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -304,13 +387,18 @@ class _$PutObjectRequestApplicationJson extends PutObjectRequestApplicationJson 
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'PutObjectRequestApplicationJson')..add('test', test)).toString();
+    return (newBuiltValueToStringHelper(
+      r'PutObjectRequestApplicationJson',
+    )..add('test', test)).toString();
   }
 }
 
 class PutObjectRequestApplicationJsonBuilder
     implements
-        Builder<PutObjectRequestApplicationJson, PutObjectRequestApplicationJsonBuilder>,
+        Builder<
+          PutObjectRequestApplicationJson,
+          PutObjectRequestApplicationJsonBuilder
+        >,
         $PutObjectRequestApplicationJsonInterfaceBuilder {
   _$PutObjectRequestApplicationJson? _$v;
 
@@ -346,9 +434,14 @@ class PutObjectRequestApplicationJsonBuilder
 
   _$PutObjectRequestApplicationJson _build() {
     PutObjectRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$PutObjectRequestApplicationJson._(
-          test: BuiltValueNullFieldError.checkNotNull(test, r'PutObjectRequestApplicationJson', 'test'),
+          test: BuiltValueNullFieldError.checkNotNull(
+            test,
+            r'PutObjectRequestApplicationJson',
+            'test',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -357,25 +450,31 @@ class PutObjectRequestApplicationJsonBuilder
 
 abstract mixin class $PostObjectRequestApplicationJsonInterfaceBuilder {
   void replace($PostObjectRequestApplicationJsonInterface other);
-  void update(void Function($PostObjectRequestApplicationJsonInterfaceBuilder) updates);
+  void update(
+    void Function($PostObjectRequestApplicationJsonInterfaceBuilder) updates,
+  );
   String? get test;
   set test(String? test);
 }
 
-class _$PostObjectRequestApplicationJson extends PostObjectRequestApplicationJson {
+class _$PostObjectRequestApplicationJson
+    extends PostObjectRequestApplicationJson {
   @override
   final String? test;
 
-  factory _$PostObjectRequestApplicationJson([void Function(PostObjectRequestApplicationJsonBuilder)? updates]) =>
-      (PostObjectRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$PostObjectRequestApplicationJson([
+    void Function(PostObjectRequestApplicationJsonBuilder)? updates,
+  ]) => (PostObjectRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$PostObjectRequestApplicationJson._({this.test}) : super._();
   @override
-  PostObjectRequestApplicationJson rebuild(void Function(PostObjectRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  PostObjectRequestApplicationJson rebuild(
+    void Function(PostObjectRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
-  PostObjectRequestApplicationJsonBuilder toBuilder() => PostObjectRequestApplicationJsonBuilder()..replace(this);
+  PostObjectRequestApplicationJsonBuilder toBuilder() =>
+      PostObjectRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -393,13 +492,18 @@ class _$PostObjectRequestApplicationJson extends PostObjectRequestApplicationJso
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'PostObjectRequestApplicationJson')..add('test', test)).toString();
+    return (newBuiltValueToStringHelper(
+      r'PostObjectRequestApplicationJson',
+    )..add('test', test)).toString();
   }
 }
 
 class PostObjectRequestApplicationJsonBuilder
     implements
-        Builder<PostObjectRequestApplicationJson, PostObjectRequestApplicationJsonBuilder>,
+        Builder<
+          PostObjectRequestApplicationJson,
+          PostObjectRequestApplicationJsonBuilder
+        >,
         $PostObjectRequestApplicationJsonInterfaceBuilder {
   _$PostObjectRequestApplicationJson? _$v;
 
@@ -435,10 +539,7 @@ class PostObjectRequestApplicationJsonBuilder
 
   _$PostObjectRequestApplicationJson _build() {
     PostObjectRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$PostObjectRequestApplicationJson._(
-          test: test,
-        );
+    final _$result = _$v ?? _$PostObjectRequestApplicationJson._(test: test);
     replace(_$result);
     return _$result;
   }
@@ -446,25 +547,31 @@ class PostObjectRequestApplicationJsonBuilder
 
 abstract mixin class $DeleteObjectRequestApplicationJsonInterfaceBuilder {
   void replace($DeleteObjectRequestApplicationJsonInterface other);
-  void update(void Function($DeleteObjectRequestApplicationJsonInterfaceBuilder) updates);
+  void update(
+    void Function($DeleteObjectRequestApplicationJsonInterfaceBuilder) updates,
+  );
   String? get test;
   set test(String? test);
 }
 
-class _$DeleteObjectRequestApplicationJson extends DeleteObjectRequestApplicationJson {
+class _$DeleteObjectRequestApplicationJson
+    extends DeleteObjectRequestApplicationJson {
   @override
   final String? test;
 
-  factory _$DeleteObjectRequestApplicationJson([void Function(DeleteObjectRequestApplicationJsonBuilder)? updates]) =>
-      (DeleteObjectRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$DeleteObjectRequestApplicationJson([
+    void Function(DeleteObjectRequestApplicationJsonBuilder)? updates,
+  ]) => (DeleteObjectRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$DeleteObjectRequestApplicationJson._({this.test}) : super._();
   @override
-  DeleteObjectRequestApplicationJson rebuild(void Function(DeleteObjectRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  DeleteObjectRequestApplicationJson rebuild(
+    void Function(DeleteObjectRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
-  DeleteObjectRequestApplicationJsonBuilder toBuilder() => DeleteObjectRequestApplicationJsonBuilder()..replace(this);
+  DeleteObjectRequestApplicationJsonBuilder toBuilder() =>
+      DeleteObjectRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -482,13 +589,18 @@ class _$DeleteObjectRequestApplicationJson extends DeleteObjectRequestApplicatio
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DeleteObjectRequestApplicationJson')..add('test', test)).toString();
+    return (newBuiltValueToStringHelper(
+      r'DeleteObjectRequestApplicationJson',
+    )..add('test', test)).toString();
   }
 }
 
 class DeleteObjectRequestApplicationJsonBuilder
     implements
-        Builder<DeleteObjectRequestApplicationJson, DeleteObjectRequestApplicationJsonBuilder>,
+        Builder<
+          DeleteObjectRequestApplicationJson,
+          DeleteObjectRequestApplicationJsonBuilder
+        >,
         $DeleteObjectRequestApplicationJsonInterfaceBuilder {
   _$DeleteObjectRequestApplicationJson? _$v;
 
@@ -515,7 +627,9 @@ class DeleteObjectRequestApplicationJsonBuilder
   }
 
   @override
-  void update(void Function(DeleteObjectRequestApplicationJsonBuilder)? updates) {
+  void update(
+    void Function(DeleteObjectRequestApplicationJsonBuilder)? updates,
+  ) {
     if (updates != null) updates(this);
   }
 
@@ -524,10 +638,7 @@ class DeleteObjectRequestApplicationJsonBuilder
 
   _$DeleteObjectRequestApplicationJson _build() {
     DeleteObjectRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$DeleteObjectRequestApplicationJson._(
-          test: test,
-        );
+    final _$result = _$v ?? _$DeleteObjectRequestApplicationJson._(test: test);
     replace(_$result);
     return _$result;
   }

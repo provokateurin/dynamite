@@ -20,13 +20,16 @@ GetEnumPattern _$valueOfGetEnumPattern(String name) {
   }
 }
 
-final BuiltSet<GetEnumPattern> _$getEnumPatternValues = BuiltSet<GetEnumPattern>(const <GetEnumPattern>[
-  _$getEnumPatternA,
-  _$getEnumPattern$0,
-]);
+final BuiltSet<GetEnumPattern> _$getEnumPatternValues =
+    BuiltSet<GetEnumPattern>(const <GetEnumPattern>[
+      _$getEnumPatternA,
+      _$getEnumPattern$0,
+    ]);
 
-const GetDefaultsEnumPattern _$getDefaultsEnumPatternA = const GetDefaultsEnumPattern._('a');
-const GetDefaultsEnumPattern _$getDefaultsEnumPattern$0 = const GetDefaultsEnumPattern._('\$0');
+const GetDefaultsEnumPattern _$getDefaultsEnumPatternA =
+    const GetDefaultsEnumPattern._('a');
+const GetDefaultsEnumPattern _$getDefaultsEnumPattern$0 =
+    const GetDefaultsEnumPattern._('\$0');
 
 GetDefaultsEnumPattern _$valueOfGetDefaultsEnumPattern(String name) {
   switch (name) {
@@ -41,12 +44,14 @@ GetDefaultsEnumPattern _$valueOfGetDefaultsEnumPattern(String name) {
 
 final BuiltSet<GetDefaultsEnumPattern> _$getDefaultsEnumPatternValues =
     BuiltSet<GetDefaultsEnumPattern>(const <GetDefaultsEnumPattern>[
-  _$getDefaultsEnumPatternA,
-  _$getDefaultsEnumPattern$0,
-]);
+      _$getDefaultsEnumPatternA,
+      _$getDefaultsEnumPattern$0,
+    ]);
 
-const GetHeadersEnumPattern _$getHeadersEnumPatternA = const GetHeadersEnumPattern._('a');
-const GetHeadersEnumPattern _$getHeadersEnumPattern$0 = const GetHeadersEnumPattern._('\$0');
+const GetHeadersEnumPattern _$getHeadersEnumPatternA =
+    const GetHeadersEnumPattern._('a');
+const GetHeadersEnumPattern _$getHeadersEnumPattern$0 =
+    const GetHeadersEnumPattern._('\$0');
 
 GetHeadersEnumPattern _$valueOfGetHeadersEnumPattern(String name) {
   switch (name) {
@@ -61,8 +66,8 @@ GetHeadersEnumPattern _$valueOfGetHeadersEnumPattern(String name) {
 
 final BuiltSet<GetHeadersEnumPattern> _$getHeadersEnumPatternValues =
     BuiltSet<GetHeadersEnumPattern>(const <GetHeadersEnumPattern>[
-  _$getHeadersEnumPatternA,
-  _$getHeadersEnumPattern$0,
-]);
+      _$getHeadersEnumPatternA,
+      _$getHeadersEnumPattern$0,
+    ]);
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint

@@ -1,0 +1,5 @@
+includes: ../../analysis_options.yaml
+
+linter:
+  rules:
+    remove_deprecations_in_breaking_versions: false

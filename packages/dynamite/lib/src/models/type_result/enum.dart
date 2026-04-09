@@ -16,14 +16,17 @@ class TypeResultEnum extends TypeResult {
 
   @override
   TypeResultEnum get dartType => TypeResultEnum(
-        className,
-        subType.dartType,
-        nullable: nullable,
-        isTypeDef: isTypeDef,
-      );
+    className,
+    subType.dartType,
+    nullable: nullable,
+    isTypeDef: isTypeDef,
+  );
 
   @override
-  bool operator ==(Object other) => other is TypeResultEnum && other.className == className && other.subType == subType;
+  bool operator ==(Object other) =>
+      other is TypeResultEnum &&
+      other.className == className &&
+      other.subType == subType;
 
   @override
   int get hashCode => className.hashCode + subType.hashCode;

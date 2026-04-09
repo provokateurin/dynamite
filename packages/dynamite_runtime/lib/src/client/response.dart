@@ -10,11 +10,7 @@ import 'package:meta/meta.dart';
 @immutable
 class DynamiteResponse<B, H> {
   /// Creates a new dynamite response.
-  const DynamiteResponse(
-    this.statusCode,
-    this.body,
-    this.headers,
-  );
+  const DynamiteResponse(this.statusCode, this.body, this.headers);
 
   /// The status code of the response.
   final int statusCode;
@@ -96,18 +92,14 @@ final class ResponseConverter<B, H> with Converter<http.Response, DynamiteRespon
     final body = switch (mediaType) {
       http.MediaType(type: 'text') || http.MediaType(type: 'application', subtype: 'javascript') => input.body,
       http.MediaType(type: 'application', subtype: 'json') => _deserialize<B>(
-          json.decode(input.body),
-          serializer.serializers,
-          serializer.bodyType,
-        ),
+        json.decode(input.body),
+        serializer.serializers,
+        serializer.bodyType,
+      ),
       _ => input.bodyBytes,
     };
 
-    return DynamiteResponse<B, H>(
-      statusCode,
-      body as B,
-      headers as H,
-    );
+    return DynamiteResponse<B, H>(statusCode, body as B, headers as H);
   }
 }
 

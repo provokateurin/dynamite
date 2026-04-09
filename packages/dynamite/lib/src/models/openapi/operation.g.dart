@@ -15,75 +15,119 @@ class _$OperationSerializer implements StructuredSerializer<Operation> {
   final String wireName = 'Operation';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Operation object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Operation object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'deprecated',
-      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
+      serializers.serialize(
+        object.deprecated,
+        specifiedType: const FullType(bool),
+      ),
     ];
     Object? value;
     value = object.operationId;
     if (value != null) {
       result
         ..add('operationId')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.summary;
     if (value != null) {
       result
         ..add('summary')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.description;
     if (value != null) {
       result
         ..add('description')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
     }
     value = object.tags;
     if (value != null) {
       result
         ..add('tags')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, const [const FullType(String)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltSet, const [
+              const FullType(String),
+            ]),
+          ),
+        );
     }
     value = object.parameters;
     if (value != null) {
       result
         ..add('parameters')
         ..add(
-            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Parameter)])));
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(Parameter),
+            ]),
+          ),
+        );
     }
     value = object.requestBody;
     if (value != null) {
       result
         ..add('requestBody')
-        ..add(serializers.serialize(value, specifiedType: const FullType(RequestBody)));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(RequestBody),
+          ),
+        );
     }
     value = object.responses;
     if (value != null) {
       result
         ..add('responses')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Response)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(Response),
+            ]),
+          ),
+        );
     }
     value = object.security;
     if (value != null) {
       result
         ..add('security')
-        ..add(serializers.serialize(value,
+        ..add(
+          serializers.serialize(
+            value,
             specifiedType: const FullType(BuiltList, const [
               const FullType(BuiltMap, const [
                 const FullType(String),
-                const FullType(BuiltList, const [const FullType(String)])
-              ])
-            ])));
+                const FullType(BuiltList, const [const FullType(String)]),
+              ]),
+            ]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  Operation deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Operation deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OperationBuilder();
 
     final iterator = serialized.iterator;
@@ -93,41 +137,92 @@ class _$OperationSerializer implements StructuredSerializer<Operation> {
       final Object? value = iterator.current;
       switch (key) {
         case 'operationId':
-          result.operationId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.operationId =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'summary':
-          result.summary = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.summary =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.description =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )
+                  as String?;
           break;
         case 'deprecated':
-          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.deprecated =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(bool),
+                  )!
+                  as bool;
           break;
         case 'tags':
-          result.tags.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltSet, const [const FullType(String)]))! as BuiltSet<Object?>);
+          result.tags.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltSet, const [
+                    const FullType(String),
+                  ]),
+                )!
+                as BuiltSet<Object?>,
+          );
           break;
         case 'parameters':
-          result.parameters.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Parameter)]))! as BuiltList<Object?>);
+          result.parameters.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(Parameter),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'requestBody':
-          result.requestBody
-              .replace(serializers.deserialize(value, specifiedType: const FullType(RequestBody))! as RequestBody);
+          result.requestBody.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(RequestBody),
+                )!
+                as RequestBody,
+          );
           break;
         case 'responses':
-          result.responses.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Response)]))!);
+          result.responses.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(Response),
+              ]),
+            )!,
+          );
           break;
         case 'security':
-          result.security.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType(BuiltMap, const [
-                  const FullType(String),
-                  const FullType(BuiltList, const [const FullType(String)])
-                ])
-              ]))! as BuiltList<Object?>);
+          result.security.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(BuiltMap, const [
+                      const FullType(String),
+                      const FullType(BuiltList, const [const FullType(String)]),
+                    ]),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -156,21 +251,23 @@ class _$Operation extends Operation {
   @override
   final BuiltList<BuiltMap<String, BuiltList<String>>>? security;
 
-  factory _$Operation([void Function(OperationBuilder)? updates]) => (OperationBuilder()..update(updates))._build();
+  factory _$Operation([void Function(OperationBuilder)? updates]) =>
+      (OperationBuilder()..update(updates))._build();
 
-  _$Operation._(
-      {this.operationId,
-      this.summary,
-      this.description,
-      required this.deprecated,
-      this.tags,
-      this.parameters,
-      this.requestBody,
-      this.responses,
-      this.security})
-      : super._();
+  _$Operation._({
+    this.operationId,
+    this.summary,
+    this.description,
+    required this.deprecated,
+    this.tags,
+    this.parameters,
+    this.requestBody,
+    this.responses,
+    this.security,
+  }) : super._();
   @override
-  Operation rebuild(void Function(OperationBuilder) updates) => (toBuilder()..update(updates)).build();
+  Operation rebuild(void Function(OperationBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   OperationBuilder toBuilder() => OperationBuilder()..replace(this);
@@ -242,21 +339,28 @@ class OperationBuilder implements Builder<Operation, OperationBuilder> {
   set tags(SetBuilder<String>? tags) => _$this._tags = tags;
 
   ListBuilder<Parameter>? _parameters;
-  ListBuilder<Parameter> get parameters => _$this._parameters ??= ListBuilder<Parameter>();
-  set parameters(ListBuilder<Parameter>? parameters) => _$this._parameters = parameters;
+  ListBuilder<Parameter> get parameters =>
+      _$this._parameters ??= ListBuilder<Parameter>();
+  set parameters(ListBuilder<Parameter>? parameters) =>
+      _$this._parameters = parameters;
 
   RequestBodyBuilder? _requestBody;
-  RequestBodyBuilder get requestBody => _$this._requestBody ??= RequestBodyBuilder();
-  set requestBody(RequestBodyBuilder? requestBody) => _$this._requestBody = requestBody;
+  RequestBodyBuilder get requestBody =>
+      _$this._requestBody ??= RequestBodyBuilder();
+  set requestBody(RequestBodyBuilder? requestBody) =>
+      _$this._requestBody = requestBody;
 
   MapBuilder<String, Response>? _responses;
-  MapBuilder<String, Response> get responses => _$this._responses ??= MapBuilder<String, Response>();
-  set responses(MapBuilder<String, Response>? responses) => _$this._responses = responses;
+  MapBuilder<String, Response> get responses =>
+      _$this._responses ??= MapBuilder<String, Response>();
+  set responses(MapBuilder<String, Response>? responses) =>
+      _$this._responses = responses;
 
   ListBuilder<BuiltMap<String, BuiltList<String>>>? _security;
   ListBuilder<BuiltMap<String, BuiltList<String>>> get security =>
       _$this._security ??= ListBuilder<BuiltMap<String, BuiltList<String>>>();
-  set security(ListBuilder<BuiltMap<String, BuiltList<String>>>? security) => _$this._security = security;
+  set security(ListBuilder<BuiltMap<String, BuiltList<String>>>? security) =>
+      _$this._security = security;
 
   OperationBuilder();
 
@@ -294,12 +398,17 @@ class OperationBuilder implements Builder<Operation, OperationBuilder> {
     Operation._defaults(this);
     _$Operation _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Operation._(
             operationId: operationId,
             summary: summary,
             description: description,
-            deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'Operation', 'deprecated'),
+            deprecated: BuiltValueNullFieldError.checkNotNull(
+              deprecated,
+              r'Operation',
+              'deprecated',
+            ),
             tags: _tags?.build(),
             parameters: _parameters?.build(),
             requestBody: _requestBody?.build(),
@@ -320,7 +429,11 @@ class OperationBuilder implements Builder<Operation, OperationBuilder> {
         _$failedField = 'security';
         _security?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Operation', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+          r'Operation',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }

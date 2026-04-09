@@ -15,14 +15,17 @@ Iterable<Expression> buildPatternCheck(
     final maxLength = schema.maxLength;
 
     if (pattern != null || minLength != null || maxLength != null) {
-      yield refer('checkString', 'package:dynamite_runtime/utils.dart').call([
-        valueReference,
-        valueName,
-      ], {
-        if (pattern != null) 'pattern': refer('RegExp').newInstance([literalString(pattern, raw: true)]),
-        if (minLength != null) 'minLength': literalNum(minLength),
-        if (maxLength != null) 'maxLength': literalNum(maxLength),
-      });
+      yield refer('checkString', 'package:dynamite_runtime/utils.dart').call(
+        [valueReference, valueName],
+        {
+          if (pattern != null)
+            'pattern': refer(
+              'RegExp',
+            ).newInstance([literalString(pattern, raw: true)]),
+          if (minLength != null) 'minLength': literalNum(minLength),
+          if (maxLength != null) 'maxLength': literalNum(maxLength),
+        },
+      );
     }
   }
 
@@ -33,14 +36,14 @@ Iterable<Expression> buildPatternCheck(
     // TODO: handle minContains and maxContains
 
     if (uniqueItems || minItems != null || maxItems != null) {
-      yield refer('checkIterable', 'package:dynamite_runtime/utils.dart').call([
-        valueReference,
-        valueName,
-      ], {
-        if (uniqueItems) 'uniqueItems': literalBool(uniqueItems),
-        if (minItems != null) 'minItems': literalNum(minItems),
-        if (maxItems != null) 'maxItems': literalNum(maxItems),
-      });
+      yield refer('checkIterable', 'package:dynamite_runtime/utils.dart').call(
+        [valueReference, valueName],
+        {
+          if (uniqueItems) 'uniqueItems': literalBool(uniqueItems),
+          if (minItems != null) 'minItems': literalNum(minItems),
+          if (maxItems != null) 'maxItems': literalNum(maxItems),
+        },
+      );
     }
   }
 
@@ -56,16 +59,18 @@ Iterable<Expression> buildPatternCheck(
         exclusiveMaximum != null ||
         minimum != null ||
         exclusiveMinimum != null) {
-      yield refer('checkNumber', 'package:dynamite_runtime/utils.dart').call([
-        valueReference,
-        valueName,
-      ], {
-        if (multipleOf != null) 'multipleOf': literalNum(multipleOf),
-        if (maximum != null) 'maximum': literalNum(maximum),
-        if (exclusiveMaximum != null) 'exclusiveMaximum': literalNum(exclusiveMaximum),
-        if (minimum != null) 'minimum': literalNum(minimum),
-        if (exclusiveMinimum != null) 'exclusiveMinimum': literalNum(exclusiveMinimum),
-      });
+      yield refer('checkNumber', 'package:dynamite_runtime/utils.dart').call(
+        [valueReference, valueName],
+        {
+          if (multipleOf != null) 'multipleOf': literalNum(multipleOf),
+          if (maximum != null) 'maximum': literalNum(maximum),
+          if (exclusiveMaximum != null)
+            'exclusiveMaximum': literalNum(exclusiveMaximum),
+          if (minimum != null) 'minimum': literalNum(minimum),
+          if (exclusiveMinimum != null)
+            'exclusiveMinimum': literalNum(exclusiveMinimum),
+        },
+      );
     }
   }
 }

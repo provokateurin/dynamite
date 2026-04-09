@@ -36,11 +36,7 @@ void main() {
 
   group('int', () {
     test('serialize', () {
-      const results = {
-        EnumInt.$0: 0,
-        EnumInt.$1: 1,
-        EnumInt.$2: 2,
-      };
+      const results = {EnumInt.$0: 0, EnumInt.$1: 1, EnumInt.$2: 2};
 
       for (final result in results.entries) {
         final serialized = $serializers.serialize(
@@ -104,10 +100,7 @@ void main() {
           ..integer = WrappedEnum_Integer.$2,
       );
 
-      const json = {
-        'String': 'default',
-        'integer': 2,
-      };
+      const json = {'String': 'default', 'integer': 2};
 
       expect(object.toJson(), equals(json));
       expect(WrappedEnum.fromJson(json), equals(object));
@@ -115,13 +108,9 @@ void main() {
   });
 
   test('EnumReference', () {
-    final object = EnumReference(
-      (b) => b..string = EnumString.$default,
-    );
+    final object = EnumReference((b) => b..string = EnumString.$default);
 
-    const json = {
-      'string': 'default',
-    };
+    const json = {'string': 'default'};
 
     expect(object.toJson(), equals(json));
     expect(EnumReference.fromJson(json), equals(object));

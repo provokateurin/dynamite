@@ -2,7 +2,7 @@ name: _dynamite
 publish_to: none
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.9.0
 
 workspace:
   - packages/dynamite
@@ -39,9 +39,9 @@ melos:
       run: >
         dart run build_runner build --delete-conflicting-outputs &&
         dart fix --apply &&
-        dart format --line-length 120 . &&
+        dart format . &&
         dart fix --apply &&
-        dart format --line-length 120 .
+        dart format .
       exec:
         concurrency: 1
         failFast: true

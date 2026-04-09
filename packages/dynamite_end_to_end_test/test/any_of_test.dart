@@ -35,10 +35,7 @@ void main() {
     expect(object.toJson(), equals(json));
     expect($MixedAnyOfExtension.fromJson(json), equals(object));
 
-    object = (
-      mixedAnyOf1: null,
-      string: 'string',
-    );
+    object = (mixedAnyOf1: null, string: 'string');
 
     json = 'string';
 
@@ -78,30 +75,24 @@ void main() {
   });
 
   test('AnyOfIntDoubleOther', () {
-    AnyOfIntDoubleOther object = (
-      $num: 0.5971645863260784,
-      string: null,
-    );
+    AnyOfIntDoubleOther object = ($num: 0.5971645863260784, string: null);
 
     Object? json = 0.5971645863260784;
 
     expect(object.toJson(), equals(json));
     expect($AnyOfIntDoubleOtherExtension.fromJson(json), equals(object));
 
-    object = (
-      $num: 361,
-      string: null,
-    );
+    object = ($num: 361, string: null);
 
     json = 361;
 
     expect(object.toJson(), equals(json));
-    expect($AnyOfIntDoubleOtherExtension.fromJson(json)..validateAnyOf(), equals(object));
-
-    object = (
-      $num: null,
-      string: 'string',
+    expect(
+      $AnyOfIntDoubleOtherExtension.fromJson(json)..validateAnyOf(),
+      equals(object),
     );
+
+    object = ($num: null, string: 'string');
 
     json = 'string';
 

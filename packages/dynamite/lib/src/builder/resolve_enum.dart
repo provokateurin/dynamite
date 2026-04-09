@@ -9,7 +9,11 @@ import 'package:dynamite/src/models/json_schema.dart' as json_schema;
 import 'package:dynamite/src/models/type_result.dart';
 import 'package:source_helper/source_helper.dart';
 
-TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult subResult) {
+TypeResult resolveEnum(
+  State state,
+  json_schema.JsonSchema schema,
+  TypeResult subResult,
+) {
   final identifier = schema.identifier!;
 
   final result = TypeResultEnum(identifier, subResult);
@@ -35,10 +39,7 @@ TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult su
       b
         ..docs.addAll(escapeDescription(schema.formattedDescription()))
         ..name = identifier
-        ..extend = refer(
-          'EnumClass',
-          'package:built_value/built_value.dart',
-        )
+        ..extend = refer('EnumClass', 'package:built_value/built_value.dart')
         ..constructors.add(
           Constructor((b) {
             if (schema.deprecated) {
@@ -59,33 +60,33 @@ TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult su
         )
         ..fields.addAll(
           values.map(
-            (enumValue) => Field(
-              (b) {
-                b
-                  ..docs.add('/// `${enumValue.name}`')
-                  ..name = enumValue.dartName
-                  ..static = true
-                  ..modifier = FieldModifier.constant
-                  ..type = refer(identifier)
-                  ..assignment = Code(
-                    '_\$${toCamelCase('$identifier${enumValue.dartName.capitalize()}')}',
-                  );
+            (enumValue) => Field((b) {
+              b
+                ..docs.add('/// `${enumValue.name}`')
+                ..name = enumValue.dartName
+                ..static = true
+                ..modifier = FieldModifier.constant
+                ..type = refer(identifier)
+                ..assignment = Code(
+                  '_\$${toCamelCase('$identifier${enumValue.dartName.capitalize()}')}',
+                );
 
-                if (enumValue.name != enumValue.dartName) {
-                  b.annotations.add(
-                    refer('BuiltValueEnumConst').call([], {
-                      'wireName': refer(escapeDartString(enumValue.name)),
-                    }),
-                  );
-                }
-              },
-            ),
+              if (enumValue.name != enumValue.dartName) {
+                b.annotations.add(
+                  refer('BuiltValueEnumConst').call([], {
+                    'wireName': refer(escapeDartString(enumValue.name)),
+                  }),
+                );
+              }
+            }),
           ),
         )
         ..methods.addAll([
           Method(
             (b) => b
-              ..docs.add('/// Returns a set with all values this enum contains.')
+              ..docs.add(
+                '/// Returns a set with all values this enum contains.',
+              )
               ..name = 'values'
               ..returns = refer('BuiltSet<$identifier>')
               ..lambda = true
@@ -116,7 +117,9 @@ TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult su
               ..name = 'value'
               ..type = MethodType.getter
               ..lambda = true
-              ..body = Code('_\$jsonSerializers.serializeWith(serializer, this)! as ${subResult.dartType.className}'),
+              ..body = Code(
+                '_\$jsonSerializers.serializeWith(serializer, this)! as ${subResult.dartType.className}',
+              ),
           ),
           buildSerializer(identifier, 'const _\$${identifier}Serializer()'),
         ]);
@@ -126,11 +129,7 @@ TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult su
       (b) => b
         ..name = '_\$${identifier}Serializer'
         ..implements.add(refer('PrimitiveSerializer<$identifier>'))
-        ..constructors.add(
-          Constructor(
-            (b) => b..constant = true,
-          ),
-        )
+        ..constructors.add(Constructor((b) => b..constant = true))
         ..fields.addAll([
           Field((b) {
             b
@@ -141,7 +140,10 @@ TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult su
             final buffer = StringBuffer()
               ..writeln('<$identifier, Object>{')
               ..writeAll(
-                values.map((enumValue) => '$identifier.${enumValue.dartName}: ${enumValue.value}'),
+                values.map(
+                  (enumValue) =>
+                      '$identifier.${enumValue.dartName}: ${enumValue.value}',
+                ),
                 ',\n',
               )
               ..writeln(',')
@@ -158,7 +160,10 @@ TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult su
             final buffer = StringBuffer()
               ..writeln('<Object, $identifier>{')
               ..writeAll(
-                values.map((enumValue) => '${enumValue.value}: $identifier.${enumValue.dartName}'),
+                values.map(
+                  (enumValue) =>
+                      '${enumValue.value}: $identifier.${enumValue.dartName}',
+                ),
                 ',\n',
               )
               ..writeln(',')
@@ -196,7 +201,10 @@ TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult su
                 Parameter(
                   (b) => b
                     ..name = 'serializers'
-                    ..type = refer('Serializers', 'package:built_value/serializer.dart'),
+                    ..type = refer(
+                      'Serializers',
+                      'package:built_value/serializer.dart',
+                    ),
                 ),
                 Parameter(
                   (b) => b
@@ -225,7 +233,10 @@ TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult su
                 Parameter(
                   (b) => b
                     ..name = 'serializers'
-                    ..type = refer('Serializers', 'package:built_value/serializer.dart'),
+                    ..type = refer(
+                      'Serializers',
+                      'package:built_value/serializer.dart',
+                    ),
                 ),
                 Parameter(
                   (b) => b
@@ -247,14 +258,7 @@ TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult su
         ]),
     );
 
-    state.output.addAll([
-      $class,
-      serializer,
-    ]);
+    state.output.addAll([$class, serializer]);
   }
-  return TypeResultEnum(
-    identifier,
-    subResult,
-    nullable: schema.nullable,
-  );
+  return TypeResultEnum(identifier, subResult, nullable: schema.nullable);
 }

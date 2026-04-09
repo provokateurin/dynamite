@@ -15,23 +15,26 @@ class _$ContentStringSerializer implements StructuredSerializer<ContentString<Ob
   final String wireName = 'ContentString';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContentString<Object?> object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContentString<Object?> object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final isUnderspecified = specifiedType.isUnspecified || specifiedType.parameters.isEmpty;
     if (!isUnderspecified) serializers.expectBuilder(specifiedType);
     final parameterT = isUnderspecified ? FullType.object : specifiedType.parameters[0];
 
-    final result = <Object?>[
-      'content',
-      serializers.serialize(object.content, specifiedType: parameterT),
-    ];
+    final result = <Object?>['content', serializers.serialize(object.content, specifiedType: parameterT)];
 
     return result;
   }
 
   @override
-  ContentString<Object?> deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContentString<Object?> deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final isUnderspecified = specifiedType.isUnspecified || specifiedType.parameters.isEmpty;
     if (!isUnderspecified) serializers.expectBuilder(specifiedType);
     final parameterT = isUnderspecified ? FullType.object : specifiedType.parameters[0];
@@ -122,10 +125,9 @@ class ContentStringBuilder<T> implements Builder<ContentString<T>, ContentString
   ContentString<T> build() => _build();
 
   _$ContentString<T> _build() {
-    final _$result = _$v ??
-        _$ContentString<T>._(
-          content: BuiltValueNullFieldError.checkNotNull(content, r'ContentString', 'content'),
-        );
+    final _$result =
+        _$v ??
+        _$ContentString<T>._(content: BuiltValueNullFieldError.checkNotNull(content, r'ContentString', 'content'));
     replace(_$result);
     return _$result;
   }
