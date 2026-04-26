@@ -23,18 +23,10 @@ void main() {
         ..contentString.update((b) => b..content = 98)
         ..stringBinary = utf8.encode('StringValue')
         ..list.update(
-          (b) => b
-            ..addAll([
-              JsonObject('value'),
-              JsonObject(188),
-              JsonObject(0.45151780411979836),
-              JsonObject(false),
-            ]),
+          (b) => b..addAll([JsonObject('value'), JsonObject(188), JsonObject(0.45151780411979836), JsonObject(false)]),
         )
         ..listNever = ListBuilder<Never>()
-        ..listString.update(
-          (b) => b..addAll(['value1', 'value2', 'value3', 'value4']),
-        ),
+        ..listString.update((b) => b..addAll(['value1', 'value2', 'value3', 'value4'])),
     );
 
     final json = <String, dynamic>{
@@ -116,25 +108,11 @@ void main() {
           'object-double': JsonObject(0.9987671605167462),
           'object-int': JsonObject(498),
         })
-        ..$bool.addAll({
-          r'$bool-false': false,
-          r'$bool-true': true,
-          r'$bool-random': false,
-        })
+        ..$bool.addAll({r'$bool-false': false, r'$bool-true': true, r'$bool-random': false})
         ..integer.addAll({'integer-number-one': 731, 'integer-number-two': 409})
-        ..$double.addAll({
-          r'$double-number-one': 0.7395758005898898,
-          r'$double-number-two': 0.07190921677589679,
-        })
-        ..$num.addAll({
-          r'$num-integer': 143,
-          r'$num-double': 0.49730606728770244,
-        })
-        ..string.addAll({
-          'string-1': 'true',
-          'string-2': '0.4251711007259674',
-          'string-3': '719',
-        })
+        ..$double.addAll({r'$double-number-one': 0.7395758005898898, r'$double-number-two': 0.07190921677589679})
+        ..$num.addAll({r'$num-integer': 143, r'$num-double': 0.49730606728770244})
+        ..string.addAll({'string-1': 'true', 'string-2': '0.4251711007259674', 'string-3': '719'})
         ..contentString.addAll({
           'contentString-1': ContentString((b) {
             b.content = 995;
@@ -143,21 +121,11 @@ void main() {
             b.content = 362;
           }),
         })
-        ..stringBinary.addAll({
-          'stringBinary-1': Uint8List(0),
-          'stringBinary-2': utf8.encode('binary-data'),
-        })
+        ..stringBinary.addAll({'stringBinary-1': Uint8List(0), 'stringBinary-2': utf8.encode('binary-data')})
         ..list.addAll({
           'list-1': BuiltList([JsonObject(false), JsonObject(133)]),
-          'list-2': BuiltList([
-            JsonObject(0.9626186091180242),
-            JsonObject(true),
-            JsonObject('some-string'),
-          ]),
-          'list-3': BuiltList([
-            JsonObject(158),
-            JsonObject(0.2378466766895665),
-          ]),
+          'list-2': BuiltList([JsonObject(0.9626186091180242), JsonObject(true), JsonObject('some-string')]),
+          'list-3': BuiltList([JsonObject(158), JsonObject(0.2378466766895665)]),
           'list-empty': BuiltList([]),
         })
         ..listNever.addAll({'listNever-1': BuiltList([])})
@@ -200,27 +168,13 @@ void main() {
         'object-double': 0.9987671605167462,
         'object-int': 498,
       },
-      'bool': {
-        r'$bool-false': false,
-        r'$bool-true': true,
-        r'$bool-random': false,
-      },
+      'bool': {r'$bool-false': false, r'$bool-true': true, r'$bool-random': false},
       'integer': {'integer-number-one': 731, 'integer-number-two': 409},
-      'double': {
-        r'$double-number-one': 0.7395758005898898,
-        r'$double-number-two': 0.07190921677589679,
-      },
+      'double': {r'$double-number-one': 0.7395758005898898, r'$double-number-two': 0.07190921677589679},
       'num': {r'$num-integer': 143, r'$num-double': 0.49730606728770244},
-      'string': {
-        'string-1': 'true',
-        'string-2': '0.4251711007259674',
-        'string-3': '719',
-      },
+      'string': {'string-1': 'true', 'string-2': '0.4251711007259674', 'string-3': '719'},
       'content-string': {'contentString-1': '995', 'contentString-2': '362'},
-      'string-binary': {
-        'stringBinary-1': '',
-        'stringBinary-2': utf8.fuse(base64).encode('binary-data'),
-      },
+      'string-binary': {'stringBinary-1': '', 'stringBinary-2': utf8.fuse(base64).encode('binary-data')},
       'list': {
         'list-1': [false, 133],
         'list-2': [0.9626186091180242, true, 'some-string'],

@@ -39,21 +39,16 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-    : super(
-        client.baseURL,
-        httpClient: client.httpClient,
-        authentications: client.authentications,
-      );
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$findPets_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<BuiltList<Pet>, void> $findPets_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(Pet)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+  _i1.DynamiteSerializer<BuiltList<Pet>, void> $findPets_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(BuiltList, [FullType(Pet)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns all pets from the system that the user has access to.
   /// Nam sed condimentum est. Maecenas tempor sagittis sapien, nec rhoncus sem sagittis sit amet. Aenean at gravida augue, ac iaculis sem. Curabitur odio lorem, ornare eget elementum nec, cursus id lectus. Duis mi turpis, pulvinar ac eros ac, tincidunt varius justo. In hac habitasse platea dictumst. Integer at adipiscing ante, a sagittis ligula. Aenean pharetra tempor ante molestie imperdiet. Vivamus id aliquam diam. Cras quis velit non tortor eleifend sagittis. Praesent at enim pharetra urna volutpat venenatis eget eget mauris. In eleifend fermentum facilisis. Praesent enim enim, gravida ac sodales sed, placerat id erat. Suspendisse lacus dolor, consectetur non augue vel, vehicula interdum libero. Morbi euismod sagittis libero sed lacinia.
@@ -78,16 +73,10 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $findPets_Request({BuiltList<String>? tags, int? limit}) {
     final _parameters = <String, Object?>{};
-    final __tags = _$jsonSerializers.serialize(
-      tags,
-      specifiedType: const FullType(BuiltList, [FullType(String)]),
-    );
+    final __tags = _$jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
     _parameters['tags'] = __tags;
 
-    final __limit = _$jsonSerializers.serialize(
-      limit,
-      specifiedType: const FullType(int),
-    );
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     _parameters['limit'] = __limit;
 
     final _path = _i4.UriTemplate('/pets{?tags*,limit*}').expand(_parameters);
@@ -117,29 +106,23 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$findPets_Request] for the request send by this method.
   ///  * [$findPets_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<BuiltList<Pet>, void>> findPets({
-    BuiltList<String>? tags,
-    int? limit,
-  }) async {
+  Future<_i1.DynamiteResponse<BuiltList<Pet>, void>> findPets({BuiltList<String>? tags, int? limit}) async {
     final _request = $findPets_Request(tags: tags, limit: limit);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $findPets_Serializer();
-    return _i1.ResponseConverter<BuiltList<Pet>, void>(
-      _serializer,
-    ).convert(_response);
+    return _i1.ResponseConverter<BuiltList<Pet>, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$addPet_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<Pet, void> $addPet_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(Pet),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+  _i1.DynamiteSerializer<Pet, void> $addPet_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(Pet),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Creates a new pet in the store. Duplicates are allowed.
   ///
@@ -162,9 +145,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize($body, specifiedType: const FullType(NewPet)),
-    );
+    _request.body = json.encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(NewPet)));
     return _request;
   }
 
@@ -182,9 +163,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$addPet_Request] for the request send by this method.
   ///  * [$addPet_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Pet, void>> addPet({
-    required NewPet $body,
-  }) async {
+  Future<_i1.DynamiteResponse<Pet, void>> addPet({required NewPet $body}) async {
     final _request = $addPet_Request($body: $body);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -195,13 +174,12 @@ class $Client extends _i1.DynamiteClient {
 
   /// Builds a serializer to parse the response of [$findPetById_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<Pet, void> $findPetById_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(Pet),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+  _i1.DynamiteSerializer<Pet, void> $findPetById_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(Pet),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a user based on a single ID, if the user does not have access to the pet.
   ///
@@ -221,10 +199,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $findPetById_Request({required int id}) {
     final _parameters = <String, Object?>{};
-    final __id = _$jsonSerializers.serialize(
-      id,
-      specifiedType: const FullType(int),
-    );
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
 
     final _path = _i4.UriTemplate('/pets/{id}').expand(_parameters);
@@ -260,13 +235,12 @@ class $Client extends _i1.DynamiteClient {
 
   /// Builds a serializer to parse the response of [$deletePet_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<void, void> $deletePet_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {204},
-      );
+  _i1.DynamiteSerializer<void, void> $deletePet_Serializer() => _i1.DynamiteSerializer(
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {204},
+  );
 
   /// deletes a single pet based on the ID supplied.
   ///
@@ -286,10 +260,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $deletePet_Request({required int id}) {
     final _parameters = <String, Object?>{};
-    final __id = _$jsonSerializers.serialize(
-      id,
-      specifiedType: const FullType(int),
-    );
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
 
     final _path = _i4.UriTemplate('/pets/{id}').expand(_parameters);
@@ -342,8 +313,7 @@ sealed class $NewPetInterface {
   static void _validate($NewPetInterfaceBuilder b) {}
 }
 
-abstract class NewPet
-    implements $NewPetInterface, Built<NewPet, NewPetBuilder> {
+abstract class NewPet implements $NewPetInterface, Built<NewPet, NewPetBuilder> {
   /// Creates a new NewPet object using the builder pattern.
   factory NewPet([void Function(NewPetBuilder)? b]) = _$NewPet;
 
@@ -355,17 +325,14 @@ abstract class NewPet
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory NewPet.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory NewPet.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for NewPet.
@@ -419,17 +386,14 @@ abstract class Pet implements $PetInterface, Built<Pet, PetBuilder> {
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Pet.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Pet.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Pet.
@@ -477,17 +441,14 @@ abstract class Error implements $ErrorInterface, Built<Error, ErrorBuilder> {
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Error.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Error.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Error.
@@ -513,18 +474,12 @@ abstract class Error implements $ErrorInterface, Built<Error, ErrorBuilder> {
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers =
     (Serializers().toBuilder()
-          ..addBuilderFactory(
-            const FullType(BuiltList, [FullType(String)]),
-            ListBuilder<String>.new,
-          )
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
           ..addBuilderFactory(const FullType(Pet), PetBuilder.new)
           ..add(Pet.serializer)
           ..addBuilderFactory(const FullType(NewPet), NewPetBuilder.new)
           ..add(NewPet.serializer)
-          ..addBuilderFactory(
-            const FullType(BuiltList, [FullType(Pet)]),
-            ListBuilder<Pet>.new,
-          )
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Pet)]), ListBuilder<Pet>.new)
           ..addBuilderFactory(const FullType(Error), ErrorBuilder.new)
           ..add(Error.serializer))
         .build();

@@ -25,8 +25,7 @@ abstract class TypeResultSomeOf extends TypeResult {
     return '..add(${typeName}Extension._serializer)';
   }
 
-  late final BuiltSet<TypeResult> optimizedSubTypes = _optimizedSubTypes
-      .toBuiltSet();
+  late final BuiltSet<TypeResult> optimizedSubTypes = _optimizedSubTypes.toBuiltSet();
 
   @override
   TypeResult get dartType {
@@ -86,9 +85,7 @@ abstract class TypeResultSomeOf extends TypeResult {
     );
 
     // ignore: cascade_invocations
-    optimized.sort(
-      (a, b) => a.className.toLowerCase().compareTo(b.className.toLowerCase()),
-    );
+    optimized.sort((a, b) => a.className.toLowerCase().compareTo(b.className.toLowerCase()));
     return optimized.build();
   }
 
@@ -105,8 +102,7 @@ abstract class TypeResultSomeOf extends TypeResult {
       other.dartType == dartType;
 
   @override
-  int get hashCode =>
-      className.hashCode + generics.hashCode + dartType.hashCode;
+  int get hashCode => className.hashCode + generics.hashCode + dartType.hashCode;
 }
 
 class TypeResultAnyOf extends TypeResultSomeOf {
@@ -124,8 +120,7 @@ class TypeResultAnyOf extends TypeResultSomeOf {
       other.dartType == dartType;
 
   @override
-  int get hashCode =>
-      className.hashCode + generics.hashCode + dartType.hashCode;
+  int get hashCode => className.hashCode + generics.hashCode + dartType.hashCode;
 }
 
 class TypeResultOneOf extends TypeResultSomeOf {
@@ -143,6 +138,5 @@ class TypeResultOneOf extends TypeResultSomeOf {
       other.dartType == dartType;
 
   @override
-  int get hashCode =>
-      className.hashCode + generics.hashCode + dartType.hashCode;
+  int get hashCode => className.hashCode + generics.hashCode + dartType.hashCode;
 }

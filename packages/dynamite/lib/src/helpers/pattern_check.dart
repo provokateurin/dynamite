@@ -1,11 +1,7 @@
 import 'package:code_builder/code_builder.dart';
 import 'package:dynamite/src/models/json_schema.dart';
 
-Iterable<Expression> buildPatternCheck(
-  Validator schema,
-  String value,
-  String name,
-) sync* {
+Iterable<Expression> buildPatternCheck(Validator schema, String value, String name) sync* {
   late final valueReference = refer(value);
   late final valueName = literalString(name);
 
@@ -18,10 +14,7 @@ Iterable<Expression> buildPatternCheck(
       yield refer('checkString', 'package:dynamite_runtime/utils.dart').call(
         [valueReference, valueName],
         {
-          if (pattern != null)
-            'pattern': refer(
-              'RegExp',
-            ).newInstance([literalString(pattern, raw: true)]),
+          if (pattern != null) 'pattern': refer('RegExp').newInstance([literalString(pattern, raw: true)]),
           if (minLength != null) 'minLength': literalNum(minLength),
           if (maxLength != null) 'maxLength': literalNum(maxLength),
         },
@@ -64,11 +57,9 @@ Iterable<Expression> buildPatternCheck(
         {
           if (multipleOf != null) 'multipleOf': literalNum(multipleOf),
           if (maximum != null) 'maximum': literalNum(maximum),
-          if (exclusiveMaximum != null)
-            'exclusiveMaximum': literalNum(exclusiveMaximum),
+          if (exclusiveMaximum != null) 'exclusiveMaximum': literalNum(exclusiveMaximum),
           if (minimum != null) 'minimum': literalNum(minimum),
-          if (exclusiveMinimum != null)
-            'exclusiveMinimum': literalNum(exclusiveMinimum),
+          if (exclusiveMinimum != null) 'exclusiveMinimum': literalNum(exclusiveMinimum),
         },
       );
     }

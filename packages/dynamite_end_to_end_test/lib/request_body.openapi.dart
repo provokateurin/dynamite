@@ -29,20 +29,12 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-    : super(
-        client.baseURL,
-        httpClient: client.httpClient,
-        authentications: client.authentications,
-      );
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$post_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $post_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-      );
+      _i1.DynamiteSerializer(bodyType: null, headersType: null, serializers: _$jsonSerializers);
 
   /// Returns a `DynamiteRequest` backing the [post] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -59,10 +51,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $post_Request({int? body, String? $body}) {
     final _parameters = <String, Object?>{};
-    final __body = _$jsonSerializers.serialize(
-      body,
-      specifiedType: const FullType(int),
-    );
+    final __body = _$jsonSerializers.serialize(body, specifiedType: const FullType(int));
     _parameters['body'] = __body;
 
     final _path = _i4.UriTemplate('/{?body*}').expand(_parameters);
@@ -85,10 +74,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$post_Request] for the request send by this method.
   ///  * [$post_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> post({
-    int? body,
-    String? $body,
-  }) async {
+  Future<_i1.DynamiteResponse<void, void>> post({int? body, String? $body}) async {
     final _request = $post_Request(body: body, $body: $body);
     final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -100,11 +86,7 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$getObject_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $getObject_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-      );
+      _i1.DynamiteSerializer(bodyType: null, headersType: null, serializers: _$jsonSerializers);
 
   /// Returns a `DynamiteRequest` backing the [getObject] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -123,10 +105,7 @@ class $Client extends _i1.DynamiteClient {
     _request.headers['Content-Type'] = 'application/json';
     _request.body = $body != null
         ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(GetObjectRequestApplicationJson),
-            ),
+            _$jsonSerializers.serialize($body, specifiedType: const FullType(GetObjectRequestApplicationJson)),
           )
         : json.encode(
             _$jsonSerializers.serialize(
@@ -146,9 +125,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$getObject_Request] for the request send by this method.
   ///  * [$getObject_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> getObject({
-    GetObjectRequestApplicationJson? $body,
-  }) async {
+  Future<_i1.DynamiteResponse<void, void>> getObject({GetObjectRequestApplicationJson? $body}) async {
     final _request = $getObject_Request($body: $body);
     final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -160,11 +137,7 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$putObject_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $putObject_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-      );
+      _i1.DynamiteSerializer(bodyType: null, headersType: null, serializers: _$jsonSerializers);
 
   /// Returns a `DynamiteRequest` backing the [putObject] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -183,10 +156,7 @@ class $Client extends _i1.DynamiteClient {
     _request.headers['Content-Type'] = 'application/json';
     _request.body = $body != null
         ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(PutObjectRequestApplicationJson),
-            ),
+            _$jsonSerializers.serialize($body, specifiedType: const FullType(PutObjectRequestApplicationJson)),
           )
         : json.encode(
             _$jsonSerializers.serialize(
@@ -206,9 +176,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$putObject_Request] for the request send by this method.
   ///  * [$putObject_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> putObject({
-    PutObjectRequestApplicationJson? $body,
-  }) async {
+  Future<_i1.DynamiteResponse<void, void>> putObject({PutObjectRequestApplicationJson? $body}) async {
     final _request = $putObject_Request($body: $body);
     final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -220,11 +188,7 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$postObject_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $postObject_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-      );
+      _i1.DynamiteSerializer(bodyType: null, headersType: null, serializers: _$jsonSerializers);
 
   /// Returns a `DynamiteRequest` backing the [postObject] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -236,18 +200,13 @@ class $Client extends _i1.DynamiteClient {
   ///  * [postObject] for a method executing this request and parsing the response.
   ///  * [$postObject_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $postObject_Request({
-    required PostObjectRequestApplicationJson $body,
-  }) {
+  _i3.Request $postObject_Request({required PostObjectRequestApplicationJson $body}) {
     const _path = '/object';
     final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(PostObjectRequestApplicationJson),
-      ),
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(PostObjectRequestApplicationJson)),
     );
     return _request;
   }
@@ -261,9 +220,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$postObject_Request] for the request send by this method.
   ///  * [$postObject_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> postObject({
-    required PostObjectRequestApplicationJson $body,
-  }) async {
+  Future<_i1.DynamiteResponse<void, void>> postObject({required PostObjectRequestApplicationJson $body}) async {
     final _request = $postObject_Request($body: $body);
     final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -275,11 +232,7 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$deleteObject_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $deleteObject_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-      );
+      _i1.DynamiteSerializer(bodyType: null, headersType: null, serializers: _$jsonSerializers);
 
   /// Returns a `DynamiteRequest` backing the [deleteObject] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -291,19 +244,14 @@ class $Client extends _i1.DynamiteClient {
   ///  * [deleteObject] for a method executing this request and parsing the response.
   ///  * [$deleteObject_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $deleteObject_Request({
-    DeleteObjectRequestApplicationJson? $body,
-  }) {
+  _i3.Request $deleteObject_Request({DeleteObjectRequestApplicationJson? $body}) {
     const _path = '/object';
     final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Content-Type'] = 'application/json';
     _request.body = $body != null
         ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(DeleteObjectRequestApplicationJson),
-            ),
+            _$jsonSerializers.serialize($body, specifiedType: const FullType(DeleteObjectRequestApplicationJson)),
           )
         : json.encode(const {"test": "123"});
     return _request;
@@ -318,9 +266,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$deleteObject_Request] for the request send by this method.
   ///  * [$deleteObject_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> deleteObject({
-    DeleteObjectRequestApplicationJson? $body,
-  }) async {
+  Future<_i1.DynamiteResponse<void, void>> deleteObject({DeleteObjectRequestApplicationJson? $body}) async {
     final _request = $deleteObject_Request($body: $body);
     final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -332,11 +278,7 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$getBinary_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $getBinary_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-      );
+      _i1.DynamiteSerializer(bodyType: null, headersType: null, serializers: _$jsonSerializers);
 
   /// Returns a `DynamiteRequest` backing the [getBinary] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -378,11 +320,7 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$putBinary_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $putBinary_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-      );
+      _i1.DynamiteSerializer(bodyType: null, headersType: null, serializers: _$jsonSerializers);
 
   /// Returns a `DynamiteRequest` backing the [putBinary] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -424,11 +362,7 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$postBinary_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $postBinary_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-      );
+      _i1.DynamiteSerializer(bodyType: null, headersType: null, serializers: _$jsonSerializers);
 
   /// Returns a `DynamiteRequest` backing the [postBinary] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -458,9 +392,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$postBinary_Request] for the request send by this method.
   ///  * [$postBinary_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> postBinary({
-    required Uint8List $body,
-  }) async {
+  Future<_i1.DynamiteResponse<void, void>> postBinary({required Uint8List $body}) async {
     final _request = $postBinary_Request($body: $body);
     final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -493,14 +425,10 @@ sealed class $GetObjectRequestApplicationJsonInterface {
 abstract class GetObjectRequestApplicationJson
     implements
         $GetObjectRequestApplicationJsonInterface,
-        Built<
-          GetObjectRequestApplicationJson,
-          GetObjectRequestApplicationJsonBuilder
-        > {
+        Built<GetObjectRequestApplicationJson, GetObjectRequestApplicationJsonBuilder> {
   /// Creates a new GetObjectRequestApplicationJson object using the builder pattern.
-  factory GetObjectRequestApplicationJson([
-    void Function(GetObjectRequestApplicationJsonBuilder)? b,
-  ]) = _$GetObjectRequestApplicationJson;
+  factory GetObjectRequestApplicationJson([void Function(GetObjectRequestApplicationJsonBuilder)? b]) =
+      _$GetObjectRequestApplicationJson;
 
   const GetObjectRequestApplicationJson._();
 
@@ -513,13 +441,10 @@ abstract class GetObjectRequestApplicationJson
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for GetObjectRequestApplicationJson.
-  static Serializer<GetObjectRequestApplicationJson> get serializer =>
-      _$getObjectRequestApplicationJsonSerializer;
+  static Serializer<GetObjectRequestApplicationJson> get serializer => _$getObjectRequestApplicationJsonSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(GetObjectRequestApplicationJsonBuilder b) {
@@ -534,12 +459,7 @@ abstract class GetObjectRequestApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $PutObjectRequestApplicationJsonInterface {
-  static final _$test =
-      _$jsonSerializers.deserialize(
-            "123",
-            specifiedType: const FullType(String),
-          )!
-          as String;
+  static final _$test = _$jsonSerializers.deserialize("123", specifiedType: const FullType(String))! as String;
 
   String get test;
 
@@ -565,14 +485,10 @@ sealed class $PutObjectRequestApplicationJsonInterface {
 abstract class PutObjectRequestApplicationJson
     implements
         $PutObjectRequestApplicationJsonInterface,
-        Built<
-          PutObjectRequestApplicationJson,
-          PutObjectRequestApplicationJsonBuilder
-        > {
+        Built<PutObjectRequestApplicationJson, PutObjectRequestApplicationJsonBuilder> {
   /// Creates a new PutObjectRequestApplicationJson object using the builder pattern.
-  factory PutObjectRequestApplicationJson([
-    void Function(PutObjectRequestApplicationJsonBuilder)? b,
-  ]) = _$PutObjectRequestApplicationJson;
+  factory PutObjectRequestApplicationJson([void Function(PutObjectRequestApplicationJsonBuilder)? b]) =
+      _$PutObjectRequestApplicationJson;
 
   const PutObjectRequestApplicationJson._();
 
@@ -585,13 +501,10 @@ abstract class PutObjectRequestApplicationJson
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for PutObjectRequestApplicationJson.
-  static Serializer<PutObjectRequestApplicationJson> get serializer =>
-      _$putObjectRequestApplicationJsonSerializer;
+  static Serializer<PutObjectRequestApplicationJson> get serializer => _$putObjectRequestApplicationJsonSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PutObjectRequestApplicationJsonBuilder b) {
@@ -627,34 +540,26 @@ sealed class $PostObjectRequestApplicationJsonInterface {
 abstract class PostObjectRequestApplicationJson
     implements
         $PostObjectRequestApplicationJsonInterface,
-        Built<
-          PostObjectRequestApplicationJson,
-          PostObjectRequestApplicationJsonBuilder
-        > {
+        Built<PostObjectRequestApplicationJson, PostObjectRequestApplicationJsonBuilder> {
   /// Creates a new PostObjectRequestApplicationJson object using the builder pattern.
-  factory PostObjectRequestApplicationJson([
-    void Function(PostObjectRequestApplicationJsonBuilder)? b,
-  ]) = _$PostObjectRequestApplicationJson;
+  factory PostObjectRequestApplicationJson([void Function(PostObjectRequestApplicationJsonBuilder)? b]) =
+      _$PostObjectRequestApplicationJson;
 
   const PostObjectRequestApplicationJson._();
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory PostObjectRequestApplicationJson.fromJson(
-    Map<String, dynamic> json,
-  ) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory PostObjectRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for PostObjectRequestApplicationJson.
-  static Serializer<PostObjectRequestApplicationJson> get serializer =>
-      _$postObjectRequestApplicationJsonSerializer;
+  static Serializer<PostObjectRequestApplicationJson> get serializer => _$postObjectRequestApplicationJsonSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PostObjectRequestApplicationJsonBuilder b) {
@@ -682,42 +587,31 @@ sealed class $DeleteObjectRequestApplicationJsonInterface {
   /// Converts the instance to a builder [$DeleteObjectRequestApplicationJsonInterfaceBuilder].
   $DeleteObjectRequestApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(
-    $DeleteObjectRequestApplicationJsonInterfaceBuilder b,
-  ) {}
+  static void _defaults($DeleteObjectRequestApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(
-    $DeleteObjectRequestApplicationJsonInterfaceBuilder b,
-  ) {}
+  static void _validate($DeleteObjectRequestApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class DeleteObjectRequestApplicationJson
     implements
         $DeleteObjectRequestApplicationJsonInterface,
-        Built<
-          DeleteObjectRequestApplicationJson,
-          DeleteObjectRequestApplicationJsonBuilder
-        > {
+        Built<DeleteObjectRequestApplicationJson, DeleteObjectRequestApplicationJsonBuilder> {
   /// Creates a new DeleteObjectRequestApplicationJson object using the builder pattern.
-  factory DeleteObjectRequestApplicationJson([
-    void Function(DeleteObjectRequestApplicationJsonBuilder)? b,
-  ]) = _$DeleteObjectRequestApplicationJson;
+  factory DeleteObjectRequestApplicationJson([void Function(DeleteObjectRequestApplicationJsonBuilder)? b]) =
+      _$DeleteObjectRequestApplicationJson;
 
   const DeleteObjectRequestApplicationJson._();
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory DeleteObjectRequestApplicationJson.fromJson(
-    Map<String, dynamic> json,
-  ) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory DeleteObjectRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for DeleteObjectRequestApplicationJson.
   static Serializer<DeleteObjectRequestApplicationJson> get serializer =>

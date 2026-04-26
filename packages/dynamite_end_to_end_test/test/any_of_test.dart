@@ -13,10 +13,7 @@ void main() {
     expect(object.toJson(), equals(json));
     expect($ObjectAnyOfExtension.fromJson(json), equals(object));
 
-    object = (
-      objectAnyOf0: null,
-      objectAnyOf1: ObjectAnyOf1((b) => b..attribute2AnyOf = 'attribute2AnyOf'),
-    );
+    object = (objectAnyOf0: null, objectAnyOf1: ObjectAnyOf1((b) => b..attribute2AnyOf = 'attribute2AnyOf'));
 
     json = {'attribute2-anyOf': 'attribute2AnyOf'};
 
@@ -25,10 +22,7 @@ void main() {
   });
 
   test('MixedAnyOf', () {
-    MixedAnyOf object = (
-      mixedAnyOf1: MixedAnyOf1((b) => b..attributeAnyOf = 'attributeAnyOf'),
-      string: null,
-    );
+    MixedAnyOf object = (mixedAnyOf1: MixedAnyOf1((b) => b..attributeAnyOf = 'attributeAnyOf'), string: null);
 
     Object? json = {'attribute-anyOf': 'attributeAnyOf'};
 
@@ -87,10 +81,7 @@ void main() {
     json = 361;
 
     expect(object.toJson(), equals(json));
-    expect(
-      $AnyOfIntDoubleOtherExtension.fromJson(json)..validateAnyOf(),
-      equals(object),
-    );
+    expect($AnyOfIntDoubleOtherExtension.fromJson(json)..validateAnyOf(), equals(object));
 
     object = ($num: null, string: 'string');
 

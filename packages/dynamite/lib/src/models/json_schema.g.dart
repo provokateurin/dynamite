@@ -158,15 +158,9 @@ Serializers _$serializers =
             const FullType(BuiltList, const [const FullType(JsonObject)]),
             () => ListBuilder<JsonObject>(),
           )
+          ..addBuilderFactory(const FullType(BuiltSet, const [const FullType(String)]), () => SetBuilder<String>())
           ..addBuilderFactory(
-            const FullType(BuiltSet, const [const FullType(String)]),
-            () => SetBuilder<String>(),
-          )
-          ..addBuilderFactory(
-            const FullType(BuiltMap, const [
-              const FullType(String),
-              const FullType(JsonSchema),
-            ]),
+            const FullType(BuiltMap, const [const FullType(String), const FullType(JsonSchema)]),
             () => MapBuilder<String, JsonSchema>(),
           )
           ..addBuilderFactory(
@@ -189,15 +183,9 @@ Serializers _$serializers =
             const FullType(BuiltList, const [const FullType(JsonObject)]),
             () => ListBuilder<JsonObject>(),
           )
+          ..addBuilderFactory(const FullType(BuiltSet, const [const FullType(String)]), () => SetBuilder<String>())
           ..addBuilderFactory(
-            const FullType(BuiltSet, const [const FullType(String)]),
-            () => SetBuilder<String>(),
-          )
-          ..addBuilderFactory(
-            const FullType(BuiltMap, const [
-              const FullType(String),
-              const FullType(String),
-            ]),
+            const FullType(BuiltMap, const [const FullType(String), const FullType(String)]),
             () => MapBuilder<String, String>(),
           ))
         .build();

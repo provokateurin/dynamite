@@ -30,10 +30,7 @@ specifiedType: const FullType(BuiltList, [FullType(String)]),
       type = TypeResultList('BuiltList', type);
 
       expect(type.name, 'BuiltList<BuiltList<String>>');
-      expect(
-        type.fullType,
-        'const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])])',
-      );
+      expect(type.fullType, 'const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])])');
       expect(type.serializers.toList(), const [
         '..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)',
         '..addBuilderFactory(const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])]), ListBuilder<BuiltList<String>>.new)',
@@ -67,10 +64,7 @@ specifiedType: const FullType(BuiltList, [FullType(BuiltList, [FullType(String)]
       final type = TypeResultMap('BuiltMap', subType);
 
       expect(type.name, 'BuiltMap<String, int>');
-      expect(
-        type.fullType,
-        'const FullType(BuiltMap, [FullType(String), FullType(int)])',
-      );
+      expect(type.fullType, 'const FullType(BuiltMap, [FullType(String), FullType(int)])');
       expect(type.serializers.toList(), const [
         '..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)',
       ]);
@@ -125,10 +119,7 @@ specifiedType: const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [F
   group(TypeResultObject, () {
     test('name', () {
       final subType = TypeResultBase('String');
-      final type = TypeResultObject(
-        'CustomType',
-        generics: BuiltList([subType]),
-      );
+      final type = TypeResultObject('CustomType', generics: BuiltList([subType]));
 
       expect(type.name, 'CustomType<String>');
       expect(type.fullType, 'const FullType(CustomType, [FullType(String)])');
@@ -149,10 +140,7 @@ specifiedType: const FullType(CustomType, [FullType(String)]),
 
     test('ContentString', () {
       final subType = TypeResultBase('int');
-      final type = TypeResultObject(
-        'ContentString',
-        generics: BuiltList([subType]),
-      );
+      final type = TypeResultObject('ContentString', generics: BuiltList([subType]));
 
       expect(type.name, 'ContentString<int>');
       expect(type.fullType, 'const FullType(ContentString, [FullType(int)])');
@@ -173,16 +161,10 @@ specifiedType: const FullType(ContentString, [FullType(int)]),
 
     test('equality', () {
       final subType1 = TypeResultBase('String');
-      final type1 = TypeResultObject(
-        'CustomType',
-        generics: BuiltList([subType1]),
-      );
+      final type1 = TypeResultObject('CustomType', generics: BuiltList([subType1]));
 
       final subType2 = TypeResultBase('String');
-      final type2 = TypeResultObject(
-        'CustomType',
-        generics: BuiltList([subType2]),
-      );
+      final type2 = TypeResultObject('CustomType', generics: BuiltList([subType2]));
 
       expect(type1, equals(type2));
       expect(type1.hashCode, type2.hashCode);
@@ -196,10 +178,7 @@ specifiedType: const FullType(ContentString, [FullType(int)]),
       expect(type.name, 'String');
       expect(type.fullType, 'const FullType(String)');
       expect(type.serializers.toList(), const <String>[]);
-      expect(
-        type.serialize('value'),
-        r'_$jsonSerializers.serialize(value, specifiedType: const FullType(String))',
-      );
+      expect(type.serialize('value'), r'_$jsonSerializers.serialize(value, specifiedType: const FullType(String))');
       expect(type.deserialize('value'), r'''
 _$jsonSerializers.deserialize(
 value,
@@ -225,10 +204,7 @@ specifiedType: const FullType(String),
     expect(type.dartType, TypeResultBase('String'));
 
     type = TypeResultEnum('EnumClass', jsonObjectType);
-    expect(
-      type.dartType,
-      TypeResultEnum('EnumClass', TypeResultBase('dynamic')),
-    );
+    expect(type.dartType, TypeResultEnum('EnumClass', TypeResultBase('dynamic')));
 
     type = TypeResultList('BuiltList', jsonObjectType);
     expect(type.dartType, TypeResultList('List', TypeResultBase('dynamic')));
@@ -238,19 +214,13 @@ specifiedType: const FullType(String),
 
     type = TypeResultObject(
       'BuiltClass',
-      generics: BuiltList([
-        jsonObjectType,
-        TypeResultMap('BuiltList', jsonObjectType),
-      ]),
+      generics: BuiltList([jsonObjectType, TypeResultMap('BuiltList', jsonObjectType)]),
     );
     expect(
       type.dartType,
       TypeResultObject(
         'BuiltClass',
-        generics: BuiltList([
-          TypeResultBase('dynamic'),
-          TypeResultMap('Map', TypeResultBase('dynamic')),
-        ]),
+        generics: BuiltList([TypeResultBase('dynamic'), TypeResultMap('Map', TypeResultBase('dynamic'))]),
       ),
     );
   });

@@ -39,9 +39,7 @@ sealed class $ObjectAnyOf0Interface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$ObjectAnyOf0InterfaceBuilder].
-  $ObjectAnyOf0Interface rebuild(
-    void Function($ObjectAnyOf0InterfaceBuilder) updates,
-  );
+  $ObjectAnyOf0Interface rebuild(void Function($ObjectAnyOf0InterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$ObjectAnyOf0InterfaceBuilder].
   $ObjectAnyOf0InterfaceBuilder toBuilder();
@@ -51,28 +49,21 @@ sealed class $ObjectAnyOf0Interface {
   static void _validate($ObjectAnyOf0InterfaceBuilder b) {}
 }
 
-abstract class ObjectAnyOf0
-    implements
-        $ObjectAnyOf0Interface,
-        Built<ObjectAnyOf0, ObjectAnyOf0Builder> {
+abstract class ObjectAnyOf0 implements $ObjectAnyOf0Interface, Built<ObjectAnyOf0, ObjectAnyOf0Builder> {
   /// Creates a new ObjectAnyOf0 object using the builder pattern.
-  factory ObjectAnyOf0([void Function(ObjectAnyOf0Builder)? b]) =
-      _$ObjectAnyOf0;
+  factory ObjectAnyOf0([void Function(ObjectAnyOf0Builder)? b]) = _$ObjectAnyOf0;
 
   const ObjectAnyOf0._();
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory ObjectAnyOf0.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory ObjectAnyOf0.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for ObjectAnyOf0.
   static Serializer<ObjectAnyOf0> get serializer => _$objectAnyOf0Serializer;
@@ -97,9 +88,7 @@ sealed class $ObjectAnyOf1Interface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$ObjectAnyOf1InterfaceBuilder].
-  $ObjectAnyOf1Interface rebuild(
-    void Function($ObjectAnyOf1InterfaceBuilder) updates,
-  );
+  $ObjectAnyOf1Interface rebuild(void Function($ObjectAnyOf1InterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$ObjectAnyOf1InterfaceBuilder].
   $ObjectAnyOf1InterfaceBuilder toBuilder();
@@ -109,28 +98,21 @@ sealed class $ObjectAnyOf1Interface {
   static void _validate($ObjectAnyOf1InterfaceBuilder b) {}
 }
 
-abstract class ObjectAnyOf1
-    implements
-        $ObjectAnyOf1Interface,
-        Built<ObjectAnyOf1, ObjectAnyOf1Builder> {
+abstract class ObjectAnyOf1 implements $ObjectAnyOf1Interface, Built<ObjectAnyOf1, ObjectAnyOf1Builder> {
   /// Creates a new ObjectAnyOf1 object using the builder pattern.
-  factory ObjectAnyOf1([void Function(ObjectAnyOf1Builder)? b]) =
-      _$ObjectAnyOf1;
+  factory ObjectAnyOf1([void Function(ObjectAnyOf1Builder)? b]) = _$ObjectAnyOf1;
 
   const ObjectAnyOf1._();
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory ObjectAnyOf1.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory ObjectAnyOf1.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for ObjectAnyOf1.
   static Serializer<ObjectAnyOf1> get serializer => _$objectAnyOf1Serializer;
@@ -147,10 +129,7 @@ abstract class ObjectAnyOf1
 }
 
 /// Any of with objects only.
-typedef ObjectAnyOf = ({
-  ObjectAnyOf0? objectAnyOf0,
-  ObjectAnyOf1? objectAnyOf1,
-});
+typedef ObjectAnyOf = ({ObjectAnyOf0? objectAnyOf0, ObjectAnyOf1? objectAnyOf1});
 
 @BuiltValue(instantiable: false)
 sealed class $MixedAnyOf1Interface {
@@ -161,9 +140,7 @@ sealed class $MixedAnyOf1Interface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$MixedAnyOf1InterfaceBuilder].
-  $MixedAnyOf1Interface rebuild(
-    void Function($MixedAnyOf1InterfaceBuilder) updates,
-  );
+  $MixedAnyOf1Interface rebuild(void Function($MixedAnyOf1InterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$MixedAnyOf1InterfaceBuilder].
   $MixedAnyOf1InterfaceBuilder toBuilder();
@@ -173,8 +150,7 @@ sealed class $MixedAnyOf1Interface {
   static void _validate($MixedAnyOf1InterfaceBuilder b) {}
 }
 
-abstract class MixedAnyOf1
-    implements $MixedAnyOf1Interface, Built<MixedAnyOf1, MixedAnyOf1Builder> {
+abstract class MixedAnyOf1 implements $MixedAnyOf1Interface, Built<MixedAnyOf1, MixedAnyOf1Builder> {
   /// Creates a new MixedAnyOf1 object using the builder pattern.
   factory MixedAnyOf1([void Function(MixedAnyOf1Builder)? b]) = _$MixedAnyOf1;
 
@@ -183,15 +159,12 @@ abstract class MixedAnyOf1
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory MixedAnyOf1.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory MixedAnyOf1.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for MixedAnyOf1.
   static Serializer<MixedAnyOf1> get serializer => _$mixedAnyOf1Serializer;
@@ -219,9 +192,7 @@ sealed class $OneObjectAnyOf0Interface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$OneObjectAnyOf0InterfaceBuilder].
-  $OneObjectAnyOf0Interface rebuild(
-    void Function($OneObjectAnyOf0InterfaceBuilder) updates,
-  );
+  $OneObjectAnyOf0Interface rebuild(void Function($OneObjectAnyOf0InterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$OneObjectAnyOf0InterfaceBuilder].
   $OneObjectAnyOf0InterfaceBuilder toBuilder();
@@ -231,32 +202,24 @@ sealed class $OneObjectAnyOf0Interface {
   static void _validate($OneObjectAnyOf0InterfaceBuilder b) {}
 }
 
-abstract class OneObjectAnyOf0
-    implements
-        $OneObjectAnyOf0Interface,
-        Built<OneObjectAnyOf0, OneObjectAnyOf0Builder> {
+abstract class OneObjectAnyOf0 implements $OneObjectAnyOf0Interface, Built<OneObjectAnyOf0, OneObjectAnyOf0Builder> {
   /// Creates a new OneObjectAnyOf0 object using the builder pattern.
-  factory OneObjectAnyOf0([void Function(OneObjectAnyOf0Builder)? b]) =
-      _$OneObjectAnyOf0;
+  factory OneObjectAnyOf0([void Function(OneObjectAnyOf0Builder)? b]) = _$OneObjectAnyOf0;
 
   const OneObjectAnyOf0._();
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory OneObjectAnyOf0.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory OneObjectAnyOf0.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for OneObjectAnyOf0.
-  static Serializer<OneObjectAnyOf0> get serializer =>
-      _$oneObjectAnyOf0Serializer;
+  static Serializer<OneObjectAnyOf0> get serializer => _$oneObjectAnyOf0Serializer;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(OneObjectAnyOf0Builder b) {
@@ -276,53 +239,43 @@ typedef AnyOfIntDoubleOther = ({num? $num, String? string});
 extension $ObjectAnyOfExtension on ObjectAnyOf {
   /// Serializer for ObjectAnyOf.
   @BuiltValueSerializer(custom: true)
-  static Serializer<ObjectAnyOf> get serializer =>
-      $0c9017d9a03ba2eb2f15acadeab85bbeExtension._serializer;
+  static Serializer<ObjectAnyOf> get serializer => $0c9017d9a03ba2eb2f15acadeab85bbeExtension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
-  static ObjectAnyOf fromJson(Object? json) =>
-      $0c9017d9a03ba2eb2f15acadeab85bbeExtension._fromJson(json);
+  static ObjectAnyOf fromJson(Object? json) => $0c9017d9a03ba2eb2f15acadeab85bbeExtension._fromJson(json);
 }
 
 /// Serialization extension for `MixedAnyOf`.
 extension $MixedAnyOfExtension on MixedAnyOf {
   /// Serializer for MixedAnyOf.
   @BuiltValueSerializer(custom: true)
-  static Serializer<MixedAnyOf> get serializer =>
-      $fba45e085ee99d64c5141852d4323e3dExtension._serializer;
+  static Serializer<MixedAnyOf> get serializer => $fba45e085ee99d64c5141852d4323e3dExtension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
-  static MixedAnyOf fromJson(Object? json) =>
-      $fba45e085ee99d64c5141852d4323e3dExtension._fromJson(json);
+  static MixedAnyOf fromJson(Object? json) => $fba45e085ee99d64c5141852d4323e3dExtension._fromJson(json);
 }
 
 /// Serialization extension for `AnyOfIntDoubleOther`.
 extension $AnyOfIntDoubleOtherExtension on AnyOfIntDoubleOther {
   /// Serializer for AnyOfIntDoubleOther.
   @BuiltValueSerializer(custom: true)
-  static Serializer<AnyOfIntDoubleOther> get serializer =>
-      $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
+  static Serializer<AnyOfIntDoubleOther> get serializer => $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
-  static AnyOfIntDoubleOther fromJson(Object? json) =>
-      $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
+  static AnyOfIntDoubleOther fromJson(Object? json) => $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
 }
 
-typedef _$0c9017d9a03ba2eb2f15acadeab85bbe = ({
-  ObjectAnyOf0? objectAnyOf0,
-  ObjectAnyOf1? objectAnyOf1,
-});
+typedef _$0c9017d9a03ba2eb2f15acadeab85bbe = ({ObjectAnyOf0? objectAnyOf0, ObjectAnyOf1? objectAnyOf1});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $0c9017d9a03ba2eb2f15acadeab85bbeExtension
-    on _$0c9017d9a03ba2eb2f15acadeab85bbe {
+extension $0c9017d9a03ba2eb2f15acadeab85bbeExtension on _$0c9017d9a03ba2eb2f15acadeab85bbe {
   List<dynamic> get _values => [objectAnyOf0, objectAnyOf1];
 
   List<String> get _names => const ['objectAnyOf0', 'objectAnyOf1'];
@@ -345,8 +298,7 @@ extension $0c9017d9a03ba2eb2f15acadeab85bbeExtension
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$0c9017d9a03ba2eb2f15acadeab85bbeSerializer
-    implements PrimitiveSerializer<_$0c9017d9a03ba2eb2f15acadeab85bbe> {
+class _$0c9017d9a03ba2eb2f15acadeab85bbeSerializer implements PrimitiveSerializer<_$0c9017d9a03ba2eb2f15acadeab85bbe> {
   const _$0c9017d9a03ba2eb2f15acadeab85bbeSerializer();
 
   @override
@@ -364,17 +316,11 @@ class _$0c9017d9a03ba2eb2f15acadeab85bbeSerializer
     dynamic value;
     value = object.objectAnyOf0;
     if (value != null) {
-      return serializers.serialize(
-        value,
-        specifiedType: const FullType(ObjectAnyOf0),
-      )!;
+      return serializers.serialize(value, specifiedType: const FullType(ObjectAnyOf0))!;
     }
     value = object.objectAnyOf1;
     if (value != null) {
-      return serializers.serialize(
-        value,
-        specifiedType: const FullType(ObjectAnyOf1),
-      )!;
+      return serializers.serialize(value, specifiedType: const FullType(ObjectAnyOf1))!;
     }
     // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -388,35 +334,21 @@ class _$0c9017d9a03ba2eb2f15acadeab85bbeSerializer
   }) {
     ObjectAnyOf0? objectAnyOf0;
     try {
-      objectAnyOf0 =
-          serializers.deserialize(
-                data,
-                specifiedType: const FullType(ObjectAnyOf0),
-              )
-              as ObjectAnyOf0;
+      objectAnyOf0 = serializers.deserialize(data, specifiedType: const FullType(ObjectAnyOf0)) as ObjectAnyOf0;
     } catch (_) {}
     ObjectAnyOf1? objectAnyOf1;
     try {
-      objectAnyOf1 =
-          serializers.deserialize(
-                data,
-                specifiedType: const FullType(ObjectAnyOf1),
-              )
-              as ObjectAnyOf1;
+      objectAnyOf1 = serializers.deserialize(data, specifiedType: const FullType(ObjectAnyOf1)) as ObjectAnyOf1;
     } catch (_) {}
     return (objectAnyOf0: objectAnyOf0, objectAnyOf1: objectAnyOf1);
   }
 }
 
-typedef _$fba45e085ee99d64c5141852d4323e3d = ({
-  MixedAnyOf1? mixedAnyOf1,
-  String? string,
-});
+typedef _$fba45e085ee99d64c5141852d4323e3d = ({MixedAnyOf1? mixedAnyOf1, String? string});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $fba45e085ee99d64c5141852d4323e3dExtension
-    on _$fba45e085ee99d64c5141852d4323e3d {
+extension $fba45e085ee99d64c5141852d4323e3dExtension on _$fba45e085ee99d64c5141852d4323e3d {
   List<dynamic> get _values => [mixedAnyOf1, string];
 
   List<String> get _names => const ['mixedAnyOf1', 'string'];
@@ -439,8 +371,7 @@ extension $fba45e085ee99d64c5141852d4323e3dExtension
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$fba45e085ee99d64c5141852d4323e3dSerializer
-    implements PrimitiveSerializer<_$fba45e085ee99d64c5141852d4323e3d> {
+class _$fba45e085ee99d64c5141852d4323e3dSerializer implements PrimitiveSerializer<_$fba45e085ee99d64c5141852d4323e3d> {
   const _$fba45e085ee99d64c5141852d4323e3dSerializer();
 
   @override
@@ -458,17 +389,11 @@ class _$fba45e085ee99d64c5141852d4323e3dSerializer
     dynamic value;
     value = object.mixedAnyOf1;
     if (value != null) {
-      return serializers.serialize(
-        value,
-        specifiedType: const FullType(MixedAnyOf1),
-      )!;
+      return serializers.serialize(value, specifiedType: const FullType(MixedAnyOf1))!;
     }
     value = object.string;
     if (value != null) {
-      return serializers.serialize(
-        value,
-        specifiedType: const FullType(String),
-      )!;
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
     // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -482,18 +407,11 @@ class _$fba45e085ee99d64c5141852d4323e3dSerializer
   }) {
     MixedAnyOf1? mixedAnyOf1;
     try {
-      mixedAnyOf1 =
-          serializers.deserialize(
-                data,
-                specifiedType: const FullType(MixedAnyOf1),
-              )
-              as MixedAnyOf1;
+      mixedAnyOf1 = serializers.deserialize(data, specifiedType: const FullType(MixedAnyOf1)) as MixedAnyOf1;
     } catch (_) {}
     String? string;
     try {
-      string =
-          serializers.deserialize(data, specifiedType: const FullType(String))
-              as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String)) as String;
     } catch (_) {}
     return (mixedAnyOf1: mixedAnyOf1, string: string);
   }
@@ -503,8 +421,7 @@ typedef _$b6d67dc2a96424d2f407f8e51557f3de = ({num? $num, String? string});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $b6d67dc2a96424d2f407f8e51557f3deExtension
-    on _$b6d67dc2a96424d2f407f8e51557f3de {
+extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8e51557f3de {
   List<dynamic> get _values => [$num, string];
 
   List<String> get _names => const [r'$num', 'string'];
@@ -527,8 +444,7 @@ extension $b6d67dc2a96424d2f407f8e51557f3deExtension
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$b6d67dc2a96424d2f407f8e51557f3deSerializer
-    implements PrimitiveSerializer<_$b6d67dc2a96424d2f407f8e51557f3de> {
+class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerializer<_$b6d67dc2a96424d2f407f8e51557f3de> {
   const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
 
   @override
@@ -550,10 +466,7 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer
     }
     value = object.string;
     if (value != null) {
-      return serializers.serialize(
-        value,
-        specifiedType: const FullType(String),
-      )!;
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
     // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -567,15 +480,11 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer
   }) {
     num? $num;
     try {
-      $num =
-          serializers.deserialize(data, specifiedType: const FullType(num))
-              as num;
+      $num = serializers.deserialize(data, specifiedType: const FullType(num)) as num;
     } catch (_) {}
     String? string;
     try {
-      string =
-          serializers.deserialize(data, specifiedType: const FullType(String))
-              as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String)) as String;
     } catch (_) {}
     return ($num: $num, string: string);
   }
@@ -590,27 +499,15 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers =
     (Serializers().toBuilder()
-          ..addBuilderFactory(
-            const FullType(ObjectAnyOf0),
-            ObjectAnyOf0Builder.new,
-          )
+          ..addBuilderFactory(const FullType(ObjectAnyOf0), ObjectAnyOf0Builder.new)
           ..add(ObjectAnyOf0.serializer)
-          ..addBuilderFactory(
-            const FullType(ObjectAnyOf1),
-            ObjectAnyOf1Builder.new,
-          )
+          ..addBuilderFactory(const FullType(ObjectAnyOf1), ObjectAnyOf1Builder.new)
           ..add(ObjectAnyOf1.serializer)
           ..add($0c9017d9a03ba2eb2f15acadeab85bbeExtension._serializer)
-          ..addBuilderFactory(
-            const FullType(MixedAnyOf1),
-            MixedAnyOf1Builder.new,
-          )
+          ..addBuilderFactory(const FullType(MixedAnyOf1), MixedAnyOf1Builder.new)
           ..add(MixedAnyOf1.serializer)
           ..add($fba45e085ee99d64c5141852d4323e3dExtension._serializer)
-          ..addBuilderFactory(
-            const FullType(OneObjectAnyOf0),
-            OneObjectAnyOf0Builder.new,
-          )
+          ..addBuilderFactory(const FullType(OneObjectAnyOf0), OneObjectAnyOf0Builder.new)
           ..add(OneObjectAnyOf0.serializer)
           ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer))
         .build();

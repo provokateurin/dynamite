@@ -50,9 +50,7 @@ sealed class $TestObjectInterface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$TestObjectInterfaceBuilder].
-  $TestObjectInterface rebuild(
-    void Function($TestObjectInterfaceBuilder) updates,
-  );
+  $TestObjectInterface rebuild(void Function($TestObjectInterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$TestObjectInterfaceBuilder].
   $TestObjectInterfaceBuilder toBuilder();
@@ -73,26 +71,12 @@ sealed class $TestObjectInterface {
     _i1.checkIterable(b.minItems, 'minItems', minItems: 3);
     _i1.checkIterable(b.maxItems, 'maxItems', maxItems: 20);
     _i1.checkIterable(b.arrayUnique, 'arrayUnique', uniqueItems: true);
-    _i1.checkIterable(
-      b.arrayMultipleChecks,
-      'arrayMultipleChecks',
-      uniqueItems: true,
-      minItems: 3,
-      maxItems: 20,
-    );
+    _i1.checkIterable(b.arrayMultipleChecks, 'arrayMultipleChecks', uniqueItems: true, minItems: 3, maxItems: 20);
     _i1.checkNumber(b.multipleOf, 'multipleOf', multipleOf: 0);
     _i1.checkNumber(b.maximum, 'maximum', maximum: 0);
-    _i1.checkNumber(
-      b.exclusiveMaximum,
-      'exclusiveMaximum',
-      exclusiveMaximum: 0,
-    );
+    _i1.checkNumber(b.exclusiveMaximum, 'exclusiveMaximum', exclusiveMaximum: 0);
     _i1.checkNumber(b.minimum, 'minimum', minimum: 0);
-    _i1.checkNumber(
-      b.exclusiveMinimum,
-      'exclusiveMinimum',
-      exclusiveMinimum: 0,
-    );
+    _i1.checkNumber(b.exclusiveMinimum, 'exclusiveMinimum', exclusiveMinimum: 0);
     _i1.checkNumber(
       b.numberMultipleChecks,
       'numberMultipleChecks',
@@ -105,8 +89,7 @@ sealed class $TestObjectInterface {
   }
 }
 
-abstract class TestObject
-    implements $TestObjectInterface, Built<TestObject, TestObjectBuilder> {
+abstract class TestObject implements $TestObjectInterface, Built<TestObject, TestObjectBuilder> {
   /// Creates a new TestObject object using the builder pattern.
   factory TestObject([void Function(TestObjectBuilder)? b]) = _$TestObject;
 
@@ -115,15 +98,12 @@ abstract class TestObject
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory TestObject.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory TestObject.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for TestObject.
   static Serializer<TestObject> get serializer => _$testObjectSerializer;
@@ -147,9 +127,7 @@ sealed class $TestObjectUnspecifiedInterface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$TestObjectUnspecifiedInterfaceBuilder].
-  $TestObjectUnspecifiedInterface rebuild(
-    void Function($TestObjectUnspecifiedInterfaceBuilder) updates,
-  );
+  $TestObjectUnspecifiedInterface rebuild(void Function($TestObjectUnspecifiedInterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$TestObjectUnspecifiedInterfaceBuilder].
   $TestObjectUnspecifiedInterfaceBuilder toBuilder();
@@ -157,34 +135,16 @@ sealed class $TestObjectUnspecifiedInterface {
   static void _defaults($TestObjectUnspecifiedInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($TestObjectUnspecifiedInterfaceBuilder b) {
-    _i1.checkString(
-      b.value,
-      'value',
-      pattern: RegExp(r'^[0-9]*$'),
-      minLength: 3,
-      maxLength: 20,
-    );
+    _i1.checkString(b.value, 'value', pattern: RegExp(r'^[0-9]*$'), minLength: 3, maxLength: 20);
     _i1.checkIterable(b.value, 'value', minItems: 3, maxItems: 20);
-    _i1.checkNumber(
-      b.value,
-      'value',
-      multipleOf: 1,
-      maximum: 0,
-      exclusiveMaximum: 0,
-      minimum: 0,
-      exclusiveMinimum: 0,
-    );
+    _i1.checkNumber(b.value, 'value', multipleOf: 1, maximum: 0, exclusiveMaximum: 0, minimum: 0, exclusiveMinimum: 0);
   }
 }
 
 abstract class TestObjectUnspecified
-    implements
-        $TestObjectUnspecifiedInterface,
-        Built<TestObjectUnspecified, TestObjectUnspecifiedBuilder> {
+    implements $TestObjectUnspecifiedInterface, Built<TestObjectUnspecified, TestObjectUnspecifiedBuilder> {
   /// Creates a new TestObjectUnspecified object using the builder pattern.
-  factory TestObjectUnspecified([
-    void Function(TestObjectUnspecifiedBuilder)? b,
-  ]) = _$TestObjectUnspecified;
+  factory TestObjectUnspecified([void Function(TestObjectUnspecifiedBuilder)? b]) = _$TestObjectUnspecified;
 
   const TestObjectUnspecified._();
 
@@ -197,13 +157,10 @@ abstract class TestObjectUnspecified
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for TestObjectUnspecified.
-  static Serializer<TestObjectUnspecified> get serializer =>
-      _$testObjectUnspecifiedSerializer;
+  static Serializer<TestObjectUnspecified> get serializer => _$testObjectUnspecifiedSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TestObjectUnspecifiedBuilder b) {
@@ -227,18 +184,9 @@ final Serializers _$serializers =
     (Serializers().toBuilder()
           ..addBuilderFactory(const FullType(TestObject), TestObjectBuilder.new)
           ..add(TestObject.serializer)
-          ..addBuilderFactory(
-            const FullType(BuiltList, [FullType(int)]),
-            ListBuilder<int>.new,
-          )
-          ..addBuilderFactory(
-            const FullType(BuiltSet, [FullType(int)]),
-            SetBuilder<int>.new,
-          )
-          ..addBuilderFactory(
-            const FullType(TestObjectUnspecified),
-            TestObjectUnspecifiedBuilder.new,
-          )
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+          ..addBuilderFactory(const FullType(BuiltSet, [FullType(int)]), SetBuilder<int>.new)
+          ..addBuilderFactory(const FullType(TestObjectUnspecified), TestObjectUnspecifiedBuilder.new)
           ..add(TestObjectUnspecified.serializer))
         .build();
 

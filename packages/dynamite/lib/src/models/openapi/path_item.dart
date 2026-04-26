@@ -35,17 +35,16 @@ abstract class PathItem implements Built<PathItem, PathItemBuilder> {
   Operation? get trace;
 
   @memoized
-  Map<PathItemOperation, Operation> get operations =>
-      <PathItemOperation, Operation>{
-        if (get != null) PathItemOperation.get: get!,
-        if (put != null) PathItemOperation.put: put!,
-        if (post != null) PathItemOperation.post: post!,
-        if (delete != null) PathItemOperation.delete: delete!,
-        if (options != null) PathItemOperation.options: options!,
-        if (head != null) PathItemOperation.head: head!,
-        if (patch != null) PathItemOperation.patch: patch!,
-        if (trace != null) PathItemOperation.trace: trace!,
-      };
+  Map<PathItemOperation, Operation> get operations => <PathItemOperation, Operation>{
+    if (get != null) PathItemOperation.get: get!,
+    if (put != null) PathItemOperation.put: put!,
+    if (post != null) PathItemOperation.post: post!,
+    if (delete != null) PathItemOperation.delete: delete!,
+    if (options != null) PathItemOperation.options: options!,
+    if (head != null) PathItemOperation.head: head!,
+    if (patch != null) PathItemOperation.patch: patch!,
+    if (trace != null) PathItemOperation.trace: trace!,
+  };
 }
 
 enum PathItemOperation { get, put, post, delete, options, head, patch, trace }

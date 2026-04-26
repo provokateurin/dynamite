@@ -8,12 +8,8 @@ part of 'documentation.openapi.dart';
 
 const HuntingSkill _$huntingSkillClueless = const HuntingSkill._('clueless');
 const HuntingSkill _$huntingSkillLazy = const HuntingSkill._('lazy');
-const HuntingSkill _$huntingSkillAdventurous = const HuntingSkill._(
-  'adventurous',
-);
-const HuntingSkill _$huntingSkillAggressive = const HuntingSkill._(
-  'aggressive',
-);
+const HuntingSkill _$huntingSkillAdventurous = const HuntingSkill._('adventurous');
+const HuntingSkill _$huntingSkillAggressive = const HuntingSkill._('aggressive');
 
 HuntingSkill _$valueOfHuntingSkill(String name) {
   switch (name) {
@@ -30,18 +26,16 @@ HuntingSkill _$valueOfHuntingSkill(String name) {
   }
 }
 
-final BuiltSet<HuntingSkill> _$huntingSkillValues =
-    BuiltSet<HuntingSkill>(const <HuntingSkill>[
-      _$huntingSkillClueless,
-      _$huntingSkillLazy,
-      _$huntingSkillAdventurous,
-      _$huntingSkillAggressive,
-    ]);
+final BuiltSet<HuntingSkill> _$huntingSkillValues = BuiltSet<HuntingSkill>(const <HuntingSkill>[
+  _$huntingSkillClueless,
+  _$huntingSkillLazy,
+  _$huntingSkillAdventurous,
+  _$huntingSkillAggressive,
+]);
 
 Serializer<Object2> _$object2Serializer = _$Object2Serializer();
 Serializer<Object1> _$object1Serializer = _$Object1Serializer();
-Serializer<NonRootClientSetModeRequestApplicationJson>
-_$nonRootClientSetModeRequestApplicationJsonSerializer =
+Serializer<NonRootClientSetModeRequestApplicationJson> _$nonRootClientSetModeRequestApplicationJsonSerializer =
     _$NonRootClientSetModeRequestApplicationJsonSerializer();
 Serializer<Object4> _$object4Serializer = _$Object4Serializer();
 
@@ -57,18 +51,13 @@ class _$Object2Serializer implements StructuredSerializer<Object2> {
     Object2 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = <Object?>[
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-    ];
+    final result = <Object?>['name', serializers.serialize(object.name, specifiedType: const FullType(String))];
     Object? value;
     value = object.tag;
     if (value != null) {
       result
         ..add('tag')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -88,20 +77,10 @@ class _$Object2Serializer implements StructuredSerializer<Object2> {
       final Object? value = iterator.current;
       switch (key) {
         case 'name':
-          result.name =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'tag':
-          result.tag =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.tag = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -133,9 +112,7 @@ class _$Object1Serializer implements StructuredSerializer<Object1> {
     if (value != null) {
       result
         ..add('tag')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -155,28 +132,13 @@ class _$Object1Serializer implements StructuredSerializer<Object1> {
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'name':
-          result.name =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'tag':
-          result.tag =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.tag = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -186,8 +148,7 @@ class _$Object1Serializer implements StructuredSerializer<Object1> {
 }
 
 class _$NonRootClientSetModeRequestApplicationJsonSerializer
-    implements
-        StructuredSerializer<NonRootClientSetModeRequestApplicationJson> {
+    implements StructuredSerializer<NonRootClientSetModeRequestApplicationJson> {
   @override
   final Iterable<Type> types = const [
     NonRootClientSetModeRequestApplicationJson,
@@ -208,9 +169,7 @@ class _$NonRootClientSetModeRequestApplicationJsonSerializer
     if (value != null) {
       result
         ..add('test')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -230,12 +189,7 @@ class _$NonRootClientSetModeRequestApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'test':
-          result.test =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.test = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -262,33 +216,25 @@ class _$Object4Serializer implements StructuredSerializer<Object4> {
     if (value != null) {
       result
         ..add('html')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.htmlInCodeblock;
     if (value != null) {
       result
         ..add('html-in-codeblock')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.htmlAfterCodeBlock;
     if (value != null) {
       result
         ..add('html-after-code-block')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.htmlInCodeBlockAfterCodeBlock;
     if (value != null) {
       result
         ..add('html-in-code-block-after-code-block')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -308,36 +254,17 @@ class _$Object4Serializer implements StructuredSerializer<Object4> {
       final Object? value = iterator.current;
       switch (key) {
         case 'html':
-          result.html =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.html = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'html-in-codeblock':
-          result.htmlInCodeblock =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.htmlInCodeblock = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'html-after-code-block':
-          result.htmlAfterCodeBlock =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.htmlAfterCodeBlock = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'html-in-code-block-after-code-block':
           result.htmlInCodeBlockAfterCodeBlock =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+              serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -362,13 +289,11 @@ class _$Object2 extends Object2 {
   @override
   final String? tag;
 
-  factory _$Object2([void Function(Object2Builder)? updates]) =>
-      (Object2Builder()..update(updates))._build();
+  factory _$Object2([void Function(Object2Builder)? updates]) => (Object2Builder()..update(updates))._build();
 
   _$Object2._({required this.name, this.tag}) : super._();
   @override
-  Object2 rebuild(void Function(Object2Builder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Object2 rebuild(void Function(Object2Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   Object2Builder toBuilder() => Object2Builder()..replace(this);
@@ -397,8 +322,7 @@ class _$Object2 extends Object2 {
   }
 }
 
-class Object2Builder
-    implements Builder<Object2, Object2Builder>, $Object2InterfaceBuilder {
+class Object2Builder implements Builder<Object2, Object2Builder>, $Object2InterfaceBuilder {
   _$Object2? _$v;
 
   String? _name;
@@ -439,18 +363,13 @@ class Object2Builder
   _$Object2 _build() {
     Object2._validate(this);
     final _$result =
-        _$v ??
-        _$Object2._(
-          name: BuiltValueNullFieldError.checkNotNull(name, r'Object2', 'name'),
-          tag: tag,
-        );
+        _$v ?? _$Object2._(name: BuiltValueNullFieldError.checkNotNull(name, r'Object2', 'name'), tag: tag);
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class $Object1InterfaceBuilder
-    implements $Object2InterfaceBuilder {
+abstract mixin class $Object1InterfaceBuilder implements $Object2InterfaceBuilder {
   void replace(covariant $Object1Interface other);
   void update(void Function($Object1InterfaceBuilder) updates);
   int? get id;
@@ -471,13 +390,11 @@ class _$Object1 extends Object1 {
   @override
   final String? tag;
 
-  factory _$Object1([void Function(Object1Builder)? updates]) =>
-      (Object1Builder()..update(updates))._build();
+  factory _$Object1([void Function(Object1Builder)? updates]) => (Object1Builder()..update(updates))._build();
 
   _$Object1._({required this.id, required this.name, this.tag}) : super._();
   @override
-  Object1 rebuild(void Function(Object1Builder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Object1 rebuild(void Function(Object1Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   Object1Builder toBuilder() => Object1Builder()..replace(this);
@@ -485,10 +402,7 @@ class _$Object1 extends Object1 {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Object1 &&
-        id == other.id &&
-        name == other.name &&
-        tag == other.tag;
+    return other is Object1 && id == other.id && name == other.name && tag == other.tag;
   }
 
   @override
@@ -511,8 +425,7 @@ class _$Object1 extends Object1 {
   }
 }
 
-class Object1Builder
-    implements Builder<Object1, Object1Builder>, $Object1InterfaceBuilder {
+class Object1Builder implements Builder<Object1, Object1Builder>, $Object1InterfaceBuilder {
   _$Object1? _$v;
 
   int? _id;
@@ -571,23 +484,18 @@ class Object1Builder
 
 abstract mixin class $NonRootClientSetModeRequestApplicationJsonInterfaceBuilder {
   void replace($NonRootClientSetModeRequestApplicationJsonInterface other);
-  void update(
-    void Function($NonRootClientSetModeRequestApplicationJsonInterfaceBuilder)
-    updates,
-  );
+  void update(void Function($NonRootClientSetModeRequestApplicationJsonInterfaceBuilder) updates);
   String? get test;
   set test(String? test);
 }
 
-class _$NonRootClientSetModeRequestApplicationJson
-    extends NonRootClientSetModeRequestApplicationJson {
+class _$NonRootClientSetModeRequestApplicationJson extends NonRootClientSetModeRequestApplicationJson {
   @override
   final String? test;
 
   factory _$NonRootClientSetModeRequestApplicationJson([
     void Function(NonRootClientSetModeRequestApplicationJsonBuilder)? updates,
-  ]) => (NonRootClientSetModeRequestApplicationJsonBuilder()..update(updates))
-      ._build();
+  ]) => (NonRootClientSetModeRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$NonRootClientSetModeRequestApplicationJson._({this.test}) : super._();
   @override
@@ -602,8 +510,7 @@ class _$NonRootClientSetModeRequestApplicationJson
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NonRootClientSetModeRequestApplicationJson &&
-        test == other.test;
+    return other is NonRootClientSetModeRequestApplicationJson && test == other.test;
   }
 
   @override
@@ -616,18 +523,13 @@ class _$NonRootClientSetModeRequestApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-      r'NonRootClientSetModeRequestApplicationJson',
-    )..add('test', test)).toString();
+    return (newBuiltValueToStringHelper(r'NonRootClientSetModeRequestApplicationJson')..add('test', test)).toString();
   }
 }
 
 class NonRootClientSetModeRequestApplicationJsonBuilder
     implements
-        Builder<
-          NonRootClientSetModeRequestApplicationJson,
-          NonRootClientSetModeRequestApplicationJsonBuilder
-        >,
+        Builder<NonRootClientSetModeRequestApplicationJson, NonRootClientSetModeRequestApplicationJsonBuilder>,
         $NonRootClientSetModeRequestApplicationJsonInterfaceBuilder {
   _$NonRootClientSetModeRequestApplicationJson? _$v;
 
@@ -654,9 +556,7 @@ class NonRootClientSetModeRequestApplicationJsonBuilder
   }
 
   @override
-  void update(
-    void Function(NonRootClientSetModeRequestApplicationJsonBuilder)? updates,
-  ) {
+  void update(void Function(NonRootClientSetModeRequestApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -665,8 +565,7 @@ class NonRootClientSetModeRequestApplicationJsonBuilder
 
   _$NonRootClientSetModeRequestApplicationJson _build() {
     NonRootClientSetModeRequestApplicationJson._validate(this);
-    final _$result =
-        _$v ?? _$NonRootClientSetModeRequestApplicationJson._(test: test);
+    final _$result = _$v ?? _$NonRootClientSetModeRequestApplicationJson._(test: test);
     replace(_$result);
     return _$result;
   }
@@ -698,18 +597,12 @@ class _$Object4 extends Object4 {
   @override
   final String? htmlInCodeBlockAfterCodeBlock;
 
-  factory _$Object4([void Function(Object4Builder)? updates]) =>
-      (Object4Builder()..update(updates))._build();
+  factory _$Object4([void Function(Object4Builder)? updates]) => (Object4Builder()..update(updates))._build();
 
-  _$Object4._({
-    this.html,
-    this.htmlInCodeblock,
-    this.htmlAfterCodeBlock,
-    this.htmlInCodeBlockAfterCodeBlock,
-  }) : super._();
+  _$Object4._({this.html, this.htmlInCodeblock, this.htmlAfterCodeBlock, this.htmlInCodeBlockAfterCodeBlock})
+    : super._();
   @override
-  Object4 rebuild(void Function(Object4Builder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Object4 rebuild(void Function(Object4Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   Object4Builder toBuilder() => Object4Builder()..replace(this);
@@ -746,8 +639,7 @@ class _$Object4 extends Object4 {
   }
 }
 
-class Object4Builder
-    implements Builder<Object4, Object4Builder>, $Object4InterfaceBuilder {
+class Object4Builder implements Builder<Object4, Object4Builder>, $Object4InterfaceBuilder {
   _$Object4? _$v;
 
   String? _html;
@@ -756,20 +648,16 @@ class Object4Builder
 
   String? _htmlInCodeblock;
   String? get htmlInCodeblock => _$this._htmlInCodeblock;
-  set htmlInCodeblock(covariant String? htmlInCodeblock) =>
-      _$this._htmlInCodeblock = htmlInCodeblock;
+  set htmlInCodeblock(covariant String? htmlInCodeblock) => _$this._htmlInCodeblock = htmlInCodeblock;
 
   String? _htmlAfterCodeBlock;
   String? get htmlAfterCodeBlock => _$this._htmlAfterCodeBlock;
-  set htmlAfterCodeBlock(covariant String? htmlAfterCodeBlock) =>
-      _$this._htmlAfterCodeBlock = htmlAfterCodeBlock;
+  set htmlAfterCodeBlock(covariant String? htmlAfterCodeBlock) => _$this._htmlAfterCodeBlock = htmlAfterCodeBlock;
 
   String? _htmlInCodeBlockAfterCodeBlock;
-  String? get htmlInCodeBlockAfterCodeBlock =>
-      _$this._htmlInCodeBlockAfterCodeBlock;
-  set htmlInCodeBlockAfterCodeBlock(
-    covariant String? htmlInCodeBlockAfterCodeBlock,
-  ) => _$this._htmlInCodeBlockAfterCodeBlock = htmlInCodeBlockAfterCodeBlock;
+  String? get htmlInCodeBlockAfterCodeBlock => _$this._htmlInCodeBlockAfterCodeBlock;
+  set htmlInCodeBlockAfterCodeBlock(covariant String? htmlInCodeBlockAfterCodeBlock) =>
+      _$this._htmlInCodeBlockAfterCodeBlock = htmlInCodeBlockAfterCodeBlock;
 
   Object4Builder() {
     Object4._defaults(this);

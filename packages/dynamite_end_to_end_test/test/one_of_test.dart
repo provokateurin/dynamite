@@ -15,10 +15,7 @@ void main() {
     expect(object.toJson(), equals(json));
     expect($ObjectOneOfExtension.fromJson(json), equals(object));
 
-    object = (
-      objectOneOf0: null,
-      objectOneOf1: ObjectOneOf1((b) => b..attribute2OneOf = 'attribute2OneOf'),
-    );
+    object = (objectOneOf0: null, objectOneOf1: ObjectOneOf1((b) => b..attribute2OneOf = 'attribute2OneOf'));
 
     json = {'attribute2-oneOf': 'attribute2OneOf'};
 
@@ -27,10 +24,7 @@ void main() {
   });
 
   test('MixedOneOf', () {
-    MixedOneOf object = (
-      mixedOneOf1: MixedOneOf1((b) => b..attributeOneOf = 'attributeOneOf'),
-      string: null,
-    );
+    MixedOneOf object = (mixedOneOf1: MixedOneOf1((b) => b..attributeOneOf = 'attributeOneOf'), string: null);
 
     Object? json = {'attribute-oneOf': 'attributeOneOf'};
 
@@ -102,10 +96,7 @@ void main() {
   });
 
   test('OneOfUnspecifiedArray', () {
-    OneOfUnspecifiedArray object = (
-      builtListJsonObject: BuiltList([]),
-      oneOfUnspecifiedArray0: null,
-    );
+    OneOfUnspecifiedArray object = (builtListJsonObject: BuiltList([]), oneOfUnspecifiedArray0: null);
 
     Object? json = [];
 
@@ -113,11 +104,7 @@ void main() {
     expect($OneOfUnspecifiedArrayExtension.fromJson(json), equals(object));
 
     object = (
-      builtListJsonObject: BuiltList([
-        JsonObject('value1'),
-        JsonObject('value2'),
-        JsonObject('value3'),
-      ]),
+      builtListJsonObject: BuiltList([JsonObject('value1'), JsonObject('value2'), JsonObject('value3')]),
       oneOfUnspecifiedArray0: null,
     );
 
@@ -128,20 +115,14 @@ void main() {
   });
 
   test('OneOfStringArray', () {
-    OneOfStringArray object = (
-      builtListString: BuiltList<String>(),
-      oneOfStringArray0: null,
-    );
+    OneOfStringArray object = (builtListString: BuiltList<String>(), oneOfStringArray0: null);
 
     Object? json = [];
 
     expect(object.toJson(), equals(json));
     expect($OneOfStringArrayExtension.fromJson(json), equals(object));
 
-    object = (
-      builtListString: BuiltList<String>(['value1', 'value2', 'value3']),
-      oneOfStringArray0: null,
-    );
+    object = (builtListString: BuiltList<String>(['value1', 'value2', 'value3']), oneOfStringArray0: null);
 
     json = ['value1', 'value2', 'value3'];
 

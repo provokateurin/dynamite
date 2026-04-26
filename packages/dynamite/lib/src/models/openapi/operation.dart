@@ -40,11 +40,7 @@ abstract class Operation implements Built<Operation, OperationBuilder> {
     b.deprecated ??= false;
   }
 
-  String formattedDescription(
-    String methodName, {
-    bool isRequest = false,
-    bool requiresAuth = false,
-  }) {
+  String formattedDescription(String methodName, {bool isRequest = false, bool requiresAuth = false}) {
     final buffer = StringBuffer();
 
     final summary = formatDescription(this.summary);
@@ -62,18 +58,14 @@ abstract class Operation implements Built<Operation, OperationBuilder> {
     }
 
     if (isRequest) {
-      buffer.writeln(
-        'Returns a `DynamiteRequest` backing the [$methodName] operation.',
-      );
+      buffer.writeln('Returns a `DynamiteRequest` backing the [$methodName] operation.');
     } else {
       buffer.writeln(
         'Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.',
       );
     }
     buffer
-      ..writeln(
-        'Throws a `DynamiteApiException` if the API call does not return an expected status code.',
-      )
+      ..writeln('Throws a `DynamiteApiException` if the API call does not return an expected status code.')
       ..write('\n');
 
     if (parameters != null && parameters!.isNotEmpty) {
@@ -109,20 +101,14 @@ abstract class Operation implements Built<Operation, OperationBuilder> {
     buffer.writeln('See:');
     if (isRequest) {
       buffer
-        ..writeln(
-          ' * [$methodName] for a method executing this request and parsing the response.',
-        )
+        ..writeln(' * [$methodName] for a method executing this request and parsing the response.')
         ..writeln(
           ' * [\$${methodName}_Serializer] for a converter to parse the `Response` from an executed this request.',
         );
     } else {
       buffer
-        ..writeln(
-          ' * [\$${methodName}_Request] for the request send by this method.',
-        )
-        ..writeln(
-          ' * [\$${methodName}_Serializer] for a converter to parse the `Response` from an executed request.',
-        );
+        ..writeln(' * [\$${methodName}_Request] for the request send by this method.')
+        ..writeln(' * [\$${methodName}_Serializer] for a converter to parse the `Response` from an executed request.');
     }
 
     return buffer.toString();

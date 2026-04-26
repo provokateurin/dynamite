@@ -52,15 +52,12 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory Base.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Base.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for Base.
   static Serializer<Base> get serializer => _$baseSerializer;
@@ -86,9 +83,7 @@ sealed class $NestedRedirectInterface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$NestedRedirectInterfaceBuilder].
-  $NestedRedirectInterface rebuild(
-    void Function($NestedRedirectInterfaceBuilder) updates,
-  );
+  $NestedRedirectInterface rebuild(void Function($NestedRedirectInterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$NestedRedirectInterfaceBuilder].
   $NestedRedirectInterfaceBuilder toBuilder();
@@ -98,32 +93,24 @@ sealed class $NestedRedirectInterface {
   static void _validate($NestedRedirectInterfaceBuilder b) {}
 }
 
-abstract class NestedRedirect
-    implements
-        $NestedRedirectInterface,
-        Built<NestedRedirect, NestedRedirectBuilder> {
+abstract class NestedRedirect implements $NestedRedirectInterface, Built<NestedRedirect, NestedRedirectBuilder> {
   /// Creates a new NestedRedirect object using the builder pattern.
-  factory NestedRedirect([void Function(NestedRedirectBuilder)? b]) =
-      _$NestedRedirect;
+  factory NestedRedirect([void Function(NestedRedirectBuilder)? b]) = _$NestedRedirect;
 
   const NestedRedirect._();
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory NestedRedirect.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory NestedRedirect.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for NestedRedirect.
-  static Serializer<NestedRedirect> get serializer =>
-      _$nestedRedirectSerializer;
+  static Serializer<NestedRedirect> get serializer => _$nestedRedirectSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(NestedRedirectBuilder b) {
@@ -142,26 +129,19 @@ typedef SomeOfRedirect = ({Base? base, int? $int, JsonObject? jsonObject});
 extension $SomeOfRedirectExtension on SomeOfRedirect {
   /// Serializer for SomeOfRedirect.
   @BuiltValueSerializer(custom: true)
-  static Serializer<SomeOfRedirect> get serializer =>
-      $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension._serializer;
+  static Serializer<SomeOfRedirect> get serializer => $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
-  static SomeOfRedirect fromJson(Object? json) =>
-      $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension._fromJson(json);
+  static SomeOfRedirect fromJson(Object? json) => $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension._fromJson(json);
 }
 
-typedef _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba = ({
-  Base? base,
-  int? $int,
-  JsonObject? jsonObject,
-});
+typedef _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba = ({Base? base, int? $int, JsonObject? jsonObject});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension
-    on _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba {
+extension $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension on _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba {
   List<dynamic> get _values => [base, $int, jsonObject];
 
   List<String> get _names => const ['base', r'$int', 'jsonObject'];
@@ -184,8 +164,7 @@ extension $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer
-    implements PrimitiveSerializer<_$e1c7ecea8e5fdae7b94cd86c0dc4f1ba> {
+class _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer implements PrimitiveSerializer<_$e1c7ecea8e5fdae7b94cd86c0dc4f1ba> {
   const _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer();
 
   @override
@@ -211,10 +190,7 @@ class _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer
     }
     value = object.jsonObject;
     if (value != null) {
-      return serializers.serialize(
-        value,
-        specifiedType: const FullType(JsonObject),
-      )!;
+      return serializers.serialize(value, specifiedType: const FullType(JsonObject))!;
     }
     // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -228,24 +204,15 @@ class _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer
   }) {
     Base? base;
     try {
-      base =
-          serializers.deserialize(data, specifiedType: const FullType(Base))
-              as Base;
+      base = serializers.deserialize(data, specifiedType: const FullType(Base)) as Base;
     } catch (_) {}
     int? $int;
     try {
-      $int =
-          serializers.deserialize(data, specifiedType: const FullType(int))
-              as int;
+      $int = serializers.deserialize(data, specifiedType: const FullType(int)) as int;
     } catch (_) {}
     JsonObject? jsonObject;
     try {
-      jsonObject =
-          serializers.deserialize(
-                data,
-                specifiedType: const FullType(JsonObject),
-              )
-              as JsonObject;
+      jsonObject = serializers.deserialize(data, specifiedType: const FullType(JsonObject)) as JsonObject;
     } catch (_) {}
     return (base: base, $int: $int, jsonObject: jsonObject);
   }
@@ -262,10 +229,7 @@ final Serializers _$serializers =
     (Serializers().toBuilder()
           ..addBuilderFactory(const FullType(Base), BaseBuilder.new)
           ..add(Base.serializer)
-          ..addBuilderFactory(
-            const FullType(NestedRedirect),
-            NestedRedirectBuilder.new,
-          )
+          ..addBuilderFactory(const FullType(NestedRedirect), NestedRedirectBuilder.new)
           ..add(NestedRedirect.serializer)
           ..add($e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension._serializer))
         .build();
@@ -279,11 +243,7 @@ final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers =
     (_$serializers.toBuilder()
           ..add(_i3.DynamiteDoubleSerializer())
-          ..addPlugin(
-            _i4.StandardJsonPlugin(
-              typesToLeaveAsList: const {_$e1c7ecea8e5fdae7b94cd86c0dc4f1ba},
-            ),
-          )
+          ..addPlugin(_i4.StandardJsonPlugin(typesToLeaveAsList: const {_$e1c7ecea8e5fdae7b94cd86c0dc4f1ba}))
           ..addPlugin(const _i3.HeaderPlugin())
           ..addPlugin(const _i3.ContentStringPlugin()))
         .build();

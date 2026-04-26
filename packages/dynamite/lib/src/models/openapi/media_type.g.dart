@@ -26,12 +26,7 @@ class _$MediaTypeSerializer implements StructuredSerializer<MediaType> {
     if (value != null) {
       result
         ..add('schema')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(JsonSchema),
-          ),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonSchema)));
     }
     return result;
   }
@@ -51,12 +46,7 @@ class _$MediaTypeSerializer implements StructuredSerializer<MediaType> {
       final Object? value = iterator.current;
       switch (key) {
         case 'schema':
-          result.schema =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(JsonSchema),
-                  )
-                  as JsonSchema?;
+          result.schema = serializers.deserialize(value, specifiedType: const FullType(JsonSchema)) as JsonSchema?;
           break;
       }
     }
@@ -69,13 +59,11 @@ class _$MediaType extends MediaType {
   @override
   final JsonSchema? schema;
 
-  factory _$MediaType([void Function(MediaTypeBuilder)? updates]) =>
-      (MediaTypeBuilder()..update(updates))._build();
+  factory _$MediaType([void Function(MediaTypeBuilder)? updates]) => (MediaTypeBuilder()..update(updates))._build();
 
   _$MediaType._({this.schema}) : super._();
   @override
-  MediaType rebuild(void Function(MediaTypeBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  MediaType rebuild(void Function(MediaTypeBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   MediaTypeBuilder toBuilder() => MediaTypeBuilder()..replace(this);
@@ -96,9 +84,7 @@ class _$MediaType extends MediaType {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-      r'MediaType',
-    )..add('schema', schema)).toString();
+    return (newBuiltValueToStringHelper(r'MediaType')..add('schema', schema)).toString();
   }
 }
 

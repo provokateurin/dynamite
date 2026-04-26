@@ -5,24 +5,14 @@ import 'package:test/test.dart';
 void main() {
   group('String', () {
     test('serialize', () {
-      const results = {
-        EnumString.test: 'test',
-        EnumString.$default: 'default',
-        EnumString.dollar: r'$dollar$',
-      };
+      const results = {EnumString.test: 'test', EnumString.$default: 'default', EnumString.dollar: r'$dollar$'};
 
       for (final result in results.entries) {
-        final serialized = $serializers.serialize(
-          result.key,
-          specifiedType: const FullType(EnumString),
-        );
+        final serialized = $serializers.serialize(result.key, specifiedType: const FullType(EnumString));
 
         expect(serialized, result.value);
 
-        final deserialized = $serializers.deserialize(
-          result.value,
-          specifiedType: const FullType(EnumString),
-        );
+        final deserialized = $serializers.deserialize(result.value, specifiedType: const FullType(EnumString));
         expect(deserialized, result.key);
       }
     });
@@ -39,17 +29,11 @@ void main() {
       const results = {EnumInt.$0: 0, EnumInt.$1: 1, EnumInt.$2: 2};
 
       for (final result in results.entries) {
-        final serialized = $serializers.serialize(
-          result.key,
-          specifiedType: const FullType(EnumInt),
-        );
+        final serialized = $serializers.serialize(result.key, specifiedType: const FullType(EnumInt));
 
         expect(serialized, result.value);
 
-        final deserialized = $serializers.deserialize(
-          result.value,
-          specifiedType: const FullType(EnumInt),
-        );
+        final deserialized = $serializers.deserialize(result.value, specifiedType: const FullType(EnumInt));
         expect(deserialized, result.key);
       }
     });
@@ -63,24 +47,14 @@ void main() {
 
   group('dynamic', () {
     test('serialize', () {
-      const results = {
-        EnumDynamic.$0: 0,
-        EnumDynamic.string: 'string',
-        EnumDynamic.$false: false,
-      };
+      const results = {EnumDynamic.$0: 0, EnumDynamic.string: 'string', EnumDynamic.$false: false};
 
       for (final result in results.entries) {
-        final serialized = $serializers.serialize(
-          result.key,
-          specifiedType: const FullType(EnumDynamic),
-        );
+        final serialized = $serializers.serialize(result.key, specifiedType: const FullType(EnumDynamic));
 
         expect(serialized, equals(result.value));
 
-        final deserialized = $serializers.deserialize(
-          result.value,
-          specifiedType: const FullType(EnumDynamic),
-        );
+        final deserialized = $serializers.deserialize(result.value, specifiedType: const FullType(EnumDynamic));
         expect(deserialized, equals(result.key));
       }
     });

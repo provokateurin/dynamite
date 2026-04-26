@@ -22,20 +22,12 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-    : super(
-        client.baseURL,
-        httpClient: client.httpClient,
-        authentications: client.authentications,
-      );
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$$get_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<String, void> $$get_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(String),
-        headersType: null,
-        serializers: _$jsonSerializers,
-      );
+      _i1.DynamiteSerializer(bodyType: const FullType(String), headersType: null, serializers: _$jsonSerializers);
 
   /// Returns a `DynamiteRequest` backing the [$get] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -75,13 +67,12 @@ class $Client extends _i1.DynamiteClient {
 
   /// Builds a serializer to parse the response of [$put_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<String, void> $put_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(String),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+  _i1.DynamiteSerializer<String, void> $put_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(String),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [put] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -124,11 +115,7 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$post_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<String, void> $post_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(String),
-        headersType: null,
-        serializers: _$jsonSerializers,
-      );
+      _i1.DynamiteSerializer(bodyType: const FullType(String), headersType: null, serializers: _$jsonSerializers);
 
   /// Returns a `DynamiteRequest` backing the [post] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -172,13 +159,12 @@ class $Client extends _i1.DynamiteClient {
 
   /// Builds a serializer to parse the response of [$patch_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<String, void> $patch_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(String),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 201},
-      );
+  _i1.DynamiteSerializer<String, void> $patch_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(String),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 201},
+  );
 
   /// Returns a `DynamiteRequest` backing the [patch] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.

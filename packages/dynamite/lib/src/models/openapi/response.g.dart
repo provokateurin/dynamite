@@ -22,10 +22,7 @@ class _$ResponseSerializer implements StructuredSerializer<Response> {
   }) {
     final result = <Object?>[
       'description',
-      serializers.serialize(
-        object.description,
-        specifiedType: const FullType(String),
-      ),
+      serializers.serialize(object.description, specifiedType: const FullType(String)),
     ];
     Object? value;
     value = object.content;
@@ -35,10 +32,7 @@ class _$ResponseSerializer implements StructuredSerializer<Response> {
         ..add(
           serializers.serialize(
             value,
-            specifiedType: const FullType(BuiltMap, const [
-              const FullType(String),
-              const FullType(MediaType),
-            ]),
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(MediaType)]),
           ),
         );
     }
@@ -49,10 +43,7 @@ class _$ResponseSerializer implements StructuredSerializer<Response> {
         ..add(
           serializers.serialize(
             value,
-            specifiedType: const FullType(BuiltMap, const [
-              const FullType(String),
-              const FullType(Header),
-            ]),
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Header)]),
           ),
         );
     }
@@ -74,21 +65,13 @@ class _$ResponseSerializer implements StructuredSerializer<Response> {
       final Object? value = iterator.current;
       switch (key) {
         case 'description':
-          result.description =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'content':
           result.content.replace(
             serializers.deserialize(
               value,
-              specifiedType: const FullType(BuiltMap, const [
-                const FullType(String),
-                const FullType(MediaType),
-              ]),
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(MediaType)]),
             )!,
           );
           break;
@@ -96,10 +79,7 @@ class _$ResponseSerializer implements StructuredSerializer<Response> {
           result.headers.replace(
             serializers.deserialize(
               value,
-              specifiedType: const FullType(BuiltMap, const [
-                const FullType(String),
-                const FullType(Header),
-              ]),
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Header)]),
             )!,
           );
           break;
@@ -118,14 +98,11 @@ class _$Response extends Response {
   @override
   final BuiltMap<String, Header>? headers;
 
-  factory _$Response([void Function(ResponseBuilder)? updates]) =>
-      (ResponseBuilder()..update(updates))._build();
+  factory _$Response([void Function(ResponseBuilder)? updates]) => (ResponseBuilder()..update(updates))._build();
 
-  _$Response._({required this.description, this.content, this.headers})
-    : super._();
+  _$Response._({required this.description, this.content, this.headers}) : super._();
   @override
-  Response rebuild(void Function(ResponseBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Response rebuild(void Function(ResponseBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   ResponseBuilder toBuilder() => ResponseBuilder()..replace(this);
@@ -133,9 +110,7 @@ class _$Response extends Response {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Response &&
-        content == other.content &&
-        headers == other.headers;
+    return other is Response && content == other.content && headers == other.headers;
   }
 
   @override
@@ -165,14 +140,11 @@ class ResponseBuilder implements Builder<Response, ResponseBuilder> {
   set description(String? description) => _$this._description = description;
 
   MapBuilder<String, MediaType>? _content;
-  MapBuilder<String, MediaType> get content =>
-      _$this._content ??= MapBuilder<String, MediaType>();
-  set content(MapBuilder<String, MediaType>? content) =>
-      _$this._content = content;
+  MapBuilder<String, MediaType> get content => _$this._content ??= MapBuilder<String, MediaType>();
+  set content(MapBuilder<String, MediaType>? content) => _$this._content = content;
 
   MapBuilder<String, Header>? _headers;
-  MapBuilder<String, Header> get headers =>
-      _$this._headers ??= MapBuilder<String, Header>();
+  MapBuilder<String, Header> get headers => _$this._headers ??= MapBuilder<String, Header>();
   set headers(MapBuilder<String, Header>? headers) => _$this._headers = headers;
 
   ResponseBuilder();
@@ -207,11 +179,7 @@ class ResponseBuilder implements Builder<Response, ResponseBuilder> {
       _$result =
           _$v ??
           _$Response._(
-            description: BuiltValueNullFieldError.checkNotNull(
-              description,
-              r'Response',
-              'description',
-            ),
+            description: BuiltValueNullFieldError.checkNotNull(description, r'Response', 'description'),
             content: _content?.build(),
             headers: _headers?.build(),
           );
@@ -223,11 +191,7 @@ class ResponseBuilder implements Builder<Response, ResponseBuilder> {
         _$failedField = 'headers';
         _headers?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-          r'Response',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(r'Response', _$failedField, e.toString());
       }
       rethrow;
     }

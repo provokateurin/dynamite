@@ -9,8 +9,7 @@ part of 'any_of.openapi.dart';
 Serializer<ObjectAnyOf0> _$objectAnyOf0Serializer = _$ObjectAnyOf0Serializer();
 Serializer<ObjectAnyOf1> _$objectAnyOf1Serializer = _$ObjectAnyOf1Serializer();
 Serializer<MixedAnyOf1> _$mixedAnyOf1Serializer = _$MixedAnyOf1Serializer();
-Serializer<OneObjectAnyOf0> _$oneObjectAnyOf0Serializer =
-    _$OneObjectAnyOf0Serializer();
+Serializer<OneObjectAnyOf0> _$oneObjectAnyOf0Serializer = _$OneObjectAnyOf0Serializer();
 
 class _$ObjectAnyOf0Serializer implements StructuredSerializer<ObjectAnyOf0> {
   @override
@@ -26,10 +25,7 @@ class _$ObjectAnyOf0Serializer implements StructuredSerializer<ObjectAnyOf0> {
   }) {
     final result = <Object?>[
       'attribute1-anyOf',
-      serializers.serialize(
-        object.attribute1AnyOf,
-        specifiedType: const FullType(String),
-      ),
+      serializers.serialize(object.attribute1AnyOf, specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -50,12 +46,7 @@ class _$ObjectAnyOf0Serializer implements StructuredSerializer<ObjectAnyOf0> {
       final Object? value = iterator.current;
       switch (key) {
         case 'attribute1-anyOf':
-          result.attribute1AnyOf =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.attribute1AnyOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -78,10 +69,7 @@ class _$ObjectAnyOf1Serializer implements StructuredSerializer<ObjectAnyOf1> {
   }) {
     final result = <Object?>[
       'attribute2-anyOf',
-      serializers.serialize(
-        object.attribute2AnyOf,
-        specifiedType: const FullType(String),
-      ),
+      serializers.serialize(object.attribute2AnyOf, specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -102,12 +90,7 @@ class _$ObjectAnyOf1Serializer implements StructuredSerializer<ObjectAnyOf1> {
       final Object? value = iterator.current;
       switch (key) {
         case 'attribute2-anyOf':
-          result.attribute2AnyOf =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.attribute2AnyOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -130,10 +113,7 @@ class _$MixedAnyOf1Serializer implements StructuredSerializer<MixedAnyOf1> {
   }) {
     final result = <Object?>[
       'attribute-anyOf',
-      serializers.serialize(
-        object.attributeAnyOf,
-        specifiedType: const FullType(String),
-      ),
+      serializers.serialize(object.attributeAnyOf, specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -154,12 +134,7 @@ class _$MixedAnyOf1Serializer implements StructuredSerializer<MixedAnyOf1> {
       final Object? value = iterator.current;
       switch (key) {
         case 'attribute-anyOf':
-          result.attributeAnyOf =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.attributeAnyOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -168,8 +143,7 @@ class _$MixedAnyOf1Serializer implements StructuredSerializer<MixedAnyOf1> {
   }
 }
 
-class _$OneObjectAnyOf0Serializer
-    implements StructuredSerializer<OneObjectAnyOf0> {
+class _$OneObjectAnyOf0Serializer implements StructuredSerializer<OneObjectAnyOf0> {
   @override
   final Iterable<Type> types = const [OneObjectAnyOf0, _$OneObjectAnyOf0];
   @override
@@ -183,10 +157,7 @@ class _$OneObjectAnyOf0Serializer
   }) {
     final result = <Object?>[
       'attribute-anyOf',
-      serializers.serialize(
-        object.attributeAnyOf,
-        specifiedType: const FullType(String),
-      ),
+      serializers.serialize(object.attributeAnyOf, specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -207,12 +178,7 @@ class _$OneObjectAnyOf0Serializer
       final Object? value = iterator.current;
       switch (key) {
         case 'attribute-anyOf':
-          result.attributeAnyOf =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.attributeAnyOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -237,8 +203,7 @@ class _$ObjectAnyOf0 extends ObjectAnyOf0 {
 
   _$ObjectAnyOf0._({required this.attribute1AnyOf}) : super._();
   @override
-  ObjectAnyOf0 rebuild(void Function(ObjectAnyOf0Builder) updates) =>
-      (toBuilder()..update(updates)).build();
+  ObjectAnyOf0 rebuild(void Function(ObjectAnyOf0Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   ObjectAnyOf0Builder toBuilder() => ObjectAnyOf0Builder()..replace(this);
@@ -259,22 +224,16 @@ class _$ObjectAnyOf0 extends ObjectAnyOf0 {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-      r'ObjectAnyOf0',
-    )..add('attribute1AnyOf', attribute1AnyOf)).toString();
+    return (newBuiltValueToStringHelper(r'ObjectAnyOf0')..add('attribute1AnyOf', attribute1AnyOf)).toString();
   }
 }
 
-class ObjectAnyOf0Builder
-    implements
-        Builder<ObjectAnyOf0, ObjectAnyOf0Builder>,
-        $ObjectAnyOf0InterfaceBuilder {
+class ObjectAnyOf0Builder implements Builder<ObjectAnyOf0, ObjectAnyOf0Builder>, $ObjectAnyOf0InterfaceBuilder {
   _$ObjectAnyOf0? _$v;
 
   String? _attribute1AnyOf;
   String? get attribute1AnyOf => _$this._attribute1AnyOf;
-  set attribute1AnyOf(covariant String? attribute1AnyOf) =>
-      _$this._attribute1AnyOf = attribute1AnyOf;
+  set attribute1AnyOf(covariant String? attribute1AnyOf) => _$this._attribute1AnyOf = attribute1AnyOf;
 
   ObjectAnyOf0Builder() {
     ObjectAnyOf0._defaults(this);
@@ -307,11 +266,7 @@ class ObjectAnyOf0Builder
     final _$result =
         _$v ??
         _$ObjectAnyOf0._(
-          attribute1AnyOf: BuiltValueNullFieldError.checkNotNull(
-            attribute1AnyOf,
-            r'ObjectAnyOf0',
-            'attribute1AnyOf',
-          ),
+          attribute1AnyOf: BuiltValueNullFieldError.checkNotNull(attribute1AnyOf, r'ObjectAnyOf0', 'attribute1AnyOf'),
         );
     replace(_$result);
     return _$result;
@@ -334,8 +289,7 @@ class _$ObjectAnyOf1 extends ObjectAnyOf1 {
 
   _$ObjectAnyOf1._({required this.attribute2AnyOf}) : super._();
   @override
-  ObjectAnyOf1 rebuild(void Function(ObjectAnyOf1Builder) updates) =>
-      (toBuilder()..update(updates)).build();
+  ObjectAnyOf1 rebuild(void Function(ObjectAnyOf1Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   ObjectAnyOf1Builder toBuilder() => ObjectAnyOf1Builder()..replace(this);
@@ -356,22 +310,16 @@ class _$ObjectAnyOf1 extends ObjectAnyOf1 {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-      r'ObjectAnyOf1',
-    )..add('attribute2AnyOf', attribute2AnyOf)).toString();
+    return (newBuiltValueToStringHelper(r'ObjectAnyOf1')..add('attribute2AnyOf', attribute2AnyOf)).toString();
   }
 }
 
-class ObjectAnyOf1Builder
-    implements
-        Builder<ObjectAnyOf1, ObjectAnyOf1Builder>,
-        $ObjectAnyOf1InterfaceBuilder {
+class ObjectAnyOf1Builder implements Builder<ObjectAnyOf1, ObjectAnyOf1Builder>, $ObjectAnyOf1InterfaceBuilder {
   _$ObjectAnyOf1? _$v;
 
   String? _attribute2AnyOf;
   String? get attribute2AnyOf => _$this._attribute2AnyOf;
-  set attribute2AnyOf(covariant String? attribute2AnyOf) =>
-      _$this._attribute2AnyOf = attribute2AnyOf;
+  set attribute2AnyOf(covariant String? attribute2AnyOf) => _$this._attribute2AnyOf = attribute2AnyOf;
 
   ObjectAnyOf1Builder() {
     ObjectAnyOf1._defaults(this);
@@ -404,11 +352,7 @@ class ObjectAnyOf1Builder
     final _$result =
         _$v ??
         _$ObjectAnyOf1._(
-          attribute2AnyOf: BuiltValueNullFieldError.checkNotNull(
-            attribute2AnyOf,
-            r'ObjectAnyOf1',
-            'attribute2AnyOf',
-          ),
+          attribute2AnyOf: BuiltValueNullFieldError.checkNotNull(attribute2AnyOf, r'ObjectAnyOf1', 'attribute2AnyOf'),
         );
     replace(_$result);
     return _$result;
@@ -431,8 +375,7 @@ class _$MixedAnyOf1 extends MixedAnyOf1 {
 
   _$MixedAnyOf1._({required this.attributeAnyOf}) : super._();
   @override
-  MixedAnyOf1 rebuild(void Function(MixedAnyOf1Builder) updates) =>
-      (toBuilder()..update(updates)).build();
+  MixedAnyOf1 rebuild(void Function(MixedAnyOf1Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   MixedAnyOf1Builder toBuilder() => MixedAnyOf1Builder()..replace(this);
@@ -453,22 +396,16 @@ class _$MixedAnyOf1 extends MixedAnyOf1 {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-      r'MixedAnyOf1',
-    )..add('attributeAnyOf', attributeAnyOf)).toString();
+    return (newBuiltValueToStringHelper(r'MixedAnyOf1')..add('attributeAnyOf', attributeAnyOf)).toString();
   }
 }
 
-class MixedAnyOf1Builder
-    implements
-        Builder<MixedAnyOf1, MixedAnyOf1Builder>,
-        $MixedAnyOf1InterfaceBuilder {
+class MixedAnyOf1Builder implements Builder<MixedAnyOf1, MixedAnyOf1Builder>, $MixedAnyOf1InterfaceBuilder {
   _$MixedAnyOf1? _$v;
 
   String? _attributeAnyOf;
   String? get attributeAnyOf => _$this._attributeAnyOf;
-  set attributeAnyOf(covariant String? attributeAnyOf) =>
-      _$this._attributeAnyOf = attributeAnyOf;
+  set attributeAnyOf(covariant String? attributeAnyOf) => _$this._attributeAnyOf = attributeAnyOf;
 
   MixedAnyOf1Builder() {
     MixedAnyOf1._defaults(this);
@@ -501,11 +438,7 @@ class MixedAnyOf1Builder
     final _$result =
         _$v ??
         _$MixedAnyOf1._(
-          attributeAnyOf: BuiltValueNullFieldError.checkNotNull(
-            attributeAnyOf,
-            r'MixedAnyOf1',
-            'attributeAnyOf',
-          ),
+          attributeAnyOf: BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'MixedAnyOf1', 'attributeAnyOf'),
         );
     replace(_$result);
     return _$result;
@@ -528,8 +461,7 @@ class _$OneObjectAnyOf0 extends OneObjectAnyOf0 {
 
   _$OneObjectAnyOf0._({required this.attributeAnyOf}) : super._();
   @override
-  OneObjectAnyOf0 rebuild(void Function(OneObjectAnyOf0Builder) updates) =>
-      (toBuilder()..update(updates)).build();
+  OneObjectAnyOf0 rebuild(void Function(OneObjectAnyOf0Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   OneObjectAnyOf0Builder toBuilder() => OneObjectAnyOf0Builder()..replace(this);
@@ -550,22 +482,17 @@ class _$OneObjectAnyOf0 extends OneObjectAnyOf0 {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-      r'OneObjectAnyOf0',
-    )..add('attributeAnyOf', attributeAnyOf)).toString();
+    return (newBuiltValueToStringHelper(r'OneObjectAnyOf0')..add('attributeAnyOf', attributeAnyOf)).toString();
   }
 }
 
 class OneObjectAnyOf0Builder
-    implements
-        Builder<OneObjectAnyOf0, OneObjectAnyOf0Builder>,
-        $OneObjectAnyOf0InterfaceBuilder {
+    implements Builder<OneObjectAnyOf0, OneObjectAnyOf0Builder>, $OneObjectAnyOf0InterfaceBuilder {
   _$OneObjectAnyOf0? _$v;
 
   String? _attributeAnyOf;
   String? get attributeAnyOf => _$this._attributeAnyOf;
-  set attributeAnyOf(covariant String? attributeAnyOf) =>
-      _$this._attributeAnyOf = attributeAnyOf;
+  set attributeAnyOf(covariant String? attributeAnyOf) => _$this._attributeAnyOf = attributeAnyOf;
 
   OneObjectAnyOf0Builder() {
     OneObjectAnyOf0._defaults(this);
@@ -598,11 +525,7 @@ class OneObjectAnyOf0Builder
     final _$result =
         _$v ??
         _$OneObjectAnyOf0._(
-          attributeAnyOf: BuiltValueNullFieldError.checkNotNull(
-            attributeAnyOf,
-            r'OneObjectAnyOf0',
-            'attributeAnyOf',
-          ),
+          attributeAnyOf: BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'OneObjectAnyOf0', 'attributeAnyOf'),
         );
     replace(_$result);
     return _$result;

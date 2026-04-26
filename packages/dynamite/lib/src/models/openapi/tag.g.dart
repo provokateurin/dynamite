@@ -15,23 +15,14 @@ class _$TagSerializer implements StructuredSerializer<Tag> {
   final String wireName = 'Tag';
 
   @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    Tag object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(Serializers serializers, Tag object, {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>['name', serializers.serialize(object.name, specifiedType: const FullType(String))];
     Object? value;
     value = object.description;
     if (value != null) {
       result
         ..add('description')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -51,20 +42,10 @@ class _$TagSerializer implements StructuredSerializer<Tag> {
       final Object? value = iterator.current;
       switch (key) {
         case 'name':
-          result.name =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'description':
-          result.description =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -81,8 +62,7 @@ class _$Tag extends Tag {
   String? __formattedDescription;
   bool ___formattedDescription = false;
 
-  factory _$Tag([void Function(TagBuilder)? updates]) =>
-      (TagBuilder()..update(updates))._build();
+  factory _$Tag([void Function(TagBuilder)? updates]) => (TagBuilder()..update(updates))._build();
 
   _$Tag._({required this.name, this.description}) : super._();
   @override
@@ -95,8 +75,7 @@ class _$Tag extends Tag {
   }
 
   @override
-  Tag rebuild(void Function(TagBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Tag rebuild(void Function(TagBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   TagBuilder toBuilder() => TagBuilder()..replace(this);
@@ -162,11 +141,7 @@ class TagBuilder implements Builder<Tag, TagBuilder> {
 
   _$Tag _build() {
     final _$result =
-        _$v ??
-        _$Tag._(
-          name: BuiltValueNullFieldError.checkNotNull(name, r'Tag', 'name'),
-          description: description,
-        );
+        _$v ?? _$Tag._(name: BuiltValueNullFieldError.checkNotNull(name, r'Tag', 'name'), description: description);
     replace(_$result);
     return _$result;
   }

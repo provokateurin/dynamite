@@ -77,15 +77,12 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory Base.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Base.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for Base.
   static Serializer<Base> get serializer => _$baseSerializer;
@@ -103,42 +100,22 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
 
 @BuiltValue(instantiable: false)
 sealed class $DefaultsInterface {
-  static final _$$bool =
-      _$jsonSerializers.deserialize(true, specifiedType: const FullType(bool))!
-          as bool;
+  static final _$$bool = _$jsonSerializers.deserialize(true, specifiedType: const FullType(bool))! as bool;
 
-  static final _$integer =
-      _$jsonSerializers.deserialize(1, specifiedType: const FullType(int))!
-          as int;
+  static final _$integer = _$jsonSerializers.deserialize(1, specifiedType: const FullType(int))! as int;
 
-  static final _$$double =
-      _$jsonSerializers.deserialize(1.0, specifiedType: const FullType(double))!
-          as double;
+  static final _$$double = _$jsonSerializers.deserialize(1.0, specifiedType: const FullType(double))! as double;
 
-  static final _$$num =
-      _$jsonSerializers.deserialize(0, specifiedType: const FullType(num))!
-          as num;
+  static final _$$num = _$jsonSerializers.deserialize(0, specifiedType: const FullType(num))! as num;
 
-  static final _$string =
-      _$jsonSerializers.deserialize(
-            "default",
-            specifiedType: const FullType(String),
-          )!
-          as String;
+  static final _$string = _$jsonSerializers.deserialize("default", specifiedType: const FullType(String))! as String;
 
   static final _$contentString =
-      _$jsonSerializers.deserialize(
-            "1",
-            specifiedType: const FullType(ContentString, [FullType(int)]),
-          )
+      _$jsonSerializers.deserialize("1", specifiedType: const FullType(ContentString, [FullType(int)]))
           as ContentString<int>;
 
   static final _$stringBinary =
-      _$jsonSerializers.deserialize(
-            "",
-            specifiedType: const FullType(Uint8List),
-          )!
-          as Uint8List;
+      _$jsonSerializers.deserialize("", specifiedType: const FullType(Uint8List))! as Uint8List;
 
   static final _$list =
       _$jsonSerializers.deserialize(const [
@@ -149,10 +126,7 @@ sealed class $DefaultsInterface {
           as BuiltList<JsonObject>;
 
   static final _$listNever =
-      _$jsonSerializers.deserialize(
-            const [],
-            specifiedType: const FullType(BuiltList, [FullType(Never)]),
-          )!
+      _$jsonSerializers.deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(Never)]))!
           as BuiltList<Never>;
 
   static final _$listString =
@@ -172,19 +146,11 @@ sealed class $DefaultsInterface {
           as JsonObject;
 
   static final _$objectArray =
-      _$jsonSerializers.deserialize(const [
-            "default-item",
-            true,
-            1.0,
-          ], specifiedType: const FullType(JsonObject))!
+      _$jsonSerializers.deserialize(const ["default-item", true, 1.0], specifiedType: const FullType(JsonObject))!
           as JsonObject;
 
   static final _$objectBool =
-      _$jsonSerializers.deserialize(
-            true,
-            specifiedType: const FullType(JsonObject),
-          )!
-          as JsonObject;
+      _$jsonSerializers.deserialize(true, specifiedType: const FullType(JsonObject))! as JsonObject;
 
   @BuiltValueField(wireName: 'bool')
   bool get $bool;
@@ -241,8 +207,7 @@ sealed class $DefaultsInterface {
   }
 }
 
-abstract class Defaults
-    implements $DefaultsInterface, Built<Defaults, DefaultsBuilder> {
+abstract class Defaults implements $DefaultsInterface, Built<Defaults, DefaultsBuilder> {
   /// Creates a new Defaults object using the builder pattern.
   factory Defaults([void Function(DefaultsBuilder)? b]) = _$Defaults;
 
@@ -251,15 +216,12 @@ abstract class Defaults
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory Defaults.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Defaults.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for Defaults.
   static Serializer<Defaults> get serializer => _$defaultsSerializer;
@@ -308,9 +270,7 @@ sealed class $AdditionalPropertiesInterface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$AdditionalPropertiesInterfaceBuilder].
-  $AdditionalPropertiesInterface rebuild(
-    void Function($AdditionalPropertiesInterfaceBuilder) updates,
-  );
+  $AdditionalPropertiesInterface rebuild(void Function($AdditionalPropertiesInterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$AdditionalPropertiesInterfaceBuilder].
   $AdditionalPropertiesInterfaceBuilder toBuilder();
@@ -321,13 +281,9 @@ sealed class $AdditionalPropertiesInterface {
 }
 
 abstract class AdditionalProperties
-    implements
-        $AdditionalPropertiesInterface,
-        Built<AdditionalProperties, AdditionalPropertiesBuilder> {
+    implements $AdditionalPropertiesInterface, Built<AdditionalProperties, AdditionalPropertiesBuilder> {
   /// Creates a new AdditionalProperties object using the builder pattern.
-  factory AdditionalProperties([
-    void Function(AdditionalPropertiesBuilder)? b,
-  ]) = _$AdditionalProperties;
+  factory AdditionalProperties([void Function(AdditionalPropertiesBuilder)? b]) = _$AdditionalProperties;
 
   const AdditionalProperties._();
 
@@ -340,13 +296,10 @@ abstract class AdditionalProperties
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for AdditionalProperties.
-  static Serializer<AdditionalProperties> get serializer =>
-      _$additionalPropertiesSerializer;
+  static Serializer<AdditionalProperties> get serializer => _$additionalPropertiesSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(AdditionalPropertiesBuilder b) {
@@ -370,29 +323,14 @@ final Serializers _$serializers =
     (Serializers().toBuilder()
           ..addBuilderFactory(const FullType(Base), BaseBuilder.new)
           ..add(Base.serializer)
-          ..addBuilderFactory(
-            const FullType(ContentString, [FullType(int)]),
-            ContentStringBuilder<int>.new,
-          )
+          ..addBuilderFactory(const FullType(ContentString, [FullType(int)]), ContentStringBuilder<int>.new)
           ..add(ContentString.serializer)
-          ..addBuilderFactory(
-            const FullType(BuiltList, [FullType(JsonObject)]),
-            ListBuilder<JsonObject>.new,
-          )
-          ..addBuilderFactory(
-            const FullType(BuiltList, [FullType(Never)]),
-            ListBuilder<Never>.new,
-          )
-          ..addBuilderFactory(
-            const FullType(BuiltList, [FullType(String)]),
-            ListBuilder<String>.new,
-          )
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
           ..addBuilderFactory(const FullType(Defaults), DefaultsBuilder.new)
           ..add(Defaults.serializer)
-          ..addBuilderFactory(
-            const FullType(AdditionalProperties),
-            AdditionalPropertiesBuilder.new,
-          )
+          ..addBuilderFactory(const FullType(AdditionalProperties), AdditionalPropertiesBuilder.new)
           ..add(AdditionalProperties.serializer)
           ..addBuilderFactory(
             const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
@@ -406,28 +344,19 @@ final Serializers _$serializers =
             MapBuilder<String, BuiltMap<String, JsonObject>>.new,
           )
           ..addBuilderFactory(
-            const FullType(BuiltMap, [
-              FullType(String),
-              FullType.nullable(JsonObject),
-            ]),
+            const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
             MapBuilder<String, JsonObject?>.new,
           )
           ..addBuilderFactory(
             const FullType(BuiltMap, [FullType(String), FullType(bool)]),
             MapBuilder<String, bool>.new,
           )
-          ..addBuilderFactory(
-            const FullType(BuiltMap, [FullType(String), FullType(int)]),
-            MapBuilder<String, int>.new,
-          )
+          ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
           ..addBuilderFactory(
             const FullType(BuiltMap, [FullType(String), FullType(double)]),
             MapBuilder<String, double>.new,
           )
-          ..addBuilderFactory(
-            const FullType(BuiltMap, [FullType(String), FullType(num)]),
-            MapBuilder<String, num>.new,
-          )
+          ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(num)]), MapBuilder<String, num>.new)
           ..addBuilderFactory(
             const FullType(BuiltMap, [FullType(String), FullType(String)]),
             MapBuilder<String, String>.new,

@@ -29,21 +29,13 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-    : super(
-        client.baseURL,
-        httpClient: client.httpClient,
-        authentications: client.authentications,
-      );
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$findValues_Request].
   @_i2.experimental
   @Deprecated('')
   _i1.DynamiteSerializer<Object1, void> $findValues_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(Object1),
-        headersType: null,
-        serializers: _$jsonSerializers,
-      );
+      _i1.DynamiteSerializer(bodyType: const FullType(Object1), headersType: null, serializers: _$jsonSerializers);
 
   /// Returns a `DynamiteRequest` backing the [findValues] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -62,16 +54,10 @@ class $Client extends _i1.DynamiteClient {
   @Deprecated('')
   _i3.Request $findValues_Request({BuiltList<String>? tags, int? limit}) {
     final _parameters = <String, Object?>{};
-    final __tags = _$jsonSerializers.serialize(
-      tags,
-      specifiedType: const FullType(BuiltList, [FullType(String)]),
-    );
+    final __tags = _$jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
     _parameters['tags'] = __tags;
 
-    final __limit = _$jsonSerializers.serialize(
-      limit,
-      specifiedType: const FullType(int),
-    );
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     _parameters['limit'] = __limit;
 
     final _path = _i4.UriTemplate('/{?tags*,limit*}').expand(_parameters);
@@ -95,10 +81,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$findValues_Request] for the request send by this method.
   ///  * [$findValues_Serializer] for a converter to parse the `Response` from an executed request.
   @Deprecated('')
-  Future<_i1.DynamiteResponse<Object1, void>> findValues({
-    BuiltList<String>? tags,
-    int? limit,
-  }) async {
+  Future<_i1.DynamiteResponse<Object1, void>> findValues({BuiltList<String>? tags, int? limit}) async {
     final _request = $findValues_Request(tags: tags, limit: limit);
     final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -132,8 +115,7 @@ sealed class $Object2Interface {
 }
 
 @Deprecated('')
-abstract class Object2
-    implements $Object2Interface, Built<Object2, Object2Builder> {
+abstract class Object2 implements $Object2Interface, Built<Object2, Object2Builder> {
   /// Creates a new Object2 object using the builder pattern.
   @Deprecated('')
   factory Object2([void Function(Object2Builder)? b]) = _$Object2;
@@ -145,15 +127,12 @@ abstract class Object2
   ///
   /// Use [toJson] to serialize it back into json.
   @Deprecated('')
-  factory Object2.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Object2.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for Object2.
   static Serializer<Object2> get serializer => _$object2Serializer;
@@ -192,8 +171,7 @@ sealed class $Object1Interface implements $Object2Interface {
   }
 }
 
-abstract class Object1
-    implements $Object1Interface, Built<Object1, Object1Builder> {
+abstract class Object1 implements $Object1Interface, Built<Object1, Object1Builder> {
   /// Creates a new Object1 object using the builder pattern.
   factory Object1([void Function(Object1Builder)? b]) = _$Object1;
 
@@ -202,15 +180,12 @@ abstract class Object1
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory Object1.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Object1.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for Object1.
   static Serializer<Object1> get serializer => _$object1Serializer;
@@ -253,13 +228,11 @@ class HuntingSkill extends EnumClass {
   static HuntingSkill valueOf(String name) => _$valueOfHuntingSkill(name);
 
   /// Returns the serialized value of this enum value.
-  dynamic get value =>
-      _$jsonSerializers.serializeWith(serializer, this)! as dynamic;
+  dynamic get value => _$jsonSerializers.serializeWith(serializer, this)! as dynamic;
 
   /// Serializer for HuntingSkill.
   @BuiltValueSerializer(custom: true)
-  static Serializer<HuntingSkill> get serializer =>
-      const _$HuntingSkillSerializer();
+  static Serializer<HuntingSkill> get serializer => const _$HuntingSkillSerializer();
 }
 
 class _$HuntingSkillSerializer implements PrimitiveSerializer<HuntingSkill> {
@@ -286,11 +259,8 @@ class _$HuntingSkillSerializer implements PrimitiveSerializer<HuntingSkill> {
   String get wireName => 'HuntingSkill';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    HuntingSkill object, {
-    FullType specifiedType = FullType.unspecified,
-  }) => _toWire[object]!;
+  Object serialize(Serializers serializers, HuntingSkill object, {FullType specifiedType = FullType.unspecified}) =>
+      _toWire[object]!;
 
   @override
   HuntingSkill deserialize(
@@ -304,22 +274,19 @@ class _$HuntingSkillSerializer implements PrimitiveSerializer<HuntingSkill> {
 extension $Object3Extension on Object3 {
   /// Serializer for Object3.
   @BuiltValueSerializer(custom: true)
-  static Serializer<Object3> get serializer =>
-      $b2c4857c0136baea42828d89c87c757dExtension._serializer;
+  static Serializer<Object3> get serializer => $b2c4857c0136baea42828d89c87c757dExtension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
-  static Object3 fromJson(Object? json) =>
-      $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
+  static Object3 fromJson(Object? json) => $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
 }
 
 typedef _$b2c4857c0136baea42828d89c87c757d = ({int? $int, String? string});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $b2c4857c0136baea42828d89c87c757dExtension
-    on _$b2c4857c0136baea42828d89c87c757d {
+extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d89c87c757d {
   List<dynamic> get _values => [$int, string];
 
   List<String> get _names => const [r'$int', 'string'];
@@ -342,8 +309,7 @@ extension $b2c4857c0136baea42828d89c87c757dExtension
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$b2c4857c0136baea42828d89c87c757dSerializer
-    implements PrimitiveSerializer<_$b2c4857c0136baea42828d89c87c757d> {
+class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerializer<_$b2c4857c0136baea42828d89c87c757d> {
   const _$b2c4857c0136baea42828d89c87c757dSerializer();
 
   @override
@@ -365,10 +331,7 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer
     }
     value = object.string;
     if (value != null) {
-      return serializers.serialize(
-        value,
-        specifiedType: const FullType(String),
-      )!;
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
     // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -382,15 +345,11 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer
   }) {
     int? $int;
     try {
-      $int =
-          serializers.deserialize(data, specifiedType: const FullType(int))
-              as int;
+      $int = serializers.deserialize(data, specifiedType: const FullType(int)) as int;
     } catch (_) {}
     String? string;
     try {
-      string =
-          serializers.deserialize(data, specifiedType: const FullType(String))
-              as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String)) as String;
     } catch (_) {}
     return ($int: $int, string: string);
   }
@@ -405,10 +364,7 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers =
     (Serializers().toBuilder()
-          ..addBuilderFactory(
-            const FullType(BuiltList, [FullType(String)]),
-            ListBuilder<String>.new,
-          )
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
           ..addBuilderFactory(const FullType(Object1), Object1Builder.new)
           ..add(Object1.serializer)
           ..addBuilderFactory(const FullType(Object2), Object2Builder.new)
@@ -426,11 +382,7 @@ final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers =
     (_$serializers.toBuilder()
           ..add(_i6.DynamiteDoubleSerializer())
-          ..addPlugin(
-            _i7.StandardJsonPlugin(
-              typesToLeaveAsList: const {_$b2c4857c0136baea42828d89c87c757d},
-            ),
-          )
+          ..addPlugin(_i7.StandardJsonPlugin(typesToLeaveAsList: const {_$b2c4857c0136baea42828d89c87c757d}))
           ..addPlugin(const _i6.HeaderPlugin())
           ..addPlugin(const _i6.ContentStringPlugin()))
         .build();

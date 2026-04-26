@@ -7,10 +7,7 @@ import 'package:test/test.dart';
 void main() {
   final uri = Uri.parse('example.com');
 
-  const basicAuth = DynamiteHttpBasicAuthentication(
-    username: 'bearer-username',
-    password: 'bearer-password',
-  );
+  const basicAuth = DynamiteHttpBasicAuthentication(username: 'bearer-username', password: 'bearer-password');
 
   const bearerAuth = DynamiteHttpBearerAuthentication(token: 'bearer-token');
 
@@ -23,11 +20,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.noAuthentication();
@@ -40,11 +33,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.noAuthentication();
@@ -57,11 +46,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.noAuthentication();
@@ -74,11 +59,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.noAuthentication();
@@ -93,11 +74,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     expect(() => client.basicAuthentication(), throwsA(isA<Exception>()));
@@ -110,18 +87,10 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(
           request.headers,
-          equals({
-            'Accept': 'application/json',
-            'Authorization':
-                'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
-          }),
+          equals({'Accept': 'application/json', 'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA=='}),
         );
 
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.basicAuthentication();
@@ -134,11 +103,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     expect(() => client.basicAuthentication(), throwsA(isA<Exception>()));
@@ -151,18 +116,10 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(
           request.headers,
-          equals({
-            'Accept': 'application/json',
-            'Authorization':
-                'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
-          }),
+          equals({'Accept': 'application/json', 'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA=='}),
         );
 
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.basicAuthentication();
@@ -177,11 +134,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     expect(() => client.bearerAuthentication(), throwsA(isA<Exception>()));
@@ -194,11 +147,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     expect(() => client.bearerAuthentication(), throwsA(isA<Exception>()));
@@ -209,19 +158,9 @@ void main() {
       authentications: const [bearerAuth],
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
-        expect(
-          request.headers,
-          equals({
-            'Accept': 'application/json',
-            'Authorization': 'Bearer bearer-token',
-          }),
-        );
+        expect(request.headers, equals({'Accept': 'application/json', 'Authorization': 'Bearer bearer-token'}));
 
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.bearerAuthentication();
@@ -232,19 +171,9 @@ void main() {
       authentications: const [basicAuth, bearerAuth],
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
-        expect(
-          request.headers,
-          equals({
-            'Accept': 'application/json',
-            'Authorization': 'Bearer bearer-token',
-          }),
-        );
+        expect(request.headers, equals({'Accept': 'application/json', 'Authorization': 'Bearer bearer-token'}));
 
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.bearerAuthentication();
@@ -259,11 +188,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     expect(() => client.multipleAuthentications(), throwsA(isA<Exception>()));
@@ -276,18 +201,10 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(
           request.headers,
-          equals({
-            'Accept': 'application/json',
-            'Authorization':
-                'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
-          }),
+          equals({'Accept': 'application/json', 'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA=='}),
         );
 
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.multipleAuthentications();
@@ -298,19 +215,9 @@ void main() {
       authentications: const [bearerAuth],
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
-        expect(
-          request.headers,
-          equals({
-            'Accept': 'application/json',
-            'Authorization': 'Bearer bearer-token',
-          }),
-        );
+        expect(request.headers, equals({'Accept': 'application/json', 'Authorization': 'Bearer bearer-token'}));
 
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.multipleAuthentications();
@@ -323,18 +230,10 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(
           request.headers,
-          equals({
-            'Accept': 'application/json',
-            'Authorization':
-                'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
-          }),
+          equals({'Accept': 'application/json', 'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA=='}),
         );
 
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.multipleAuthentications();

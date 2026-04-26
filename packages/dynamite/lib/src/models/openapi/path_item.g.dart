@@ -26,110 +26,63 @@ class _$PathItemSerializer implements StructuredSerializer<PathItem> {
     if (value != null) {
       result
         ..add('description')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.parameters;
     if (value != null) {
       result
         ..add('parameters')
         ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(BuiltList, const [
-              const FullType(Parameter),
-            ]),
-          ),
+          serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Parameter)])),
         );
     }
     value = object.get;
     if (value != null) {
       result
         ..add('get')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Operation),
-          ),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(Operation)));
     }
     value = object.put;
     if (value != null) {
       result
         ..add('put')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Operation),
-          ),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(Operation)));
     }
     value = object.post;
     if (value != null) {
       result
         ..add('post')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Operation),
-          ),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(Operation)));
     }
     value = object.delete;
     if (value != null) {
       result
         ..add('delete')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Operation),
-          ),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(Operation)));
     }
     value = object.options;
     if (value != null) {
       result
         ..add('options')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Operation),
-          ),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(Operation)));
     }
     value = object.head;
     if (value != null) {
       result
         ..add('head')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Operation),
-          ),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(Operation)));
     }
     value = object.patch;
     if (value != null) {
       result
         ..add('patch')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Operation),
-          ),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(Operation)));
     }
     value = object.trace;
     if (value != null) {
       result
         ..add('trace')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Operation),
-          ),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(Operation)));
     }
     return result;
   }
@@ -149,95 +102,39 @@ class _$PathItemSerializer implements StructuredSerializer<PathItem> {
       final Object? value = iterator.current;
       switch (key) {
         case 'description':
-          result.description =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'parameters':
           result.parameters.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(BuiltList, const [
-                    const FullType(Parameter),
-                  ]),
-                )!
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Parameter)]))!
                 as BuiltList<Object?>,
           );
           break;
         case 'get':
-          result.get.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(Operation),
-                )!
-                as Operation,
-          );
+          result.get.replace(serializers.deserialize(value, specifiedType: const FullType(Operation))! as Operation);
           break;
         case 'put':
-          result.put.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(Operation),
-                )!
-                as Operation,
-          );
+          result.put.replace(serializers.deserialize(value, specifiedType: const FullType(Operation))! as Operation);
           break;
         case 'post':
-          result.post.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(Operation),
-                )!
-                as Operation,
-          );
+          result.post.replace(serializers.deserialize(value, specifiedType: const FullType(Operation))! as Operation);
           break;
         case 'delete':
-          result.delete.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(Operation),
-                )!
-                as Operation,
-          );
+          result.delete.replace(serializers.deserialize(value, specifiedType: const FullType(Operation))! as Operation);
           break;
         case 'options':
           result.options.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(Operation),
-                )!
-                as Operation,
+            serializers.deserialize(value, specifiedType: const FullType(Operation))! as Operation,
           );
           break;
         case 'head':
-          result.head.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(Operation),
-                )!
-                as Operation,
-          );
+          result.head.replace(serializers.deserialize(value, specifiedType: const FullType(Operation))! as Operation);
           break;
         case 'patch':
-          result.patch.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(Operation),
-                )!
-                as Operation,
-          );
+          result.patch.replace(serializers.deserialize(value, specifiedType: const FullType(Operation))! as Operation);
           break;
         case 'trace':
-          result.trace.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(Operation),
-                )!
-                as Operation,
-          );
+          result.trace.replace(serializers.deserialize(value, specifiedType: const FullType(Operation))! as Operation);
           break;
       }
     }
@@ -269,8 +166,7 @@ class _$PathItem extends PathItem {
   final Operation? trace;
   Map<PathItemOperation, Operation>? __operations;
 
-  factory _$PathItem([void Function(PathItemBuilder)? updates]) =>
-      (PathItemBuilder()..update(updates))._build();
+  factory _$PathItem([void Function(PathItemBuilder)? updates]) => (PathItemBuilder()..update(updates))._build();
 
   _$PathItem._({
     this.description,
@@ -285,12 +181,10 @@ class _$PathItem extends PathItem {
     this.trace,
   }) : super._();
   @override
-  Map<PathItemOperation, Operation> get operations =>
-      __operations ??= super.operations;
+  Map<PathItemOperation, Operation> get operations => __operations ??= super.operations;
 
   @override
-  PathItem rebuild(void Function(PathItemBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  PathItem rebuild(void Function(PathItemBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   PathItemBuilder toBuilder() => PathItemBuilder()..replace(this);
@@ -351,10 +245,8 @@ class PathItemBuilder implements Builder<PathItem, PathItemBuilder> {
   set description(String? description) => _$this._description = description;
 
   ListBuilder<Parameter>? _parameters;
-  ListBuilder<Parameter> get parameters =>
-      _$this._parameters ??= ListBuilder<Parameter>();
-  set parameters(ListBuilder<Parameter>? parameters) =>
-      _$this._parameters = parameters;
+  ListBuilder<Parameter> get parameters => _$this._parameters ??= ListBuilder<Parameter>();
+  set parameters(ListBuilder<Parameter>? parameters) => _$this._parameters = parameters;
 
   OperationBuilder? _get;
   OperationBuilder get get => _$this._get ??= OperationBuilder();
@@ -460,11 +352,7 @@ class PathItemBuilder implements Builder<PathItem, PathItemBuilder> {
         _$failedField = 'trace';
         _trace?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-          r'PathItem',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(r'PathItem', _$failedField, e.toString());
       }
       rethrow;
     }

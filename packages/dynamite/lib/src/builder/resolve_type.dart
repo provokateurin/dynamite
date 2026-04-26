@@ -32,12 +32,7 @@ TypeResult _resolveType(State state, json_schema.JsonSchema schema) {
     case json_schema.JsonSchema(allOf: != null):
       return resolveObject(state, schema);
 
-    case json_schema.GenericSchema(
-      ref: null,
-      allOf: null,
-      anyOf: null,
-      oneOf: null,
-    ):
+    case json_schema.GenericSchema(ref: null, allOf: null, anyOf: null, oneOf: null):
       return TypeResultBase('JsonObject', nullable: schema.nullable);
 
     case json_schema.JsonSchema(ref: != null):
@@ -45,8 +40,7 @@ TypeResult _resolveType(State state, json_schema.JsonSchema schema) {
 
       return subResult.asTypeDef;
 
-    case json_schema.JsonSchema(anyOf: != null) ||
-        json_schema.JsonSchema(oneOf: != null):
+    case json_schema.JsonSchema(anyOf: != null) || json_schema.JsonSchema(oneOf: != null):
       return resolveSomeOf(state, schema);
 
     case json_schema.StringSchema(isContentString: true):
@@ -57,11 +51,7 @@ TypeResult _resolveType(State state, json_schema.JsonSchema schema) {
         }),
       );
 
-      return TypeResultObject(
-        'ContentString',
-        generics: BuiltList([subResult]),
-        nullable: schema.nullable,
-      );
+      return TypeResultObject('ContentString', generics: BuiltList([subResult]), nullable: schema.nullable);
 
     case json_schema.BooleanSchema():
       return TypeResultBase('bool', nullable: schema.nullable);
@@ -116,13 +106,8 @@ TypeResult _resolveType(State state, json_schema.JsonSchema schema) {
         return TypeResultMap('BuiltMap', subResult, nullable: schema.nullable);
       }
 
-    case json_schema.ObjectSchema(:final properties)
-        when properties != null && properties.isEmpty:
-      return TypeResultMap(
-        'BuiltMap',
-        TypeResultBase('JsonObject'),
-        nullable: schema.nullable,
-      );
+    case json_schema.ObjectSchema(:final properties) when properties != null && properties.isEmpty:
+      return TypeResultMap('BuiltMap', TypeResultBase('JsonObject'), nullable: schema.nullable);
 
     case json_schema.ObjectSchema():
       return resolveObject(state, schema);

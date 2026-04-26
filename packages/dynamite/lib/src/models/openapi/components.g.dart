@@ -29,10 +29,7 @@ class _$ComponentsSerializer implements StructuredSerializer<Components> {
         ..add(
           serializers.serialize(
             value,
-            specifiedType: const FullType(BuiltMap, const [
-              const FullType(String),
-              const FullType(SecurityScheme),
-            ]),
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(SecurityScheme)]),
           ),
         );
     }
@@ -43,10 +40,7 @@ class _$ComponentsSerializer implements StructuredSerializer<Components> {
         ..add(
           serializers.serialize(
             value,
-            specifiedType: const FullType(BuiltMap, const [
-              const FullType(String),
-              const FullType(JsonSchema),
-            ]),
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonSchema)]),
           ),
         );
     }
@@ -71,10 +65,7 @@ class _$ComponentsSerializer implements StructuredSerializer<Components> {
           result.securitySchemes.replace(
             serializers.deserialize(
               value,
-              specifiedType: const FullType(BuiltMap, const [
-                const FullType(String),
-                const FullType(SecurityScheme),
-              ]),
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(SecurityScheme)]),
             )!,
           );
           break;
@@ -82,10 +73,7 @@ class _$ComponentsSerializer implements StructuredSerializer<Components> {
           result.schemas.replace(
             serializers.deserialize(
               value,
-              specifiedType: const FullType(BuiltMap, const [
-                const FullType(String),
-                const FullType(JsonSchema),
-              ]),
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonSchema)]),
             )!,
           );
           break;
@@ -102,13 +90,11 @@ class _$Components extends Components {
   @override
   final BuiltMap<String, JsonSchema>? schemas;
 
-  factory _$Components([void Function(ComponentsBuilder)? updates]) =>
-      (ComponentsBuilder()..update(updates))._build();
+  factory _$Components([void Function(ComponentsBuilder)? updates]) => (ComponentsBuilder()..update(updates))._build();
 
   _$Components._({this.securitySchemes, this.schemas}) : super._();
   @override
-  Components rebuild(void Function(ComponentsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Components rebuild(void Function(ComponentsBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   ComponentsBuilder toBuilder() => ComponentsBuilder()..replace(this);
@@ -116,9 +102,7 @@ class _$Components extends Components {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Components &&
-        securitySchemes == other.securitySchemes &&
-        schemas == other.schemas;
+    return other is Components && securitySchemes == other.securitySchemes && schemas == other.schemas;
   }
 
   @override
@@ -145,14 +129,11 @@ class ComponentsBuilder implements Builder<Components, ComponentsBuilder> {
   MapBuilder<String, SecurityScheme>? _securitySchemes;
   MapBuilder<String, SecurityScheme> get securitySchemes =>
       _$this._securitySchemes ??= MapBuilder<String, SecurityScheme>();
-  set securitySchemes(MapBuilder<String, SecurityScheme>? securitySchemes) =>
-      _$this._securitySchemes = securitySchemes;
+  set securitySchemes(MapBuilder<String, SecurityScheme>? securitySchemes) => _$this._securitySchemes = securitySchemes;
 
   MapBuilder<String, JsonSchema>? _schemas;
-  MapBuilder<String, JsonSchema> get schemas =>
-      _$this._schemas ??= MapBuilder<String, JsonSchema>();
-  set schemas(MapBuilder<String, JsonSchema>? schemas) =>
-      _$this._schemas = schemas;
+  MapBuilder<String, JsonSchema> get schemas => _$this._schemas ??= MapBuilder<String, JsonSchema>();
+  set schemas(MapBuilder<String, JsonSchema>? schemas) => _$this._schemas = schemas;
 
   ComponentsBuilder();
 
@@ -182,12 +163,7 @@ class ComponentsBuilder implements Builder<Components, ComponentsBuilder> {
   _$Components _build() {
     _$Components _$result;
     try {
-      _$result =
-          _$v ??
-          _$Components._(
-            securitySchemes: _securitySchemes?.build(),
-            schemas: _schemas?.build(),
-          );
+      _$result = _$v ?? _$Components._(securitySchemes: _securitySchemes?.build(), schemas: _schemas?.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -196,11 +172,7 @@ class ComponentsBuilder implements Builder<Components, ComponentsBuilder> {
         _$failedField = 'schemas';
         _schemas?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-          r'Components',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(r'Components', _$failedField, e.toString());
       }
       rethrow;
     }

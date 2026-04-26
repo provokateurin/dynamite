@@ -40,9 +40,7 @@ sealed class $OneValueSomeOfInObjectInterface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$OneValueSomeOfInObjectInterfaceBuilder].
-  $OneValueSomeOfInObjectInterface rebuild(
-    void Function($OneValueSomeOfInObjectInterfaceBuilder) updates,
-  );
+  $OneValueSomeOfInObjectInterface rebuild(void Function($OneValueSomeOfInObjectInterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$OneValueSomeOfInObjectInterfaceBuilder].
   $OneValueSomeOfInObjectInterfaceBuilder toBuilder();
@@ -57,13 +55,9 @@ sealed class $OneValueSomeOfInObjectInterface {
 /// Object with someOfs that only contain a single value (or are optimized to such).
 /// Should use the single member directly.
 abstract class OneValueSomeOfInObject
-    implements
-        $OneValueSomeOfInObjectInterface,
-        Built<OneValueSomeOfInObject, OneValueSomeOfInObjectBuilder> {
+    implements $OneValueSomeOfInObjectInterface, Built<OneValueSomeOfInObject, OneValueSomeOfInObjectBuilder> {
   /// Creates a new OneValueSomeOfInObject object using the builder pattern.
-  factory OneValueSomeOfInObject([
-    void Function(OneValueSomeOfInObjectBuilder)? b,
-  ]) = _$OneValueSomeOfInObject;
+  factory OneValueSomeOfInObject([void Function(OneValueSomeOfInObjectBuilder)? b]) = _$OneValueSomeOfInObject;
 
   const OneValueSomeOfInObject._();
 
@@ -76,13 +70,10 @@ abstract class OneValueSomeOfInObject
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for OneValueSomeOfInObject.
-  static Serializer<OneValueSomeOfInObject> get serializer =>
-      _$oneValueSomeOfInObjectSerializer;
+  static Serializer<OneValueSomeOfInObject> get serializer => _$oneValueSomeOfInObjectSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(OneValueSomeOfInObjectBuilder b) {
@@ -99,33 +90,28 @@ abstract class OneValueSomeOfInObject
 extension $OneOfIntDoubleOtherExtension on OneOfIntDoubleOther {
   /// Serializer for OneOfIntDoubleOther.
   @BuiltValueSerializer(custom: true)
-  static Serializer<OneOfIntDoubleOther> get serializer =>
-      $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
+  static Serializer<OneOfIntDoubleOther> get serializer => $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
-  static OneOfIntDoubleOther fromJson(Object? json) =>
-      $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
+  static OneOfIntDoubleOther fromJson(Object? json) => $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
 }
 
 /// Serialization extension for `AnyOfIntDoubleOther`.
 extension $AnyOfIntDoubleOtherExtension on AnyOfIntDoubleOther {
   /// Serializer for AnyOfIntDoubleOther.
   @BuiltValueSerializer(custom: true)
-  static Serializer<AnyOfIntDoubleOther> get serializer =>
-      $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
+  static Serializer<AnyOfIntDoubleOther> get serializer => $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
-  static AnyOfIntDoubleOther fromJson(Object? json) =>
-      $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
+  static AnyOfIntDoubleOther fromJson(Object? json) => $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
 }
 
 /// Serialization extension for `OneValueSomeOfInObject_IntDoubleString`.
-extension $OneValueSomeOfInObject_IntDoubleStringExtension
-    on OneValueSomeOfInObject_IntDoubleString {
+extension $OneValueSomeOfInObject_IntDoubleStringExtension on OneValueSomeOfInObject_IntDoubleString {
   /// Serializer for OneValueSomeOfInObject_IntDoubleString.
   @BuiltValueSerializer(custom: true)
   static Serializer<OneValueSomeOfInObject_IntDoubleString> get serializer =>
@@ -142,8 +128,7 @@ typedef _$b6d67dc2a96424d2f407f8e51557f3de = ({num? $num, String? string});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $b6d67dc2a96424d2f407f8e51557f3deExtension
-    on _$b6d67dc2a96424d2f407f8e51557f3de {
+extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8e51557f3de {
   List<dynamic> get _values => [$num, string];
 
   List<String> get _names => const [r'$num', 'string'];
@@ -166,8 +151,7 @@ extension $b6d67dc2a96424d2f407f8e51557f3deExtension
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$b6d67dc2a96424d2f407f8e51557f3deSerializer
-    implements PrimitiveSerializer<_$b6d67dc2a96424d2f407f8e51557f3de> {
+class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerializer<_$b6d67dc2a96424d2f407f8e51557f3de> {
   const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
 
   @override
@@ -189,10 +173,7 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer
     }
     value = object.string;
     if (value != null) {
-      return serializers.serialize(
-        value,
-        specifiedType: const FullType(String),
-      )!;
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
     // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -206,15 +187,11 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer
   }) {
     num? $num;
     try {
-      $num =
-          serializers.deserialize(data, specifiedType: const FullType(num))
-              as num;
+      $num = serializers.deserialize(data, specifiedType: const FullType(num)) as num;
     } catch (_) {}
     String? string;
     try {
-      string =
-          serializers.deserialize(data, specifiedType: const FullType(String))
-              as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String)) as String;
     } catch (_) {}
     return ($num: $num, string: string);
   }
@@ -230,10 +207,7 @@ final Serializers $serializers = _$serializers;
 final Serializers _$serializers =
     (Serializers().toBuilder()
           ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer)
-          ..addBuilderFactory(
-            const FullType(OneValueSomeOfInObject),
-            OneValueSomeOfInObjectBuilder.new,
-          )
+          ..addBuilderFactory(const FullType(OneValueSomeOfInObject), OneValueSomeOfInObjectBuilder.new)
           ..add(OneValueSomeOfInObject.serializer))
         .build();
 
@@ -246,11 +220,7 @@ final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers =
     (_$serializers.toBuilder()
           ..add(_i3.DynamiteDoubleSerializer())
-          ..addPlugin(
-            _i4.StandardJsonPlugin(
-              typesToLeaveAsList: const {_$b6d67dc2a96424d2f407f8e51557f3de},
-            ),
-          )
+          ..addPlugin(_i4.StandardJsonPlugin(typesToLeaveAsList: const {_$b6d67dc2a96424d2f407f8e51557f3de}))
           ..addPlugin(const _i3.HeaderPlugin())
           ..addPlugin(const _i3.ContentStringPlugin()))
         .build();

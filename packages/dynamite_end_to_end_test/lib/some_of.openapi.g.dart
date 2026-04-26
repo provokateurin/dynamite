@@ -6,16 +6,11 @@ part of 'some_of.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<OneValueSomeOfInObject> _$oneValueSomeOfInObjectSerializer =
-    _$OneValueSomeOfInObjectSerializer();
+Serializer<OneValueSomeOfInObject> _$oneValueSomeOfInObjectSerializer = _$OneValueSomeOfInObjectSerializer();
 
-class _$OneValueSomeOfInObjectSerializer
-    implements StructuredSerializer<OneValueSomeOfInObject> {
+class _$OneValueSomeOfInObjectSerializer implements StructuredSerializer<OneValueSomeOfInObject> {
   @override
-  final Iterable<Type> types = const [
-    OneValueSomeOfInObject,
-    _$OneValueSomeOfInObject,
-  ];
+  final Iterable<Type> types = const [OneValueSomeOfInObject, _$OneValueSomeOfInObject];
   @override
   final String wireName = 'OneValueSomeOfInObject';
 
@@ -27,29 +22,16 @@ class _$OneValueSomeOfInObjectSerializer
   }) {
     final result = <Object?>[
       'OneValue',
-      serializers.serialize(
-        object.oneValue,
-        specifiedType: const FullType(int),
-      ),
+      serializers.serialize(object.oneValue, specifiedType: const FullType(int)),
       'IntDouble',
-      serializers.serialize(
-        object.intDouble,
-        specifiedType: const FullType(num),
-      ),
+      serializers.serialize(object.intDouble, specifiedType: const FullType(num)),
     ];
     Object? value;
     value = object.intDoubleString;
     if (value != null) {
       result
         ..add('IntDoubleString')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(
-              OneValueSomeOfInObject_IntDoubleString,
-            ),
-          ),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(OneValueSomeOfInObject_IntDoubleString)));
     }
     return result;
   }
@@ -69,29 +51,14 @@ class _$OneValueSomeOfInObjectSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'OneValue':
-          result.oneValue =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+          result.oneValue = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'IntDouble':
-          result.intDouble =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(num),
-                  )!
-                  as num;
+          result.intDouble = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
           break;
         case 'IntDoubleString':
           result.intDoubleString =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(
-                      OneValueSomeOfInObject_IntDoubleString,
-                    ),
-                  )
+              serializers.deserialize(value, specifiedType: const FullType(OneValueSomeOfInObject_IntDoubleString))
                   as OneValueSomeOfInObject_IntDoubleString?;
           break;
       }
@@ -122,23 +89,16 @@ class _$OneValueSomeOfInObject extends OneValueSomeOfInObject {
   @override
   final OneValueSomeOfInObject_IntDoubleString? intDoubleString;
 
-  factory _$OneValueSomeOfInObject([
-    void Function(OneValueSomeOfInObjectBuilder)? updates,
-  ]) => (OneValueSomeOfInObjectBuilder()..update(updates))._build();
+  factory _$OneValueSomeOfInObject([void Function(OneValueSomeOfInObjectBuilder)? updates]) =>
+      (OneValueSomeOfInObjectBuilder()..update(updates))._build();
 
-  _$OneValueSomeOfInObject._({
-    required this.oneValue,
-    required this.intDouble,
-    this.intDoubleString,
-  }) : super._();
+  _$OneValueSomeOfInObject._({required this.oneValue, required this.intDouble, this.intDoubleString}) : super._();
   @override
-  OneValueSomeOfInObject rebuild(
-    void Function(OneValueSomeOfInObjectBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+  OneValueSomeOfInObject rebuild(void Function(OneValueSomeOfInObjectBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
-  OneValueSomeOfInObjectBuilder toBuilder() =>
-      OneValueSomeOfInObjectBuilder()..replace(this);
+  OneValueSomeOfInObjectBuilder toBuilder() => OneValueSomeOfInObjectBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -170,9 +130,7 @@ class _$OneValueSomeOfInObject extends OneValueSomeOfInObject {
 }
 
 class OneValueSomeOfInObjectBuilder
-    implements
-        Builder<OneValueSomeOfInObject, OneValueSomeOfInObjectBuilder>,
-        $OneValueSomeOfInObjectInterfaceBuilder {
+    implements Builder<OneValueSomeOfInObject, OneValueSomeOfInObjectBuilder>, $OneValueSomeOfInObjectInterfaceBuilder {
   _$OneValueSomeOfInObject? _$v;
 
   int? _oneValue;
@@ -184,11 +142,9 @@ class OneValueSomeOfInObjectBuilder
   set intDouble(covariant num? intDouble) => _$this._intDouble = intDouble;
 
   OneValueSomeOfInObject_IntDoubleString? _intDoubleString;
-  OneValueSomeOfInObject_IntDoubleString? get intDoubleString =>
-      _$this._intDoubleString;
-  set intDoubleString(
-    covariant OneValueSomeOfInObject_IntDoubleString? intDoubleString,
-  ) => _$this._intDoubleString = intDoubleString;
+  OneValueSomeOfInObject_IntDoubleString? get intDoubleString => _$this._intDoubleString;
+  set intDoubleString(covariant OneValueSomeOfInObject_IntDoubleString? intDoubleString) =>
+      _$this._intDoubleString = intDoubleString;
 
   OneValueSomeOfInObjectBuilder() {
     OneValueSomeOfInObject._defaults(this);
@@ -223,16 +179,8 @@ class OneValueSomeOfInObjectBuilder
     final _$result =
         _$v ??
         _$OneValueSomeOfInObject._(
-          oneValue: BuiltValueNullFieldError.checkNotNull(
-            oneValue,
-            r'OneValueSomeOfInObject',
-            'oneValue',
-          ),
-          intDouble: BuiltValueNullFieldError.checkNotNull(
-            intDouble,
-            r'OneValueSomeOfInObject',
-            'intDouble',
-          ),
+          oneValue: BuiltValueNullFieldError.checkNotNull(oneValue, r'OneValueSomeOfInObject', 'oneValue'),
+          intDouble: BuiltValueNullFieldError.checkNotNull(intDouble, r'OneValueSomeOfInObject', 'intDouble'),
           intDoubleString: intDoubleString,
         );
     replace(_$result);

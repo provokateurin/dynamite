@@ -28,28 +28,19 @@ Iterable<Class> generateClients(openapi.OpenAPI spec, State state) sync* {
   }
 }
 
-Class buildRootClient(
-  openapi.OpenAPI spec,
-  State state,
-  Set<openapi.Tag> tags,
-) => Class((b) {
+Class buildRootClient(openapi.OpenAPI spec, State state, Set<openapi.Tag> tags) => Class((b) {
   final rootTag = spec.tags?.firstWhereOrNull((tag) => tag.name.isEmpty);
   if (rootTag != null) {
     b.docs.addAll(escapeDescription(rootTag.formattedDescription));
   }
 
   b
-    ..extend = refer(
-      'DynamiteClient',
-      'package:dynamite_runtime/http_client.dart',
-    )
+    ..extend = refer('DynamiteClient', 'package:dynamite_runtime/http_client.dart')
     ..name = r'$Client'
     ..constructors.addAll([
       Constructor(
         (b) => b
-          ..docs.add(
-            '/// Creates a new `DynamiteClient` for untagged requests.',
-          )
+          ..docs.add('/// Creates a new `DynamiteClient` for untagged requests.')
           ..requiredParameters.add(
             Parameter(
               (b) => b
@@ -81,10 +72,7 @@ Class buildRootClient(
             Parameter(
               (b) => b
                 ..name = 'client'
-                ..type = refer(
-                  'DynamiteClient',
-                  'package:dynamite_runtime/http_client.dart',
-                ),
+                ..type = refer('DynamiteClient', 'package:dynamite_runtime/http_client.dart'),
             ),
           )
           ..initializers.add(
@@ -118,44 +106,37 @@ super(
   b.methods.addAll(buildTags(spec, state, null));
 });
 
-Class buildClient(openapi.OpenAPI spec, State state, openapi.Tag tag) =>
-    Class((b) {
-      final name = clientName(tag.name);
-      b
-        ..docs.addAll(escapeDescription(tag.formattedDescription))
-        ..name = name
-        ..constructors.add(
-          Constructor(
-            (b) => b
-              ..docs.add(
-                '/// Creates a new `DynamiteClient` for ${tag.name} requests.',
-              )
-              ..requiredParameters.add(
-                Parameter(
-                  (b) => b
-                    ..name = '_rootClient'
-                    ..toThis = true,
-                ),
-              ),
+Class buildClient(openapi.OpenAPI spec, State state, openapi.Tag tag) => Class((b) {
+  final name = clientName(tag.name);
+  b
+    ..docs.addAll(escapeDescription(tag.formattedDescription))
+    ..name = name
+    ..constructors.add(
+      Constructor(
+        (b) => b
+          ..docs.add('/// Creates a new `DynamiteClient` for ${tag.name} requests.')
+          ..requiredParameters.add(
+            Parameter(
+              (b) => b
+                ..name = '_rootClient'
+                ..toThis = true,
+            ),
           ),
-        )
-        ..fields.add(
-          Field(
-            (b) => b
-              ..name = '_rootClient'
-              ..type = refer(r'$Client')
-              ..modifier = FieldModifier.final$,
-          ),
-        );
+      ),
+    )
+    ..fields.add(
+      Field(
+        (b) => b
+          ..name = '_rootClient'
+          ..type = refer(r'$Client')
+          ..modifier = FieldModifier.final$,
+      ),
+    );
 
-      b.methods.addAll(buildTags(spec, state, tag.name));
-    });
+  b.methods.addAll(buildTags(spec, state, tag.name));
+});
 
-Iterable<Method> buildTags(
-  openapi.OpenAPI spec,
-  State state,
-  String? tag,
-) sync* {
+Iterable<Method> buildTags(openapi.OpenAPI spec, State state, String? tag) sync* {
   final client = tag == null ? 'this' : '_rootClient';
   final paths = generatePaths(spec, tag);
 
@@ -163,12 +144,8 @@ Iterable<Method> buildTags(
     for (final operationEntry in pathEntry.value.operations.entries) {
       final httpMethod = operationEntry.key.name;
       final operation = operationEntry.value;
-      final operationName =
-          operation.operationId ?? toDartName('$httpMethod-${pathEntry.key}');
-      final parameters = [
-        ...?pathEntry.value.parameters,
-        ...?operation.parameters,
-      ]..sort(sortRequiredParameters);
+      final operationName = operation.operationId ?? toDartName('$httpMethod-${pathEntry.key}');
+      final parameters = [...?pathEntry.value.parameters, ...?operation.parameters]..sort(sortRequiredParameters);
       final name = toMethodName(operationName, tag);
 
       var responses = <openapi.Response, Set<dynamic>>{};
@@ -192,19 +169,13 @@ Iterable<Method> buildTags(
       final pathParameters = <openapi.Parameter, TypeResult>{};
       final headerParameters = <openapi.Parameter, TypeResult>{};
       for (final parameter in parameters) {
-        final parameterRequired = isRequired(
-          parameter.required,
-          parameter.schema,
-        );
+        final parameterRequired = isRequired(parameter.required, parameter.schema);
 
         final result = resolveType(
           state,
           parameter.schema!.rebuild((b) {
             b
-              ..identifier = toDartName(
-                '$operationName-${parameter.name}',
-                className: true,
-              )
+              ..identifier = toDartName('$operationName-${parameter.name}', className: true)
               ..nullable = !parameterRequired;
           }),
         );
@@ -226,13 +197,7 @@ Iterable<Method> buildTags(
         );
       }
 
-      ({
-        String mimeType,
-        TypeResult result,
-        bool dartParameterNullable,
-        String? $default,
-      })?
-      bodyParameter;
+      ({String mimeType, TypeResult result, bool dartParameterNullable, String? $default})? bodyParameter;
       final requestBody = operation.requestBody;
       if (requestBody != null) {
         for (final content in requestBody.content.entries) {
@@ -244,23 +209,14 @@ Iterable<Method> buildTags(
           final mimeType = content.key;
           final mediaType = content.value;
 
-          final dartParameterNullable = isDartParameterNullable(
-            requestBody.required,
-            mediaType.schema,
-          );
-          final dartParameterRequired = isRequired(
-            requestBody.required,
-            mediaType.schema,
-          );
+          final dartParameterNullable = isDartParameterNullable(requestBody.required, mediaType.schema);
+          final dartParameterRequired = isRequired(requestBody.required, mediaType.schema);
 
           final result = resolveType(
             state,
             mediaType.schema!.rebuild((b) {
               b
-                ..identifier = toDartName(
-                  '$operationName-request-$mimeType',
-                  className: true,
-                )
+                ..identifier = toDartName('$operationName-request-$mimeType', className: true)
                 ..nullable = dartParameterNullable;
             }),
           );
@@ -284,25 +240,13 @@ Iterable<Method> buildTags(
         }
       }
 
-      final bodyType = buildBodyType(
-        state,
-        responseEntry.key,
-        operationName,
-        tag,
-      );
-      final headersType = buildHeaderType(
-        state,
-        responseEntry.key,
-        operationName,
-        tag,
-      );
+      final bodyType = buildBodyType(state, responseEntry.key, operationName, tag);
+      final headersType = buildHeaderType(state, responseEntry.key, operationName, tag);
 
       yield Method((b) {
         b
           ..name = '\$${name}_Serializer'
-          ..docs.add(
-            '/// Builds a serializer to parse the response of [\$${name}_Request].',
-          )
+          ..docs.add('/// Builds a serializer to parse the response of [\$${name}_Request].')
           ..annotations.add(refer('experimental', 'package:meta/meta.dart'));
 
         if (operation.deprecated) {
@@ -328,8 +272,7 @@ ${allocate(returnType)}(
 ''');
 
             final statusCodes = responseEntry.value;
-            if (responses.values.isNotEmpty &&
-                !statusCodes.contains('default')) {
+            if (responses.values.isNotEmpty && !statusCodes.contains('default')) {
               code.writeln("validStatuses: const {${statusCodes.join(',')}},");
             }
 
@@ -342,11 +285,7 @@ ${allocate(returnType)}(
       yield Method((b) {
         b
           ..name = '\$${name}_Request'
-          ..docs.addAll(
-            escapeDescription(
-              operation.formattedDescription(name, isRequest: true),
-            ),
-          )
+          ..docs.addAll(escapeDescription(operation.formattedDescription(name, isRequest: true)))
           ..annotations.add(refer('experimental', 'package:meta/meta.dart'));
 
         if (operation.deprecated) {
@@ -366,23 +305,14 @@ ${allocate(returnType)}(
             }
 
             for (final parameter in pathParameters.entries) {
-              code.writeln(
-                buildParameterSerialization(
-                  parameter.value,
-                  parameter.key,
-                  state,
-                  allocate,
-                ),
-              );
+              code.writeln(buildParameterSerialization(parameter.value, parameter.key, state, allocate));
             }
 
             buildUrlPath(pathEntry.key, parameters, code, allocate);
 
             code
               ..writeln("final _uri = Uri.parse('\${$client.baseURL}\$_path');")
-              ..writeln(
-                "final _request = ${allocate(requestType)}('$httpMethod', _uri);",
-              );
+              ..writeln("final _request = ${allocate(requestType)}('$httpMethod', _uri);");
 
             final acceptHeader = responses.keys
                 .map((response) => response.content?.keys)
@@ -398,14 +328,7 @@ ${allocate(returnType)}(
             buildAuthCheck(state, operation, spec, client, code, allocate);
 
             for (final parameter in headerParameters.entries) {
-              code.writeln(
-                buildParameterSerialization(
-                  parameter.value,
-                  parameter.key,
-                  state,
-                  allocate,
-                ),
-              );
+              code.writeln(buildParameterSerialization(parameter.value, parameter.key, state, allocate));
             }
 
             if (bodyParameter != null) {
@@ -427,17 +350,13 @@ ${allocate(returnType)}(
         b
           ..name = name
           ..modifier = MethodModifier.async
-          ..docs.addAll(
-            escapeDescription(operation.formattedDescription(name)),
-          );
+          ..docs.addAll(escapeDescription(operation.formattedDescription(name)));
 
         if (operation.deprecated) {
           b.annotations.add(refer('Deprecated').call([refer("''")]));
         }
 
-        final rawParameters = operationParameters
-            .map((p) => '${p.name}: ${p.name},')
-            .join('\n');
+        final rawParameters = operationParameters.map((p) => '${p.name}: ${p.name},').join('\n');
         final responseType = TypeReference(
           (b) => b
             ..symbol = 'DynamiteResponse'
@@ -483,11 +402,7 @@ return ${allocate(responseConverterType)}(_serializer).convert(_response);
     ..write(operationName)
     ..write('-response');
 
-  final dataType = resolveMimeTypeDecode(
-    response,
-    state,
-    toDartName(identifierBuilder.toString(), className: true),
-  );
+  final dataType = resolveMimeTypeDecode(response, state, toDartName(identifierBuilder.toString(), className: true));
 
   if (dataType != null) {
     return (name: dataType.name, fullType: dataType.fullType);
@@ -517,10 +432,7 @@ return ${allocate(responseConverterType)}(_serializer).convert(_response);
         b
           ..identifier = identifierBuilder.toString()
           ..properties.replace(
-            response.headers!.map(
-              (headerName, value) =>
-                  MapEntry(headerName.toLowerCase(), value.schema!),
-            ),
+            response.headers!.map((headerName, value) => MapEntry(headerName.toLowerCase(), value.schema!)),
           );
       }),
       isHeader: true,
@@ -542,9 +454,7 @@ void buildUrlPath(
 ) {
   final hasUriParameters =
       parameters.firstWhereOrNull(
-        (parameter) =>
-            parameter.$in == openapi.ParameterType.path ||
-            parameter.$in == openapi.ParameterType.query,
+        (parameter) => parameter.$in == openapi.ParameterType.path || parameter.$in == openapi.ParameterType.query,
       ) !=
       null;
 
@@ -558,9 +468,7 @@ void buildUrlPath(
       }
 
       // Default to a plain parameter without exploding.
-      queryParams.add(
-        parameter.uriTemplate(withPrefix: false) ?? parameter.pctEncodedName,
-      );
+      queryParams.add(parameter.uriTemplate(withPrefix: false) ?? parameter.pctEncodedName);
     }
 
     final pathBuilder = StringBuffer()..write(path);
@@ -577,9 +485,7 @@ void buildUrlPath(
     try {
       UriTemplate(pattern);
     } on ParseException catch (e) {
-      throw Exception(
-        'The resulting uri $pattern is not a valid uri template according to RFC 6570. $e',
-      );
+      throw Exception('The resulting uri $pattern is not a valid uri template according to RFC 6570. $e');
     }
 
     code.writeln(
@@ -617,10 +523,7 @@ String buildParameterSerialization(
   }
 
   if (parameter.$in == openapi.ParameterType.header) {
-    final encoderRef = refer(
-      'HeaderEncoder',
-      'package:dynamite_runtime/utils.dart',
-    );
+    final encoderRef = refer('HeaderEncoder', 'package:dynamite_runtime/utils.dart');
     final assignment =
         "_request.headers['${parameter.pctEncodedName}'] = ${allocate(encoderRef)}(explode: ${parameter.explode}).convert($serializedName);";
 
@@ -633,9 +536,7 @@ String buildParameterSerialization(
       buffer.writeln(assignment);
     }
   } else {
-    buffer.writeln(
-      "_parameters['${parameter.pctEncodedName}'] = $serializedName;",
-    );
+    buffer.writeln("_parameters['${parameter.pctEncodedName}'] = $serializedName;");
   }
 
   return buffer.toString();
@@ -650,19 +551,14 @@ void buildAuthCheck(
   String Function(Reference) allocate,
 ) {
   final security = operation.security ?? spec.security ?? BuiltList();
-  final securityRequirements = security.where(
-    (requirement) => requirement.isNotEmpty,
-  );
+  final securityRequirements = security.where((requirement) => requirement.isNotEmpty);
   final isOptionalSecurity = securityRequirements.length != security.length;
 
   if (securityRequirements.isEmpty) {
     return;
   }
 
-  final collectionRef = refer(
-    'IterableExtension($client.authentications)',
-    'package:collection/collection.dart',
-  );
+  final collectionRef = refer('IterableExtension($client.authentications)', 'package:collection/collection.dart');
 
   output
     ..writeln('''
@@ -672,8 +568,7 @@ final authentication = ${allocate(collectionRef)}?.firstWhereOrNull(
 ''')
     ..writeAll(
       securityRequirements.map((requirement) {
-        final securityScheme =
-            spec.components!.securitySchemes![requirement.keys.single]!;
+        final securityScheme = spec.components!.securitySchemes![requirement.keys.single]!;
 
         return refer(
           securityScheme.fullName,
@@ -713,8 +608,7 @@ Map<String, openapi.PathItem> generatePaths(openapi.OpenAPI spec, String? tag) {
       for (final operationEntry in path.value.operations.entries) {
         final operation = operationEntry.value;
         if ((operation.tags != null && operation.tags!.contains(tag)) ||
-            (tag == null &&
-                (operation.tags == null || operation.tags!.isEmpty))) {
+            (tag == null && (operation.tags == null || operation.tags!.isEmpty))) {
           paths[path.key] ??= path.value;
           paths[path.key]!.rebuild((b) {
             switch (operationEntry.key) {
@@ -753,9 +647,7 @@ Set<openapi.Tag> generateTags(openapi.OpenAPI spec) {
         if (operation.tags != null) {
           tags.addAll(
             operation.tags!.map((name) {
-              final tag = spec.tags?.firstWhereOrNull(
-                (tag) => tag.name == name,
-              );
+              final tag = spec.tags?.firstWhereOrNull((tag) => tag.name == name);
               return tag ?? openapi.Tag((b) => b..name = name);
             }),
           );

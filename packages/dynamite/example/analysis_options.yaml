@@ -1,0 +1,4 @@
+includes: ../../../analysis_options.yaml
+
+formatter:
+  page_width: 120

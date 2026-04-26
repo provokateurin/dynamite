@@ -9,19 +9,14 @@ void main() {
         ..attribute2AllOf = 'attribute2AllOfValue',
     );
 
-    final json = {
-      'attribute1-allOf': 'attribute1AllOfValue',
-      'attribute2-allOf': 'attribute2AllOfValue',
-    };
+    final json = {'attribute1-allOf': 'attribute1AllOfValue', 'attribute2-allOf': 'attribute2AllOfValue'};
 
     expect(object.toJson(), equals(json));
     expect(ObjectAllOf.fromJson(json), equals(object));
   });
 
   test('OneObjectAllOf', () {
-    final object = OneObjectAllOf(
-      (b) => b..attributeAllOf = 'attributeAllOfValue',
-    );
+    final object = OneObjectAllOf((b) => b..attributeAllOf = 'attributeAllOfValue');
 
     final json = {'attribute-allOf': 'attributeAllOfValue'};
 
@@ -49,10 +44,7 @@ void main() {
         ..attributeAllOf = 'attributeAllOfValue',
     );
 
-    final json = {
-      'String': 'stringValue',
-      'attribute-allOf': 'attributeAllOfValue',
-    };
+    final json = {'String': 'stringValue', 'attribute-allOf': 'attributeAllOfValue'};
 
     expect(object.toJson(), equals(json));
     expect(MixedAllOf.fromJson(json), equals(object));
@@ -80,9 +72,6 @@ void main() {
   });
 
   test('validation inheritance', () {
-    expect(
-      () => SubObject((b) => b..value = 'abcd'),
-      throwsA(isA<FormatException>()),
-    );
+    expect(() => SubObject((b) => b..value = 'abcd'), throwsA(isA<FormatException>()));
   });
 }

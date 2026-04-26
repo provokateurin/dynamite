@@ -20,26 +20,19 @@ class _$LicenseSerializer implements StructuredSerializer<License> {
     License object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = <Object?>[
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-    ];
+    final result = <Object?>['name', serializers.serialize(object.name, specifiedType: const FullType(String))];
     Object? value;
     value = object.identifier;
     if (value != null) {
       result
         ..add('identifier')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.url;
     if (value != null) {
       result
         ..add('url')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -59,28 +52,13 @@ class _$LicenseSerializer implements StructuredSerializer<License> {
       final Object? value = iterator.current;
       switch (key) {
         case 'name':
-          result.name =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'identifier':
-          result.identifier =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.identifier = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'url':
-          result.url =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.url = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -97,13 +75,11 @@ class _$License extends License {
   @override
   final String? url;
 
-  factory _$License([void Function(LicenseBuilder)? updates]) =>
-      (LicenseBuilder()..update(updates))._build();
+  factory _$License([void Function(LicenseBuilder)? updates]) => (LicenseBuilder()..update(updates))._build();
 
   _$License._({required this.name, this.identifier, this.url}) : super._();
   @override
-  License rebuild(void Function(LicenseBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  License rebuild(void Function(LicenseBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   LicenseBuilder toBuilder() => LicenseBuilder()..replace(this);
@@ -111,10 +87,7 @@ class _$License extends License {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is License &&
-        name == other.name &&
-        identifier == other.identifier &&
-        url == other.url;
+    return other is License && name == other.name && identifier == other.identifier && url == other.url;
   }
 
   @override

@@ -14,8 +14,7 @@ import 'package:rfc_6901/rfc_6901.dart';
 part 'schema.g.dart';
 
 @BuiltValue(instantiable: false)
-abstract interface class JsonSchema
-    with Validator, JsonSchemaAnnotations, TypeResultMixin {
+abstract interface class JsonSchema with Validator, JsonSchemaAnnotations, TypeResultMixin {
   @BuiltValueField(wireName: r'$id')
   Uri? get id;
 
@@ -60,9 +59,7 @@ abstract interface class JsonSchema
 extension SchemaExtension on JsonSchema {
   JsonSchema resolveRef(Map<String, dynamic> json) {
     if (ref == null) {
-      throw StateError(
-        r'Referenced schema can only be resolved when a $ref is present',
-      );
+      throw StateError(r'Referenced schema can only be resolved when a $ref is present');
     }
 
     final rootID = json[r'$id'] as String?;
@@ -81,10 +78,7 @@ extension SchemaExtension on JsonSchema {
       schema = schema.rebuild((b) {
         b
           ..id = uri
-          ..identifier = toDartName(
-            ref!.fragment.split('/').last,
-            className: true,
-          )
+          ..identifier = toDartName(ref!.fragment.split('/').last, className: true)
           ..nullable = this.nullable;
       });
     }
@@ -103,8 +97,7 @@ abstract class GenericSchema
         JsonSchemaAnnotations,
         TypeResultMixin
     implements JsonSchema, Built<GenericSchema, GenericSchemaBuilder> {
-  factory GenericSchema([void Function(GenericSchemaBuilder) updates]) =
-      _$GenericSchema;
+  factory GenericSchema([void Function(GenericSchemaBuilder) updates]) = _$GenericSchema;
   const GenericSchema._();
 
   static Serializer<GenericSchema> get serializer => _$genericSchemaSerializer;
@@ -124,8 +117,7 @@ abstract class GenericSchema
 abstract class BooleanSchema
     with JsonSchemaAnnotations, TypeResultMixin
     implements JsonSchema, Built<BooleanSchema, BooleanSchemaBuilder> {
-  factory BooleanSchema([void Function(BooleanSchemaBuilder) updates]) =
-      _$BooleanSchema;
+  factory BooleanSchema([void Function(BooleanSchemaBuilder) updates]) = _$BooleanSchema;
   const BooleanSchema._();
 
   static Serializer<BooleanSchema> get serializer => _$booleanSchemaSerializer;
@@ -148,8 +140,7 @@ abstract class BooleanSchema
 abstract class IntegerSchema
     with NumberValidator, JsonSchemaAnnotations, TypeResultMixin
     implements JsonSchema, Built<IntegerSchema, IntegerSchemaBuilder> {
-  factory IntegerSchema([void Function(IntegerSchemaBuilder) updates]) =
-      _$IntegerSchema;
+  factory IntegerSchema([void Function(IntegerSchemaBuilder) updates]) = _$IntegerSchema;
   IntegerSchema._();
 
   static Serializer<IntegerSchema> get serializer => _$integerSchemaSerializer;
@@ -169,9 +160,7 @@ abstract class IntegerSchema
 
     const allowedIntegerFormats = [null, 'int32', 'int64'];
     if (!allowedIntegerFormats.contains(b.format)) {
-      throw OpenAPISpecError(
-        'Format "${b.format}" is not allowed for integer. Use one of $allowedIntegerFormats.',
-      );
+      throw OpenAPISpecError('Format "${b.format}" is not allowed for integer. Use one of $allowedIntegerFormats.');
     } else if (b.format != null) {
       dynamiteLog.integerPrecision();
     }
@@ -181,8 +170,7 @@ abstract class IntegerSchema
 abstract class NumberSchema
     with NumberValidator, JsonSchemaAnnotations, TypeResultMixin
     implements JsonSchema, Built<NumberSchema, NumberSchemaBuilder> {
-  factory NumberSchema([void Function(NumberSchemaBuilder) updates]) =
-      _$NumberSchema;
+  factory NumberSchema([void Function(NumberSchemaBuilder) updates]) = _$NumberSchema;
   const NumberSchema._();
 
   static Serializer<NumberSchema> get serializer => _$numberSchemaSerializer;
@@ -202,9 +190,7 @@ abstract class NumberSchema
 
     const allowedNumberFormats = [null, 'float', 'double'];
     if (!allowedNumberFormats.contains(b.format)) {
-      throw OpenAPISpecError(
-        'Format "${b.format}" is not allowed for number. Use one of $allowedNumberFormats.',
-      );
+      throw OpenAPISpecError('Format "${b.format}" is not allowed for number. Use one of $allowedNumberFormats.');
     }
   }
 }
@@ -212,8 +198,7 @@ abstract class NumberSchema
 abstract class StringSchema
     with StringValidator, JsonSchemaAnnotations, TypeResultMixin
     implements JsonSchema, Built<StringSchema, StringSchemaBuilder> {
-  factory StringSchema([void Function(StringSchemaBuilder) updates]) =
-      _$StringSchema;
+  factory StringSchema([void Function(StringSchemaBuilder) updates]) = _$StringSchema;
   const StringSchema._();
 
   static Serializer<StringSchema> get serializer => _$stringSchemaSerializer;
@@ -223,10 +208,7 @@ abstract class StringSchema
   JsonSchema? get contentSchema;
 
   @memoized
-  bool get isContentString =>
-      type == JsonSchemaType.string &&
-      contentMediaType != null &&
-      contentSchema != null;
+  bool get isContentString => type == JsonSchemaType.string && contentMediaType != null && contentSchema != null;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _initialize(StringSchemaBuilder b) {
@@ -246,8 +228,7 @@ abstract class StringSchema
 abstract class ArraySchema
     with ArrayValidator, JsonSchemaAnnotations, TypeResultMixin
     implements JsonSchema, Built<ArraySchema, ArraySchemaBuilder> {
-  factory ArraySchema([void Function(ArraySchemaBuilder) updates]) =
-      _$ArraySchema;
+  factory ArraySchema([void Function(ArraySchemaBuilder) updates]) = _$ArraySchema;
   const ArraySchema._();
 
   static Serializer<ArraySchema> get serializer => _$arraySchemaSerializer;
@@ -274,8 +255,7 @@ abstract class ArraySchema
 abstract class ObjectSchema
     with ObjectValidator, JsonSchemaAnnotations, TypeResultMixin
     implements JsonSchema, Built<ObjectSchema, ObjectSchemaBuilder> {
-  factory ObjectSchema([void Function(ObjectSchemaBuilder) updates]) =
-      _$ObjectSchema;
+  factory ObjectSchema([void Function(ObjectSchemaBuilder) updates]) = _$ObjectSchema;
   const ObjectSchema._();
 
   static Serializer<ObjectSchema> get serializer => _$objectSchemaSerializer;
@@ -338,8 +318,7 @@ class JsonSchemaType extends EnumClass {
 
   static JsonSchemaType valueOf(String name) => _$jsonSchemaType(name);
 
-  static Serializer<JsonSchemaType> get serializer =>
-      _$jsonSchemaTypeSerializer;
+  static Serializer<JsonSchemaType> get serializer => _$jsonSchemaTypeSerializer;
 }
 
 /// A Schema value can be either a json boolean or object.
@@ -369,9 +348,7 @@ class SchemaPlugin implements SerializerPlugin {
           // An empty list in BuiltValue it equivalent to the empty json object.
           return [];
         } else {
-          throw UnsupportedError(
-            'The never matching schema is not yet supported.',
-          );
+          throw UnsupportedError('The never matching schema is not yet supported.');
         }
 
       default:
@@ -430,7 +407,6 @@ class _JsonSchemaSerializer extends StructuredSerializer<JsonSchema> {
     JsonSchema object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serializeWith(_schemaTypeToType[object.type]!, object)!
-        as Iterable<Object?>;
+    return serializers.serializeWith(_schemaTypeToType[object.type]!, object)! as Iterable<Object?>;
   }
 }

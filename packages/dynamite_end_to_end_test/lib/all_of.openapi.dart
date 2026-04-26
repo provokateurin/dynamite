@@ -30,9 +30,7 @@ sealed class $ObjectAllOfInterface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$ObjectAllOfInterfaceBuilder].
-  $ObjectAllOfInterface rebuild(
-    void Function($ObjectAllOfInterfaceBuilder) updates,
-  );
+  $ObjectAllOfInterface rebuild(void Function($ObjectAllOfInterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$ObjectAllOfInterfaceBuilder].
   $ObjectAllOfInterfaceBuilder toBuilder();
@@ -43,8 +41,7 @@ sealed class $ObjectAllOfInterface {
 }
 
 /// All of with objects only.
-abstract class ObjectAllOf
-    implements $ObjectAllOfInterface, Built<ObjectAllOf, ObjectAllOfBuilder> {
+abstract class ObjectAllOf implements $ObjectAllOfInterface, Built<ObjectAllOf, ObjectAllOfBuilder> {
   /// Creates a new ObjectAllOf object using the builder pattern.
   factory ObjectAllOf([void Function(ObjectAllOfBuilder)? b]) = _$ObjectAllOf;
 
@@ -53,15 +50,12 @@ abstract class ObjectAllOf
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory ObjectAllOf.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory ObjectAllOf.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for ObjectAllOf.
   static Serializer<ObjectAllOf> get serializer => _$objectAllOfSerializer;
@@ -87,9 +81,7 @@ sealed class $OneObjectAllOfInterface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$OneObjectAllOfInterfaceBuilder].
-  $OneObjectAllOfInterface rebuild(
-    void Function($OneObjectAllOfInterfaceBuilder) updates,
-  );
+  $OneObjectAllOfInterface rebuild(void Function($OneObjectAllOfInterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$OneObjectAllOfInterfaceBuilder].
   $OneObjectAllOfInterfaceBuilder toBuilder();
@@ -100,32 +92,24 @@ sealed class $OneObjectAllOfInterface {
 }
 
 /// All of with one object value.
-abstract class OneObjectAllOf
-    implements
-        $OneObjectAllOfInterface,
-        Built<OneObjectAllOf, OneObjectAllOfBuilder> {
+abstract class OneObjectAllOf implements $OneObjectAllOfInterface, Built<OneObjectAllOf, OneObjectAllOfBuilder> {
   /// Creates a new OneObjectAllOf object using the builder pattern.
-  factory OneObjectAllOf([void Function(OneObjectAllOfBuilder)? b]) =
-      _$OneObjectAllOf;
+  factory OneObjectAllOf([void Function(OneObjectAllOfBuilder)? b]) = _$OneObjectAllOf;
 
   const OneObjectAllOf._();
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory OneObjectAllOf.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory OneObjectAllOf.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for OneObjectAllOf.
-  static Serializer<OneObjectAllOf> get serializer =>
-      _$oneObjectAllOfSerializer;
+  static Serializer<OneObjectAllOf> get serializer => _$oneObjectAllOfSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(OneObjectAllOfBuilder b) {
@@ -150,9 +134,7 @@ sealed class $PrimitiveAllOfInterface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$PrimitiveAllOfInterfaceBuilder].
-  $PrimitiveAllOfInterface rebuild(
-    void Function($PrimitiveAllOfInterfaceBuilder) updates,
-  );
+  $PrimitiveAllOfInterface rebuild(void Function($PrimitiveAllOfInterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$PrimitiveAllOfInterfaceBuilder].
   $PrimitiveAllOfInterfaceBuilder toBuilder();
@@ -163,32 +145,24 @@ sealed class $PrimitiveAllOfInterface {
 }
 
 /// All of with an primitive values.
-abstract class PrimitiveAllOf
-    implements
-        $PrimitiveAllOfInterface,
-        Built<PrimitiveAllOf, PrimitiveAllOfBuilder> {
+abstract class PrimitiveAllOf implements $PrimitiveAllOfInterface, Built<PrimitiveAllOf, PrimitiveAllOfBuilder> {
   /// Creates a new PrimitiveAllOf object using the builder pattern.
-  factory PrimitiveAllOf([void Function(PrimitiveAllOfBuilder)? b]) =
-      _$PrimitiveAllOf;
+  factory PrimitiveAllOf([void Function(PrimitiveAllOfBuilder)? b]) = _$PrimitiveAllOf;
 
   const PrimitiveAllOf._();
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory PrimitiveAllOf.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory PrimitiveAllOf.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for PrimitiveAllOf.
-  static Serializer<PrimitiveAllOf> get serializer =>
-      _$primitiveAllOfSerializer;
+  static Serializer<PrimitiveAllOf> get serializer => _$primitiveAllOfSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PrimitiveAllOfBuilder b) {
@@ -213,9 +187,7 @@ sealed class $MixedAllOfInterface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$MixedAllOfInterfaceBuilder].
-  $MixedAllOfInterface rebuild(
-    void Function($MixedAllOfInterfaceBuilder) updates,
-  );
+  $MixedAllOfInterface rebuild(void Function($MixedAllOfInterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$MixedAllOfInterfaceBuilder].
   $MixedAllOfInterfaceBuilder toBuilder();
@@ -226,8 +198,7 @@ sealed class $MixedAllOfInterface {
 }
 
 /// All of with object and primitive value.
-abstract class MixedAllOf
-    implements $MixedAllOfInterface, Built<MixedAllOf, MixedAllOfBuilder> {
+abstract class MixedAllOf implements $MixedAllOfInterface, Built<MixedAllOf, MixedAllOfBuilder> {
   /// Creates a new MixedAllOf object using the builder pattern.
   factory MixedAllOf([void Function(MixedAllOfBuilder)? b]) = _$MixedAllOf;
 
@@ -236,15 +207,12 @@ abstract class MixedAllOf
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory MixedAllOf.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory MixedAllOf.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for MixedAllOf.
   static Serializer<MixedAllOf> get serializer => _$mixedAllOfSerializer;
@@ -270,9 +238,7 @@ sealed class $OneValueAllOfInterface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$OneValueAllOfInterfaceBuilder].
-  $OneValueAllOfInterface rebuild(
-    void Function($OneValueAllOfInterfaceBuilder) updates,
-  );
+  $OneValueAllOfInterface rebuild(void Function($OneValueAllOfInterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$OneValueAllOfInterfaceBuilder].
   $OneValueAllOfInterfaceBuilder toBuilder();
@@ -283,28 +249,21 @@ sealed class $OneValueAllOfInterface {
 }
 
 /// All of with one primitive value.
-abstract class OneValueAllOf
-    implements
-        $OneValueAllOfInterface,
-        Built<OneValueAllOf, OneValueAllOfBuilder> {
+abstract class OneValueAllOf implements $OneValueAllOfInterface, Built<OneValueAllOf, OneValueAllOfBuilder> {
   /// Creates a new OneValueAllOf object using the builder pattern.
-  factory OneValueAllOf([void Function(OneValueAllOfBuilder)? b]) =
-      _$OneValueAllOf;
+  factory OneValueAllOf([void Function(OneValueAllOfBuilder)? b]) = _$OneValueAllOf;
 
   const OneValueAllOf._();
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory OneValueAllOf.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory OneValueAllOf.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for OneValueAllOf.
   static Serializer<OneValueAllOf> get serializer => _$oneValueAllOfSerializer;
@@ -322,12 +281,7 @@ abstract class OneValueAllOf
 
 @BuiltValue(instantiable: false)
 sealed class $SuperObjectInterface {
-  static final _$value =
-      _$jsonSerializers.deserialize(
-            "123",
-            specifiedType: const FullType(String),
-          )!
-          as String;
+  static final _$value = _$jsonSerializers.deserialize("123", specifiedType: const FullType(String))! as String;
 
   String get value;
 
@@ -335,9 +289,7 @@ sealed class $SuperObjectInterface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$SuperObjectInterfaceBuilder].
-  $SuperObjectInterface rebuild(
-    void Function($SuperObjectInterfaceBuilder) updates,
-  );
+  $SuperObjectInterface rebuild(void Function($SuperObjectInterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$SuperObjectInterfaceBuilder].
   $SuperObjectInterfaceBuilder toBuilder();
@@ -348,18 +300,11 @@ sealed class $SuperObjectInterface {
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($SuperObjectInterfaceBuilder b) {
-    _i1.checkString(
-      b.value,
-      'value',
-      pattern: RegExp(r'^[0-9]*$'),
-      minLength: 3,
-      maxLength: 20,
-    );
+    _i1.checkString(b.value, 'value', pattern: RegExp(r'^[0-9]*$'), minLength: 3, maxLength: 20);
   }
 }
 
-abstract class SuperObject
-    implements $SuperObjectInterface, Built<SuperObject, SuperObjectBuilder> {
+abstract class SuperObject implements $SuperObjectInterface, Built<SuperObject, SuperObjectBuilder> {
   /// Creates a new SuperObject object using the builder pattern.
   factory SuperObject([void Function(SuperObjectBuilder)? b]) = _$SuperObject;
 
@@ -368,15 +313,12 @@ abstract class SuperObject
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory SuperObject.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory SuperObject.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for SuperObject.
   static Serializer<SuperObject> get serializer => _$superObjectSerializer;
@@ -398,9 +340,7 @@ sealed class $SubObjectInterface implements $SuperObjectInterface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$SubObjectInterfaceBuilder].
-  $SubObjectInterface rebuild(
-    void Function($SubObjectInterfaceBuilder) updates,
-  );
+  $SubObjectInterface rebuild(void Function($SubObjectInterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$SubObjectInterfaceBuilder].
   $SubObjectInterfaceBuilder toBuilder();
@@ -415,8 +355,7 @@ sealed class $SubObjectInterface implements $SuperObjectInterface {
   }
 }
 
-abstract class SubObject
-    implements $SubObjectInterface, Built<SubObject, SubObjectBuilder> {
+abstract class SubObject implements $SubObjectInterface, Built<SubObject, SubObjectBuilder> {
   /// Creates a new SubObject object using the builder pattern.
   factory SubObject([void Function(SubObjectBuilder)? b]) = _$SubObject;
 
@@ -425,15 +364,12 @@ abstract class SubObject
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory SubObject.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory SubObject.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() =>
-      _$jsonSerializers.serializeWith(serializer, this)!
-          as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for SubObject.
   static Serializer<SubObject> get serializer => _$subObjectSerializer;
@@ -458,32 +394,17 @@ abstract class SubObject
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers =
     (Serializers().toBuilder()
-          ..addBuilderFactory(
-            const FullType(ObjectAllOf),
-            ObjectAllOfBuilder.new,
-          )
+          ..addBuilderFactory(const FullType(ObjectAllOf), ObjectAllOfBuilder.new)
           ..add(ObjectAllOf.serializer)
-          ..addBuilderFactory(
-            const FullType(OneObjectAllOf),
-            OneObjectAllOfBuilder.new,
-          )
+          ..addBuilderFactory(const FullType(OneObjectAllOf), OneObjectAllOfBuilder.new)
           ..add(OneObjectAllOf.serializer)
-          ..addBuilderFactory(
-            const FullType(PrimitiveAllOf),
-            PrimitiveAllOfBuilder.new,
-          )
+          ..addBuilderFactory(const FullType(PrimitiveAllOf), PrimitiveAllOfBuilder.new)
           ..add(PrimitiveAllOf.serializer)
           ..addBuilderFactory(const FullType(MixedAllOf), MixedAllOfBuilder.new)
           ..add(MixedAllOf.serializer)
-          ..addBuilderFactory(
-            const FullType(OneValueAllOf),
-            OneValueAllOfBuilder.new,
-          )
+          ..addBuilderFactory(const FullType(OneValueAllOf), OneValueAllOfBuilder.new)
           ..add(OneValueAllOf.serializer)
-          ..addBuilderFactory(
-            const FullType(SuperObject),
-            SuperObjectBuilder.new,
-          )
+          ..addBuilderFactory(const FullType(SuperObject), SuperObjectBuilder.new)
           ..add(SuperObject.serializer)
           ..addBuilderFactory(const FullType(SubObject), SubObjectBuilder.new)
           ..add(SubObject.serializer))

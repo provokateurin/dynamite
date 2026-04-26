@@ -13,11 +13,7 @@ void main() async {
       Uri.parse('example.com'),
       httpClient: MockClient((request) async {
         expect(request.body, isEmpty);
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.post();
@@ -27,11 +23,7 @@ void main() async {
       Uri.parse('example.com'),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes, utf8.encode('value'));
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.post($body: 'value');
@@ -43,11 +35,7 @@ void main() async {
       Uri.parse('example.com'),
       httpClient: MockClient((request) async {
         expect(request.body, json.encode({}));
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.getObject();
@@ -57,27 +45,17 @@ void main() async {
       Uri.parse('example.com'),
       httpClient: MockClient((request) async {
         expect(request.body, json.encode({'test': '123'}));
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
-    await client.postObject(
-      $body: PostObjectRequestApplicationJson((b) => b..test = '123'),
-    );
+    await client.postObject($body: PostObjectRequestApplicationJson((b) => b..test = '123'));
 
     // with nullable body
     client = $Client(
       Uri.parse('example.com'),
       httpClient: MockClient((request) async {
         expect(request.body, json.encode({'test': '123'}));
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.putObject();
@@ -87,11 +65,7 @@ void main() async {
       Uri.parse('example.com'),
       httpClient: MockClient((request) async {
         expect(request.body, json.encode({'test': '123'}));
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.deleteObject();
@@ -103,11 +77,7 @@ void main() async {
       Uri.parse('example.com'),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes, <int>[]);
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.getBinary();
@@ -117,11 +87,7 @@ void main() async {
       Uri.parse('example.com'),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes, utf8.encode('test'));
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.postBinary($body: Uint8List.fromList([116, 101, 115, 116]));
@@ -131,11 +97,7 @@ void main() async {
       Uri.parse('example.com'),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes, utf8.encode('test'));
-        return Response(
-          '{}',
-          200,
-          headers: {'content-type': 'application/json'},
-        );
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.putBinary();

@@ -25,9 +25,7 @@ Iterable<Spec> generateSchemas(openapi.OpenAPI spec, State state) sync* {
           }
 
           b
-            ..docs.addAll(
-              escapeDescription(schema.value.formattedDescription()),
-            )
+            ..docs.addAll(escapeDescription(schema.value.formattedDescription()))
             ..name = identifier
             ..definition = refer(result.dartType.name);
         });

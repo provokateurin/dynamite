@@ -15,37 +15,20 @@ class _$HeaderSerializer implements StructuredSerializer<Header> {
   final String wireName = 'Header';
 
   @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    Header object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'required',
-      serializers.serialize(
-        object.required,
-        specifiedType: const FullType(bool),
-      ),
-    ];
+  Iterable<Object?> serialize(Serializers serializers, Header object, {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>['required', serializers.serialize(object.required, specifiedType: const FullType(bool))];
     Object? value;
     value = object.description;
     if (value != null) {
       result
         ..add('description')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.schema;
     if (value != null) {
       result
         ..add('schema')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(JsonSchema),
-          ),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonSchema)));
     }
     return result;
   }
@@ -65,28 +48,13 @@ class _$HeaderSerializer implements StructuredSerializer<Header> {
       final Object? value = iterator.current;
       switch (key) {
         case 'description':
-          result.description =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'required':
-          result.required =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(bool),
-                  )!
-                  as bool;
+          result.required = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'schema':
-          result.schema =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(JsonSchema),
-                  )
-                  as JsonSchema?;
+          result.schema = serializers.deserialize(value, specifiedType: const FullType(JsonSchema)) as JsonSchema?;
           break;
       }
     }
@@ -103,14 +71,11 @@ class _$Header extends Header {
   @override
   final JsonSchema? schema;
 
-  factory _$Header([void Function(HeaderBuilder)? updates]) =>
-      (HeaderBuilder()..update(updates))._build();
+  factory _$Header([void Function(HeaderBuilder)? updates]) => (HeaderBuilder()..update(updates))._build();
 
-  _$Header._({this.description, required this.required, this.schema})
-    : super._();
+  _$Header._({this.description, required this.required, this.schema}) : super._();
   @override
-  Header rebuild(void Function(HeaderBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Header rebuild(void Function(HeaderBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   HeaderBuilder toBuilder() => HeaderBuilder()..replace(this);
@@ -118,9 +83,7 @@ class _$Header extends Header {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Header &&
-        required == other.required &&
-        schema == other.schema;
+    return other is Header && required == other.required && schema == other.schema;
   }
 
   @override
@@ -189,11 +152,7 @@ class HeaderBuilder implements Builder<Header, HeaderBuilder> {
         _$v ??
         _$Header._(
           description: description,
-          required: BuiltValueNullFieldError.checkNotNull(
-            required,
-            r'Header',
-            'required',
-          ),
+          required: BuiltValueNullFieldError.checkNotNull(required, r'Header', 'required'),
           schema: schema,
         );
     replace(_$result);

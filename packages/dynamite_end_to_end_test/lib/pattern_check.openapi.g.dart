@@ -7,8 +7,7 @@ part of 'pattern_check.openapi.dart';
 // **************************************************************************
 
 Serializer<TestObject> _$testObjectSerializer = _$TestObjectSerializer();
-Serializer<TestObjectUnspecified> _$testObjectUnspecifiedSerializer =
-    _$TestObjectUnspecifiedSerializer();
+Serializer<TestObjectUnspecified> _$testObjectUnspecifiedSerializer = _$TestObjectUnspecifiedSerializer();
 
 class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
   @override
@@ -28,85 +27,49 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
     if (value != null) {
       result
         ..add('only-numbers')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.minLength;
     if (value != null) {
       result
         ..add('min-length')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.maxLength;
     if (value != null) {
       result
         ..add('max-length')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.stringMultipleChecks;
     if (value != null) {
       result
         ..add('string-multiple-checks')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.minItems;
     if (value != null) {
       result
         ..add('min-items')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(BuiltList, const [
-              const FullType(int),
-            ]),
-          ),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)])));
     }
     value = object.maxItems;
     if (value != null) {
       result
         ..add('max-items')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(BuiltList, const [
-              const FullType(int),
-            ]),
-          ),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)])));
     }
     value = object.arrayUnique;
     if (value != null) {
       result
         ..add('array-unique')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(BuiltSet, const [
-              const FullType(int),
-            ]),
-          ),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, const [const FullType(int)])));
     }
     value = object.arrayMultipleChecks;
     if (value != null) {
       result
         ..add('array-multiple-checks')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(BuiltSet, const [
-              const FullType(int),
-            ]),
-          ),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, const [const FullType(int)])));
     }
     value = object.multipleOf;
     if (value != null) {
@@ -162,110 +125,59 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
       final Object? value = iterator.current;
       switch (key) {
         case 'only-numbers':
-          result.onlyNumbers =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.onlyNumbers = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'min-length':
-          result.minLength =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.minLength = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'max-length':
-          result.maxLength =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.maxLength = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'string-multiple-checks':
           result.stringMultipleChecks =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+              serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'min-items':
           result.minItems.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(BuiltList, const [
-                    const FullType(int),
-                  ]),
-                )!
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)]))!
                 as BuiltList<Object?>,
           );
           break;
         case 'max-items':
           result.maxItems.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(BuiltList, const [
-                    const FullType(int),
-                  ]),
-                )!
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)]))!
                 as BuiltList<Object?>,
           );
           break;
         case 'array-unique':
           result.arrayUnique.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(BuiltSet, const [
-                    const FullType(int),
-                  ]),
-                )!
+            serializers.deserialize(value, specifiedType: const FullType(BuiltSet, const [const FullType(int)]))!
                 as BuiltSet<Object?>,
           );
           break;
         case 'array-multiple-checks':
           result.arrayMultipleChecks.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(BuiltSet, const [
-                    const FullType(int),
-                  ]),
-                )!
+            serializers.deserialize(value, specifiedType: const FullType(BuiltSet, const [const FullType(int)]))!
                 as BuiltSet<Object?>,
           );
           break;
         case 'multipleOf':
-          result.multipleOf =
-              serializers.deserialize(value, specifiedType: const FullType(num))
-                  as num?;
+          result.multipleOf = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
           break;
         case 'maximum':
-          result.maximum =
-              serializers.deserialize(value, specifiedType: const FullType(num))
-                  as num?;
+          result.maximum = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
           break;
         case 'exclusiveMaximum':
-          result.exclusiveMaximum =
-              serializers.deserialize(value, specifiedType: const FullType(num))
-                  as num?;
+          result.exclusiveMaximum = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
           break;
         case 'minimum':
-          result.minimum =
-              serializers.deserialize(value, specifiedType: const FullType(num))
-                  as num?;
+          result.minimum = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
           break;
         case 'exclusiveMinimum':
-          result.exclusiveMinimum =
-              serializers.deserialize(value, specifiedType: const FullType(num))
-                  as num?;
+          result.exclusiveMinimum = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
           break;
         case 'number-multiple-checks':
-          result.numberMultipleChecks =
-              serializers.deserialize(value, specifiedType: const FullType(num))
-                  as num?;
+          result.numberMultipleChecks = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
           break;
       }
     }
@@ -274,13 +186,9 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
   }
 }
 
-class _$TestObjectUnspecifiedSerializer
-    implements StructuredSerializer<TestObjectUnspecified> {
+class _$TestObjectUnspecifiedSerializer implements StructuredSerializer<TestObjectUnspecified> {
   @override
-  final Iterable<Type> types = const [
-    TestObjectUnspecified,
-    _$TestObjectUnspecified,
-  ];
+  final Iterable<Type> types = const [TestObjectUnspecified, _$TestObjectUnspecified];
   @override
   final String wireName = 'TestObjectUnspecified';
 
@@ -296,12 +204,7 @@ class _$TestObjectUnspecifiedSerializer
     if (value != null) {
       result
         ..add('value')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(JsonObject),
-          ),
-        );
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
     }
     return result;
   }
@@ -321,12 +224,7 @@ class _$TestObjectUnspecifiedSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'value':
-          result.value =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(JsonObject),
-                  )
-                  as JsonObject?;
+          result.value = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
           break;
       }
     }
@@ -411,8 +309,7 @@ class _$TestObject extends TestObject {
   @override
   final num? numberMultipleChecks;
 
-  factory _$TestObject([void Function(TestObjectBuilder)? updates]) =>
-      (TestObjectBuilder()..update(updates))._build();
+  factory _$TestObject([void Function(TestObjectBuilder)? updates]) => (TestObjectBuilder()..update(updates))._build();
 
   _$TestObject._({
     this.onlyNumbers,
@@ -431,8 +328,7 @@ class _$TestObject extends TestObject {
     this.numberMultipleChecks,
   }) : super._();
   @override
-  TestObject rebuild(void Function(TestObjectBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  TestObject rebuild(void Function(TestObjectBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   TestObjectBuilder toBuilder() => TestObjectBuilder()..replace(this);
@@ -499,16 +395,12 @@ class _$TestObject extends TestObject {
   }
 }
 
-class TestObjectBuilder
-    implements
-        Builder<TestObject, TestObjectBuilder>,
-        $TestObjectInterfaceBuilder {
+class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $TestObjectInterfaceBuilder {
   _$TestObject? _$v;
 
   String? _onlyNumbers;
   String? get onlyNumbers => _$this._onlyNumbers;
-  set onlyNumbers(covariant String? onlyNumbers) =>
-      _$this._onlyNumbers = onlyNumbers;
+  set onlyNumbers(covariant String? onlyNumbers) => _$this._onlyNumbers = onlyNumbers;
 
   String? _minLength;
   String? get minLength => _$this._minLength;
@@ -525,22 +417,18 @@ class TestObjectBuilder
 
   ListBuilder<int>? _minItems;
   ListBuilder<int> get minItems => _$this._minItems ??= ListBuilder<int>();
-  set minItems(covariant ListBuilder<int>? minItems) =>
-      _$this._minItems = minItems;
+  set minItems(covariant ListBuilder<int>? minItems) => _$this._minItems = minItems;
 
   ListBuilder<int>? _maxItems;
   ListBuilder<int> get maxItems => _$this._maxItems ??= ListBuilder<int>();
-  set maxItems(covariant ListBuilder<int>? maxItems) =>
-      _$this._maxItems = maxItems;
+  set maxItems(covariant ListBuilder<int>? maxItems) => _$this._maxItems = maxItems;
 
   SetBuilder<int>? _arrayUnique;
   SetBuilder<int> get arrayUnique => _$this._arrayUnique ??= SetBuilder<int>();
-  set arrayUnique(covariant SetBuilder<int>? arrayUnique) =>
-      _$this._arrayUnique = arrayUnique;
+  set arrayUnique(covariant SetBuilder<int>? arrayUnique) => _$this._arrayUnique = arrayUnique;
 
   SetBuilder<int>? _arrayMultipleChecks;
-  SetBuilder<int> get arrayMultipleChecks =>
-      _$this._arrayMultipleChecks ??= SetBuilder<int>();
+  SetBuilder<int> get arrayMultipleChecks => _$this._arrayMultipleChecks ??= SetBuilder<int>();
   set arrayMultipleChecks(covariant SetBuilder<int>? arrayMultipleChecks) =>
       _$this._arrayMultipleChecks = arrayMultipleChecks;
 
@@ -554,8 +442,7 @@ class TestObjectBuilder
 
   num? _exclusiveMaximum;
   num? get exclusiveMaximum => _$this._exclusiveMaximum;
-  set exclusiveMaximum(covariant num? exclusiveMaximum) =>
-      _$this._exclusiveMaximum = exclusiveMaximum;
+  set exclusiveMaximum(covariant num? exclusiveMaximum) => _$this._exclusiveMaximum = exclusiveMaximum;
 
   num? _minimum;
   num? get minimum => _$this._minimum;
@@ -563,13 +450,11 @@ class TestObjectBuilder
 
   num? _exclusiveMinimum;
   num? get exclusiveMinimum => _$this._exclusiveMinimum;
-  set exclusiveMinimum(covariant num? exclusiveMinimum) =>
-      _$this._exclusiveMinimum = exclusiveMinimum;
+  set exclusiveMinimum(covariant num? exclusiveMinimum) => _$this._exclusiveMinimum = exclusiveMinimum;
 
   num? _numberMultipleChecks;
   num? get numberMultipleChecks => _$this._numberMultipleChecks;
-  set numberMultipleChecks(covariant num? numberMultipleChecks) =>
-      _$this._numberMultipleChecks = numberMultipleChecks;
+  set numberMultipleChecks(covariant num? numberMultipleChecks) => _$this._numberMultipleChecks = numberMultipleChecks;
 
   TestObjectBuilder() {
     TestObject._defaults(this);
@@ -644,11 +529,7 @@ class TestObjectBuilder
         _$failedField = 'arrayMultipleChecks';
         _arrayMultipleChecks?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-          r'TestObject',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(r'TestObject', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -668,19 +549,16 @@ class _$TestObjectUnspecified extends TestObjectUnspecified {
   @override
   final JsonObject? value;
 
-  factory _$TestObjectUnspecified([
-    void Function(TestObjectUnspecifiedBuilder)? updates,
-  ]) => (TestObjectUnspecifiedBuilder()..update(updates))._build();
+  factory _$TestObjectUnspecified([void Function(TestObjectUnspecifiedBuilder)? updates]) =>
+      (TestObjectUnspecifiedBuilder()..update(updates))._build();
 
   _$TestObjectUnspecified._({this.value}) : super._();
   @override
-  TestObjectUnspecified rebuild(
-    void Function(TestObjectUnspecifiedBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+  TestObjectUnspecified rebuild(void Function(TestObjectUnspecifiedBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
-  TestObjectUnspecifiedBuilder toBuilder() =>
-      TestObjectUnspecifiedBuilder()..replace(this);
+  TestObjectUnspecifiedBuilder toBuilder() => TestObjectUnspecifiedBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -698,16 +576,12 @@ class _$TestObjectUnspecified extends TestObjectUnspecified {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-      r'TestObjectUnspecified',
-    )..add('value', value)).toString();
+    return (newBuiltValueToStringHelper(r'TestObjectUnspecified')..add('value', value)).toString();
   }
 }
 
 class TestObjectUnspecifiedBuilder
-    implements
-        Builder<TestObjectUnspecified, TestObjectUnspecifiedBuilder>,
-        $TestObjectUnspecifiedInterfaceBuilder {
+    implements Builder<TestObjectUnspecified, TestObjectUnspecifiedBuilder>, $TestObjectUnspecifiedInterfaceBuilder {
   _$TestObjectUnspecified? _$v;
 
   JsonObject? _value;

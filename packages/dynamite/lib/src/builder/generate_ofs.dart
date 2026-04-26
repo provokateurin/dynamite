@@ -13,10 +13,7 @@ Iterable<Spec> buildOfsExtensions(State state) sync* {
       continue;
     }
 
-    final serializerMethod = buildSerializer(
-      result.className,
-      '${result.typeName}Extension._serializer',
-    );
+    final serializerMethod = buildSerializer(result.className, '${result.typeName}Extension._serializer');
 
     final toJson = Method(
       (b) => b
@@ -119,10 +116,7 @@ Iterable<Spec> generateSomeOf(TypeResultSomeOf result) sync* {
   final serializerMethod = Method(
     (b) => b
       ..static = true
-      ..returns = refer(
-        'Serializer<$identifier>',
-        'package:built_value/serializer.dart',
-      )
+      ..returns = refer('Serializer<$identifier>', 'package:built_value/serializer.dart')
       ..type = MethodType.getter
       ..name = '_serializer'
       ..lambda = true
@@ -142,9 +136,7 @@ Iterable<Spec> generateSomeOf(TypeResultSomeOf result) sync* {
         ),
       )
       ..lambda = true
-      ..body = const Code(
-        r'_$jsonSerializers.deserializeWith(_serializer, json)!',
-      ),
+      ..body = const Code(r'_$jsonSerializers.deserializeWith(_serializer, json)!'),
   );
 
   final toJson = Method(
@@ -157,28 +149,15 @@ Iterable<Spec> generateSomeOf(TypeResultSomeOf result) sync* {
       ..name = 'toJson'
       ..returns = refer('Object?')
       ..lambda = true
-      ..body = const Code(
-        r'_$jsonSerializers.serializeWith(_serializer, this)',
-      ),
+      ..body = const Code(r'_$jsonSerializers.serializeWith(_serializer, this)'),
   );
 
   yield Extension(
     (b) => b
       ..name = '${identifier}Extension'.nonPrivate
       ..on = refer(identifier)
-      ..docs.addAll([
-        '/// @nodoc',
-        '// ignore: library_private_types_in_public_api',
-      ])
-      ..methods.addAll([
-        values,
-        names,
-        oneOfValidator,
-        anyOfValidator,
-        serializerMethod,
-        fromJson,
-        toJson,
-      ]),
+      ..docs.addAll(['/// @nodoc', '// ignore: library_private_types_in_public_api'])
+      ..methods.addAll([values, names, oneOfValidator, anyOfValidator, serializerMethod, fromJson, toJson]),
   );
 
   yield Class(
@@ -214,10 +193,7 @@ Iterable<Spec> generateSomeOf(TypeResultSomeOf result) sync* {
               Parameter(
                 (b) => b
                   ..name = 'serializers'
-                  ..type = refer(
-                    'Serializers',
-                    'package:built_value/serializer.dart',
-                  ),
+                  ..type = refer('Serializers', 'package:built_value/serializer.dart'),
               ),
               Parameter(
                 (b) => b
@@ -250,9 +226,7 @@ Iterable<Spec> generateSomeOf(TypeResultSomeOf result) sync* {
           bodyBuilder
             ..writeln()
             ..writeln('// Should not be possible after validation.')
-            ..writeln(
-              "throw StateError('Tried to serialize without any value.');",
-            );
+            ..writeln("throw StateError('Tried to serialize without any value.');");
 
           b.body = Code(bodyBuilder.toString());
         }),
@@ -265,10 +239,7 @@ Iterable<Spec> generateSomeOf(TypeResultSomeOf result) sync* {
               Parameter(
                 (b) => b
                   ..name = 'serializers'
-                  ..type = refer(
-                    'Serializers',
-                    'package:built_value/serializer.dart',
-                  ),
+                  ..type = refer('Serializers', 'package:built_value/serializer.dart'),
               ),
               Parameter(
                 (b) => b
@@ -302,10 +273,7 @@ try {
 
           buffer
             ..write('return (')
-            ..writeAll(
-              fields.values.map((fieldName) => '$fieldName: $fieldName'),
-              ',',
-            )
+            ..writeAll(fields.values.map((fieldName) => '$fieldName: $fieldName'), ',')
             ..write(');');
 
           b.body = Code(buffer.toString());

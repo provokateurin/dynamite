@@ -17,16 +17,13 @@ final dependencies = {
 final devDependencies = {'built_value_generator': Version.parse('8.9.0')};
 
 /// Checks whether the correct version of the dependencies are present in the pubspec.yaml file.
-Future<({bool hasFatal, String messages})> helperVersionCheck(
-  BuildStep buildStep,
-) async {
+Future<({bool hasFatal, String messages})> helperVersionCheck(BuildStep buildStep) async {
   final pubspecAsset = AssetId(buildStep.inputId.package, 'pubspec.yaml');
 
   if (!await buildStep.canRead(pubspecAsset)) {
     return (
       hasFatal: false,
-      messages:
-          'Failed to read the pubspec.yaml file. Version constraints of required packages can not be validated.',
+      messages: 'Failed to read the pubspec.yaml file. Version constraints of required packages can not be validated.',
     );
   }
 
@@ -37,11 +34,7 @@ Future<({bool hasFatal, String messages})> helperVersionCheck(
   var hasFatal = false;
 
   for (final constraint in dependencies.entries) {
-    final result = _validateVersion(
-      pubspec.dependencies,
-      constraint.key,
-      constraint.value,
-    );
+    final result = _validateVersion(pubspec.dependencies, constraint.key, constraint.value);
 
     if (result.message != null) {
       messages.writeln(result.message);
@@ -53,11 +46,7 @@ Future<({bool hasFatal, String messages})> helperVersionCheck(
   }
 
   for (final constraint in devDependencies.entries) {
-    final result = _validateVersion(
-      pubspec.devDependencies,
-      constraint.key,
-      constraint.value,
-    );
+    final result = _validateVersion(pubspec.devDependencies, constraint.key, constraint.value);
 
     if (result.message != null) {
       messages.writeln(result.message);
@@ -90,8 +79,7 @@ Future<({bool hasFatal, String messages})> helperVersionCheck(
     final invalidConstraintMessage =
         'The version constraint $constraint on `$packageName` allows versions before $minVersion or after $maxVersion which is not allowed.';
 
-    if (constraint is Version &&
-        (constraint < minVersion || constraint > maxVersion)) {
+    if (constraint is Version && (constraint < minVersion || constraint > maxVersion)) {
       return (isFatal: true, message: invalidConstraintMessage);
     }
 
@@ -99,10 +87,7 @@ Future<({bool hasFatal, String messages})> helperVersionCheck(
     final rangeMin = range.min;
     final rangeMax = range.max;
 
-    if (rangeMin == null ||
-        rangeMax == null ||
-        rangeMin < minVersion ||
-        rangeMax > maxVersion) {
+    if (rangeMin == null || rangeMax == null || rangeMin < minVersion || rangeMax > maxVersion) {
       return (isFatal: true, message: invalidConstraintMessage);
     }
   }
