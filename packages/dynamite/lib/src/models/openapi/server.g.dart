@@ -16,24 +16,28 @@ class _$ServerSerializer implements StructuredSerializer<Server> {
 
   @override
   Iterable<Object?> serialize(Serializers serializers, Server object, {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'url',
-      serializers.serialize(object.url, specifiedType: const FullType(String)),
-    ];
+    final result = <Object?>['url', serializers.serialize(object.url, specifiedType: const FullType(String))];
     Object? value;
     value = object.variables;
     if (value != null) {
       result
         ..add('variables')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(ServerVariable)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(ServerVariable)]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  Server deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Server deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ServerBuilder();
 
     final iterator = serialized.iterator;
@@ -46,9 +50,12 @@ class _$ServerSerializer implements StructuredSerializer<Server> {
           result.url = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'variables':
-          result.variables.replace(serializers.deserialize(value,
-              specifiedType:
-                  const FullType(BuiltMap, const [const FullType(String), const FullType(ServerVariable)]))!);
+          result.variables.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(ServerVariable)]),
+            )!,
+          );
           break;
       }
     }
@@ -135,11 +142,9 @@ class ServerBuilder implements Builder<Server, ServerBuilder> {
   _$Server _build() {
     _$Server _$result;
     try {
-      _$result = _$v ??
-          _$Server._(
-            url: BuiltValueNullFieldError.checkNotNull(url, r'Server', 'url'),
-            variables: _variables?.build(),
-          );
+      _$result =
+          _$v ??
+          _$Server._(url: BuiltValueNullFieldError.checkNotNull(url, r'Server', 'url'), variables: _variables?.build());
     } catch (_) {
       late String _$failedField;
       try {

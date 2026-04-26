@@ -45,9 +45,6 @@ abstract class SecurityScheme implements Built<SecurityScheme, SecuritySchemeBui
     }
     buffer.write('-Authentication');
 
-    return toDartName(
-      buffer.toString(),
-      className: true,
-    );
+    return toDartName(buffer.toString(), className: true);
   }
 }

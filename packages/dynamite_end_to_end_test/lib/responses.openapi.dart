@@ -22,7 +22,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$$get_Request].
   @_i2.experimental
@@ -41,7 +41,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $$get_Request() {
     const _path = '/';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
     return _request;
@@ -58,7 +58,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<String, void>> $get() async {
     final _request = $$get_Request();
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$get_Serializer();
@@ -68,11 +68,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$put_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<String, void> $put_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(String),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(String),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [put] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -87,7 +87,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $put_Request() {
     const _path = '/';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
     return _request;
@@ -105,7 +105,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$put_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<String, void>> put() async {
     final _request = $put_Request();
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $put_Serializer();
@@ -131,7 +131,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $post_Request() {
     const _path = '/';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
     return _request;
@@ -150,7 +150,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$post_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<String, void>> post() async {
     final _request = $post_Request();
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $post_Serializer();
@@ -160,11 +160,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$patch_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<String, void> $patch_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(String),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 201},
-      );
+    bodyType: const FullType(String),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 201},
+  );
 
   /// Returns a `DynamiteRequest` backing the [patch] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -179,7 +179,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $patch_Request() {
     const _path = '/';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('patch', _uri);
     _request.headers['Accept'] = 'application/json';
     return _request;
@@ -197,7 +197,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$patch_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<String, void>> patch() async {
     final _request = $patch_Request();
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $patch_Serializer();
@@ -220,10 +220,11 @@ final Serializers _$serializers = Serializers();
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i4.DynamiteDoubleSerializer())
-      ..addPlugin(_i5.StandardJsonPlugin())
-      ..addPlugin(const _i4.HeaderPlugin())
-      ..addPlugin(const _i4.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i4.DynamiteDoubleSerializer())
+          ..addPlugin(_i5.StandardJsonPlugin())
+          ..addPlugin(const _i4.HeaderPlugin())
+          ..addPlugin(const _i4.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

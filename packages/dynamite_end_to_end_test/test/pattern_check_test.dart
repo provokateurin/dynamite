@@ -35,10 +35,7 @@ void main() {
         () => object.rebuild((b) => b..maxLength = 'Super long text should throw'),
         throwsA(isA<FormatException>()),
       );
-      expect(
-        () => object.rebuild((b) => b..maxLength = '419712642879393808962'),
-        throwsA(isA<FormatException>()),
-      );
+      expect(() => object.rebuild((b) => b..maxLength = '419712642879393808962'), throwsA(isA<FormatException>()));
     });
 
     test('String multipleChecks', () {
@@ -95,20 +92,11 @@ void main() {
     test('JsonObject', () {
       final object = TestObjectUnspecified();
 
-      expect(
-        () => object.rebuild((b) => b..value = JsonObject(['value'])),
-        throwsA(isA<FormatException>()),
-      );
+      expect(() => object.rebuild((b) => b..value = JsonObject(['value'])), throwsA(isA<FormatException>()));
 
-      expect(
-        () => object.rebuild((b) => b..value = JsonObject('Text')),
-        throwsA(isA<FormatException>()),
-      );
+      expect(() => object.rebuild((b) => b..value = JsonObject('Text')), throwsA(isA<FormatException>()));
 
-      expect(
-        () => object.rebuild((b) => b..value = JsonObject(0)),
-        throwsA(isA<FormatException>()),
-      );
+      expect(() => object.rebuild((b) => b..value = JsonObject(0)), throwsA(isA<FormatException>()));
     });
   });
 }

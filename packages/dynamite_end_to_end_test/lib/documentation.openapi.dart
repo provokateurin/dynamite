@@ -44,7 +44,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// the non root client used for other requests.
   late final $NonRootClientClient nonRootClient = $NonRootClientClient(this);
@@ -85,7 +85,7 @@ class $Client extends _i1.DynamiteClient {
     _parameters['limit'] = __limit;
 
     final _path = _i4.UriTemplate('/{?tags*,limit*}').expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
     return _request;
@@ -114,7 +114,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$findValues_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Object1, void>> findValues({BuiltList<String>? tags, int? limit}) async {
     final _request = $findValues_Request(tags: tags, limit: limit);
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $findValues_Serializer();
@@ -152,7 +152,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $multipleNewLines_Request() {
     const _path = '/other-endpoint';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
     return _request;
@@ -183,7 +183,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$multipleNewLines_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Object1, void>> multipleNewLines() async {
     final _request = $multipleNewLines_Request();
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $multipleNewLines_Serializer();
@@ -211,7 +211,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $nonRootClientSetMode_Request({NonRootClientSetModeRequestApplicationJson? $body}) {
     const _path = '/other-endpoint';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
     _request.headers['Content-Type'] = 'application/json';
@@ -248,7 +248,7 @@ class $Client extends _i1.DynamiteClient {
     NonRootClientSetModeRequestApplicationJson? $body,
   }) async {
     final _request = $nonRootClientSetMode_Request($body: $body);
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $nonRootClientSetMode_Serializer();
@@ -465,11 +465,9 @@ sealed class $Object1Interface implements $Object2Interface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$Object1InterfaceBuilder].
-  @override
   $Object1Interface rebuild(void Function($Object1InterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$Object1InterfaceBuilder].
-  @override
   $Object1InterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Object1InterfaceBuilder b) {
@@ -703,8 +701,7 @@ class _$HuntingSkillSerializer implements PrimitiveSerializer<HuntingSkill> {
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Serialization extension for `Object3`.
@@ -782,11 +779,11 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerialize
   }) {
     int? $int;
     try {
-      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      $int = serializers.deserialize(data, specifiedType: const FullType(int)) as int;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String)) as String;
     } catch (_) {}
     return ($int: $int, string: string);
   }
@@ -799,22 +796,23 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerialize
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(const FullType(Object1), Object1Builder.new)
-      ..add(Object1.serializer)
-      ..addBuilderFactory(const FullType(Object2), Object2Builder.new)
-      ..add(Object2.serializer)
-      ..addBuilderFactory(
-        const FullType(NonRootClientSetModeRequestApplicationJson),
-        NonRootClientSetModeRequestApplicationJsonBuilder.new,
-      )
-      ..add(NonRootClientSetModeRequestApplicationJson.serializer)
-      ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
-      ..addBuilderFactory(const FullType(Object4), Object4Builder.new)
-      ..add(Object4.serializer)
-      ..add(HuntingSkill.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+          ..addBuilderFactory(const FullType(Object1), Object1Builder.new)
+          ..add(Object1.serializer)
+          ..addBuilderFactory(const FullType(Object2), Object2Builder.new)
+          ..add(Object2.serializer)
+          ..addBuilderFactory(
+            const FullType(NonRootClientSetModeRequestApplicationJson),
+            NonRootClientSetModeRequestApplicationJsonBuilder.new,
+          )
+          ..add(NonRootClientSetModeRequestApplicationJson.serializer)
+          ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
+          ..addBuilderFactory(const FullType(Object4), Object4Builder.new)
+          ..add(Object4.serializer)
+          ..add(HuntingSkill.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -822,10 +820,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i6.DynamiteDoubleSerializer())
-      ..addPlugin(_i7.StandardJsonPlugin(typesToLeaveAsList: const {_$b2c4857c0136baea42828d89c87c757d}))
-      ..addPlugin(const _i6.HeaderPlugin())
-      ..addPlugin(const _i6.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i6.DynamiteDoubleSerializer())
+          ..addPlugin(_i7.StandardJsonPlugin(typesToLeaveAsList: const {_$b2c4857c0136baea42828d89c87c757d}))
+          ..addPlugin(const _i6.HeaderPlugin())
+          ..addPlugin(const _i6.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

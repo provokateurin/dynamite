@@ -15,8 +15,11 @@ class _$OperationSerializer implements StructuredSerializer<Operation> {
   final String wireName = 'Operation';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Operation object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Operation object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'deprecated',
       serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
@@ -51,7 +54,8 @@ class _$OperationSerializer implements StructuredSerializer<Operation> {
       result
         ..add('parameters')
         ..add(
-            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Parameter)])));
+          serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Parameter)])),
+        );
     }
     value = object.requestBody;
     if (value != null) {
@@ -63,27 +67,38 @@ class _$OperationSerializer implements StructuredSerializer<Operation> {
     if (value != null) {
       result
         ..add('responses')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Response)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Response)]),
+          ),
+        );
     }
     value = object.security;
     if (value != null) {
       result
         ..add('security')
-        ..add(serializers.serialize(value,
+        ..add(
+          serializers.serialize(
+            value,
             specifiedType: const FullType(BuiltList, const [
               const FullType(BuiltMap, const [
                 const FullType(String),
-                const FullType(BuiltList, const [const FullType(String)])
-              ])
-            ])));
+                const FullType(BuiltList, const [const FullType(String)]),
+              ]),
+            ]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  Operation deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Operation deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OperationBuilder();
 
     final iterator = serialized.iterator;
@@ -105,29 +120,43 @@ class _$OperationSerializer implements StructuredSerializer<Operation> {
           result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'tags':
-          result.tags.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltSet, const [const FullType(String)]))! as BuiltSet<Object?>);
+          result.tags.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltSet, const [const FullType(String)]))!
+                as BuiltSet<Object?>,
+          );
           break;
         case 'parameters':
-          result.parameters.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Parameter)]))! as BuiltList<Object?>);
+          result.parameters.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Parameter)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'requestBody':
-          result.requestBody
-              .replace(serializers.deserialize(value, specifiedType: const FullType(RequestBody))! as RequestBody);
+          result.requestBody.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RequestBody))! as RequestBody,
+          );
           break;
         case 'responses':
-          result.responses.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Response)]))!);
+          result.responses.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Response)]),
+            )!,
+          );
           break;
         case 'security':
-          result.security.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType(BuiltMap, const [
-                  const FullType(String),
-                  const FullType(BuiltList, const [const FullType(String)])
-                ])
-              ]))! as BuiltList<Object?>);
+          result.security.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(BuiltMap, const [
+                      const FullType(String),
+                      const FullType(BuiltList, const [const FullType(String)]),
+                    ]),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -158,17 +187,17 @@ class _$Operation extends Operation {
 
   factory _$Operation([void Function(OperationBuilder)? updates]) => (OperationBuilder()..update(updates))._build();
 
-  _$Operation._(
-      {this.operationId,
-      this.summary,
-      this.description,
-      required this.deprecated,
-      this.tags,
-      this.parameters,
-      this.requestBody,
-      this.responses,
-      this.security})
-      : super._();
+  _$Operation._({
+    this.operationId,
+    this.summary,
+    this.description,
+    required this.deprecated,
+    this.tags,
+    this.parameters,
+    this.requestBody,
+    this.responses,
+    this.security,
+  }) : super._();
   @override
   Operation rebuild(void Function(OperationBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -294,7 +323,8 @@ class OperationBuilder implements Builder<Operation, OperationBuilder> {
     Operation._defaults(this);
     _$Operation _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Operation._(
             operationId: operationId,
             summary: summary,

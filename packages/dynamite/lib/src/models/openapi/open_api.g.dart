@@ -15,8 +15,11 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
   final String wireName = 'OpenAPI';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OpenAPI object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OpenAPI object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'openapi',
       serializers.serialize(object.version, specifiedType: const FullType(String)),
@@ -30,13 +33,17 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
     if (value != null) {
       result
         ..add('security')
-        ..add(serializers.serialize(value,
+        ..add(
+          serializers.serialize(
+            value,
             specifiedType: const FullType(BuiltList, const [
               const FullType(BuiltMap, const [
                 const FullType(String),
-                const FullType(BuiltList, const [const FullType(String)])
-              ])
-            ])));
+                const FullType(BuiltList, const [const FullType(String)]),
+              ]),
+            ]),
+          ),
+        );
     }
     value = object.tags;
     if (value != null) {
@@ -54,15 +61,22 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
     if (value != null) {
       result
         ..add('paths')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(PathItem)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(PathItem)]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  OpenAPI deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OpenAPI deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OpenAPIBuilder();
 
     final iterator = serialized.iterator;
@@ -78,29 +92,43 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
           result.info.replace(serializers.deserialize(value, specifiedType: const FullType(Info))! as Info);
           break;
         case 'servers':
-          result.servers.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Server)]))! as BuiltList<Object?>);
+          result.servers.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Server)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'security':
-          result.security.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType(BuiltMap, const [
-                  const FullType(String),
-                  const FullType(BuiltList, const [const FullType(String)])
-                ])
-              ]))! as BuiltList<Object?>);
+          result.security.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(BuiltMap, const [
+                      const FullType(String),
+                      const FullType(BuiltList, const [const FullType(String)]),
+                    ]),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'tags':
-          result.tags.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltSet, const [const FullType(Tag)]))! as BuiltSet<Object?>);
+          result.tags.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltSet, const [const FullType(Tag)]))!
+                as BuiltSet<Object?>,
+          );
           break;
         case 'components':
-          result.components
-              .replace(serializers.deserialize(value, specifiedType: const FullType(Components))! as Components);
+          result.components.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Components))! as Components,
+          );
           break;
         case 'paths':
-          result.paths.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(PathItem)]))!);
+          result.paths.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(PathItem)]),
+            )!,
+          );
           break;
       }
     }
@@ -128,15 +156,15 @@ class _$OpenAPI extends OpenAPI {
 
   factory _$OpenAPI([void Function(OpenAPIBuilder)? updates]) => (OpenAPIBuilder()..update(updates))._build();
 
-  _$OpenAPI._(
-      {required this.version,
-      required this.info,
-      required this.servers,
-      this.security,
-      this.tags,
-      this.components,
-      this.paths})
-      : super._();
+  _$OpenAPI._({
+    required this.version,
+    required this.info,
+    required this.servers,
+    this.security,
+    this.tags,
+    this.components,
+    this.paths,
+  }) : super._();
   @override
   bool get hasAnySecurity => __hasAnySecurity ??= super.hasAnySecurity;
 
@@ -253,7 +281,8 @@ class OpenAPIBuilder implements Builder<OpenAPI, OpenAPIBuilder> {
     OpenAPI._defaults(this);
     _$OpenAPI _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$OpenAPI._(
             version: BuiltValueNullFieldError.checkNotNull(version, r'OpenAPI', 'version'),
             info: info.build(),

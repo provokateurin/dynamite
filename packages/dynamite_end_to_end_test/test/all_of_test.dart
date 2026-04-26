@@ -9,23 +9,16 @@ void main() {
         ..attribute2AllOf = 'attribute2AllOfValue',
     );
 
-    final json = {
-      'attribute1-allOf': 'attribute1AllOfValue',
-      'attribute2-allOf': 'attribute2AllOfValue',
-    };
+    final json = {'attribute1-allOf': 'attribute1AllOfValue', 'attribute2-allOf': 'attribute2AllOfValue'};
 
     expect(object.toJson(), equals(json));
     expect(ObjectAllOf.fromJson(json), equals(object));
   });
 
   test('OneObjectAllOf', () {
-    final object = OneObjectAllOf(
-      (b) => b..attributeAllOf = 'attributeAllOfValue',
-    );
+    final object = OneObjectAllOf((b) => b..attributeAllOf = 'attributeAllOfValue');
 
-    final json = {
-      'attribute-allOf': 'attributeAllOfValue',
-    };
+    final json = {'attribute-allOf': 'attributeAllOfValue'};
 
     expect(object.toJson(), equals(json));
     expect(OneObjectAllOf.fromJson(json), equals(object));
@@ -38,10 +31,7 @@ void main() {
         ..$int = 62,
     );
 
-    final json = {
-      'String': 'stringValue',
-      'int': 62,
-    };
+    final json = {'String': 'stringValue', 'int': 62};
 
     expect(object.toJson(), equals(json));
     expect(PrimitiveAllOf.fromJson(json), equals(object));
@@ -54,23 +44,16 @@ void main() {
         ..attributeAllOf = 'attributeAllOfValue',
     );
 
-    final json = {
-      'String': 'stringValue',
-      'attribute-allOf': 'attributeAllOfValue',
-    };
+    final json = {'String': 'stringValue', 'attribute-allOf': 'attributeAllOfValue'};
 
     expect(object.toJson(), equals(json));
     expect(MixedAllOf.fromJson(json), equals(object));
   });
 
   test('OneValueAllOf', () {
-    final object = OneValueAllOf(
-      (b) => b..string = 'stringValue',
-    );
+    final object = OneValueAllOf((b) => b..string = 'stringValue');
 
-    final json = {
-      'String': 'stringValue',
-    };
+    final json = {'String': 'stringValue'};
 
     expect(object.toJson(), equals(json));
     expect(OneValueAllOf.fromJson(json), equals(object));
@@ -89,9 +72,6 @@ void main() {
   });
 
   test('validation inheritance', () {
-    expect(
-      () => SubObject((b) => b..value = 'abcd'),
-      throwsA(isA<FormatException>()),
-    );
+    expect(() => SubObject((b) => b..value = 'abcd'), throwsA(isA<FormatException>()));
   });
 }

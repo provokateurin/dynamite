@@ -5,9 +5,7 @@ import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/models/type_result.dart';
 import 'package:source_helper/source_helper.dart';
 
-Iterable<Spec> buildOfsExtensions(
-  State state,
-) sync* {
+Iterable<Spec> buildOfsExtensions(State state) sync* {
   final typeResults = state.resolvedTypes.whereType<TypeResultSomeOf>().toSet();
 
   for (final result in typeResults) {
@@ -43,10 +41,7 @@ Iterable<Spec> buildOfsExtensions(
         ..docs.add('/// Serialization extension for `${result.className}`.')
         ..name = '\$${result.className}Extension'
         ..on = refer(result.className)
-        ..methods.addAll([
-          serializerMethod,
-          toJson,
-        ]),
+        ..methods.addAll([serializerMethod, toJson]),
     );
   }
 
@@ -65,9 +60,7 @@ Iterable<Spec> buildOfsExtensions(
   }
 }
 
-Iterable<Spec> generateSomeOf(
-  TypeResultSomeOf result,
-) sync* {
+Iterable<Spec> generateSomeOf(TypeResultSomeOf result) sync* {
   final identifier = '_${result.typeName}';
   final results = result.optimizedSubTypes;
   final serializerName = '${identifier}Serializer';
@@ -102,10 +95,10 @@ Iterable<Spec> generateSomeOf(
       ..name = 'validateOneOf'
       ..returns = refer('void')
       ..lambda = true
-      ..body = refer('validateOneOf', 'package:dynamite_runtime/utils.dart').call([
-        refer('_values'),
-        refer('_names'),
-      ]).code;
+      ..body = refer(
+        'validateOneOf',
+        'package:dynamite_runtime/utils.dart',
+      ).call([refer('_values'), refer('_names')]).code;
   });
 
   final anyOfValidator = Method((b) {
@@ -114,10 +107,10 @@ Iterable<Spec> generateSomeOf(
       ..name = 'validateAnyOf'
       ..returns = refer('void')
       ..lambda = true
-      ..body = refer('validateAnyOf', 'package:dynamite_runtime/utils.dart').call([
-        refer('_values'),
-        refer('_names'),
-      ]).code;
+      ..body = refer(
+        'validateAnyOf',
+        'package:dynamite_runtime/utils.dart',
+      ).call([refer('_values'), refer('_names')]).code;
   });
 
   final serializerMethod = Method(
@@ -163,19 +156,8 @@ Iterable<Spec> generateSomeOf(
     (b) => b
       ..name = '${identifier}Extension'.nonPrivate
       ..on = refer(identifier)
-      ..docs.addAll([
-        '/// @nodoc',
-        '// ignore: library_private_types_in_public_api',
-      ])
-      ..methods.addAll([
-        values,
-        names,
-        oneOfValidator,
-        anyOfValidator,
-        serializerMethod,
-        fromJson,
-        toJson,
-      ]),
+      ..docs.addAll(['/// @nodoc', '// ignore: library_private_types_in_public_api'])
+      ..methods.addAll([values, names, oneOfValidator, anyOfValidator, serializerMethod, fromJson, toJson]),
   );
 
   yield Class(
@@ -234,15 +216,12 @@ Iterable<Spec> generateSomeOf(
             final result = field.key;
             final fieldName = field.value;
 
-            bodyBuilder.writeAll(
-              [
-                'value = object.$fieldName;',
-                'if (value != null) {',
-                '  return ${result.serialize('value', 'serializers')}!;',
-                '}',
-              ],
-              '\n',
-            );
+            bodyBuilder.writeAll([
+              'value = object.$fieldName;',
+              'if (value != null) {',
+              '  return ${result.serialize('value', 'serializers')}!;',
+              '}',
+            ], '\n');
           }
           bodyBuilder
             ..writeln()
@@ -294,10 +273,7 @@ try {
 
           buffer
             ..write('return (')
-            ..writeAll(
-              fields.values.map((fieldName) => '$fieldName: $fieldName'),
-              ',',
-            )
+            ..writeAll(fields.values.map((fieldName) => '$fieldName: $fieldName'), ',')
             ..write(');');
 
           b.body = Code(buffer.toString());

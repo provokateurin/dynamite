@@ -15,8 +15,11 @@ class _$ResponseSerializer implements StructuredSerializer<Response> {
   final String wireName = 'Response';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Response object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Response object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'description',
       serializers.serialize(object.description, specifiedType: const FullType(String)),
@@ -26,22 +29,33 @@ class _$ResponseSerializer implements StructuredSerializer<Response> {
     if (value != null) {
       result
         ..add('content')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(MediaType)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(MediaType)]),
+          ),
+        );
     }
     value = object.headers;
     if (value != null) {
       result
         ..add('headers')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Header)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Header)]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  Response deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Response deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ResponseBuilder();
 
     final iterator = serialized.iterator;
@@ -54,12 +68,20 @@ class _$ResponseSerializer implements StructuredSerializer<Response> {
           result.description = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'content':
-          result.content.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(MediaType)]))!);
+          result.content.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(MediaType)]),
+            )!,
+          );
           break;
         case 'headers':
-          result.headers.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Header)]))!);
+          result.headers.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Header)]),
+            )!,
+          );
           break;
       }
     }
@@ -154,7 +176,8 @@ class ResponseBuilder implements Builder<Response, ResponseBuilder> {
   _$Response _build() {
     _$Response _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Response._(
             description: BuiltValueNullFieldError.checkNotNull(description, r'Response', 'description'),
             content: _content?.build(),

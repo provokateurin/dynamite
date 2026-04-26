@@ -24,16 +24,16 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$noAuthentication_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<JsonObject, void> $noAuthentication_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(JsonObject),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(JsonObject),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [noAuthentication] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -47,7 +47,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $noAuthentication_Request() {
     const _path = '/';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
     return _request;
@@ -64,7 +64,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$noAuthentication_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<JsonObject, void>> noAuthentication() async {
     final _request = $noAuthentication_Request();
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $noAuthentication_Serializer();
@@ -74,11 +74,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$basicAuthentication_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<JsonObject, void> $basicAuthentication_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(JsonObject),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(JsonObject),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [basicAuthentication] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -92,11 +92,11 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $basicAuthentication_Request() {
     const _path = '/basic';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
     // coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(this.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -124,7 +124,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$basicAuthentication_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<JsonObject, void>> basicAuthentication() async {
     final _request = $basicAuthentication_Request();
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $basicAuthentication_Serializer();
@@ -134,11 +134,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$bearerAuthentication_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<JsonObject, void> $bearerAuthentication_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(JsonObject),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(JsonObject),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [bearerAuthentication] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -152,11 +152,11 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $bearerAuthentication_Request() {
     const _path = '/bearer';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
     // coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(this.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() => true,
         _ => false,
@@ -184,7 +184,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$bearerAuthentication_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<JsonObject, void>> bearerAuthentication() async {
     final _request = $bearerAuthentication_Request();
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $bearerAuthentication_Serializer();
@@ -194,11 +194,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$multipleAuthentications_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<JsonObject, void> $multipleAuthentications_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(JsonObject),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(JsonObject),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [multipleAuthentications] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -212,11 +212,11 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $multipleAuthentications_Request() {
     const _path = '/multiple';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
     // coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(this.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -244,7 +244,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$multipleAuthentications_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<JsonObject, void>> multipleAuthentications() async {
     final _request = $multipleAuthentications_Request();
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $multipleAuthentications_Serializer();
@@ -267,10 +267,11 @@ final Serializers _$serializers = Serializers();
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i5.DynamiteDoubleSerializer())
-      ..addPlugin(_i6.StandardJsonPlugin())
-      ..addPlugin(const _i5.HeaderPlugin())
-      ..addPlugin(const _i5.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i5.DynamiteDoubleSerializer())
+          ..addPlugin(_i6.StandardJsonPlugin())
+          ..addPlugin(const _i5.HeaderPlugin())
+          ..addPlugin(const _i5.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

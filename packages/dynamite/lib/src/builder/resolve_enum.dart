@@ -35,10 +35,7 @@ TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult su
       b
         ..docs.addAll(escapeDescription(schema.formattedDescription()))
         ..name = identifier
-        ..extend = refer(
-          'EnumClass',
-          'package:built_value/built_value.dart',
-        )
+        ..extend = refer('EnumClass', 'package:built_value/built_value.dart')
         ..constructors.add(
           Constructor((b) {
             if (schema.deprecated) {
@@ -59,27 +56,21 @@ TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult su
         )
         ..fields.addAll(
           values.map(
-            (enumValue) => Field(
-              (b) {
-                b
-                  ..docs.add('/// `${enumValue.name}`')
-                  ..name = enumValue.dartName
-                  ..static = true
-                  ..modifier = FieldModifier.constant
-                  ..type = refer(identifier)
-                  ..assignment = Code(
-                    '_\$${toCamelCase('$identifier${enumValue.dartName.capitalize()}')}',
-                  );
+            (enumValue) => Field((b) {
+              b
+                ..docs.add('/// `${enumValue.name}`')
+                ..name = enumValue.dartName
+                ..static = true
+                ..modifier = FieldModifier.constant
+                ..type = refer(identifier)
+                ..assignment = Code('_\$${toCamelCase('$identifier${enumValue.dartName.capitalize()}')}');
 
-                if (enumValue.name != enumValue.dartName) {
-                  b.annotations.add(
-                    refer('BuiltValueEnumConst').call([], {
-                      'wireName': refer(escapeDartString(enumValue.name)),
-                    }),
-                  );
-                }
-              },
-            ),
+              if (enumValue.name != enumValue.dartName) {
+                b.annotations.add(
+                  refer('BuiltValueEnumConst').call([], {'wireName': refer(escapeDartString(enumValue.name))}),
+                );
+              }
+            }),
           ),
         )
         ..methods.addAll([
@@ -126,11 +117,7 @@ TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult su
       (b) => b
         ..name = '_\$${identifier}Serializer'
         ..implements.add(refer('PrimitiveSerializer<$identifier>'))
-        ..constructors.add(
-          Constructor(
-            (b) => b..constant = true,
-          ),
-        )
+        ..constructors.add(Constructor((b) => b..constant = true))
         ..fields.addAll([
           Field((b) {
             b
@@ -140,10 +127,7 @@ TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult su
               ..name = '_toWire';
             final buffer = StringBuffer()
               ..writeln('<$identifier, Object>{')
-              ..writeAll(
-                values.map((enumValue) => '$identifier.${enumValue.dartName}: ${enumValue.value}'),
-                ',\n',
-              )
+              ..writeAll(values.map((enumValue) => '$identifier.${enumValue.dartName}: ${enumValue.value}'), ',\n')
               ..writeln(',')
               ..write('}');
 
@@ -157,10 +141,7 @@ TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult su
               ..name = '_fromWire';
             final buffer = StringBuffer()
               ..writeln('<Object, $identifier>{')
-              ..writeAll(
-                values.map((enumValue) => '${enumValue.value}: $identifier.${enumValue.dartName}'),
-                ',\n',
-              )
+              ..writeAll(values.map((enumValue) => '${enumValue.value}: $identifier.${enumValue.dartName}'), ',\n')
               ..writeln(',')
               ..write('}');
 
@@ -247,14 +228,7 @@ TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult su
         ]),
     );
 
-    state.output.addAll([
-      $class,
-      serializer,
-    ]);
+    state.output.addAll([$class, serializer]);
   }
-  return TypeResultEnum(
-    identifier,
-    subResult,
-    nullable: schema.nullable,
-  );
+  return TypeResultEnum(identifier, subResult, nullable: schema.nullable);
 }

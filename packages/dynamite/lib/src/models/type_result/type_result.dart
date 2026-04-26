@@ -20,10 +20,10 @@ sealed class TypeResult {
     this.nullable = false,
     this.isTypeDef = false,
     String? builderName,
-  })  : builderName = builderName ?? className,
-        generics = generics ?? BuiltList(),
-        assert(!className.contains('<'), 'Specify generics in the generics parameter.'),
-        assert(!className.contains('?'), 'Nullability should not be specified in the type.');
+  }) : builderName = builderName ?? className,
+       generics = generics ?? BuiltList(),
+       assert(!className.contains('<'), 'Specify generics in the generics parameter.'),
+       assert(!className.contains('?'), 'Nullability should not be specified in the type.');
 
   final String className;
   final String builderName;
@@ -132,10 +132,7 @@ sealed class TypeResult {
   String decode(String object) => 'json.decode($object as String)';
 
   /// Encodes the variable named [object].
-  String encode(
-    String object, {
-    required String mimeType,
-  }) {
+  String encode(String object, {required String mimeType}) {
     switch (mimeType) {
       case 'application/json':
         return 'json.encode($object)';
@@ -163,35 +160,11 @@ sealed class TypeResult {
 
     // We need to preserve the original runtime type.
     return switch ($this) {
-      TypeResultBase() => TypeResultBase(
-          className,
-          nullable: nullable,
-          isTypeDef: true,
-        ),
-      TypeResultEnum() => TypeResultEnum(
-          className,
-          $this.subType,
-          nullable: nullable,
-          isTypeDef: true,
-        ),
-      TypeResultList() => TypeResultList(
-          className,
-          $this.subType,
-          nullable: nullable,
-          isTypeDef: true,
-        ),
-      TypeResultMap() => TypeResultMap(
-          className,
-          $this.subType,
-          nullable: nullable,
-          isTypeDef: true,
-        ),
-      TypeResultObject() => TypeResultObject(
-          className,
-          generics: generics,
-          nullable: nullable,
-          isTypeDef: true,
-        ),
+      TypeResultBase() => TypeResultBase(className, nullable: nullable, isTypeDef: true),
+      TypeResultEnum() => TypeResultEnum(className, $this.subType, nullable: nullable, isTypeDef: true),
+      TypeResultList() => TypeResultList(className, $this.subType, nullable: nullable, isTypeDef: true),
+      TypeResultMap() => TypeResultMap(className, $this.subType, nullable: nullable, isTypeDef: true),
+      TypeResultObject() => TypeResultObject(className, generics: generics, nullable: nullable, isTypeDef: true),
       // SomeOfs are always typeDefs
       TypeResultSomeOf() => $this,
     };

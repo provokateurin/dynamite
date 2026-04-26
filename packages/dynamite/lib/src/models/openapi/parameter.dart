@@ -66,10 +66,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
   /// Specify [isFirst] according to this. When [withPrefix] is `false` the prefix will be dropped entirely.
   ///
   /// Returns `null` if the parameter does not support a uri template.
-  String? uriTemplate({
-    bool isFirst = true,
-    bool withPrefix = true,
-  }) {
+  String? uriTemplate({bool isFirst = true, bool withPrefix = true}) {
     final buffer = StringBuffer();
 
     final prefix = switch (style) {
@@ -191,7 +188,6 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
         ..write(description);
     }
 
-    // ignore: invalid_use_of_protected_member
     final $default = schema?.defaultDescription;
     if ($default != null) {
       buffer.write(' Defaults to `${$default}`.');

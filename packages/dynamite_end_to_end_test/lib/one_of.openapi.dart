@@ -468,11 +468,11 @@ class _$6c828020e1dac1d58ded0a29ef8b0c41Serializer implements PrimitiveSerialize
   }) {
     ObjectOneOf0? objectOneOf0;
     try {
-      objectOneOf0 = serializers.deserialize(data, specifiedType: const FullType(ObjectOneOf0))! as ObjectOneOf0;
+      objectOneOf0 = serializers.deserialize(data, specifiedType: const FullType(ObjectOneOf0)) as ObjectOneOf0;
     } catch (_) {}
     ObjectOneOf1? objectOneOf1;
     try {
-      objectOneOf1 = serializers.deserialize(data, specifiedType: const FullType(ObjectOneOf1))! as ObjectOneOf1;
+      objectOneOf1 = serializers.deserialize(data, specifiedType: const FullType(ObjectOneOf1)) as ObjectOneOf1;
     } catch (_) {}
     return (objectOneOf0: objectOneOf0, objectOneOf1: objectOneOf1);
   }
@@ -541,11 +541,11 @@ class _$d1b40dfcebdca2dfa1f3e52ac98462a5Serializer implements PrimitiveSerialize
   }) {
     MixedOneOf1? mixedOneOf1;
     try {
-      mixedOneOf1 = serializers.deserialize(data, specifiedType: const FullType(MixedOneOf1))! as MixedOneOf1;
+      mixedOneOf1 = serializers.deserialize(data, specifiedType: const FullType(MixedOneOf1)) as MixedOneOf1;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String)) as String;
     } catch (_) {}
     return (mixedOneOf1: mixedOneOf1, string: string);
   }
@@ -614,11 +614,11 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
   }) {
     num? $num;
     try {
-      $num = serializers.deserialize(data, specifiedType: const FullType(num))! as num;
+      $num = serializers.deserialize(data, specifiedType: const FullType(num)) as num;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String)) as String;
     } catch (_) {}
     return ($num: $num, string: string);
   }
@@ -690,15 +690,15 @@ class _$00f31f9753d01398a2c3705cd335c56eSerializer implements PrimitiveSerialize
   }) {
     BuiltList<JsonObject>? builtListJsonObject;
     try {
-      builtListJsonObject = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>;
+      builtListJsonObject =
+          serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))
+              as BuiltList<JsonObject>;
     } catch (_) {}
     OneOfUnspecifiedArray0? oneOfUnspecifiedArray0;
     try {
-      oneOfUnspecifiedArray0 = serializers.deserialize(data, specifiedType: const FullType(OneOfUnspecifiedArray0))!
-          as OneOfUnspecifiedArray0;
+      oneOfUnspecifiedArray0 =
+          serializers.deserialize(data, specifiedType: const FullType(OneOfUnspecifiedArray0))
+              as OneOfUnspecifiedArray0;
     } catch (_) {}
     return (builtListJsonObject: builtListJsonObject, oneOfUnspecifiedArray0: oneOfUnspecifiedArray0);
   }
@@ -770,13 +770,14 @@ class _$5fb8a7f8bbb305dd61a4a05d6996c58bSerializer implements PrimitiveSerialize
   }) {
     BuiltList<String>? builtListString;
     try {
-      builtListString = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(String)]))!
-          as BuiltList<String>;
+      builtListString =
+          serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(String)]))
+              as BuiltList<String>;
     } catch (_) {}
     OneOfStringArray0? oneOfStringArray0;
     try {
       oneOfStringArray0 =
-          serializers.deserialize(data, specifiedType: const FullType(OneOfStringArray0))! as OneOfStringArray0;
+          serializers.deserialize(data, specifiedType: const FullType(OneOfStringArray0)) as OneOfStringArray0;
     } catch (_) {}
     return (builtListString: builtListString, oneOfStringArray0: oneOfStringArray0);
   }
@@ -789,27 +790,28 @@ class _$5fb8a7f8bbb305dd61a4a05d6996c58bSerializer implements PrimitiveSerialize
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(ObjectOneOf0), ObjectOneOf0Builder.new)
-      ..add(ObjectOneOf0.serializer)
-      ..addBuilderFactory(const FullType(ObjectOneOf1), ObjectOneOf1Builder.new)
-      ..add(ObjectOneOf1.serializer)
-      ..add($6c828020e1dac1d58ded0a29ef8b0c41Extension._serializer)
-      ..addBuilderFactory(const FullType(MixedOneOf1), MixedOneOf1Builder.new)
-      ..add(MixedOneOf1.serializer)
-      ..add($d1b40dfcebdca2dfa1f3e52ac98462a5Extension._serializer)
-      ..addBuilderFactory(const FullType(OneObjectOneOf0), OneObjectOneOf0Builder.new)
-      ..add(OneObjectOneOf0.serializer)
-      ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer)
-      ..addBuilderFactory(const FullType(OneOfUnspecifiedArray0), OneOfUnspecifiedArray0Builder.new)
-      ..add(OneOfUnspecifiedArray0.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
-      ..add($00f31f9753d01398a2c3705cd335c56eExtension._serializer)
-      ..addBuilderFactory(const FullType(OneOfStringArray0), OneOfStringArray0Builder.new)
-      ..add(OneOfStringArray0.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..add($5fb8a7f8bbb305dd61a4a05d6996c58bExtension._serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(ObjectOneOf0), ObjectOneOf0Builder.new)
+          ..add(ObjectOneOf0.serializer)
+          ..addBuilderFactory(const FullType(ObjectOneOf1), ObjectOneOf1Builder.new)
+          ..add(ObjectOneOf1.serializer)
+          ..add($6c828020e1dac1d58ded0a29ef8b0c41Extension._serializer)
+          ..addBuilderFactory(const FullType(MixedOneOf1), MixedOneOf1Builder.new)
+          ..add(MixedOneOf1.serializer)
+          ..add($d1b40dfcebdca2dfa1f3e52ac98462a5Extension._serializer)
+          ..addBuilderFactory(const FullType(OneObjectOneOf0), OneObjectOneOf0Builder.new)
+          ..add(OneObjectOneOf0.serializer)
+          ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer)
+          ..addBuilderFactory(const FullType(OneOfUnspecifiedArray0), OneOfUnspecifiedArray0Builder.new)
+          ..add(OneOfUnspecifiedArray0.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+          ..add($00f31f9753d01398a2c3705cd335c56eExtension._serializer)
+          ..addBuilderFactory(const FullType(OneOfStringArray0), OneOfStringArray0Builder.new)
+          ..add(OneOfStringArray0.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+          ..add($5fb8a7f8bbb305dd61a4a05d6996c58bExtension._serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -817,20 +819,21 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i3.DynamiteDoubleSerializer())
-      ..addPlugin(
-        _i4.StandardJsonPlugin(
-          typesToLeaveAsList: const {
-            _$6c828020e1dac1d58ded0a29ef8b0c41,
-            _$d1b40dfcebdca2dfa1f3e52ac98462a5,
-            _$b6d67dc2a96424d2f407f8e51557f3de,
-            _$00f31f9753d01398a2c3705cd335c56e,
-            _$5fb8a7f8bbb305dd61a4a05d6996c58b,
-          },
-        ),
-      )
-      ..addPlugin(const _i3.HeaderPlugin())
-      ..addPlugin(const _i3.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i3.DynamiteDoubleSerializer())
+          ..addPlugin(
+            _i4.StandardJsonPlugin(
+              typesToLeaveAsList: const {
+                _$6c828020e1dac1d58ded0a29ef8b0c41,
+                _$d1b40dfcebdca2dfa1f3e52ac98462a5,
+                _$b6d67dc2a96424d2f407f8e51557f3de,
+                _$00f31f9753d01398a2c3705cd335c56e,
+                _$5fb8a7f8bbb305dd61a4a05d6996c58b,
+              },
+            ),
+          )
+          ..addPlugin(const _i3.HeaderPlugin())
+          ..addPlugin(const _i3.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

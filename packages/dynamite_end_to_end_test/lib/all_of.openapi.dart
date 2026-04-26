@@ -281,7 +281,7 @@ abstract class OneValueAllOf implements $OneValueAllOfInterface, Built<OneValueA
 
 @BuiltValue(instantiable: false)
 sealed class $SuperObjectInterface {
-  static final _$value = _$jsonSerializers.deserialize('123', specifiedType: const FullType(String))! as String;
+  static final _$value = _$jsonSerializers.deserialize("123", specifiedType: const FullType(String))! as String;
 
   String get value;
 
@@ -340,11 +340,9 @@ sealed class $SubObjectInterface implements $SuperObjectInterface {
   ///
   /// The result is the same as this instance but with [updates] applied.
   /// [updates] is a function that takes a builder [$SubObjectInterfaceBuilder].
-  @override
   $SubObjectInterface rebuild(void Function($SubObjectInterfaceBuilder) updates);
 
   /// Converts the instance to a builder [$SubObjectInterfaceBuilder].
-  @override
   $SubObjectInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SubObjectInterfaceBuilder b) {
@@ -394,22 +392,23 @@ abstract class SubObject implements $SubObjectInterface, Built<SubObject, SubObj
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(ObjectAllOf), ObjectAllOfBuilder.new)
-      ..add(ObjectAllOf.serializer)
-      ..addBuilderFactory(const FullType(OneObjectAllOf), OneObjectAllOfBuilder.new)
-      ..add(OneObjectAllOf.serializer)
-      ..addBuilderFactory(const FullType(PrimitiveAllOf), PrimitiveAllOfBuilder.new)
-      ..add(PrimitiveAllOf.serializer)
-      ..addBuilderFactory(const FullType(MixedAllOf), MixedAllOfBuilder.new)
-      ..add(MixedAllOf.serializer)
-      ..addBuilderFactory(const FullType(OneValueAllOf), OneValueAllOfBuilder.new)
-      ..add(OneValueAllOf.serializer)
-      ..addBuilderFactory(const FullType(SuperObject), SuperObjectBuilder.new)
-      ..add(SuperObject.serializer)
-      ..addBuilderFactory(const FullType(SubObject), SubObjectBuilder.new)
-      ..add(SubObject.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(ObjectAllOf), ObjectAllOfBuilder.new)
+          ..add(ObjectAllOf.serializer)
+          ..addBuilderFactory(const FullType(OneObjectAllOf), OneObjectAllOfBuilder.new)
+          ..add(OneObjectAllOf.serializer)
+          ..addBuilderFactory(const FullType(PrimitiveAllOf), PrimitiveAllOfBuilder.new)
+          ..add(PrimitiveAllOf.serializer)
+          ..addBuilderFactory(const FullType(MixedAllOf), MixedAllOfBuilder.new)
+          ..add(MixedAllOf.serializer)
+          ..addBuilderFactory(const FullType(OneValueAllOf), OneValueAllOfBuilder.new)
+          ..add(OneValueAllOf.serializer)
+          ..addBuilderFactory(const FullType(SuperObject), SuperObjectBuilder.new)
+          ..add(SuperObject.serializer)
+          ..addBuilderFactory(const FullType(SubObject), SubObjectBuilder.new)
+          ..add(SubObject.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -417,10 +416,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i3.DynamiteDoubleSerializer())
-      ..addPlugin(_i4.StandardJsonPlugin())
-      ..addPlugin(const _i3.HeaderPlugin())
-      ..addPlugin(const _i3.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i3.DynamiteDoubleSerializer())
+          ..addPlugin(_i4.StandardJsonPlugin())
+          ..addPlugin(const _i3.HeaderPlugin())
+          ..addPlugin(const _i3.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

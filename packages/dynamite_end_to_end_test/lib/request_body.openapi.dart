@@ -29,7 +29,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$post_Request].
   @_i2.experimental
@@ -55,7 +55,7 @@ class $Client extends _i1.DynamiteClient {
     _parameters['body'] = __body;
 
     final _path = _i4.UriTemplate('/{?body*}').expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Content-Type'] = 'application/octet-stream';
     _request.bodyBytes = $body != null ? utf8.encode($body) : Uint8List(0);
@@ -76,7 +76,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$post_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> post({int? body, String? $body}) async {
     final _request = $post_Request(body: body, $body: $body);
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $post_Serializer();
@@ -100,7 +100,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $getObject_Request({GetObjectRequestApplicationJson? $body}) {
     const _path = '/object';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Content-Type'] = 'application/json';
     _request.body = $body != null
@@ -127,7 +127,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$getObject_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> getObject({GetObjectRequestApplicationJson? $body}) async {
     final _request = $getObject_Request($body: $body);
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getObject_Serializer();
@@ -151,7 +151,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $putObject_Request({PutObjectRequestApplicationJson? $body}) {
     const _path = '/object';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Content-Type'] = 'application/json';
     _request.body = $body != null
@@ -178,7 +178,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$putObject_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> putObject({PutObjectRequestApplicationJson? $body}) async {
     final _request = $putObject_Request($body: $body);
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $putObject_Serializer();
@@ -202,7 +202,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $postObject_Request({required PostObjectRequestApplicationJson $body}) {
     const _path = '/object';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
@@ -222,7 +222,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$postObject_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> postObject({required PostObjectRequestApplicationJson $body}) async {
     final _request = $postObject_Request($body: $body);
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $postObject_Serializer();
@@ -246,14 +246,14 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $deleteObject_Request({DeleteObjectRequestApplicationJson? $body}) {
     const _path = '/object';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Content-Type'] = 'application/json';
     _request.body = $body != null
         ? json.encode(
             _$jsonSerializers.serialize($body, specifiedType: const FullType(DeleteObjectRequestApplicationJson)),
           )
-        : json.encode(const {'test': '123'});
+        : json.encode(const {"test": "123"});
     return _request;
   }
 
@@ -268,7 +268,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$deleteObject_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> deleteObject({DeleteObjectRequestApplicationJson? $body}) async {
     final _request = $deleteObject_Request($body: $body);
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteObject_Serializer();
@@ -292,10 +292,10 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $getBinary_Request({Uint8List? $body}) {
     const _path = '/binary';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Content-Type'] = 'application/octet-stream';
-    _request.bodyBytes = $body ?? Uint8List(0);
+    _request.bodyBytes = $body != null ? $body : Uint8List(0);
     return _request;
   }
 
@@ -310,7 +310,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$getBinary_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> getBinary({Uint8List? $body}) async {
     final _request = $getBinary_Request($body: $body);
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getBinary_Serializer();
@@ -334,10 +334,10 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $putBinary_Request({Uint8List? $body}) {
     const _path = '/binary';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Content-Type'] = 'application/octet-stream';
-    _request.bodyBytes = $body ?? const [116, 101, 115, 116];
+    _request.bodyBytes = $body != null ? $body : const [116, 101, 115, 116];
     return _request;
   }
 
@@ -352,7 +352,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$putBinary_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> putBinary({Uint8List? $body}) async {
     final _request = $putBinary_Request($body: $body);
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $putBinary_Serializer();
@@ -376,7 +376,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $postBinary_Request({required Uint8List $body}) {
     const _path = '/binary';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Content-Type'] = 'application/octet-stream';
     _request.bodyBytes = $body;
@@ -394,7 +394,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$postBinary_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> postBinary({required Uint8List $body}) async {
     final _request = $postBinary_Request($body: $body);
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $postBinary_Serializer();
@@ -459,7 +459,7 @@ abstract class GetObjectRequestApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $PutObjectRequestApplicationJsonInterface {
-  static final _$test = _$jsonSerializers.deserialize('123', specifiedType: const FullType(String))! as String;
+  static final _$test = _$jsonSerializers.deserialize("123", specifiedType: const FullType(String))! as String;
 
   String get test;
 
@@ -635,28 +635,29 @@ abstract class DeleteObjectRequestApplicationJson
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(
-        const FullType(GetObjectRequestApplicationJson),
-        GetObjectRequestApplicationJsonBuilder.new,
-      )
-      ..add(GetObjectRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(PutObjectRequestApplicationJson),
-        PutObjectRequestApplicationJsonBuilder.new,
-      )
-      ..add(PutObjectRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(PostObjectRequestApplicationJson),
-        PostObjectRequestApplicationJsonBuilder.new,
-      )
-      ..add(PostObjectRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DeleteObjectRequestApplicationJson),
-        DeleteObjectRequestApplicationJsonBuilder.new,
-      )
-      ..add(DeleteObjectRequestApplicationJson.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(
+            const FullType(GetObjectRequestApplicationJson),
+            GetObjectRequestApplicationJsonBuilder.new,
+          )
+          ..add(GetObjectRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(PutObjectRequestApplicationJson),
+            PutObjectRequestApplicationJsonBuilder.new,
+          )
+          ..add(PutObjectRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(PostObjectRequestApplicationJson),
+            PostObjectRequestApplicationJsonBuilder.new,
+          )
+          ..add(PostObjectRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DeleteObjectRequestApplicationJson),
+            DeleteObjectRequestApplicationJsonBuilder.new,
+          )
+          ..add(DeleteObjectRequestApplicationJson.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -664,10 +665,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i5.DynamiteDoubleSerializer())
-      ..addPlugin(_i6.StandardJsonPlugin())
-      ..addPlugin(const _i5.HeaderPlugin())
-      ..addPlugin(const _i5.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i5.DynamiteDoubleSerializer())
+          ..addPlugin(_i6.StandardJsonPlugin())
+          ..addPlugin(const _i5.HeaderPlugin())
+          ..addPlugin(const _i5.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

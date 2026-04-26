@@ -15,8 +15,11 @@ class _$MediaTypeSerializer implements StructuredSerializer<MediaType> {
   final String wireName = 'MediaType';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, MediaType object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    MediaType object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.schema;
@@ -29,8 +32,11 @@ class _$MediaTypeSerializer implements StructuredSerializer<MediaType> {
   }
 
   @override
-  MediaType deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  MediaType deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = MediaTypeBuilder();
 
     final iterator = serialized.iterator;
@@ -114,10 +120,7 @@ class MediaTypeBuilder implements Builder<MediaType, MediaTypeBuilder> {
   MediaType build() => _build();
 
   _$MediaType _build() {
-    final _$result = _$v ??
-        _$MediaType._(
-          schema: schema,
-        );
+    final _$result = _$v ?? _$MediaType._(schema: schema);
     replace(_$result);
     return _$result;
   }

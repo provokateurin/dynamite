@@ -27,16 +27,16 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$$get_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, GetHeaders> $$get_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: const FullType(GetHeaders),
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: const FullType(GetHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [$get] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -50,7 +50,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $$get_Request() {
     const _path = '/';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     return _request;
   }
@@ -66,7 +66,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, GetHeaders>> $get() async {
     final _request = $$get_Request();
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$get_Serializer();
@@ -95,7 +95,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $withContentOperationId_Request() {
     const _path = '/with_content/operation_id';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     return _request;
   }
@@ -111,7 +111,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$withContentOperationId_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, WithContentOperationIdHeaders>> withContentOperationId() async {
     final _request = $withContentOperationId_Request();
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $withContentOperationId_Serializer();
@@ -121,11 +121,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$getWithContent_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, GetWithContentHeaders> $getWithContent_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: const FullType(GetWithContentHeaders),
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: const FullType(GetWithContentHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [getWithContent] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -139,7 +139,7 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $getWithContent_Request() {
     const _path = '/with_content';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${this.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/octet-stream';
     return _request;
@@ -156,7 +156,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$getWithContent_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, GetWithContentHeaders>> getWithContent() async {
     final _request = $getWithContent_Request();
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await this.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getWithContent_Serializer();
@@ -327,14 +327,15 @@ abstract class GetWithContentHeaders
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(GetHeaders), GetHeadersBuilder.new)
-      ..add(GetHeaders.serializer)
-      ..addBuilderFactory(const FullType(WithContentOperationIdHeaders), WithContentOperationIdHeadersBuilder.new)
-      ..add(WithContentOperationIdHeaders.serializer)
-      ..addBuilderFactory(const FullType(GetWithContentHeaders), GetWithContentHeadersBuilder.new)
-      ..add(GetWithContentHeaders.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(GetHeaders), GetHeadersBuilder.new)
+          ..add(GetHeaders.serializer)
+          ..addBuilderFactory(const FullType(WithContentOperationIdHeaders), WithContentOperationIdHeadersBuilder.new)
+          ..add(WithContentOperationIdHeaders.serializer)
+          ..addBuilderFactory(const FullType(GetWithContentHeaders), GetWithContentHeadersBuilder.new)
+          ..add(GetWithContentHeaders.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -342,10 +343,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i4.DynamiteDoubleSerializer())
-      ..addPlugin(_i5.StandardJsonPlugin())
-      ..addPlugin(const _i4.HeaderPlugin())
-      ..addPlugin(const _i4.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i4.DynamiteDoubleSerializer())
+          ..addPlugin(_i5.StandardJsonPlugin())
+          ..addPlugin(const _i4.HeaderPlugin())
+          ..addPlugin(const _i4.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end
